@@ -1,26 +1,39 @@
-import { useEffect, useState } from 'preact/hooks';
-import { useRoute, navigate } from './lib/router';
+import { useEffect, useRef, useState } from 'preact/hooks';
+import { useRoute, navigate, segments } from './lib/router';
 import { setupPWA, isIOS, isStandalone } from './lib/pwa';
-import { loadIndex } from './lib/content';
-import { getProgress } from './lib/db';
+import { loadIndex, loadDeck } from './lib/content';
+import { getProgress, exportAll, importAll } from './lib/db';
+import { isDue } from './lib/srs';
 import type { ContentIndex } from './lib/schema';
+import { Learn, Lesson, QuizRunner, QuestionDrill, Empty } from './views/learn';
+import { Cards, Review } from './views/cards';
+import { Glossary } from './views/glossary';
+import { Tools, WaterfallTool } from './views/tools';
 
 const NAV = [
-  { route: 'home', label: 'Home', icon: '🏠' },
-  { route: 'learn', label: 'Learn', icon: '📚' },
-  { route: 'cards', label: 'Cards', icon: '🃏' },
-  { route: 'tools', label: 'Tools', icon: '🧮' },
-  { route: 'more', label: 'More', icon: '⋯' },
+  { tab: 'home', label: 'Home', icon: '🏠' },
+  { tab: 'learn', label: 'Learn', icon: '📚' },
+  { tab: 'cards', label: 'Cards', icon: '🃏' },
+  { tab: 'tools', label: 'Tools', icon: '🧮' },
+  { tab: 'more', label: 'More', icon: '⋯' },
 ];
 
+function tabFor(seg0: string): string {
+  if (['learn', 'lesson', 'quiz', 'qset'].includes(seg0)) return 'learn';
+  if (['cards', 'review'].includes(seg0)) return 'cards';
+  if (seg0 === 'tools') return 'tools';
+  if (seg0 === 'home') return 'home';
+  return 'more';
+}
+
 export function App() {
-  const route = useRoute();
+  const path = useRoute();
+  const [seg0, seg1] = segments(path);
   const [needRefresh, setNeedRefresh] = useState(false);
-  const [reload, setReload] = useState<(() => void) | null>(null);
+  const reload = useRef<(() => void) | null>(null);
 
   useEffect(() => {
-    const activate = setupPWA(() => setNeedRefresh(true));
-    setReload(() => activate);
+    reload.current = setupPWA(() => setNeedRefresh(true));
   }, []);
 
   return (
@@ -31,20 +44,15 @@ export function App() {
       </header>
 
       <main class="content">
-        {route === 'home' && <Home />}
-        {route === 'learn' && <Placeholder title="Learn" note="Lessons, the question bank and quizzes land here once research content is loaded (Phase 1–2)." />}
-        {route === 'cards' && <Placeholder title="Flashcards" note="Spaced-repetition flashcards with rich card types arrive in Phase 1." />}
-        {route === 'tools' && <Placeholder title="Interactive tools" note="J-curve visualizer, waterfall splitter, IRR/MOIC calculator, mini-LBO and pacing simulator — Phase 3." />}
-        {route === 'more' && <More />}
-        {!NAV.some((n) => n.route === route) && <Placeholder title="Not found" note="That page doesn't exist yet." />}
+        <Router seg0={seg0 ?? 'home'} seg1={seg1} />
       </main>
 
       <nav class="tabbar">
         {NAV.map((n) => (
           <button
-            key={n.route}
-            class={'tab' + (route === n.route ? ' active' : '')}
-            onClick={() => navigate(n.route)}
+            key={n.tab}
+            class={'tab' + (tabFor(seg0 ?? 'home') === n.tab ? ' active' : '')}
+            onClick={() => navigate(n.tab)}
           >
             <span class="tab-icon">{n.icon}</span>
             <span class="tab-label">{n.label}</span>
@@ -55,53 +63,84 @@ export function App() {
       {needRefresh && (
         <div class="toast" role="status">
           <span>New version available.</span>
-          <button onClick={() => reload?.()}>Reload</button>
+          <button onClick={() => reload.current?.()}>Reload</button>
         </div>
       )}
     </div>
   );
 }
 
+function Router({ seg0, seg1 }: { seg0: string; seg1?: string }) {
+  switch (seg0) {
+    case 'home':
+      return <Home />;
+    case 'learn':
+      return <Learn />;
+    case 'lesson':
+      return seg1 ? <Lesson id={seg1} /> : <Empty title="Lesson" note="No lesson selected." back="learn" />;
+    case 'quiz':
+      return seg1 ? <QuizRunner id={seg1} /> : <Empty title="Quiz" note="No quiz selected." back="learn" />;
+    case 'qset':
+      return seg1 ? <QuestionDrill id={seg1} /> : <Empty title="Q&A" note="No set selected." back="learn" />;
+    case 'cards':
+      return <Cards />;
+    case 'review':
+      return <Review deckId={seg1} />;
+    case 'tools':
+      return seg1 === 'waterfall' ? <WaterfallTool /> : <Tools />;
+    case 'glossary':
+      return <Glossary />;
+    case 'progress':
+      return <ProgressView />;
+    case 'more':
+      return <More />;
+    default:
+      return <Empty title="Not found" note="That page doesn't exist." back="home" />;
+  }
+}
+
 function Home() {
   const [index, setIndex] = useState<ContentIndex | null>(null);
-  const [error, setError] = useState(false);
   const [streak, setStreak] = useState(0);
+  const [xp, setXp] = useState(0);
+  const [due, setDue] = useState(0);
 
   useEffect(() => {
-    loadIndex().then(setIndex).catch(() => setError(true));
-    getProgress().then((p) => setStreak(p.streak.count));
+    loadIndex()
+      .then(async (idx) => {
+        setIndex(idx);
+        const { getSrsMap } = await import('./lib/db');
+        const srs = await getSrsMap();
+        const decks = await Promise.all(idx.flashcardDecks.map((d) => loadDeck(d.path)));
+        setDue(decks.flatMap((d) => d.cards).filter((c) => isDue(srs[c.id])).length);
+      })
+      .catch(() => setIndex(null));
+    getProgress().then((p) => {
+      setStreak(p.streak.count);
+      setXp(p.xp);
+    });
   }, []);
-
-  const counts = index
-    ? {
-        lessons: index.lessons.length,
-        decks: index.flashcardDecks.length,
-        quizzes: index.quizzes.length,
-        excel: index.excel.length,
-      }
-    : null;
 
   return (
     <section>
       <h1>Welcome back 👋</h1>
-      <p class="muted">
-        Your offline prep for the Neuberger Berman Primaries &amp; Co-investments internship.
-      </p>
+      <p class="muted">Offline prep for the Neuberger Berman Primaries &amp; Co-investments internship.</p>
 
       <div class="cardgrid">
         <Stat label="Day streak" value={String(streak)} accent />
-        <Stat label="Lessons" value={counts ? String(counts.lessons) : '–'} />
-        <Stat label="Card decks" value={counts ? String(counts.decks) : '–'} />
-        <Stat label="Quizzes" value={counts ? String(counts.quizzes) : '–'} />
+        <Stat label="XP" value={String(xp)} />
+        <Stat label="Lessons" value={index ? String(index.lessons.length) : '–'} />
+        <Stat label="Cards due" value={String(due)} />
       </div>
 
-      {error && (
-        <div class="banner warn">Couldn't load content index. (Expected until content is added.)</div>
-      )}
+      <button class="btn btn-primary big" disabled={due === 0} onClick={() => navigate('review')}>
+        {due > 0 ? `Review ${due} due card${due === 1 ? '' : 's'}` : 'No cards due — explore a lesson'}
+      </button>
 
-      <div class="banner ok">
-        <strong>Offline ready.</strong> This is the app shell (Phase 0). Study content gets added
-        once the deep-research reports come back.
+      <div class="quicklinks">
+        <button onClick={() => navigate('learn')}>📚 Learn</button>
+        <button onClick={() => navigate('tools/waterfall')}>💧 Waterfall tool</button>
+        <button onClick={() => navigate('glossary')}>📖 Glossary</button>
       </div>
 
       <InstallHint />
@@ -114,14 +153,67 @@ function More() {
     <section>
       <h1>More</h1>
       <ul class="list">
-        <li onClick={() => navigate('glossary')}>📖 Glossary <span class="soon">soon</span></li>
-        <li onClick={() => navigate('progress')}>📊 Progress &amp; backup <span class="soon">soon</span></li>
-        <li onClick={() => navigate('settings')}>⚙️ Settings <span class="soon">soon</span></li>
+        <li onClick={() => navigate('glossary')}>📖 Glossary</li>
+        <li onClick={() => navigate('progress')}>📊 Progress &amp; backup</li>
       </ul>
       <p class="muted small">
-        Tip: open this app once on WiFi before you travel — iOS clears offline data after about a
-        week of not opening it.
+        Tip: open this app once on WiFi before you travel — iOS clears offline data after about a week
+        of not opening it.
       </p>
+    </section>
+  );
+}
+
+function ProgressView() {
+  const [msg, setMsg] = useState('');
+  const fileRef = useRef<HTMLInputElement | null>(null);
+
+  async function doExport() {
+    const json = await exportAll();
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `pe-prep-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    setMsg('Exported backup.');
+  }
+
+  async function doImport(file: File) {
+    try {
+      await importAll(await file.text());
+      setMsg('Imported. Reloading…');
+      setTimeout(() => window.location.reload(), 600);
+    } catch {
+      setMsg('Import failed — not a valid backup file.');
+    }
+  }
+
+  return (
+    <section>
+      <h1>Progress &amp; backup</h1>
+      <p class="muted">
+        Everything is stored locally on this device (no server). Export to back up or to sync between
+        your Mac and iPhone.
+      </p>
+      <button class="btn btn-primary" onClick={doExport}>
+        Export backup
+      </button>
+      <button class="btn btn-ghost" onClick={() => fileRef.current?.click()}>
+        Import backup
+      </button>
+      <input
+        ref={fileRef}
+        type="file"
+        accept="application/json"
+        style="display:none"
+        onChange={(e) => {
+          const f = (e.target as HTMLInputElement).files?.[0];
+          if (f) doImport(f);
+        }}
+      />
+      {msg && <div class="banner info">{msg}</div>}
     </section>
   );
 }
@@ -130,8 +222,8 @@ function InstallHint() {
   if (isStandalone() || !isIOS()) return null;
   return (
     <div class="banner info">
-      <strong>Install on iPhone:</strong> tap the Share button, then “Add to Home Screen” to use
-      this fully offline.
+      <strong>Install on iPhone:</strong> tap the Share button, then “Add to Home Screen” to use this
+      fully offline.
     </div>
   );
 }
@@ -142,14 +234,5 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
       <div class="stat-value">{value}</div>
       <div class="stat-label">{label}</div>
     </div>
-  );
-}
-
-function Placeholder({ title, note }: { title: string; note: string }) {
-  return (
-    <section>
-      <h1>{title}</h1>
-      <div class="banner info">{note}</div>
-    </section>
   );
 }

@@ -1,9 +1,56 @@
 {
   "version": 1,
-  "lessons": [],
-  "flashcardDecks": [],
-  "questionSets": [],
-  "quizzes": [],
+  "lessons": [
+    {
+      "id": "fe-fees-carry",
+      "title": "Fees, Carry & Hurdles",
+      "domain": "fund-economics",
+      "path": "lessons/fund-economics/fees-carry-hurdles.md",
+      "order": 1,
+      "estMinutes": 14
+    },
+    {
+      "id": "fe-waterfalls",
+      "title": "Distribution Waterfalls",
+      "domain": "fund-economics",
+      "path": "lessons/fund-economics/distribution-waterfalls.md",
+      "order": 2,
+      "estMinutes": 16
+    },
+    {
+      "id": "fe-metrics-pme",
+      "title": "Fund Metrics & PME",
+      "domain": "fund-economics",
+      "path": "lessons/fund-economics/metrics-and-pme.md",
+      "order": 3,
+      "estMinutes": 12
+    }
+  ],
+  "flashcardDecks": [
+    {
+      "id": "fe-deck",
+      "title": "Fund Economics & Waterfalls",
+      "domain": "fund-economics",
+      "path": "flashcards/fund-economics.json",
+      "count": 34
+    }
+  ],
+  "questionSets": [
+    {
+      "id": "fe-interview",
+      "title": "Fund Economics — Interview Q&A",
+      "domain": "fund-economics",
+      "path": "questionbank/fund-economics.json"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "fe-quiz",
+      "title": "Fund Economics Quiz",
+      "domain": "fund-economics",
+      "path": "quizzes/fund-economics.json"
+    }
+  ],
   "glossary": { "path": "glossary/terms.json" },
   "excel": []
 }

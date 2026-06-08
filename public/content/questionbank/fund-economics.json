@@ -1,0 +1,104 @@
+{
+  "id": "fe-interview",
+  "title": "Fund Economics — Interview Q&A",
+  "questions": [
+    {
+      "id": "iq1",
+      "prompt": "Walk me through a standard European distribution waterfall.",
+      "modelAnswer": "Four tiers. First, return of capital: 100% to LPs until all contributed capital is back. Second, preferred return: 100% to LPs until they earn the hurdle, typically 8% compounded, on that capital. Third, GP catch-up: typically 100% to the GP until the GP holds its carry percentage (for example 20%) of all profit distributed so far, including the pref. Fourth, the residual splits 80/20. The defining feature is that it is computed across the whole fund, so no carry is paid until the entire fund's capital and pref are covered.",
+      "tags": ["waterfall"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq2",
+      "prompt": "How does a deal-by-deal (American) waterfall differ, and why do LPs worry about it?",
+      "modelAnswer": "The same tiers apply, but per realized deal rather than across the whole fund. The GP takes carry as each deal exits and clears its own return of capital and hurdle. LPs worry because early winners can pay the GP carry before later losers are realized, so the GP can be overpaid relative to true fund profit. That risk is managed with a clawback, escrow, and sometimes interim NAV tests.",
+      "tags": ["waterfall"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq3",
+      "prompt": "A $100M fund returns $200M over 5 years. 8% compounded pref, 100% catch-up, 20% carry, European. Split it.",
+      "modelAnswer": "Pref = $100M × (1.08^5 − 1) = $46,932,807.68. Catch-up = 0.25 × pref = $11,733,201.92. Residual = $200M − $100M − $46.93M − $11.73M = $41,333,990.40, split 80/20 (LP $33,067,192.32 / GP $8,266,798.08). Totals: LP $180M, GP $20M. The GP ends with exactly 20% of the $100M profit because the full catch-up neutralizes the hurdle at this return level.",
+      "tags": ["waterfall"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq4",
+      "prompt": "Same fund, but a hard hurdle with no catch-up. What changes?",
+      "modelAnswer": "The GP loses the catch-up tier. After capital and pref to LPs, the residual ($53,067,192.32) splits 80/20, so the GP gets $10,613,438.46, about 10.6% of profit rather than 20%. The hard hurdle roughly halves GP carry here, which is why GPs resist it and ILPA favors it.",
+      "tags": ["hurdle"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq5",
+      "prompt": "When does the hurdle actually cost the GP money?",
+      "modelAnswer": "Only when profit is low. With a full catch-up, the hurdle just delays carry; above the catch-up completion point the GP earns its full 20% of all profit. The hurdle only permanently reduces GP carry under a hard hurdle, or when total profit never exceeds the catch-up completion point. In Example 1 the GP earns zero carry until profit exceeds $46.93M.",
+      "tags": ["hurdle"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq6",
+      "prompt": "Explain a clawback with a number.",
+      "modelAnswer": "Take a two-deal deal-by-deal fund: $50M into a winner that returns $150M at year 3, $50M into a loser that returns $20M at year 5. On the winner alone the GP banks $20M carry. But true fund profit is only $70M, so the GP's correct share is 20% × $70M = $14M. The clawback is $6M, which the GP must return at wind-up. A properly functioning clawback leaves the GP at the same $14M a European waterfall would have produced.",
+      "tags": ["clawback"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq7",
+      "prompt": "If the clawback fixes everything, why do LPs still prefer European?",
+      "modelAnswer": "Two reasons. Timing: the American GP holds LP money in the interim, a time-value cost to LPs. Risk: the clawback may be uncollectable if carry has been distributed to individuals who have left or spent it, or if it is computed gross of tax leaving recipients short. European avoids the problem structurally rather than relying on a future recovery.",
+      "tags": ["clawback"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq8",
+      "prompt": "Management fee on committed vs invested capital, and where does each appear in a fund's life?",
+      "modelAnswer": "Committed-capital fees are charged on the full commitment regardless of deployment, common during the investment period and GP-favorable. Invested-capital (or net invested cost) fees are charged only on deployed capital, LP-favorable, and common after the investment period as part of a step-down. The base shift plus a rate cut is the standard step-down.",
+      "tags": ["fees"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq9",
+      "prompt": "What are fee offsets and what is current market practice?",
+      "modelAnswer": "GPs can charge portfolio companies transaction, monitoring, and director fees. To avoid double-charging, LPs require those fees to offset the management fee. The standard has moved from partial (often 80%) to 100% dollar-for-dollar offset in developed markets, consistent with ILPA Principles 3.0.",
+      "tags": ["fees"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq10",
+      "prompt": "Why is the gap between gross and net returns so important on an LP team?",
+      "modelAnswer": "LPs only keep net returns. The gap is everything in this guide: management fees (median ~12% of commitments for buyout per Metrick & Yasuda), expenses, and 20% carry. Two funds with identical gross returns can deliver very different net returns depending on fee base, step-downs, offsets, waterfall type, and catch-up. Diligence is about modeling net, not gross.",
+      "tags": ["fees"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq11",
+      "prompt": "How do DPI, TVPI, and IRR differ, and which would you trust most?",
+      "modelAnswer": "DPI is realized cash returned per dollar called; TVPI adds unrealized NAV; IRR is the money-weighted, timing-sensitive rate. Early in a fund, IRR and TVPI rest on unrealized marks and can be flattered (for example by subscription lines). DPI is hardest to manipulate because it is actual cash, so a mature fund's DPI is the most trustworthy single number, though you read all three together and against vintage peers.",
+      "tags": ["metrics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq12",
+      "prompt": "What is PME and which method would you use?",
+      "modelAnswer": "PME benchmarks a fund's cash flows against investing the same timing in a public index, capturing the opportunity cost of going private. Long-Nickels gives an index IRR but can fail when distributions hit a falling market. Kaplan-Schoar gives a clean ratio, above 1 means outperformance. Direct Alpha annualizes KS-PME into an exact alpha. I would report KS-PME plus Direct Alpha, and flag that none adjusts for risk or illiquidity and that the index choice drives the result.",
+      "tags": ["pme"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq13",
+      "prompt": "What is ILPA and how do its 2025 reporting templates affect your work?",
+      "modelAnswer": "ILPA is the LP best-practice body, not a regulator. In January 2025 it overhauled three templates: the Reporting Template v2.0 (granular, machine-readable fees and expenses), a new Performance Template (standardized IRR/TVPI/MOIC, with Granular and Gross-Up methods), and a Capital Call & Distribution Template. For an LP team this standardizes and reconciles the data we ingest to compute net returns, fee load, and PME consistently across managers, replacing inconsistent PDFs.",
+      "tags": ["ilpa"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq14",
+      "prompt": "A GP markets a 9% hurdle as LP-friendly. What do you check before believing it?",
+      "modelAnswer": "Whether it is computed on gross or net IRR, whether it compounds or is simple, whether there is a full catch-up that neutralizes it, and when it starts accruing (at first call, or only after the investment period, and whether a subscription line delays capital being at risk). A 9% hurdle with gross IRR, simple accrual, a full catch-up, and a delayed start can be more GP-favorable than a plain 8% term.",
+      "tags": ["hurdle"],
+      "difficulty": "hard"
+    }
+  ]
+}

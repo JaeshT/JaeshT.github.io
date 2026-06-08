@@ -1,0 +1,214 @@
+{
+  "terms": [
+    {
+      "term": "Limited Partner (LP)",
+      "definition": "Passive investor supplying most fund capital; liability limited to commitment.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "General Partner (GP)",
+      "definition": "The fund manager; earns fees and carry; invests a GP commitment.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Limited Partnership Agreement (LPA)",
+      "definition": "The governing contract setting fees, waterfall, hurdle, and governance.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Commitment",
+      "definition": "Capital an LP contractually agrees to provide over the fund's life.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Capital call / drawdown",
+      "definition": "A GP request for LPs to wire a portion of their commitment.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Distribution",
+      "definition": "Cash (or stock) returned to LPs from realizations.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Committed capital",
+      "definition": "Total LP commitments; a common fee and carry base.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Invested / paid-in capital (PIC)",
+      "definition": "Capital actually called and deployed.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Investment period",
+      "definition": "Window (commonly ~5 yrs) during which new investments are made; fees often higher and on committed capital.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Harvest period",
+      "definition": "Later years focused on exits and distributions; fees usually step down.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Management fee",
+      "definition": "Recurring fee (often 2%) funding GP operations; performance-independent.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Step-down",
+      "definition": "Post-investment-period reduction in fee rate and/or shift of base to invested cost.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Fee offset (management-fee offset)",
+      "definition": "Portfolio-company fees reduce the management fee LPs owe; 100% offset is now standard.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Transaction / monitoring / director fees",
+      "definition": "Fees a GP charges portfolio companies (~1-2% EV; % of EBITDA); subject to offset.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Recycling",
+      "definition": "Reinvesting early proceeds to offset fee drag and reach full deployment; ILPA: capped, investment-period only.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Carried interest (carry)",
+      "definition": "GP's profit share, standard 20%.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Carry basis",
+      "definition": "Whether all committed or only invested capital must be returned before carry.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Gross carry",
+      "definition": "Carry on profit before fees and expenses; the GP-friendly basis.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Net carry",
+      "definition": "Carry on profit after fees and expenses; the basis ILPA requires.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Preferred return / hurdle rate",
+      "definition": "Minimum LP return before GP earns carry; standard 8% compounded in PE, 6-7% private credit, often none in VC.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Hard hurdle",
+      "definition": "Carry only on profit above the hurdle; no catch-up; GP take below stated %.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Soft hurdle",
+      "definition": "Hurdle plus catch-up; GP eventually earns its full carry % on all profit.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "GP catch-up",
+      "definition": "Tier where the GP takes an outsized share (often 100%) until the agreed split is restored on all profit.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Distribution waterfall",
+      "definition": "Ordered rules splitting each distributed dollar between LP and GP.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "European / whole-fund waterfall",
+      "definition": "Carry only after all fund capital plus whole-fund pref returned; LP-protective.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "American / deal-by-deal waterfall",
+      "definition": "Carry per realized deal; GP-favorable on timing; needs clawback.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Clawback (GP giveback)",
+      "definition": "GP returns excess carry so its final take equals the contractual % of true net profit.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Escrow / holdback",
+      "definition": "Carry held back to secure a future clawback.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "GP commitment",
+      "definition": "GP's own capital in the fund (~1-2% rule of thumb), the \"skin in the game.\"",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "J-curve",
+      "definition": "Early negative net returns from fees and early markdowns before exits turn returns positive.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "NAV",
+      "definition": "Net asset value; the residual value of unrealized holdings.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "DPI",
+      "definition": "Distributions to paid-in capital; the realized multiple of cash returned.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "RVPI",
+      "definition": "Residual value to paid-in capital; the unrealized (paper) multiple.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "TVPI",
+      "definition": "Total value to paid-in capital; the total multiple (DPI + RVPI).",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "MOIC",
+      "definition": "Multiple on invested capital (deal level).",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "IRR",
+      "definition": "Money-weighted internal rate of return; timing-sensitive.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "PME",
+      "definition": "Public Market Equivalent; benchmarks PE cash flows against a public index.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "KS-PME",
+      "definition": "Kaplan-Schoar PME; a ratio, above 1 means PE beat the index.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Direct Alpha",
+      "definition": "Annualized KS-PME; exact rate of out/underperformance vs an index.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "ILPA",
+      "definition": "Institutional Limited Partners Association; LP best-practice body (not a regulator).",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Subscription line",
+      "definition": "Short-term fund credit facility; can inflate IRR; ILPA limits its use.",
+      "tags": ["fund-economics"]
+    },
+    {
+      "term": "Vintage year",
+      "definition": "The year a fund starts investing; the basis for peer benchmarking.",
+      "tags": ["fund-economics"]
+    }
+  ]
+}

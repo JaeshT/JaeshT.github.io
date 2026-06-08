@@ -99,3 +99,21 @@ export async function importAll(json: string): Promise<void> {
   if (data.progress) await set(PROGRESS_KEY, data.progress, store);
   if (data.settings) await set(SETTINGS_KEY, data.settings, store);
 }
+
+// ---- Activity helpers (streak + XP), called on any study action ----
+export function todayStr(d = new Date()): string {
+  return d.toISOString().slice(0, 10);
+}
+
+/** Award XP and roll the daily streak forward (consecutive days increment; a gap resets to 1). */
+export async function recordStudy(xpGain = 0): Promise<Progress> {
+  return updateProgress((p) => {
+    const today = todayStr();
+    let streak = p.streak;
+    if (streak.lastDay !== today) {
+      const yesterday = todayStr(new Date(Date.now() - 24 * 60 * 60 * 1000));
+      streak = { count: streak.lastDay === yesterday ? streak.count + 1 : 1, lastDay: today };
+    }
+    return { ...p, xp: p.xp + xpGain, streak };
+  });
+}

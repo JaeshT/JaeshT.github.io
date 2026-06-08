@@ -18,7 +18,7 @@ export default defineConfig({
       manifest: false, // we ship our own public/manifest.webmanifest + iOS meta tags
       injectManifest: {
         // Precache app shell + content JSON + markdown so first offline launch has everything.
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,json,md,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,json,md,webmanifest,woff,woff2,ttf}'],
         // .xlsx handled at runtime (CacheFirst) — don't bloat the precache.
         globIgnores: ['**/content/excel/files/**'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
