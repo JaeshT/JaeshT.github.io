@@ -293,6 +293,54 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .minifield input { font: inherit; padding: 8px 9px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-elev2); color: var(--text); width: 100%; }
 .del { background: none; border: none; color: #f06b6b; font-size: 16px; cursor: pointer; padding-bottom: 8px; }
 
+/* ---- flashcard browse ---- */
+.browse-toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 10px; }
+.browse-toolbar .btn { margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 8px 0; }
+.chip {
+  font: inherit; font-size: 13px; padding: 6px 11px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg-elev); color: var(--muted); cursor: pointer;
+}
+.chip.on { border-color: var(--accent); color: var(--text); background: var(--bg-elev2); }
+.chip-n { color: var(--muted); font-size: 11px; margin-left: 2px; }
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+.browse-card {
+  position: relative;
+  text-align: left;
+  font: inherit;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 14px 12px;
+  color: var(--text);
+  cursor: pointer;
+  min-height: 116px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.browse-card.show-back { background: var(--bg-elev2); border-color: var(--accent); }
+.browse-card .bc-text { font-size: 14.5px; line-height: 1.45; flex: 1; }
+.browse-card.show-back .bc-text { color: var(--text); }
+.bc-foot { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.bc-foot .tag {
+  font-size: 10.5px; color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 1px 7px;
+}
+.bc-foot .diff { font-size: 10.5px; border-radius: 999px; padding: 1px 7px; border: 1px solid var(--border); }
+.bc-foot .diff.easy { color: var(--accent-2); border-color: var(--accent-2); }
+.bc-foot .diff.medium { color: var(--warn); border-color: var(--warn); }
+.bc-foot .diff.hard { color: #f06b6b; border-color: #f06b6b; }
+.dot { position: absolute; top: 12px; right: 12px; width: 9px; height: 9px; border-radius: 50%; }
+.dot.new { background: var(--accent); }
+.dot.due { background: var(--warn); }
+.dot.learned { background: var(--accent-2); }
+
 /* ---- home quicklinks ---- */
 .quicklinks { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
 .quicklinks button { font: inherit; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; padding: 9px 14px; color: var(--text); cursor: pointer; }

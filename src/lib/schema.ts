@@ -63,7 +63,7 @@ export interface ContentIndex {
   flashcardDecks: FlashcardDeckRef[];
   questionSets: QuestionSetRef[];
   quizzes: QuizRef[];
-  glossary?: { path: string };
+  glossary?: { paths: string[] };
   excel: ExcelItemRef[];
 }
 

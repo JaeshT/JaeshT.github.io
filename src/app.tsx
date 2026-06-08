@@ -6,7 +6,7 @@ import { getProgress, exportAll, importAll } from './lib/db';
 import { isDue } from './lib/srs';
 import type { ContentIndex } from './lib/schema';
 import { Learn, Lesson, QuizRunner, QuestionDrill, Empty } from './views/learn';
-import { Cards, Review } from './views/cards';
+import { Cards, Review, Browse } from './views/cards';
 import { Glossary } from './views/glossary';
 import { Tools, WaterfallTool } from './views/tools';
 
@@ -20,7 +20,7 @@ const NAV = [
 
 function tabFor(seg0: string): string {
   if (['learn', 'lesson', 'quiz', 'qset'].includes(seg0)) return 'learn';
-  if (['cards', 'review'].includes(seg0)) return 'cards';
+  if (['cards', 'review', 'browse'].includes(seg0)) return 'cards';
   if (seg0 === 'tools') return 'tools';
   if (seg0 === 'home') return 'home';
   return 'more';
@@ -86,6 +86,8 @@ function Router({ seg0, seg1 }: { seg0: string; seg1?: string }) {
       return <Cards />;
     case 'review':
       return <Review deckId={seg1} />;
+    case 'browse':
+      return seg1 ? <Browse deckId={seg1} /> : <Empty title="Browse" note="No deck selected." back="cards" />;
     case 'tools':
       return seg1 === 'waterfall' ? <WaterfallTool /> : <Tools />;
     case 'glossary':

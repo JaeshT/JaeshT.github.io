@@ -35,6 +35,19 @@ export const loadQuestionSet = (path: string) => fetchJson<QuestionSet>(path);
 export const loadQuiz = (path: string) => fetchJson<Quiz>(path);
 export const loadGlossary = (path: string) => fetchJson<Glossary>(path);
 
+/** Load and merge multiple per-domain glossary files, de-duplicating by term (case-insensitive). */
+export async function loadGlossaries(paths: string[]): Promise<Glossary> {
+  const parts = await Promise.all(paths.map((p) => fetchJson<Glossary>(p)));
+  const byTerm = new Map<string, Glossary['terms'][number]>();
+  for (const g of parts) {
+    for (const t of g.terms) {
+      const key = t.term.trim().toLowerCase();
+      if (!byTerm.has(key)) byTerm.set(key, t);
+    }
+  }
+  return { terms: [...byTerm.values()] };
+}
+
 /** Lessons are markdown with optional YAML-ish frontmatter; return {meta, body}. */
 export async function loadLesson(path: string): Promise<{ body: string }> {
   const raw = await fetchText(path);

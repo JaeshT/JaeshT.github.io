@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
-import { loadIndex, loadGlossary } from '../lib/content';
+import { loadIndex, loadGlossaries } from '../lib/content';
 import type { GlossaryTerm } from '../lib/schema';
 import { Loading, Empty } from './learn';
 
@@ -13,11 +13,11 @@ export function Glossary() {
     (async () => {
       try {
         const index = await loadIndex();
-        if (!index.glossary) {
+        if (!index.glossary || index.glossary.paths.length === 0) {
           if (alive) setTerms([]);
           return;
         }
-        const g = await loadGlossary(index.glossary.path);
+        const g = await loadGlossaries(index.glossary.paths);
         if (alive) setTerms(g.terms.sort((a, b) => a.term.localeCompare(b.term)));
       } catch {
         if (alive) setError(true);

@@ -51,6 +51,6 @@
       "path": "quizzes/fund-economics.json"
     }
   ],
-  "glossary": { "path": "glossary/terms.json" },
+  "glossary": { "paths": ["glossary/terms.json"] },
   "excel": []
 }
