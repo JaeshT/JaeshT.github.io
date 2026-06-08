@@ -1,0 +1,329 @@
+{
+  "terms": [
+    {
+      "term": "Accrual accounting",
+      "definition": "Recognizing revenue when earned and expenses when incurred, regardless of cash timing.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Amortization",
+      "definition": "Spreading the cost of a definite-lived intangible asset (e.g., acquired customer relationships, capitalized software) over its useful life; non-cash.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Basic vs diluted shares",
+      "definition": "Basic = common shares outstanding; diluted adds the net effect of in-the-money options, warrants, and convertibles via the treasury stock or if-converted method.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Beta (β)",
+      "definition": "A stock's systematic risk relative to the market (market beta = 1.0); an input to CAPM for estimating cost of equity.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Capital call (drawdown)",
+      "definition": "A GP's request that LPs fund a portion of their committed capital to finance investments or fees.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "CAPM",
+      "definition": "Capital Asset Pricing Model: cost of equity = risk-free rate + beta × equity risk premium.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Carried interest (carry)",
+      "definition": "The GP's share of fund profits, typically 20%, earned after LPs have received their preferred return.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Catch-up",
+      "definition": "A waterfall tier where the GP takes a large share (often 100%) of distributions until it reaches its target carry percentage on all profit above return of capital.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Clawback",
+      "definition": "A provision requiring the GP to return previously distributed carry if, at fund wind-down, it was overpaid relative to final fund performance.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Co-investment",
+      "definition": "A direct investment into a specific portfolio company made alongside a lead GP, outside the main fund, typically with no management fee or carry.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Commitment",
+      "definition": "The total capital an LP pledges to a fund; it is called over time rather than wired up front.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Comparable companies (comps)",
+      "definition": "Valuation methodology using public peers' trading multiples to estimate the value of a target company.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Continuation vehicle (CV)",
+      "definition": "A new fund a GP forms to hold assets rolled out of an aging fund, giving existing LPs the option to cash out or roll in; a GP-led secondary.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Control premium",
+      "definition": "The extra price a buyer pays to acquire control of a company versus its public trading price; the reason precedent transaction multiples typically exceed trading comp multiples.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Cost of debt (Kd)",
+      "definition": "The interest rate on a company's borrowings; used after-tax in WACC because interest expense is tax-deductible.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Cost of equity (Ke)",
+      "definition": "The required return of equity holders; estimated via CAPM as risk-free rate + beta × equity risk premium.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Deferred tax asset / liability",
+      "definition": "Timing differences between book and tax accounting: a DTL arises when book tax expense exceeds cash taxes now; a DTA arises when cash taxes exceed book expense (e.g., NOL carryforwards).",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Depreciation",
+      "definition": "Spreading the cost of tangible PP&E over its useful life; non-cash, reduces taxable income, added back in CFO.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Direct Alpha",
+      "definition": "A PME method that solves for the exact annualized rate of outperformance or underperformance versus a public index.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Distribution",
+      "definition": "Cash (or occasionally stock) returned by a PE fund to its LPs as investments are exited or recapitalized.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Dividend recapitalization",
+      "definition": "Raising new debt at a portfolio company to fund a distribution to the PE sponsor, pulling forward equity returns without an exit.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "DPI",
+      "definition": "Distributions to Paid-In capital; the realized, cash-in-hand multiple (cumulative distributions ÷ paid-in capital).",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "DCF",
+      "definition": "Discounted cash flow valuation: project unlevered free cash flows, discount at WACC to get enterprise value, then bridge to equity value.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "EBITDA",
+      "definition": "Earnings before interest, taxes, depreciation, and amortization; a widely used proxy for operating cash generation and the most common LBO and M&A valuation metric.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Enterprise value (EV)",
+      "definition": "The value of the entire operating business independent of capital structure; EV = Equity Value + Debt + Preferred + Minority Interest − Cash.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Equity value (market cap)",
+      "definition": "Value attributable to common shareholders; diluted shares × share price.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Equity risk premium (ERP)",
+      "definition": "The expected return of the equity market over the risk-free rate; an input to CAPM, commonly estimated at 4–6%.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Exit multiple",
+      "definition": "The EV/EBITDA assumed at sale of the portfolio company; used for terminal value in a DCF and for LBO exit equity calculation.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Free cash flow, unlevered (UFCF / FCFF)",
+      "definition": "Cash to all capital providers before interest: NOPAT + D&A − capex − ΔNWC; discounted at WACC to yield enterprise value.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Free cash flow, levered (FCFE)",
+      "definition": "Cash to equity holders after interest and mandatory debt repayment; discounted at cost of equity to yield equity value directly.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "General Partner (GP)",
+      "definition": "The fund manager who sources, executes, and exits investments and bears unlimited liability.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Gordon growth model",
+      "definition": "Terminal value as a growing perpetuity: TV = FCF_n × (1 + g) ÷ (WACC − g); g must be below WACC and is typically capped near GDP/inflation.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Gross vs net IRR",
+      "definition": "Gross IRR is before fund-level fees and carry; net IRR is after all fees, expenses, and carry — the LP's actual return; the spread is fee drag.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Hurdle rate (preferred return)",
+      "definition": "The minimum annualized return LPs must receive (commonly ~8%) before the GP earns carried interest.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "If-converted method",
+      "definition": "Diluted share calculation for convertible securities: if in the money, add the shares they convert into and remove the related after-tax interest expense.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Internal rate of return (IRR)",
+      "definition": "The annualized discount rate that sets the net present value of an investment's cash flows to zero; time-sensitive and can be gamed by timing of capital calls.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "J-curve",
+      "definition": "The early-life dip in PE fund returns caused by management fees and undeployed capital before exits occur; the curve recovers as investments mature and are realized.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Leveraged buyout (LBO)",
+      "definition": "Acquisition of a company funded largely with debt that the target's own cash flows repay over a 3–7 year hold; return drivers are EBITDA growth, multiple expansion, and deleveraging.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Limited Partner (LP)",
+      "definition": "A fund investor who commits capital, has limited liability, and receives distributions; cannot participate in management.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Long-Nickels PME (ICM)",
+      "definition": "The original PME method (1996) that produces an IRR from a synthetic public-market investment; can break (negative NAV) when fund performance is very strong.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Kaplan-Schoar PME",
+      "definition": "PME method (2005) returning a ratio (>1.0 = fund beat the index); avoids negative-NAV breakdown and is the most widely accepted PME measure.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Management fee",
+      "definition": "Annual fee paid to the GP, commonly ~2% on committed capital during the investment period and on invested/net cost thereafter.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Mid-year convention",
+      "definition": "Discounting explicit cash flows at periods 0.5, 1.5, 2.5, ... to reflect that cash arrives throughout the year rather than at year-end; modestly raises DCF value.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Minority (noncontrolling) interest",
+      "definition": "The portion of a consolidated subsidiary not owned by the parent company; added in the EV bridge to match the fully consolidated EBITDA denominator.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "MOIC",
+      "definition": "Multiple on Invested Capital: total equity proceeds ÷ equity invested; a cash-on-cash multiple that ignores the time value of money.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "NAV",
+      "definition": "Net asset value; the GP's fair-value mark of remaining unrealized fund holdings under ASC 820/IFRS 13.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "NAV loan",
+      "definition": "Fund-level borrowing secured against the whole portfolio; used to fund follow-on investments or, controversially, to fund LP distributions without underlying exits.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Net debt",
+      "definition": "Total debt minus cash and cash equivalents; the net financial obligation used in the EV-to-equity bridge.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Net working capital (NWC)",
+      "definition": "Operating current assets (AR, inventory, prepaids) minus operating current liabilities (AP, accrued expenses); excludes cash and short-term debt.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "NOPAT",
+      "definition": "Net operating profit after tax: EBIT × (1 − tax rate); the starting point for unlevered free cash flow.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Paid-in capital (PIC)",
+      "definition": "Cumulative capital actually called and funded by LPs to date; always less than or equal to total commitment.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "PME",
+      "definition": "Public Market Equivalent; a family of methods that benchmark a PE fund against a public index by replicating the fund's cash-flow timing in the index.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Precedent transactions",
+      "definition": "Valuation methodology using multiples paid in past M&A deals for comparable targets; typically yields higher values than trading comps due to control premiums.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Preferred stock",
+      "definition": "A financing claim senior to common equity in dividends and liquidation; added in the EV bridge because it is part of the capital funding the enterprise.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "RVPI",
+      "definition": "Residual Value to Paid-In: the unrealized, GP-marked portion of fund value (residual NAV ÷ paid-in capital).",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Secondaries",
+      "definition": "The buying and selling of existing LP fund interests (LP-led) or GP-initiated restructurings (GP-led); more mature positions with the J-curve largely behind them.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Sources and uses",
+      "definition": "The LBO funding table showing where money comes from (debt, sponsor equity, rollover) and where it goes (purchase price, fees, balance sheet cash); total sources must equal total uses.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Stock-based compensation (SBC)",
+      "definition": "Non-cash equity compensation to employees; deducted on the income statement but added back in CFO on the cash flow statement.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Terminal value (TV)",
+      "definition": "The value of all cash flows beyond the explicit DCF forecast period; estimated via Gordon growth model or exit multiple; typically drives 60–80% of total DCF value.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Treasury stock method (TSM)",
+      "definition": "Estimating net dilutive shares from in-the-money options: assumes exercise proceeds are used to repurchase shares at the current market price; net new shares = options exercised minus shares repurchased.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "TVPI",
+      "definition": "Total Value to Paid-In: DPI + RVPI; the combined realized and unrealized multiple and the total fund scorecard.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Vintage year",
+      "definition": "The year a fund begins investing; the standard unit of benchmarking because macroeconomic conditions at entry dominate fund outcomes.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "WACC",
+      "definition": "Weighted Average Cost of Capital: the blended required return across all capital (equity and debt), used to discount unlevered free cash flows to enterprise value.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Waterfall (American vs European)",
+      "definition": "The profit-split order in a PE fund: American (deal-by-deal) lets the GP take carry per profitable exit; European (whole-fund) requires all LP capital and preferred be returned before any GP carry.",
+      "tags": ["technicals"]
+    },
+    {
+      "term": "Working capital change (ΔNWC)",
+      "definition": "The period-over-period change in net working capital; an increase in NWC uses cash and is subtracted in the free cash flow build.",
+      "tags": ["technicals"]
+    }
+  ]
+}

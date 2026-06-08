@@ -1,0 +1,324 @@
+{
+  "terms": [
+    {
+      "term": "General Partner (GP)",
+      "definition": "The fund manager: sources deals, makes investment decisions, drives value creation, earns the management fee and carry, and holds the unlimited-liability management role (via a shielded GP entity).",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Limited Partner (LP)",
+      "definition": "A passive investor that commits capital and receives returns, with liability capped at its commitment; cannot direct individual investment decisions without risking limited-liability protection.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Management Company",
+      "definition": "The operating firm (the recognized brand: Blackstone, KKR, EQT, etc.) that employs the investment team and receives the management fee.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "GP Entity",
+      "definition": "The thin legal vehicle (often an LLC) that formally serves as general partner of the fund and receives carried interest. Kept deliberately lean so the GP's unlimited liability does not reach individual principals.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Limited Partnership Agreement (LPA)",
+      "definition": "The governing contract defining all fund economics, rights, and terms — management fee, carry, hurdle, waterfall, fund term, key-person provisions, clawback, LPAC composition, and conflict-of-interest rules.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Side Letter",
+      "definition": "A bilateral agreement between the GP and an individual LP granting bespoke terms not available to all investors — fee discounts, MFN clauses, co-invest rights, excuse rights, or reporting customization.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "LPAC (Limited Partner Advisory Committee)",
+      "definition": "A committee of selected LPs that reviews conflicts of interest, valuations, and certain GP decisions (e.g., continuation vehicles, LPA amendments). An oversight body — not an investment committee; cannot direct deal decisions.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "ILPA (Institutional Limited Partners Association)",
+      "definition": "The LP trade body that publishes the dominant best-practice standards for fund terms, governance, and reporting — most notably Principles 3.0 (2019), which defines market and fair terms across fees, carry, waterfall, and governance.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Closed-End Fund",
+      "definition": "A vehicle raised once with a fixed life that does not allow on-demand redemptions. Capital goes in via calls, gets invested, and returns as assets are exited — typically over a ~10-year life.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Blind Pool",
+      "definition": "A fund whose specific investments are unknown at the time of commitment. LPs underwrite the manager and strategy, not individual assets.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Vintage Year",
+      "definition": "The year a fund first invests or first draws capital for investment. The most important benchmarking axis: funds are compared only against same-vintage peers because macro conditions and entry multiples dominate returns.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Commitment",
+      "definition": "The maximum capital an LP contractually agrees to provide to the fund. A promise, not a transfer — the LP has not paid anything until a capital call is issued.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Capital Call (Drawdown)",
+      "definition": "A GP demand for LPs to wire their pro-rata share of committed capital, typically within ~10 business days. Failure to fund is a serious default with steep penalties including forfeiture.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Distribution",
+      "definition": "Cash (or occasionally securities) returned to LPs as the fund realizes investments. Distribution notices specify the source (return of capital, gain, income) and the waterfall treatment.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Paid-In / Called / Contributed Capital (PIC)",
+      "definition": "Cumulative cash actually drawn from LPs to date. Includes amounts deployed into investments plus fees and expenses. Also called contributed capital.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Invested Capital",
+      "definition": "The subset of paid-in capital actually deployed into portfolio assets — paid-in minus the portion consumed by management fees and fund expenses.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Unfunded Commitment",
+      "definition": "Committed minus paid-in capital — the amount an LP can still be called for. A key liquidity-planning metric for LP programs.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Dry Powder",
+      "definition": "Committed-but-uncalled capital available to invest, measured per fund or industry-wide. As of Bain's 2026 report, global buyout dry powder was ~$1.3 trillion.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Management Fee",
+      "definition": "Annual fee paid to the management company, canonically ~2% per year. Charged on committed capital during the investment period, then typically stepping down in rate and/or shifting to invested cost or NAV.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Fee Offset",
+      "definition": "The reduction of the LP-paid management fee by fees the GP charges portfolio companies (transaction, monitoring, director fees). ILPA standard is 100% offset.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Carried Interest (Carry)",
+      "definition": "The GP's share of fund profits, canonically 20%. The GP's primary economic incentive and the main alignment mechanism with LPs.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Hurdle Rate / Preferred Return",
+      "definition": "The minimum LP return (commonly 8% compounded) that must be met before the GP earns any carried interest. Acts as a floor on LP performance.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Catch-Up",
+      "definition": "A provision letting the GP take an outsized share (often 100%) of distributions after the hurdle is satisfied, until the GP has captured its target carry percentage of total profit. Formula: catch-up amount = [c / (1 − c)] × preferred return paid.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Distribution Waterfall",
+      "definition": "The ordered rules for splitting cash between LPs and the GP. The standard tiers are: (1) return of capital; (2) preferred return; (3) GP catch-up; (4) remaining profit split at the carry ratio.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "European (Whole-of-Fund) Waterfall",
+      "definition": "Carry is paid only after all LP contributions plus preferred return are returned across the entire fund. LP-protective and the ILPA-preferred default. Carry comes later.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "American (Deal-by-Deal) Waterfall",
+      "definition": "Carry is computed and paid per individual realized deal as it exits. GP-friendlier (earlier carry) but creates higher clawback risk if later deals underperform.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Clawback",
+      "definition": "A provision requiring the GP to return previously paid carry if, at fund end, the GP was overpaid relative to the agreed split. Made collectible by escrowing part of each carry payment; repayment commonly required within 90 days of final liquidation.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "GP Commitment",
+      "definition": "The GP's own capital invested in the fund alongside LPs for alignment ('skin in the game'). Historically ~1%; commonly cited as 1–2%; trending upward; ILPA prefers substantial cash (not waived fees).",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Recycling (Reinvestment)",
+      "definition": "A provision letting the GP reinvest early realization proceeds rather than distributing them, so the fund can deploy more than its headline commitment. Usually capped at ~100% of commitments, time-limited to the investment period, and charged management fees only once per ILPA practice.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "J-Curve",
+      "definition": "The shape of cumulative net LP cash flow plotted over time: deeply negative in early years (calls exceed distributions) then rising through zero to a positive gain as exits distribute proceeds. Named for the letter J.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Investment Period / Commitment Period",
+      "definition": "The early phase (commonly ~5 years) in which the GP makes new platform investments and the management fee is charged on committed capital. After it ends, the GP generally cannot make new platforms, only follow-ons.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Harvesting Period",
+      "definition": "The later phase of the fund (typically years 5–10+) in which the GP exits investments and distributes proceeds to LPs.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "First Close / Final Close",
+      "definition": "First close: the point at which a fund can begin investing and calling capital. Final close: the point after which no new LPs may join. Late LPs pay equalization interest to compensate first-close LPs.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Equalization Interest",
+      "definition": "A charge paid by LPs who join after the first close, compensating earlier LPs and treating all investors as if they had been in the fund from inception.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "NAV (Net Asset Value)",
+      "definition": "The fair value of a fund's unrealized holdings. NAV marks are set by the GP (subject to LPAC review and auditor sign-off) and are the basis for RVPI and TVPI calculations.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "MOIC (Multiple on Invested Capital)",
+      "definition": "Total value (realized + unrealized) divided by invested capital. Measures how many times the invested capital was returned. Ignores time — a 2x in 3 years and a 2x in 12 years look the same.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "TVPI (Total Value to Paid-In)",
+      "definition": "The headline net LP multiple: (cumulative distributions + current NAV) / paid-in capital. Equals DPI + RVPI. Includes both realized and unrealized value.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "DPI (Distributions to Paid-In)",
+      "definition": "Cumulative distributions / paid-in capital. The 'realization multiple' — cash actually returned to LPs. Immune to GP-controlled NAV marks. In the current era of low liquidity, often called the most important metric ('DPI is the new IRR').",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "RVPI (Residual Value to Paid-In)",
+      "definition": "Current NAV / paid-in capital. The unrealized, still-on-paper portion of fund value. High RVPI with low DPI signals most value is in unexited GP-controlled marks.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "IRR (Internal Rate of Return)",
+      "definition": "The discount rate setting the NPV of all fund cash flows (calls negative, distributions and terminal NAV positive) to zero. Captures timing; can be inflated by subscription credit lines or early exits.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Subscription Credit Line",
+      "definition": "Fund-level borrowing that delays LP capital calls. Mechanically inflates IRR (cash goes in later, so the clock starts later) with little effect on MOIC or TVPI. A major source of reported IRR inflation.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Quartile Ranking",
+      "definition": "A fund's standing versus same-vintage peers: top, second, third, or bottom quartile. The main tool for expressing manager performance relative to the benchmark universe.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "PME (Public Market Equivalent)",
+      "definition": "A family of measures comparing a fund's returns to investing the same cash flows on the same dates in a public index. The opportunity-cost test for private equity.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "KS-PME (Kaplan-Schoar PME)",
+      "definition": "The most-cited PME variant (2005). A ratio: index-discounted (distributions + NAV) / index-discounted contributions. KS-PME > 1 means the fund beat the index net of fees; < 1 means underperformance.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Long-Nickels ICM/PME",
+      "definition": "The first PME method (1996). Mirrors every fund contribution as a hypothetical index purchase and every distribution as an index sale; compares the resulting index IRR to the fund IRR. Known flaw: a strongly outperforming fund can force the mirror portfolio into a large negative NAV.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Direct Alpha",
+      "definition": "PME method by Gredil, Griffiths, and Stucke (2014). Compounds each fund cash flow forward to the terminal date at the public index's realized return, then solves for the IRR of those index-adjusted flows — yielding a precise annualized excess return (alpha).",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Primaries",
+      "definition": "Committing to a GP's new fund at formation. The LP underwrites the manager, strategy, and terms — not specific assets, because the portfolio is a blind pool.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Secondaries",
+      "definition": "Buying existing fund interests from other LPs (LP-led) or backing GP restructurings / continuation vehicles (GP-led) in the secondary market. Assets are partly known; J-curve is shorter or absent.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Co-Investment",
+      "definition": "Investing directly alongside a GP in a single deal, typically with no management fee and no carry ('no fee, no carry'). Lowers blended LP cost but introduces concentration and adverse-selection risk.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Continuation Vehicle (CV)",
+      "definition": "A new fund into which a GP moves assets from an aging fund, giving existing LPs a cash-out or roll-over option while new secondary investors fund it. Embeds a structural GP conflict (seller and buyer/manager) — subject to heavy ILPA and LPAC scrutiny.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Fund-of-Funds (FoF)",
+      "definition": "A vehicle that invests across many underlying PE funds on behalf of its investors. Provides diversification and outsourced selection but adds a second layer of fees and carry on top of underlying fund economics.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Denominator Effect",
+      "definition": "When public-market declines mechanically raise PE's percentage of an LP's total portfolio above the policy target (public holdings shrink fast; PE NAVs lag). Often forces LPs to pause commitments or sell on the secondary market to rebalance.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Over-Commitment",
+      "definition": "The practice of committing more than one's target PE allocation, relying on the timing gap between commitments and capital calls. Works when distributions recycle; becomes a liquidity problem if distributions stall.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Buyout / LBO (Leveraged Buyout)",
+      "definition": "Control acquisition of a mature, cash-generative company using significant debt financing. Returns come from deleveraging, operational improvement, and multiple expansion.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Growth Equity",
+      "definition": "Minority investment in already-growing, often profitable companies with little or no leverage. Returns driven almost entirely by revenue and earnings growth.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Venture Capital (VC)",
+      "definition": "Minority equity investment in early-stage, high-growth companies with no leverage. Returns follow a power law: most investments fail; a few huge winners drive the fund.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Distressed / Special Situations",
+      "definition": "Investing in the debt or equity of troubled or financially stressed companies, sometimes to control them through restructuring ('distressed-for-control'). Often counter-cyclical.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Infrastructure",
+      "definition": "Long-duration real assets (toll roads, airports, utilities, renewables, data centers) with stable, often contracted or regulated cash flows. Lower returns than buyout but lower risk, very long holds, steady yield, and often inflation-linked revenue.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Secondary Buyout",
+      "definition": "The sale of a portfolio company from one private equity sponsor to another, rather than to a strategic buyer or via IPO.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Dividend Recapitalization",
+      "definition": "Returning cash to equity holders (including the PE sponsor) by adding new debt to a portfolio company, without requiring a full exit.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Commitment Pacing",
+      "definition": "The process of spreading PE commitments across multiple vintages and years to keep net invested exposure trending toward a target allocation, accounting for the uneven timing of calls and distributions.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Key-Person Provision",
+      "definition": "An LPA clause designating specific senior investment professionals as 'key persons.' If a sufficient number depart, the investment period suspends or terminates and LPs may gain removal or wind-down rights.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Private Placement Memorandum (PPM)",
+      "definition": "The offering document provided by a GP to prospective LPs, describing the fund strategy, team, track record, proposed terms, and risk factors. A marketing document — final terms are negotiated in the LPA.",
+      "tags": ["pe-fundamentals"]
+    },
+    {
+      "term": "Most Favored Nation (MFN) Clause",
+      "definition": "A side-letter provision giving an LP the right to receive any better terms the GP grants to any other LP — ensuring that LP is never disadvantaged relative to peers.",
+      "tags": ["pe-fundamentals"]
+    }
+  ]
+}

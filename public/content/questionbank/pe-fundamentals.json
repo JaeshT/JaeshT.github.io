@@ -1,0 +1,90 @@
+{
+  "id": "pf-interview",
+  "title": "PE Fundamentals — Interview Q&A",
+  "questions": [
+    {
+      "id": "iq1",
+      "prompt": "Walk me through how a PE fund makes money for an LP, from commitment to wind-down.",
+      "modelAnswer": "An LP signs a commitment — the maximum it will fund. The GP calls capital over the investment period to buy companies and to pay fees, so paid-in capital builds while distributions are still near zero, which produces the J-curve dip. The GP holds the assets for several years, improving them operationally, then sells them in the harvesting years and distributes proceeds through the waterfall: first returning LP capital, then the preferred return (commonly 8%), then a GP catch-up, then an 80/20 split of remaining profit. The LP's outcome is summarized by a net multiple (TVPI, decomposable into realized DPI and unrealized RVPI) and a net IRR. The fund winds down as the last assets are sold, with any clawback settled. The honest punchline: net of fees and carry, average returns roughly track public markets, so the LP's job is selecting top-quartile managers, where dispersion is large.",
+      "tags": ["lifecycle"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq2",
+      "prompt": "Why does the J-curve happen, and is the early loss 'real'?",
+      "modelAnswer": "Three causes: (1) cash timing — calls and fees flow out while distributions have not started, so cumulative net cash flow is deeply negative; (2) fee and setup drag pushing NAV below paid-in from day one; and (3) conservative early marks where investments are held near cost while write-downs can come quickly. The reversal comes from write-ups, exits producing distributions, and the post-investment-period fee step-down. The early reported loss is substantially a fee and conservative-marking accounting artifact; the genuinely real cost is the opportunity cost of cash being committed and called. That distinction matters because it explains why secondaries — which buy seasoned assets — can skip the J-curve entirely.",
+      "tags": ["lifecycle", "capital-flows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq3",
+      "prompt": "What is the difference between committed, paid-in, and invested capital, and why does the gap matter?",
+      "modelAnswer": "Committed is the promise — the maximum the LP agreed to fund. Paid-in (called) is cash actually drawn from LPs, including amounts for investments, fees, and expenses. Invested is the subset of paid-in actually deployed into portfolio assets. The ordering is: Committed ≥ Paid-in ≥ Invested. The gaps are where fees and expenses live, which is exactly why net returns lag gross returns. An LP managing a pacing program also cares about the committed-versus-paid-in gap (unfunded commitment) for liquidity planning — that is the cash they could still be called for.",
+      "tags": ["capital-flows"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq4",
+      "prompt": "Explain the European versus American waterfall and which an LP prefers.",
+      "modelAnswer": "European (whole-of-fund) waterfall: carry is paid only after the entire fund has returned all contributed capital plus the preferred return to LPs. Carry comes late; LPs are fully protected first. American (deal-by-deal) waterfall: carry is computed and paid on each individual realized deal as it exits. The GP collects carry sooner on early winners, which creates higher clawback risk if later deals disappoint. LPs prefer the European waterfall because they receive their capital and preferred return first across all investments before the GP profits. It is the ILPA-preferred default. GPs prefer American for the earlier cash and the time value to their investment professionals.",
+      "tags": ["lifecycle", "capital-flows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq5",
+      "prompt": "A fund shows a 25% IRR but a 1.3x TVPI after four years. What do you think?",
+      "modelAnswer": "The two are in tension: a 25% IRR with only a 1.3x multiple over four years suggests timing effects are flattering the rate. The most likely culprits are a subscription credit line delaying capital calls (so LP cash went in later, inflating the IRR clock) or one early exit locking in a high rate that the rest of the portfolio cannot sustain. I would ask for IRR computed without subscription-line effects, examine DPI versus RVPI to see how much of the value is realized cash versus GP marks, and benchmark against same-vintage peers via quartiles and PME. A high IRR on a modest multiple is a flag, not a result — it requires explanation.",
+      "tags": ["lifecycle"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq6",
+      "prompt": "How would you tell whether a fund actually outperformed public markets, beyond IRR and multiple?",
+      "modelAnswer": "Use PME to answer the opportunity-cost question: would the same cash on the same dates have done better in a public index? KS-PME above 1 indicates net outperformance; Direct Alpha gives a precise annualized excess return. I would pair that with same-vintage quartile ranking, separate realized (DPI) from unrealized (RVPI) value, and check whether IRR was inflated by subscription-line leverage. Multiple, rate, opportunity cost, and realization are four different lenses, and a strong fund holds up on all of them. I would also note that the 'right' benchmark depends on strategy — a buyout fund should be benchmarked against a levered public equivalent, not just the S&P 500.",
+      "tags": ["lp-role"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq7",
+      "prompt": "Pitch me the case for and against secondaries for an LP program.",
+      "modelAnswer": "For secondaries: a shorter or absent J-curve because you buy seasoned assets already part-way to maturity; faster DPI since distributions arrive sooner; vintage and manager diversification in a single transaction; visibility into the actual underlying portfolio rather than a blind pool; and often the ability to buy at a discount to NAV. Against: lower gross return potential than primaries (you pay for de-risking and the J-curve skip); the need for strong independent underwriting of NAV marks (the marks are the GP's, not yours); and for GP-led continuation vehicles, a structural conflict of interest because the GP sits on both sides of the transaction — selling from the old fund and setting terms for the new one. In the current low-distribution environment, secondaries have become a structural liquidity tool, not a niche, with global volume reaching a record $226–240 billion in 2025.",
+      "tags": ["lp-role"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq8",
+      "prompt": "What is a continuation vehicle and why has it become so common?",
+      "modelAnswer": "A continuation vehicle (CV) is a new fund into which a GP moves one or more assets from an aging fund. Existing LPs are given a choice: cash out (sell their stake at a negotiated price) or roll over into the new vehicle. New secondary investors provide fresh capital, and the GP continues managing the assets. CVs have surged because the 2022–2025 exit drought left GPs holding maturing winners they could not easily sell via IPO or strategic sale, so CVs manufacture liquidity and extend GP ownership of good assets without forcing a sale at a bad time. The catch: the structural conflict. The GP is simultaneously the seller (on behalf of the old fund) and the buyer/manager (for the new vehicle), creating a pricing conflict. This is why LPs, the LPAC, and ILPA now scrutinize valuation process, fairness opinions, and the option terms offered to rolling LPs very carefully.",
+      "tags": ["lp-role", "lifecycle"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq9",
+      "prompt": "Differentiate buyout, growth equity, and venture on leverage and return source.",
+      "modelAnswer": "Buyout (LBO): takes control of mature, cash-generative companies using significant debt. Returns come from three levers — deleveraging (debt paydown grows the equity slice), operational improvement (revenue and margin growth), and multiple expansion (selling at a higher EBITDA multiple than the purchase). Growth equity: takes minority stakes in already-growing, often profitable companies with little or no leverage. Returns come almost purely from revenue and earnings growth; no financial engineering. Venture capital: takes minority stakes in early-stage companies with no leverage. Returns follow a power law — most investments fail, and a tiny number of huge winners carry the entire fund. The pattern: leverage falls from high (buyout) to none (growth, venture); loss rates rise from low (buyout) to high (venture); hold periods are shortest in growth and longest in venture.",
+      "tags": ["strategies"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq10",
+      "prompt": "What is the denominator effect and how does an LP respond?",
+      "modelAnswer": "The denominator effect occurs when public markets fall sharply: the liquid (public) portion of an LP's portfolio shrinks immediately in value while illiquid PE NAVs are marked down slowly and with a lag. As a result, PE's percentage of the total portfolio mechanically rises above the policy target — even though the LP did nothing and made no new commitments. The LP is now 'overweight' PE purely due to arithmetic. Responses include: pausing or slowing new primary commitments to PE; adjusting the pacing model to reflect the new starting point; or selling existing fund interests on the LP-led secondary market to rebalance toward target. This effect was a major driver of record secondary market volumes from 2022 onward, as institutional LPs used secondary sales as a portfolio-management tool.",
+      "tags": ["lp-role"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq11",
+      "prompt": "Why is manager selection the central activity for an LP team, given what we know about asset-class average returns?",
+      "modelAnswer": "Because the average net-of-fee return is contested and modest — Kaplan and Schoar found the average US buyout fund roughly matched the S&P 500 (KS-PME ~0.97), and while later cleaner data showed modest outperformance of ~3%+ per year, the evidence is dataset-dependent. The asset-class beta is not a compelling reason to lock up capital for a decade and pay 2-and-20. The alpha comes from access to and selection of top-tier managers, where dispersion is enormous: top-quartile buyout funds showed KS-PME well above 1.2 while bottom-quartile fell below 0.7. A primaries team's entire reason to exist is to systematically access the right tail of that distribution. If you could buy the 'average' PE fund passively, it would not justify the fees and illiquidity; the investment case rests entirely on being able to identify and access above-average managers.",
+      "tags": ["lp-role"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq12",
+      "prompt": "What would you look at first in an LPA before recommending a primary commitment?",
+      "modelAnswer": "The economics and alignment terms: (1) management fee rate and base — is it charged on committed or invested capital, and when does it step down? (2) Carry percentage and waterfall type — European preferred over American; (3) hurdle rate (8% market standard) and catch-up mechanics; (4) GP commitment size and form — cash preferred over waived fees, and how substantial relative to ILPA standards? (5) Fee-offset percentage — 100% is market; (6) recycling caps and time windows; (7) key-person provisions — which individuals trigger suspension and what are the LP's remedies? (8) GP removal rights — no-fault and for-cause; (9) fund term and extension rights; (10) expense definitions — what the fund bears vs. the manager. I would benchmark each term against ILPA Principles 3.0 and the manager's prior fund documents, then weigh anything off-market against the manager's track record, access value, and negotiating power.",
+      "tags": ["documents", "lp-role"],
+      "difficulty": "hard"
+    }
+  ]
+}

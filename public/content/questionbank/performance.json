@@ -1,0 +1,97 @@
+{
+  "id": "perf-interview",
+  "title": "Performance — Interview Q&A",
+  "questions": [
+    {
+      "id": "iq1",
+      "prompt": "Walk me through the difference between IRR and MOIC, and tell me which one you'd trust more.",
+      "modelAnswer": "IRR is the money-weighted annualized rate that zeros the NPV of the fund's cash flows; MOIC/TVPI is the absolute multiple of value to capital, ignoring time. They diverge because IRR rewards timing — early cash, late calls — while the multiple is timing-blind. I wouldn't 'trust one more' in the abstract. The multiple is harder to manipulate, so it's the more robust single number, but it ignores the cost of capital and time. IRR captures speed but is exactly what subscription lines and NAV loans inflate. In practice I'd look at net IRR, TVPI, DPI, and a PME together, and treat a large gap between any two — say a high IRR on a modest multiple — as a signal to inspect the cash-flow timeline for financing effects, not as something to average away.",
+      "tags": ["irr", "moic"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq2",
+      "prompt": "A GP shows you a 30% net IRR. What's the first thing you ask for?",
+      "modelAnswer": "The matching multiple (TVPI and DPI) and the dated cash flows. A 30% IRR with a 1.4x TVPI on a young fund smells like subscription-line leverage or quick partial exits; a 30% IRR with a realized 2.5x DPI over a normal hold is real. I'd specifically ask for the IRR without the subscription facility — ILPA's 2020 guidance established that disclosure — and I'd ask whether any distributions were NAV-loan-funded or recallable, because that inflates both IRR and DPI without creating value.",
+      "tags": ["irr", "pitfalls"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq3",
+      "prompt": "Explain how a subscription line inflates IRR but not the multiple, with rough numbers.",
+      "modelAnswer": "The line lets the GP fund a deal today and call LP capital later, so LP cash is outstanding for less time. Take a deal that returns 2.0x. Called day one, exited in year four, the IRR is 2^(1/4)−1 ≈ 18.9% at a 2.0x multiple. Delay the LP call by a year via the line and exit at the same time: now it's 2^(1/3)−1 ≈ 26.0%, still 2.0x. Seven points of IRR from timing alone. The multiple is unchanged, and after the line's interest it's slightly lower. So a fund leaning on a long-dated line looks better on IRR and the same-or-worse on the multiple.",
+      "tags": ["irr", "pitfalls"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq4",
+      "prompt": "What is PME and why do LPs care about it?",
+      "modelAnswer": "PME asks whether the fund beat the public market on the fund's own cash-flow schedule — the question IRR and multiples can't answer. An LP's real alternative to a fund is a liquid index, so a 14% IRR is only impressive if the index didn't do better over the same period. PME replays the fund's calls and distributions against an index. KS-PME gives a wealth ratio (>1 beat the market); Direct Alpha gives an annualized excess return. LPs care because it's the only metric that separates manager skill from a rising-tide market effect.",
+      "tags": ["pme"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq5",
+      "prompt": "Compare Kaplan–Schoar PME and Direct Alpha.",
+      "modelAnswer": "Both are theory-grounded and use the index to adjust the cash flows. KS-PME is a ratio — index-discounted distributions plus NAV over index-discounted contributions — telling you the wealth multiple relative to the market, but it isn't annualized, so a 1.10 over three years and over twelve years look the same. Direct Alpha computes the IRR of the index-adjusted cash-flow stream, giving a true annualized alpha that's comparable across funds and feeds cleanly into asset-allocation models. They never disagree on direction: KS-PME above 1 corresponds to positive Direct Alpha. On the worked example fund, KS-PME 0.959 lines up with Direct Alpha −1.03%/yr.",
+      "tags": ["pme"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq6",
+      "prompt": "What's wrong with the original Long–Nickels PME?",
+      "modelAnswer": "The shortness problem. LN builds a synthetic index portfolio that buys the index on every call and sells it on every distribution. If the fund strongly outperforms, its large distributions imply selling more index than the synthetic portfolio holds, so the synthetic NAV goes negative — the portfolio is effectively short the index — and the PME IRR becomes incalculable or nonsensical. It's not rare; strong funds break it. mPME (Cambridge Associates) fixes it by selling a fixed proportion of the synthetic portfolio per distribution, so the NAV can't go negative; PME+ (Capital Dynamics) fixes it by scaling distributions with a factor λ so the final synthetic NAV matches the private NAV.",
+      "tags": ["pme"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq7",
+      "prompt": "You have a fund at 2.5x TVPI but 0.3x DPI, eight years in. What's your reaction?",
+      "modelAnswer": "Skeptical. Eight years in, a healthy fund should have realized meaningfully more than 0.3x. A 2.5x that is 2.2x unrealized is almost entirely the GP's marks, which are an opinion until proven by exits, and current markets have made exits slow. I'd scrutinize the valuation methodology, look for recent third-party validation of the marks, check for any continuation-fund or NAV-loan activity, and weight DPI and PME heavily over the TVPI. The risk is a 2.5x paper number that realizes far lower.",
+      "tags": ["tvpi", "dpi", "pitfalls"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq8",
+      "prompt": "How do the major data providers differ, and why does it matter?",
+      "modelAnswer": "They differ mainly in sourcing. Burgiss (now MSCI Private Capital after MSCI completed the acquisition in October 2023) is LP-reported, giving complete, survivorship-free cash-flow histories — the research gold standard. Cambridge Associates draws largely from fund financial statements and GP relationships and is the most-quoted consultant benchmark, with a possible tilt toward GPs raising new funds. Preqin and PitchBook lean on FOIA requests to public pensions plus voluntary submissions, so they're broad and name funds but can miss top managers that don't have public LPs and don't disclose. It matters because a GP can find the provider, metric, vintage definition, and quartile cut that flatters it; the analyst's job is to force a like-for-like comparison. Encouragingly, academic work (Harris–Jenkinson–Kaplan) finds average returns and PMEs are broadly consistent across Burgiss, Cambridge, and Preqin, so the biases don't overturn big-picture conclusions.",
+      "tags": ["benchmarking"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq9",
+      "prompt": "What's the difference between a pooled IRR and a median IRR for a vintage?",
+      "modelAnswer": "Pooled IRR aggregates all the funds' cash flows into one stream and solves a single IRR — it's capital-weighted, so the biggest funds dominate; Cambridge uses a pooled horizon IRR as its official figure. Median IRR is the middle fund, equal-weighted and robust to outliers. Because PE returns are heavily right-skewed, the pooled and mean numbers usually sit above the median. For 'what did the typical fund do,' cite the median; for 'what did the typical dollar do,' cite the pooled. And you never just average IRRs, because IRR isn't additive.",
+      "tags": ["benchmarking", "irr"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq10",
+      "prompt": "Why is vintage-year benchmarking essential, and what's a subtlety in it?",
+      "modelAnswer": "A 2007 buyout fund and a 2012 one faced different entry valuations, leverage availability, and exit windows; comparing across vintages confounds skill with the environment. The subtlety is that vintage year isn't standardized — providers variously use first capital call, first close, or final close — so a fund near a year boundary can fall into different vintages and peer sets, changing its quartile. Always confirm the vintage definition before ranking.",
+      "tags": ["benchmarking"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq11",
+      "prompt": "A GP distributed cash this quarter and DPI jumped from 0.2x to 0.5x right before they launched a new fund. Concerned?",
+      "modelAnswer": "Yes, I'd investigate the source. A DPI jump just before a fundraise is a classic flag for a NAV-loan-funded distribution: the GP borrows against the portfolio and distributes the proceeds, lifting DPI and IRR with no value created, sometimes with recallable distributions. ILPA issued NAV-facility guidance in 2024 for exactly this. If it's genuine exit proceeds, fine; if it's leverage, the 'DPI' is borrowed, reversible, costs interest, and shouldn't be read as realized track record. I'd ask for use-of-proceeds, recallability terms, and the facility's loan-to-value.",
+      "tags": ["dpi", "pitfalls"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq12",
+      "prompt": "For a co-investment, why does MOIC matter more than for a fund commitment?",
+      "modelAnswer": "Co-investments typically carry little or no management fee and no carry, so the gross-to-net wedge nearly disappears and gross MOIC converts almost directly into the LP's net multiple — and that fee saving is the entire economic rationale for co-investing. But the same undiversified, single-asset exposure means you can't lean on a fund-level multiple to average out a loser; concentration risk is higher. So I'd underwrite the deal's own gross MOIC and downside carefully, model the (small) fee drag explicitly, and not assume fund-style diversification will rescue a bad single name.",
+      "tags": ["moic"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq13",
+      "prompt": "If you could see only one metric for a ten-year-old fund, which would it be?",
+      "modelAnswer": "Net DPI, with PME a close second. At ten years a fund should be mostly realized, so DPI is the cash the LP actually has — the least manipulable and most final number, immune to the marking games that inflate RVPI-heavy TVPI. Its weakness is that it ignores the public-market alternative, which is why I'd want PME alongside it. I'd avoid relying on IRR alone here because a decade of potential sub-line and NAV-facility activity could have flattered it.",
+      "tags": ["dpi", "pme"],
+      "difficulty": "medium"
+    }
+  ]
+}

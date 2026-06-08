@@ -1,0 +1,177 @@
+{
+  "id": "pf-quiz",
+  "title": "PE Fundamentals Quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "prompt": "Which entity receives the management fee from the fund?",
+      "choices": [
+        "The management company",
+        "The GP entity (the thin liability vehicle)",
+        "The LPAC",
+        "The limited partners"
+      ],
+      "answerIndex": 0,
+      "explanation": "The management company (the operating firm — the brand you recognize) employs the team and receives the management fee. The GP entity is a separate thin vehicle that receives carried interest."
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "prompt": "Which party has unlimited liability in a limited partnership fund structure?",
+      "choices": [
+        "All limited partners equally",
+        "The LPAC members",
+        "The general partner",
+        "The management company CEO"
+      ],
+      "answerIndex": 2,
+      "explanation": "The general partner (GP) holds unlimited liability in a limited partnership. LPs' liability is capped at their committed capital. The GP entity is deliberately a thin shell to prevent this liability from reaching individual principals personally."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "prompt": "An LP commits $50M to a fund but only $30M has been called so far. What is the LP's unfunded commitment?",
+      "choices": [
+        "$50M",
+        "$30M",
+        "$20M",
+        "$80M"
+      ],
+      "answerIndex": 2,
+      "explanation": "Unfunded commitment = Committed − Paid-in = $50M − $30M = $20M. This is the remaining amount the LP can still be called for."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "prompt": "Under a European (whole-of-fund) waterfall, when does the GP first receive carried interest?",
+      "choices": [
+        "As soon as any individual deal is realized at a profit",
+        "Only after all LPs have received back all contributed capital plus the preferred return across the entire fund",
+        "Simultaneously with LP capital return, at a 20% share",
+        "After the first close of the fund"
+      ],
+      "answerIndex": 1,
+      "explanation": "Under the European waterfall, carry is paid only after the entire fund has returned all contributions plus the preferred return to LPs. This is LP-protective and the ILPA-preferred default. The American (deal-by-deal) waterfall pays carry per individual deal."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "prompt": "What is the J-curve in private equity?",
+      "choices": [
+        "The increase in fund IRR as more deals are added to the portfolio",
+        "The shape of cumulative net LP cash flow: negative early (calls exceed distributions), then rising to positive as the fund harvests",
+        "The relationship between leverage and returns in a buyout",
+        "The GP's carried interest payout schedule over the fund life"
+      ],
+      "answerIndex": 1,
+      "explanation": "The J-curve describes the pattern of cumulative net LP cash flow — deeply negative in the early years (capital calls out, no distributions in), bottoming out at the investment-period trough, then climbing back through zero and into positive territory as the fund harvests and distributes proceeds."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "prompt": "What does the LPAC (Limited Partner Advisory Committee) do?",
+      "choices": [
+        "Approves every individual investment the GP makes",
+        "Reviews conflicts of interest, valuations, and certain GP decisions; cannot direct investment decisions",
+        "Negotiates LP side letters on behalf of all LPs",
+        "Sets the management fee rate for each fund year"
+      ],
+      "answerIndex": 1,
+      "explanation": "The LPAC is an oversight body — not an investment committee. It reviews conflicts of interest, valuations, and specific decisions (e.g., GP-led secondary transactions, LPA amendments). It cannot direct individual deals or it would risk LPs' limited-liability protection."
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "prompt": "Which performance metric is immune to GP-controlled NAV marks?",
+      "choices": [
+        "RVPI",
+        "TVPI",
+        "IRR",
+        "DPI"
+      ],
+      "answerIndex": 3,
+      "explanation": "DPI (Distributions to Paid-In) measures only cash actually returned to LPs, and is therefore immune to the GP's discretionary NAV marks. RVPI and TVPI both include unrealized NAV. IRR can also be influenced by marks in the terminal NAV component."
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "prompt": "How do subscription credit lines affect a fund's reported IRR vs. its TVPI?",
+      "choices": [
+        "They increase both IRR and TVPI equally",
+        "They inflate IRR by delaying capital calls while barely affecting TVPI",
+        "They reduce IRR by adding interest expense while TVPI is unaffected",
+        "They have no effect on either metric"
+      ],
+      "answerIndex": 1,
+      "explanation": "Subscription credit lines delay LP capital calls (cash goes in later), which makes the IRR clock start later and mechanically inflates the IRR. But the TVPI (a simple multiple of distributions + NAV over paid-in) barely moves because the absolute cash flows are nearly the same."
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "prompt": "Which PE strategy uses the highest financial leverage?",
+      "choices": [
+        "Venture capital",
+        "Growth equity",
+        "Leveraged buyout (LBO)",
+        "Secondaries"
+      ],
+      "answerIndex": 2,
+      "explanation": "Leveraged buyouts use significant debt financing stacked on top of equity — that is the defining characteristic. Venture and growth equity use little or no leverage. Secondaries involve buying fund interests and typically do not use deal-level leverage directly."
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "prompt": "What is the ILPA standard for fee offsets (portfolio-company fees charged by the GP)?",
+      "choices": [
+        "50% of such fees offset the management fee",
+        "No offset required; portfolio-company fees are additional GP income",
+        "100% of such fees must reduce (offset) the management fee paid by LPs",
+        "Fee offsets apply only during the harvesting period"
+      ],
+      "answerIndex": 2,
+      "explanation": "ILPA Principles 3.0 standard is 100% offset: transaction fees, monitoring fees, and director fees charged to portfolio companies should fully reduce the management fee paid by LPs, not represent incremental GP income."
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "prompt": "What does a KS-PME of 1.33 mean?",
+      "choices": [
+        "The fund returned 1.33× the capital invested (a 0.33× gain)",
+        "The LP ended with 33% more wealth than the public-market index would have produced on the same cash-flow schedule",
+        "The fund's IRR was 33% above the hurdle rate",
+        "33% of the fund's value remains unrealized"
+      ],
+      "answerIndex": 1,
+      "explanation": "KS-PME is a ratio comparing the fund to a hypothetical public-index investment using the same cash flows on the same dates. A KS-PME of 1.33 means the fund produced 33% more terminal wealth than the index alternative — i.e., it beat the index by 33% on the LP's actual cash-flow schedule."
+    },
+    {
+      "id": "q12",
+      "type": "mcq",
+      "prompt": "During the investment period, the management fee is typically charged on which base?",
+      "choices": [
+        "Net asset value (NAV)",
+        "Invested capital (cost basis of deployed investments)",
+        "Committed capital (the full LP commitment)",
+        "DPI (distributions paid to date)"
+      ],
+      "answerIndex": 2,
+      "explanation": "During the investment period, the management fee is charged on committed capital — the LP pays on money not yet deployed. After the investment period, the base typically steps down to invested cost or NAV as the portfolio is harvested and commitments are no longer being deployed."
+    },
+    {
+      "id": "q13",
+      "type": "free",
+      "prompt": "Walk through the European waterfall distribution sequence for a fund with $100M paid-in capital, $180M in total distributable proceeds, $25M preferred return accrued, and a 100% catch-up to 20% carry. Show each tier and the final LP and GP totals.",
+      "modelAnswer": "Tier 1 — Return of capital: LP receives $100M. Remaining: $180M − $100M = $80M.\n\nTier 2 — Preferred return: LP receives $25M. Remaining: $80M − $25M = $55M. LP total so far: $125M.\n\nTier 3 — GP catch-up: Catch-up amount C = [0.20 / (1 − 0.20)] × $25M = 0.25 × $25M = $6.25M to GP. Check: GP now holds $6.25M out of total profit ($25M preferred + $6.25M catch-up = $31.25M), and $6.25M / $31.25M = 20%. Remaining: $55M − $6.25M = $48.75M.\n\nTier 4 — 80/20 split: LP = 0.80 × $48.75M = $39M; GP = 0.20 × $48.75M = $9.75M.\n\nTotals: LP = $100M + $25M + $39M = $164M. GP carry = $6.25M + $9.75M = $16M. Check: $164M + $16M = $180M ✓. Total profit = $80M; GP carry = $16M = 20% of $80M ✓."
+    },
+    {
+      "id": "q14",
+      "type": "numeric",
+      "prompt": "A fund has $100M committed. $80M has been called for investments, and $20M was called for fees and expenses. What is the fund's invested capital as a percentage of committed capital?",
+      "answer": 80,
+      "tolerance": 0,
+      "unit": "%",
+      "explanation": "Invested capital = paid-in capital deployed into portfolio assets = $80M (the investment calls). Fees and expenses ($20M) sit in the gap between paid-in ($100M total called) and invested. Invested / Committed = $80M / $100M = 80%."
+    }
+  ]
+}

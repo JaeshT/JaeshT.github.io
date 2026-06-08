@@ -1,0 +1,230 @@
+{
+  "id": "pf-deck",
+  "title": "PE Fundamentals",
+  "cards": [
+    {
+      "id": "pf-c1",
+      "front": "What is the legal form of almost every PE fund, and why?",
+      "back": "A limited partnership, because it is tax-transparent (no entity-level tax) and cleanly separates the GP's management control and unlimited liability from the LPs' passive, liability-capped role.",
+      "tags": ["structure"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c2",
+      "front": "Distinguish the GP entity from the management company.",
+      "back": "The GP entity is a thin legal vehicle that formally serves as general partner and receives carry; the management company is the operating firm that employs the team and receives the management fee. Liability isolation is the reason they are separate.",
+      "tags": ["structure"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c3",
+      "front": "What document governs all fund economics and LP rights?",
+      "back": "The Limited Partnership Agreement (LPA).",
+      "tags": ["structure", "documents"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c4",
+      "front": "What is ILPA and why does an LP-side analyst care?",
+      "back": "The Institutional Limited Partners Association, the LP trade body. It publishes the dominant best-practice standards (Principles 3.0, reporting and capital-call templates) that define what \"market\" and \"fair\" fund terms look like.",
+      "tags": ["structure", "lp-role"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c5",
+      "front": "Define committed, paid-in, and invested capital and state their ordering.",
+      "back": "Committed is the promised maximum; paid-in (called) is cash actually drawn; invested is the subset deployed into assets. Committed ≥ Paid-in ≥ Invested, with fees and expenses sitting in the gaps.",
+      "tags": ["capital-flows"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c6",
+      "front": "What is dry powder, and roughly how large is global buyout dry powder per the 2026 Bain report?",
+      "back": "Committed-but-uncalled capital available to invest; roughly $1.3 trillion of global buyout dry powder, much of it aging (held four years or more).",
+      "tags": ["capital-flows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c7",
+      "front": "What is a capital call and what happens if an LP fails to fund one?",
+      "back": "A GP demand for the LP's pro-rata share of committed capital, due in a short window (commonly 10 business days). Default triggers severe penalties, including forfeiture of fund interest or forced sale at a discount.",
+      "tags": ["capital-flows"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c8",
+      "front": "Define vintage year and explain why it dominates benchmarking.",
+      "back": "The year a fund first invests or first draws investment capital. Macro conditions, entry multiples, and exit windows are vintage-specific and dominate returns, so funds are compared only against same-vintage peers.",
+      "tags": ["lifecycle"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c9",
+      "front": "What does \"2 and 20\" mean?",
+      "back": "A ~2% annual management fee plus 20% carried interest on profits.",
+      "tags": ["value-creation"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c10",
+      "front": "On what base is the management fee charged during versus after the investment period?",
+      "back": "During the investment period, on committed capital; afterward it usually steps down in rate and/or shifts to invested cost or NAV, shrinking as assets are harvested.",
+      "tags": ["value-creation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c11",
+      "front": "What is a fee offset and what is the ILPA standard?",
+      "back": "Portfolio-company fees (transaction, monitoring, director) reducing the LP-paid management fee. ILPA's standard is 100% offset.",
+      "tags": ["value-creation", "lp-role"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c12",
+      "front": "What is the hurdle / preferred return and its conventional level?",
+      "back": "The minimum LP return, commonly 8% compounded, that must be met before the GP earns any carried interest.",
+      "tags": ["value-creation"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c13",
+      "front": "Explain the catch-up provision.",
+      "back": "After the hurdle is met, the GP takes an outsized share (often 100%) of further distributions until it has captured its target carry percentage of total profit above return of capital; then distributions split at the carry ratio (e.g., 80/20).",
+      "tags": ["value-creation"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "pf-c14",
+      "front": "Contrast the European and American waterfalls.",
+      "back": "European (whole-of-fund) pays carry only after all contributions plus preferred are returned across the entire fund (LP-protective, late carry). American (deal-by-deal) pays carry per realized deal (GP-friendly, early carry, higher clawback risk).",
+      "tags": ["value-creation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c15",
+      "front": "What is a clawback and how is it made collectible?",
+      "back": "A requirement that the GP repay excess carry at fund end; made enforceable by escrowing part of each carry payment and requiring repayment within a set window (often 90 days of final liquidation).",
+      "tags": ["value-creation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c16",
+      "front": "What is the GP commitment, its conventional level, and the source disagreement?",
+      "back": "The GP's own capital in the fund for alignment. Historically ~1%; sources also cite 1% to 2%; in practice it ranges to ~5% and is trending up. Quote a range, not a fixed number.",
+      "tags": ["structure", "value-creation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c17",
+      "front": "Name the four phases of the closed-end lifecycle.",
+      "back": "Fundraising; investment/commitment period; holding and value creation; harvesting/wind-down (with optional extensions, commonly two one-year).",
+      "tags": ["lifecycle"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c18",
+      "front": "What is the difference between first close and final close?",
+      "back": "First close lets the fund begin investing and calling capital; after the final close no new LPs may join. Late LPs pay equalization interest to compensate first-close LPs.",
+      "tags": ["lifecycle"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c19",
+      "front": "Why does the J-curve dip negative early?",
+      "back": "Capital calls and fees flow out while distributions have not started; fees and setup costs push NAV below paid-in; and early marks are conservative (investments held near cost while write-downs can come quickly).",
+      "tags": ["capital-flows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c20",
+      "front": "How does the J-curve reverse?",
+      "back": "Investments are written up toward fair value, exits begin producing distributions (cash in), and the fee base shrinks after the investment period — pushing cumulative net cash flow back above zero.",
+      "tags": ["capital-flows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c21",
+      "front": "Which part of the early J-curve \"loss\" is real and which is an artifact?",
+      "back": "The cash-flow (opportunity-cost) component is real; much of the early reported loss is a fee and conservative-marking accounting artifact. This distinction explains why secondaries, which buy seasoned assets, can skip the J-curve.",
+      "tags": ["capital-flows"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "pf-c22",
+      "front": "Define TVPI, DPI, and RVPI and the identity linking them.",
+      "back": "TVPI = (distributions + NAV) / paid-in; DPI = distributions / paid-in; RVPI = NAV / paid-in. Identity: TVPI = DPI + RVPI.",
+      "tags": ["value-creation"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "pf-c23",
+      "front": "Why is DPI now emphasized over IRR?",
+      "back": "DPI measures cash actually returned and is immune to GP-controlled marks; in a low-liquidity environment LPs care most about real distributions, hence \"DPI is the new IRR.\"",
+      "tags": ["lp-role"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c24",
+      "front": "How do subscription credit lines distort IRR?",
+      "back": "They delay capital calls, so LP cash goes in later; IRR rises (because the clock starts later) while MOIC/TVPI barely move. Sophisticated LPs request IRR computed without subscription-line effects and weight MOIC and DPI heavily.",
+      "tags": ["value-creation"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "pf-c25",
+      "front": "What does KS-PME measure and how is a value above 1 interpreted?",
+      "back": "It compares the fund to investing the same cash flows in a public index: it is the ratio of index-discounted (distributions + NAV) to index-discounted contributions. Above 1 means the fund beat the index net of fees.",
+      "tags": ["value-creation"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c26",
+      "front": "What problem does Long-Nickels PME have, and how does Direct Alpha improve on the family?",
+      "back": "Long-Nickels can force the mirror index portfolio into a large negative NAV when the fund strongly outperforms, breaking the comparison. Direct Alpha compounds each flow at the index return and solves for the IRR of the index-adjusted flows, giving a precise annualized excess return rather than a heuristic.",
+      "tags": ["value-creation"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "pf-c27",
+      "front": "Buyout returns come from which three levers?",
+      "back": "Deleveraging (debt paydown growing the equity slice), operational improvement (revenue and margin growth), and multiple expansion (selling at a higher EBITDA multiple than the purchase multiple).",
+      "tags": ["strategies"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c28",
+      "front": "How does growth equity differ from both venture and buyout?",
+      "back": "It takes minority stakes in already-growing, often profitable companies with little or no leverage; returns are growth-driven. It is later and lower-loss than venture and non-control, lower-leverage than buyout.",
+      "tags": ["strategies"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c29",
+      "front": "What is a continuation vehicle and what conflict does it embed?",
+      "back": "A new fund into which a GP moves assets from an aging fund, letting existing LPs cash out or roll over while new investors fund it. The GP sits on both sides (seller from the old fund and buyer/manager of the new one), creating a pricing conflict — hence heavy ILPA guidance and process scrutiny.",
+      "tags": ["strategies", "lp-role"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "pf-c30",
+      "front": "Why do LPs use secondaries to shorten the J-curve?",
+      "back": "Buying interests later in a fund's life acquires assets already part-way to maturity, so distributions arrive sooner and there is little or no early negative period; it also adds diversification and portfolio visibility, with no blind-pool risk.",
+      "tags": ["strategies", "capital-flows"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c31",
+      "front": "What is the decisive disadvantage of a fund-of-funds?",
+      "back": "A second layer of fees and carry on top of the underlying funds, compounding fee drag; only justified by exceptional selection skill or access an LP cannot get directly. Larger LPs build in-house primaries teams to avoid this layer.",
+      "tags": ["lp-role"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "pf-c32",
+      "front": "What is the denominator effect and why did it fuel secondaries in 2022–2025?",
+      "back": "When public markets fall, liquid holdings shrink while slowly-marked PE NAVs do not, so PE's percentage of the portfolio rises above the policy target. LPs sold fund stakes on the secondary market to rebalance, helping drive record secondaries volume.",
+      "tags": ["lp-role", "capital-flows"],
+      "difficulty": "hard"
+    }
+  ]
+}

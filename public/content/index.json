@@ -1,56 +1,42 @@
 {
   "version": 1,
   "lessons": [
-    {
-      "id": "fe-fees-carry",
-      "title": "Fees, Carry & Hurdles",
-      "domain": "fund-economics",
-      "path": "lessons/fund-economics/fees-carry-hurdles.md",
-      "order": 1,
-      "estMinutes": 14
-    },
-    {
-      "id": "fe-waterfalls",
-      "title": "Distribution Waterfalls",
-      "domain": "fund-economics",
-      "path": "lessons/fund-economics/distribution-waterfalls.md",
-      "order": 2,
-      "estMinutes": 16
-    },
-    {
-      "id": "fe-metrics-pme",
-      "title": "Fund Metrics & PME",
-      "domain": "fund-economics",
-      "path": "lessons/fund-economics/metrics-and-pme.md",
-      "order": 3,
-      "estMinutes": 12
-    }
+    { "id": "tech-accounting", "title": "Accounting & the 3 Statements", "domain": "technicals", "path": "lessons/technicals/accounting.md", "order": 1, "estMinutes": 14 },
+    { "id": "tech-valuation", "title": "Valuation: Comps & Precedents", "domain": "technicals", "path": "lessons/technicals/valuation.md", "order": 2, "estMinutes": 13 },
+    { "id": "tech-dcf", "title": "DCF & WACC", "domain": "technicals", "path": "lessons/technicals/dcf.md", "order": 3, "estMinutes": 15 },
+    { "id": "tech-lbo-basics", "title": "LBO Basics", "domain": "technicals", "path": "lessons/technicals/lbo-basics.md", "order": 4, "estMinutes": 12 },
+
+    { "id": "pf-structure", "title": "Players & Fund Structure", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/structure-and-players.md", "order": 1, "estMinutes": 12 },
+    { "id": "pf-strategies", "title": "PE Strategies Landscape", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/strategies.md", "order": 2, "estMinutes": 11 },
+    { "id": "pf-lifecycle", "title": "Fund Lifecycle & Capital Flows", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/lifecycle-and-capital-flows.md", "order": 3, "estMinutes": 13 },
+    { "id": "pf-lp-role", "title": "The LP Perspective & Key Documents", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/lp-perspective-and-documents.md", "order": 4, "estMinutes": 13 },
+
+    { "id": "fe-fees-carry", "title": "Fees, Carry & Hurdles", "domain": "fund-economics", "path": "lessons/fund-economics/fees-carry-hurdles.md", "order": 1, "estMinutes": 14 },
+    { "id": "fe-waterfalls", "title": "Distribution Waterfalls", "domain": "fund-economics", "path": "lessons/fund-economics/distribution-waterfalls.md", "order": 2, "estMinutes": 16 },
+    { "id": "fe-metrics-pme", "title": "Fund Metrics & PME", "domain": "fund-economics", "path": "lessons/fund-economics/metrics-and-pme.md", "order": 3, "estMinutes": 12 },
+
+    { "id": "perf-irr-multiples", "title": "IRR & Money Multiples", "domain": "performance", "path": "lessons/performance/irr-and-multiples.md", "order": 1, "estMinutes": 14 },
+    { "id": "perf-pme", "title": "Public Market Equivalent (PME)", "domain": "performance", "path": "lessons/performance/pme.md", "order": 2, "estMinutes": 13 },
+    { "id": "perf-benchmarking", "title": "Benchmarking & Pitfalls", "domain": "performance", "path": "lessons/performance/benchmarking.md", "order": 3, "estMinutes": 10 }
   ],
   "flashcardDecks": [
-    {
-      "id": "fe-deck",
-      "title": "Fund Economics & Waterfalls",
-      "domain": "fund-economics",
-      "path": "flashcards/fund-economics.json",
-      "count": 34
-    }
+    { "id": "tech-deck", "title": "Technicals", "domain": "technicals", "path": "flashcards/technicals.json", "count": 88 },
+    { "id": "pf-deck", "title": "PE Fundamentals", "domain": "pe-fundamentals", "path": "flashcards/pe-fundamentals.json", "count": 32 },
+    { "id": "fe-deck", "title": "Fund Economics & Waterfalls", "domain": "fund-economics", "path": "flashcards/fund-economics.json", "count": 34 },
+    { "id": "perf-deck", "title": "Performance & Metrics", "domain": "performance", "path": "flashcards/performance.json", "count": 34 }
   ],
   "questionSets": [
-    {
-      "id": "fe-interview",
-      "title": "Fund Economics — Interview Q&A",
-      "domain": "fund-economics",
-      "path": "questionbank/fund-economics.json"
-    }
+    { "id": "tech-interview", "title": "Technicals — Interview Q&A", "domain": "technicals", "path": "questionbank/technicals.json" },
+    { "id": "pf-interview", "title": "PE Fundamentals — Interview Q&A", "domain": "pe-fundamentals", "path": "questionbank/pe-fundamentals.json" },
+    { "id": "fe-interview", "title": "Fund Economics — Interview Q&A", "domain": "fund-economics", "path": "questionbank/fund-economics.json" },
+    { "id": "perf-interview", "title": "Performance — Interview Q&A", "domain": "performance", "path": "questionbank/performance.json" }
   ],
   "quizzes": [
-    {
-      "id": "fe-quiz",
-      "title": "Fund Economics Quiz",
-      "domain": "fund-economics",
-      "path": "quizzes/fund-economics.json"
-    }
+    { "id": "tech-quiz", "title": "Technicals Quiz", "domain": "technicals", "path": "quizzes/technicals.json" },
+    { "id": "pf-quiz", "title": "PE Fundamentals Quiz", "domain": "pe-fundamentals", "path": "quizzes/pe-fundamentals.json" },
+    { "id": "fe-quiz", "title": "Fund Economics Quiz", "domain": "fund-economics", "path": "quizzes/fund-economics.json" },
+    { "id": "perf-quiz", "title": "Performance Quiz", "domain": "performance", "path": "quizzes/performance.json" }
   ],
-  "glossary": { "paths": ["glossary/terms.json"] },
+  "glossary": { "paths": ["glossary/technicals.json", "glossary/pe-fundamentals.json", "glossary/terms.json", "glossary/performance.json"] },
   "excel": []
 }
