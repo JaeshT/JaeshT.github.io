@@ -1,0 +1,164 @@
+{
+  "terms": [
+    {
+      "term": "PIPCO",
+      "definition": "Private Investment Portfolios and Co-Investments — Neuberger Berman's dedicated internal architecture for managing co-investment and primary fund allocations within the private markets platform.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "GP Stakes",
+      "definition": "A specialized private markets strategy involving the acquisition of minority equity ownership in the management companies of alternative asset managers, securing rights to future management fee streams and carried interest across all funds raised by the target GP.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Continuation Fund",
+      "definition": "A GP-led secondary transaction where a sponsor transfers one or more high-conviction performing assets from an older, maturing fund into a newly created vehicle — giving existing LPs the option to cash out while providing the GP with new capital to extend the value-creation runway.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "ELTIF",
+      "definition": "European Long-Term Investment Fund — a specialized EU regulatory framework designed to allow retail and high-net-worth investors to access illiquid private market assets. Used by Neuberger Berman for its Global Private Equity Access Fund and similar democratization vehicles.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Burgiss (Private i)",
+      "definition": "The institutional gold standard software platform for LP portfolio monitoring. Used to track unfunded commitments, calculate fund-level IRRs and TVPIs, run cash-flow pacing models, and perform risk analytics on private capital portfolios.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "eFront",
+      "definition": "A leading alternative investment management software platform (owned by BlackRock) integrated with the Aladdin ecosystem. Used for comprehensive fund administration, LP reporting, and multi-asset class risk modeling.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "PCAP",
+      "definition": "Partner's Capital Account Statement — the quarterly financial document standardized by ILPA detailing an individual LP's specific ownership stake, contributions, distributions, NAV, and the roll-forward reconciliation equation.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "PCAP Roll-Forward",
+      "definition": "The fundamental accounting equation governing a PCAP: Ending NAV = Beginning NAV + Capital Called − Distributions + Realized Gains + Unrealized Gains/Losses − Management Fees/Expenses.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Side Letter",
+      "definition": "A bilateral legal agreement between a GP and a specific LP that modifies the LPA's standard terms for that LP — commonly granting MFN rights, fee discounts, regulatory excuse rights, or enhanced co-investment access.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Blind-Pool Risk",
+      "definition": "The inherent risk assumed by LPs when committing capital to a primary fund before the GP has identified or acquired the underlying assets. The LP relies entirely on the GP's historical track record without knowing which specific companies will be purchased.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "MFN (Most Favored Nation)",
+      "definition": "A side letter clause guaranteeing an LP the right to automatically receive any superior fee or economic terms that the GP subsequently negotiates with any other investor in the same fund.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Dyal Capital Partners",
+      "definition": "The pioneer GP stakes platform founded, incubated, and scaled within Neuberger Berman (Funds I–IV). In 2021 it merged with Owl Rock and Altimar via a $12.5 billion SPAC transaction to form Blue Owl Capital (NYSE: OWL).",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Blue Owl Capital",
+      "definition": "A publicly listed alternative asset manager (NYSE: OWL) formed in 2021 from the combination of Dyal Capital Partners (GP stakes), Owl Rock Capital Group (direct lending), and Altimar Acquisition Corporation (SPAC).",
+      "tags": ["firm"]
+    },
+    {
+      "term": "NB Crossroads",
+      "definition": "Neuberger Berman's flagship multi-asset commingled private equity fund series (currently Fund XX and XXI) that blends primaries, co-investments, and secondaries into a diversified, volatility-dampened portfolio.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "NB Strategic Co-Investment Partners",
+      "definition": "Neuberger Berman's dedicated co-investment commingled fund series. Fund V recently closed at over $2.8 billion, surpassing its $2.25 billion target.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "NB SOF (Secondary Opportunities Fund)",
+      "definition": "Neuberger Berman's dedicated secondaries commingled vehicle, currently in its sixth vintage (SOF VI), targeting 90–100 investments at ~$45 million average size in privately negotiated middle-market and mature buyout transactions.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "iCapital Network",
+      "definition": "A financial technology platform that Neuberger Berman partners with to distribute the Global Private Equity Access Fund to financial advisors and their HNW clients, handling the administrative complexity of private market capital calls.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Almanac (Real Estate Platform)",
+      "definition": "Neuberger Berman's real estate-focused platform that now houses the firm's direct GP stakes activity post-Blue Owl, acquiring minority equity stakes exclusively in growth-oriented real estate investment managers.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Agentic AI",
+      "definition": "Advanced artificial intelligence systems capable of autonomous multi-step decision-making and execution, moving beyond passive large language models. Identified in NB's 1H 2026 Outlook as a key structural theme creating software sector dislocation and PE value-creation opportunities.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Cobalt LP",
+      "definition": "Specialized LP portfolio reporting software that automates complex waterfall calculations, generates dynamic data visualizations, and produces IC reporting. Used alongside Burgiss in institutional LP operations.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Cambridge Associates",
+      "definition": "A leading institutional consulting and research firm whose private capital benchmarking indices are universally used by LPs to calculate Public Market Equivalents (PME) against rigorously scrubbed peer data.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "ILPA",
+      "definition": "Institutional Limited Partners Association — the global LP advocacy body that establishes standard PCAP and quarterly reporting templates, fee transparency guidelines, and best-practice LPA term standards to level the playing field between LPs and GPs.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Preqin",
+      "definition": "The primary global database for fundraising data and peer benchmarking. Used by LP analysts to identify GPs currently in the market, their target fund sizes, and aggregate historical quartile performance.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "PitchBook",
+      "definition": "An external intelligence platform used primarily for direct deal analytics — extracting comparable company enterprise multiples, M&A transaction histories, and specific capitalization tables for co-investment underwriting.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Recycling Provision",
+      "definition": "An LPA clause allowing the GP to reinvest capital rapidly returned from a quick exit back into the fund rather than permanently distributing it, thereby maintaining the fund's deployable capital base.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Key Person Clause",
+      "definition": "A protective LPA provision that suspends the GP's ability to make new investments if specified senior founding partners depart the firm, are incapacitated, or fail to dedicate a required percentage of their time to managing the fund.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Excuse Right",
+      "definition": "A side letter provision allowing a specific LP to legally opt out of funding particular investments that violate the LP's internal investment mandates (e.g., a public pension fund excused from tobacco, weapons, or gambling investments).",
+      "tags": ["firm"]
+    },
+    {
+      "term": "J-Curve",
+      "definition": "The historical performance trajectory of private equity funds that post negative returns in early years due to management fee drag and upfront organizational costs, before underlying portfolio company valuations rise and assets are realized.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "GP Commit",
+      "definition": "The percentage of a new fund's capital contributed by the general partner using its own money. A meaningful GP commit (typically 1–5%) signals strong alignment of interest, ensuring the GP's personal wealth is at risk alongside the LPs' capital.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "Strategy Drift",
+      "definition": "A warning sign in PPM due diligence where a GP's stated new fund strategy materially diverges from the historical strategy that generated the track record — e.g., a lower-middle-market specialist raising a large-cap fund — rendering historical performance data less relevant.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "LBO Model",
+      "definition": "A leveraged buyout financial model constructed during co-investment due diligence to evaluate entry/exit multiples, projected leverage levels, IRR and MOIC returns, and downside sensitivities for a specific target company.",
+      "tags": ["firm"]
+    },
+    {
+      "term": "PME (Public Market Equivalent)",
+      "definition": "A suite of methodologies (KS-PME and LN-PME) used to compare private equity cash flows and returns against a public market index on a time-matched and cash-flow-equivalent basis.",
+      "tags": ["firm"]
+    }
+  ]
+}

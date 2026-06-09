@@ -1,0 +1,356 @@
+{
+  "id": "firm-deck",
+  "title": "Neuberger Berman",
+  "cards": [
+    {
+      "id": "firm-c1",
+      "front": "What is the total AUM of Neuberger Berman's Private Markets platform as of 2025/2026?",
+      "back": "Approximately $177 billion.",
+      "tags": ["platform"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c2",
+      "front": "What does PIPCO stand for?",
+      "back": "Private Investment Portfolios and Co-Investments — NB's dedicated internal architecture for managing co-investments and primary fund allocations.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c3",
+      "front": "What is Neuberger Berman's total firm-wide AUM (all asset classes)?",
+      "back": "Approximately $390 billion.",
+      "tags": ["platform"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c4",
+      "front": "What happened to Dyal Capital Partners?",
+      "back": "In 2021, Dyal merged with Owl Rock Capital Group and Altimar Acquisition Corporation (a SPAC) in a $12.5 billion transaction generating ~$1.8 billion in gross proceeds to form Blue Owl Capital (NYSE: OWL). Active mega-cap GP stakes management is no longer a core NB strategy.",
+      "tags": ["history"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c5",
+      "front": "Who is the Global Head of Private Markets at Neuberger Berman?",
+      "back": "Anthony (Tony) Tutrone — an original member of Lehman Brothers' Merchant Banking Group (1987) and former leader at The Cypress Group.",
+      "tags": ["leadership"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c6",
+      "front": "Who is the Global Head of PIPCO at Neuberger Berman?",
+      "back": "Jonathan Shofet — oversees the co-investment and primary architectures, ensuring seamless deal flow integration.",
+      "tags": ["leadership"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c7",
+      "front": "Who leads NB's democratization / Investment Solutions initiatives?",
+      "back": "Peter von Lehe (Head of Investment Solutions) — drives evergreen and ELTIF structural innovation for retail and HNW channels.",
+      "tags": ["leadership"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c8",
+      "front": "Who is NB's Deputy Head of Alternatives?",
+      "back": "David S. Stonberg — works alongside Tony Tutrone on alternatives allocation and risk management.",
+      "tags": ["leadership"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c9",
+      "front": "Who heads NB's European Private Equity effort?",
+      "back": "Joana Rocha Scaff (Head of Europe Private Equity) — directs deployment across the European middle market.",
+      "tags": ["leadership"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c10",
+      "front": "How much AUM does NB's primaries platform manage?",
+      "back": "In excess of $40 billion in commitments.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c11",
+      "front": "How much dedicated co-investment capital does NB manage?",
+      "back": "Over $40 billion in dedicated co-investment (PIPCO) capital.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c12",
+      "front": "How much does NB's secondaries business manage?",
+      "back": "More than $25 billion.",
+      "tags": ["platform", "secondaries"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c13",
+      "front": "What is NB Crossroads?",
+      "back": "NB's premier multi-asset commingled platform (currently Fund XX and XXI) that blends primaries, co-investments, and secondaries to deliver a diversified, volatility-dampened portfolio.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c14",
+      "front": "What was the close size of NB Strategic Co-Investment Partners Fund V?",
+      "back": "Over $2.8 billion — significantly above its $2.25 billion target.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c15",
+      "front": "What is NB SOF VI and what are its target parameters?",
+      "back": "NB Secondary Opportunities Fund VI — dedicated secondaries vehicle targeting 90–100 investments with ~$45 million average transaction size, focused on privately negotiated middle-market and mature buyout assets.",
+      "tags": ["platform", "secondaries"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c16",
+      "front": "What is the NB Global Private Equity Access Fund?",
+      "back": "A continually offered, registered closed-end evergreen fund (>$1 billion AUM) that provides HNW and retail investors institutional-grade private equity access via ELTIF and equivalent US structures, distributed through iCapital Network.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c17",
+      "front": "What was the size of the Dyal / Owl Rock / Altimar SPAC transaction?",
+      "back": "$12.5 billion, generating approximately $1.8 billion in gross proceeds to Neuberger Berman.",
+      "tags": ["history"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c18",
+      "front": "After the Blue Owl spin-off, where does NB maintain direct GP stakes exposure?",
+      "back": "Through the Almanac real estate platform, acquiring minority equity stakes exclusively in growth-oriented real estate investment managers.",
+      "tags": ["history", "strategy"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c19",
+      "front": "What does a KS-PME result of 1.05 signify?",
+      "back": "The private equity fund outperformed the public market benchmark by approximately 5% on a cash-flow equivalent, discounted basis.",
+      "tags": ["calculations"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c20",
+      "front": "How does KS-PME mathematically fix the flaw of the Long-Nickels PME?",
+      "back": "LN-PME creates a synthetic short position when a highly successful fund distributes more cash than the simulated index account holds, breaking the IRR calculation. KS-PME avoids this by abandoning the IRR entirely and calculating a market multiple by discounting all cash flows using the index return as the discount rate.",
+      "tags": ["calculations"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c21",
+      "front": "What are the primary motivations for an LP to invest in secondaries?",
+      "back": "J-curve mitigation, quicker distributions, vintage year diversification, and acquiring mature cash-generative assets at a discount to NAV.",
+      "tags": ["secondaries", "strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c22",
+      "front": "Define a GP-Led Continuation Vehicle.",
+      "back": "A complex secondary transaction where a GP transfers high-conviction performing assets from an older, maturing fund into a newly created vehicle — giving existing LPs the option to cash out while securing new capital (from secondary buyers) to extend the value-creation runway.",
+      "tags": ["secondaries"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c23",
+      "front": "Why do institutional LPs pursue co-investments?",
+      "back": "To gain concentrated, fee-efficient (often zero management fee and carry) exposure to high-conviction assets alongside premier sponsors, blending down overall portfolio fees.",
+      "tags": ["strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c24",
+      "front": "Why would a GP offer lucrative co-investment rights to an LP?",
+      "back": "To bridge equity gaps on large transactions without breaching fund concentration limits, and to build goodwill with LPs to secure commitments for future primary funds.",
+      "tags": ["strategy"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c25",
+      "front": "What is the primary function of an LPA?",
+      "back": "The Limited Partnership Agreement is the binding legal and corporate contract governing the economics (fees, carry, hurdle), governance, and operational parameters of a private equity fund.",
+      "tags": ["strategy"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c26",
+      "front": "Define the purpose of a Side Letter.",
+      "back": "A bilateral agreement between a GP and a specific LP that modifies LPA terms for that LP — commonly granting MFN rights, fee discounts, excuse rights, or enhanced co-investment access.",
+      "tags": ["strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c27",
+      "front": "What are the standard economic terms outlined in an LPA?",
+      "back": "Typically 1.5%–2.0% management fee on committed capital (stepping down after the investment period) and 20% carried interest on profits over an 8% preferred return hurdle.",
+      "tags": ["strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c28",
+      "front": "What is a PCAP and what equation governs it?",
+      "back": "Partner's Capital Account Statement — the quarterly record of an LP's financial position. Roll-forward: Ending NAV = Beginning NAV + Capital Called − Distributions + Realized Gains + Unrealized Gains/Losses − Management Fees/Expenses.",
+      "tags": ["tools"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c29",
+      "front": "What is Burgiss (Private i) primarily used for?",
+      "back": "Institutional-grade LP portfolio monitoring: tracking unfunded commitments, calculating fund-level IRRs and TVPIs, running cash-flow pacing models, and performing risk analytics.",
+      "tags": ["tools"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c30",
+      "front": "What distinguishes PitchBook from Cobalt LP in an LP context?",
+      "back": "PitchBook is external deal intelligence (co-investment comps, M&A multiples, cap tables). Cobalt LP is internal LP administration — automating waterfall calculations and generating IC reporting.",
+      "tags": ["tools"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c31",
+      "front": "What is Cambridge Associates used for by institutional LPs?",
+      "back": "Extracting rigorously scrubbed private capital benchmarking indices to calculate accurate Public Market Equivalents (PME).",
+      "tags": ["tools"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c32",
+      "front": "How does eFront differentiate itself from Burgiss?",
+      "back": "eFront is integrated into BlackRock's Aladdin ecosystem, providing comprehensive multi-asset class risk modeling alongside private equity fund administration.",
+      "tags": ["tools"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c33",
+      "front": "Define DPI.",
+      "back": "Distributed to Paid-In Capital — the ratio of cumulative cash distributions returned to LPs relative to cumulative paid-in capital. It measures realized liquidity.",
+      "tags": ["calculations"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c34",
+      "front": "Define TVPI.",
+      "back": "Total Value to Paid-In Capital — the sum of DPI and RVPI, measuring the total gross multiple on invested capital (realized + unrealized).",
+      "tags": ["calculations"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c35",
+      "front": "If an LP commits $10M, pays in $5M, receives $2M in distributions, and has a $6M NAV, what is the TVPI?",
+      "back": "TVPI = (Distributions + NAV) / Paid-In = ($2M + $6M) / $5M = 1.60x.",
+      "tags": ["calculations"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c36",
+      "front": "Name the flagship multi-asset commingled fund that blends primaries, secondaries, and co-investments.",
+      "back": "NB Crossroads (currently Fund XX and Fund XXI).",
+      "tags": ["platform"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c37",
+      "front": "What is the structural role of ILPA?",
+      "back": "The Institutional Limited Partners Association establishes standard PCAP and quarterly reporting templates, enforces fee transparency guidelines, and publishes best-practice LPA term standards — leveling the playing field between LPs and GPs.",
+      "tags": ["strategy"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c38",
+      "front": "What is an 'anchor' investor in a continuation fund?",
+      "back": "An LP committing a disproportionately large amount of capital early in the structuring process, often securing preferential economics or governance rights in exchange.",
+      "tags": ["secondaries"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c39",
+      "front": "Why did Neuberger Berman launch the Global Private Equity Access Fund?",
+      "back": "To democratize private equity by providing an evergreen, continually offered closed-end fund to HNW and retail investors — eliminating traditional capital call burdens via ELTIF and iCapital distribution.",
+      "tags": ["platform", "strategy"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c40",
+      "front": "Explain blind-pool risk.",
+      "back": "The risk inherent in primary fund commitments where the LP is deploying hundreds of millions of dollars based entirely on the GP's past track record — without knowing which specific target companies will be acquired.",
+      "tags": ["strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c41",
+      "front": "How does NB SOF VI's strategy systematically reduce blind-pool risk?",
+      "back": "By targeting secondary portfolios that are at least 70% committed at close, ensuring immediate exposure to mature, already-identified, cash-generative assets.",
+      "tags": ["secondaries"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c42",
+      "front": "What triggers a capital call?",
+      "back": "A GP legally demands LPs transfer a portion of their committed (but unfunded) capital to fund a new acquisition, pay organizational expenses, or cover management fees.",
+      "tags": ["strategy"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c43",
+      "front": "If a fund's KS-PME is 0.92 against the S&P 500, what is the conclusion?",
+      "back": "The fund underperformed the S&P 500 by approximately 8% on a cash-flow equivalent, discounted basis.",
+      "tags": ["calculations"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c44",
+      "front": "According to NB's 1H 2026 Outlook, what technology is expected to create massive dislocation in the software sector?",
+      "back": "Agentic AI — autonomous AI agents that move beyond LLM training to rebuild information architectures and execute multi-step workflows.",
+      "tags": ["platform"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c45",
+      "front": "What is driving the expected surge in GP-led secondary activity in 2026?",
+      "back": "A $863 billion NAV backlog of buyout funds aged seven years or older (as of late 2025), with congested IPO and M&A exit channels forcing GPs toward continuation vehicles.",
+      "tags": ["secondaries", "platform"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c46",
+      "front": "Name three representative companies recently held in NB's PIPCO co-investment portfolios.",
+      "back": "Solenis (Industrials/Chemicals), Nord Anglia Education (Educational Services), Proofpoint (Enterprise Software/Cybersecurity), and Mavis Discount Tire (Consumer/Automotive).",
+      "tags": ["platform", "strategy"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c47",
+      "front": "Why might an LP request an 'Excuse Right' in a side letter?",
+      "back": "To legally opt out of funding specific investments that violate the LP's internal mandates (e.g., a pension fund prohibited from investing in tobacco or firearms companies).",
+      "tags": ["strategy"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "firm-c48",
+      "front": "What is a Recycling Provision in an LPA?",
+      "back": "A clause allowing a GP to reinvest capital rapidly returned from a quick exit back into the fund, rather than distributing it and permanently reducing deployable capital.",
+      "tags": ["strategy"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "firm-c49",
+      "front": "Why does Neuberger Berman focus on mid-life stage for co-investments?",
+      "back": "Investing in companies that have already achieved initial operational stabilization drives a faster return of capital and mitigates the J-curve.",
+      "tags": ["strategy"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "firm-c50",
+      "front": "How many private market professionals does NB employ, and across how many offices?",
+      "back": "Over 450 private market professionals across 15–17 international offices (key hubs: New York, London, Hong Kong).",
+      "tags": ["platform"],
+      "difficulty": "easy"
+    }
+  ]
+}

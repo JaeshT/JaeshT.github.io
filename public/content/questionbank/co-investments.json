@@ -1,0 +1,104 @@
+{
+  "id": "coinv-interview",
+  "title": "Co-investments — Interview Q&A",
+  "questions": [
+    {
+      "id": "iq1",
+      "prompt": "What is a co-investment and why would an LP do one?",
+      "modelAnswer": "A co-investment is a direct minority stake in a single company taken alongside a GP's fund but outside the main fund vehicle, usually with no or reduced fee and carry. LPs do them mainly for net-return enhancement, since the no-fee/no-carry economics preserve gross returns, and secondarily for faster deployment, exposure selectivity, transparency into a named asset, and J-curve mitigation. I would add that demand structurally exceeds supply: a StepStone survey cited by Bain found only about half of LPs with appetite were able to participate, which is why co-investment access is a relationship currency GPs ration.",
+      "tags": ["rationale", "economics"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq2",
+      "prompt": "Why would a GP give away economics by offering no-fee co-investment?",
+      "modelAnswer": "Not generosity. The GP needs equity it will not or cannot supply from the fund: the deal is larger than the fund's check, or it would breach the fund's concentration limit, or the GP wants speed and certainty of capital in a competitive process. It also uses co-investment to reward its largest LPs and win their next-fund commitments. The flip side I always keep in mind is that the GP has decided not to deploy more fund capital, which I need to explain benignly before I invest.",
+      "tags": ["rationale"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq3",
+      "prompt": "Walk me through how co-investment underwriting differs from underwriting a primary fund commitment.",
+      "modelAnswer": "Fund DD is top-down: I judge a manager and a strategy for a blind pool, over weeks to months, focusing on team, track record, process, alignment, and terms, with diversification built in. Co-investment DD is bottom-up on one named asset: market, company, management, financials, structure, downside, in days to weeks, on the GP's clock, relying heavily on and re-checking the GP's specific diligence, with no diversification at the deal level. The question that exists only in co-investment is 'why is this being offered to me?' Forgetting to ask it is how LPs get adversely selected.",
+      "tags": ["underwriting", "process"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq4",
+      "prompt": "Explain adverse selection and tell me whether the evidence supports it. Is co-investing a free lunch?",
+      "modelAnswer": "Adverse selection is the risk that the deals a GP shares are systematically worse than the ones it keeps, because the GP knows more and chooses what to offer. The evidence is genuinely split. Fang, Ivashina and Lerner (2015) found co-investments underperformed the funds they were made alongside, consistent with adverse selection, while solo deals outperformed. Braun, Jenkinson and Schemmerl (2020), with a larger, selection-bias-free sample from 464 funds, found no adverse selection and that diversified co-investment portfolios beat funds net of fees. I reconcile them by noting different samples and that both agree fee savings help net returns; the real drivers of dispersion are timing and concentration. My takeaway is that adverse selection is a manageable risk, addressed through selectivity, GP alignment checks, avoiding hot-market over-deployment, and diversification — not a reason to avoid co-investing. Co-investing is not a free lunch: it is a fee-saving machine that hands you a return cushion of roughly 12% to 24% of gross MOIC. Whether you keep that cushion depends on selection, market timing, and diversification, none of which are free.",
+      "tags": ["adverse-selection", "economics"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq5",
+      "prompt": "Quantify the fee benefit of co-investing.",
+      "modelAnswer": "On a deal exiting at 2.5x gross with 8% hurdle, full catch-up, and 20% carry, the fund LP nets 2.20x while the co-investor keeps 2.50x — a 0.30x or roughly 14% uplift from carry alone. At the fund level, adding management fees takes a 2.5x gross to about 1.9x net, so 2-and-20 consumes around 24% of the gross multiple under illustrative assumptions. The cleanest way to think about it is a fee cushion: a co-investment can underperform the fund's deals by 12% to 24% on a gross basis and still match it net. That cushion is the lens for the adverse-selection debate — adverse selection has to be quite severe to overwhelm the fee advantage.",
+      "tags": ["economics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq6",
+      "prompt": "What is the difference between syndicated and co-underwritten co-investments?",
+      "modelAnswer": "Syndicated co-investment is offered after the GP has signed the deal: execution-de-risked but more competed. Co-underwriting is offered while the GP is still competing for the asset, with diligence shared in real time, the fastest timelines, and no certainty the GP even wins. Co-underwriting demands more from the LP but tends to deliver better access and returns: StepStone data show pre-signing deals at ~2.7x gross TVPI versus ~2.2x post-signing, and GPs increasingly favor LPs who can co-underwrite.",
+      "tags": ["process"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq7",
+      "prompt": "How would you underwrite a single co-investment? Give me your framework.",
+      "modelAnswer": "Six lenses. Market: size, growth, competitive position, where we are in the cycle. Company: business model, unit economics, revenue quality, margins, cash conversion. Management: quality, alignment, track record. Financials: historicals, the base-case model, leverage and covenants, and a value-creation bridge splitting return into EBITDA growth, margin, multiple, and deleveraging. Deal structure: entry valuation versus comps, pari passu treatment, the cap table, and confirmed economics. Downside: an explicit loss case, break-even, leverage stress, exit-multiple sensitivity, and portfolio-concentration fit. Throughout, I keep asking why the GP is sharing this and whether the answer survives scrutiny.",
+      "tags": ["underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq8",
+      "prompt": "A GP offers you a deal at the same entry price as the fund, with the GP putting 25% of its fund into it and management rolling significant equity. The thesis is two-thirds EBITDA growth and deleveraging, one-third multiple expansion, with 4.5x leverage. What do you focus on?",
+      "modelAnswer": "The alignment signals are positive: pari passu pricing, real fund and management skin in the game. I would press on the model's EBITDA-growth assumptions, since that is the largest return driver and the one most likely to be optimistic; on the durability of margins; and on the 4.5x leverage, specifically maturities, fixed vs floating, covenant headroom, and interest coverage in a downturn. I would sensitize the exit multiple, since multiple expansion is a third of the thesis and is the most fragile leg. Then I would check portfolio fit to make sure I am not doubling down on an exposure I already hold through the fund.",
+      "tags": ["underwriting", "risks"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq9",
+      "prompt": "What are the biggest risks in co-investing and how do you manage them?",
+      "modelAnswer": "Adverse selection, single-asset concentration, leverage/financing risk, execution risk on co-underwriting (the deal may die), and timing risk (over-deploying in frothy markets). I manage them with deal-by-deal selectivity and a real 'why us' assessment, per-deal sizing limits and diversification across enough deals, sectors, and vintages that the √N effect works, explicit leverage and downside stress testing, disciplined pacing across the cycle, and the willingness to give a fast no when the timeline does not allow real diligence.",
+      "tags": ["risks", "underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq10",
+      "prompt": "How do co-investments affect the J-curve?",
+      "modelAnswer": "They flatten and shorten it. A fund's early net NAV dips below cost because it pays management fees and deploys into companies that have not yet appreciated. A co-investment pays no annual fee and deploys immediately, so it starts at cost and climbs sooner. But I would caution that mitigating the J-curve is not reducing risk: faster deployment is faster, concentrated exposure.",
+      "tags": ["economics"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "iq11",
+      "prompt": "What governance and information rights does a co-investor get?",
+      "modelAnswer": "Typically none of control: no board seat, passive minority. Protections are contractual in the SPV: information and reporting rights, confirmed no-fee/no-carry economics and expense allocation, pari passu treatment, drag-along and tag-along rights, follow-on terms, and conflict provisions. The reference for best practice is ILPA, which emphasizes alignment, transparency, and allocating suitable opportunities to the fund first.",
+      "tags": ["process"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq12",
+      "prompt": "What goes into a co-investment IC memo, and what makes it different from a fund memo?",
+      "modelAnswer": "An executive summary with the recommendation and headline returns, a transaction overview, the GP/sponsor assessment, the six diligence lenses (market, company, management, financials, structure, downside), valuation and returns with base/upside/downside and sensitivities, risks and mitigants with an explicit downside case, and portfolio fit. The section a fund memo lacks is 'why is this being offered to us?' — an honest assessment of the GP's motive and alignment — because that is where adverse selection lives.",
+      "tags": ["underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "iq13",
+      "prompt": "If you could ask a GP only three questions before co-investing, what would they be?",
+      "modelAnswer": "Why are you sharing this deal rather than putting more fund capital in? How much of the fund's and the GP's own capital, and management's, is in the deal, and are we pari passu? And what does your downside case look like, including the leverage under stress and the break-even? Those three get at motive, alignment, and risk faster than anything else.",
+      "tags": ["underwriting", "risks"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "iq14",
+      "prompt": "When would you pass on a co-investment even if you like the company?",
+      "modelAnswer": "When the GP cannot give a clean reason for sharing it; when alignment is thin or terms are not pari passu; when the thesis leans on multiple expansion or an aggressive exit multiple; when leverage will not survive a downturn; when it doubles down on an exposure I already hold; or when the timeline makes genuine diligence impossible. Liking the company is necessary but not sufficient — the deal, the price, the alignment, and the portfolio fit all have to clear.",
+      "tags": ["risks", "underwriting"],
+      "difficulty": "medium"
+    }
+  ]
+}

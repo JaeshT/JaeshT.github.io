@@ -1,0 +1,177 @@
+{
+  "id": "prim-quiz",
+  "title": "Primaries Quiz",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "prompt": "Which formula correctly expresses the relationship between TVPI, DPI, and RVPI?",
+      "choices": [
+        "TVPI = DPI × RVPI",
+        "TVPI = DPI + RVPI",
+        "TVPI = DPI − RVPI",
+        "TVPI = DPI / RVPI"
+      ],
+      "answerIndex": 1,
+      "explanation": "TVPI (Total Value to Paid-In) equals the sum of DPI (realized cash distributions per dollar called) and RVPI (unrealized NAV per dollar called). This identity is foundational: as a fund matures, RVPI should fall and DPI should rise as paper value converts to cash."
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "prompt": "A fund reports a 28% net IRR but a 1.5x net TVPI. What is the most likely explanation?",
+      "choices": [
+        "The fund is still in the J-curve and has not returned capital yet",
+        "The fund generated returns through financial engineering — subscription lines, dividend recaps, or early partial flips — rather than durable value creation",
+        "The fund used a European waterfall, which reduces the net multiple to LPs",
+        "The GP's carry rate is unusually high, suppressing the net multiple"
+      ],
+      "answerIndex": 1,
+      "explanation": "A high IRR alongside a low multiple is the fingerprint of financial engineering: fast, modest-magnitude returns achieved by compressing the LP's capital-at-work window (subscription lines, early dividend recaps) rather than building genuine value. LPs ultimately earn multiples, not annualized percentages."
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "prompt": "What does a KS-PME of 0.92 tell you about a fund's performance?",
+      "choices": [
+        "The fund returned 92 cents of cash for every dollar called",
+        "The fund's net IRR was 92% on an annualized basis",
+        "LPs ended with 8% less wealth than if the same dollars had been invested in the chosen public index at the same times",
+        "The fund beat the public index by 8%"
+      ],
+      "answerIndex": 2,
+      "explanation": "KS-PME is a wealth-multiple ratio. A value below 1.0 means the fund underperformed the chosen public index — in this case, LPs ended with 8% less wealth than the index alternative. Above 1.0 means outperformance."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "prompt": "Which lever of the value-creation bridge most directly reflects a GP's genuine operating skill?",
+      "choices": [
+        "Multiple expansion",
+        "Deleveraging",
+        "EBITDA growth",
+        "IRR from subscription-line timing"
+      ],
+      "answerIndex": 2,
+      "explanation": "EBITDA growth — through revenue growth and margin expansion — is the only lever that reflects operating improvement by the GP. Multiple expansion is mostly market beta and timing; deleveraging is a mechanical function of using leverage in the first place."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "prompt": "What is the primary difference between a European and an American distribution waterfall?",
+      "choices": [
+        "European waterfalls have a higher carry rate (25% vs 20%)",
+        "European waterfalls pay carry only after all LP capital plus preferred return is returned across the entire fund; American waterfalls pay carry deal-by-deal as each investment exits",
+        "American waterfalls require a larger GP commitment than European structures",
+        "European waterfalls do not include a hurdle rate; American waterfalls always include one"
+      ],
+      "answerIndex": 1,
+      "explanation": "The waterfall type is the single most important economic governance term. European (whole-fund) is LP-friendly and the institutional default. American (deal-by-deal) front-loads cash to the GP and creates clawback risk if later deals lose money — acceptable only with a strong escrow-backed, gross-of-tax, joint-and-several clawback."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "prompt": "A buyout fund is 9 years old. Its RVPI has been rising for the past 3 years while DPI has barely moved from 0.4x. What is the most concerning interpretation?",
+      "choices": [
+        "The fund is in the J-curve, which is normal at year 9",
+        "The GP is marking up assets it cannot sell, suggesting a realization or valuation problem",
+        "The fund has a European waterfall, which delays distributions to LPs",
+        "The fund's management fee is too high, suppressing net distributions"
+      ],
+      "answerIndex": 1,
+      "explanation": "At year 9, a fund should have significant DPI as exits close. Rising RVPI with stalled DPI in a mature fund is the single most common late-cycle red flag: the manager is marking up assets it cannot convert to cash. Haircut the unrealized value and re-underwrite on the haircut numbers."
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "prompt": "What does 'style drift' mean in the context of a buyout GP?",
+      "choices": [
+        "The GP is changing its marketing materials and fund name",
+        "The GP is paying higher entry multiples, creeping up the leverage curve, or moving to larger or earlier-stage deals than its historical book",
+        "The GP is replacing the investment team with junior partners",
+        "The GP is reducing its fee offset percentage"
+      ],
+      "answerIndex": 1,
+      "explanation": "Style drift is a subtle form of strategy change — not a new stated strategy, but gradual migration in leverage, deal size, entry multiple, or stage. It is dangerous because the track record was generated with different parameters, so it loses predictive power. Larger funds especially show style drift as the GP chases bigger deals."
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "prompt": "ILPA recommends that the management fee offset for transaction, monitoring, and director fees collected by the GP from portfolio companies should be:",
+      "choices": [
+        "50% offset",
+        "75% offset",
+        "100% offset",
+        "No offset is required; these are separate revenue streams"
+      ],
+      "answerIndex": 2,
+      "explanation": "ILPA recommends 100% offset so that portfolio-company fees reduce the management fee dollar-for-dollar. Anything less means LPs effectively pay twice — once via the management fee and again because the GP keeps a share of the portfolio-company fees."
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "prompt": "What would immediately make you question the quality of a fund's operational due diligence outcome?",
+      "choices": [
+        "The fund has a European waterfall",
+        "The GP self-administers the fund with no independent third-party administrator",
+        "The GP commitment is funded partly through fee waivers",
+        "The fund's hurdle rate is 6% rather than 8%"
+      ],
+      "answerIndex": 1,
+      "explanation": "GP self-administration — where the manager both makes investments and keeps the books, strikes the NAV, and reconciles cash — was the structural enabler of Madoff, Bayou, and other frauds. It is a major ODD red flag and in many cases an independently fatal finding."
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "prompt": "What is the gross-to-net IRR spread typically lost to fees and carry in a successful buyout fund?",
+      "choices": [
+        "1–2 percentage points",
+        "2–3 percentage points",
+        "5–7 percentage points",
+        "10–12 percentage points"
+      ],
+      "answerIndex": 2,
+      "explanation": "A typical full-life gross-to-net spread for buyout is roughly 5–7 points of IRR and 0.4x–0.6x of MOIC. If the spread is much smaller, either fees are unusually low (verify) or the gross numbers exclude costs they should include. If much larger, the fee load or expense pass-throughs are abusive."
+    },
+    {
+      "id": "q11",
+      "type": "mcq",
+      "prompt": "Which of the following is the STRONGEST evidence that a buyout GP has a repeatable process and edge?",
+      "choices": [
+        "The GP claims 'top-quartile' performance in three consecutive funds",
+        "High DPI across multiple vintages, a low loss ratio, and a value-creation bridge showing returns predominantly from EBITDA growth rather than multiple expansion",
+        "The GP raised a significantly larger fund IV, indicating LP demand",
+        "The GP has a European waterfall and an 8% hurdle in the current fund"
+      ],
+      "answerIndex": 1,
+      "explanation": "Strong evidence of repeatable process combines: actual realized cash (DPI) across multiple vintages, low loss ratios indicating downside discipline, and attribution showing operating value creation (EBITDA growth) rather than beta/leverage. 'Top-quartile' claims are marketing artifacts until verified against a named benchmark and vintage."
+    },
+    {
+      "id": "q12",
+      "type": "mcq",
+      "prompt": "A GP raised $500M for Fund III and is now raising $2B for Fund IV — a 4x step-up. What is the primary diligence concern?",
+      "choices": [
+        "The GP will need a higher hurdle rate to justify the larger fund",
+        "The fund size step-up signals strategy drift: the edge built at lower-middle-market deal sizes may not translate to larger, more competitive buyouts, and historical returns lose predictive power",
+        "ILPA guidelines prohibit fund sizes above $1B for first-time managers",
+        "A $2B fund requires an American waterfall rather than a European one"
+      ],
+      "answerIndex": 1,
+      "explanation": "A 3x–4x step-up in fund size is a major drift flag. Bigger funds pursue bigger deals in more competitive, more efficiently-priced markets. An edge built at lower-middle-market deal sizes — where auctions are less efficient and operating improvements are larger — may not replicate at scale. The track record's predictive value drops significantly."
+    },
+    {
+      "id": "q13",
+      "type": "numeric",
+      "prompt": "A fund has paid-in capital of $90M, cumulative distributions of $54M, and residual NAV of $72M. What is the fund's TVPI (to 2 decimal places)?",
+      "answer": 1.4,
+      "tolerance": 0.01,
+      "unit": "x",
+      "explanation": "TVPI = (Distributions + NAV) / Paid-in = ($54M + $72M) / $90M = $126M / $90M = 1.40x. You can verify: DPI = $54M / $90M = 0.60x; RVPI = $72M / $90M = 0.80x; DPI + RVPI = 0.60 + 0.80 = 1.40x = TVPI."
+    },
+    {
+      "id": "q14",
+      "type": "free",
+      "prompt": "A mature buyout fund (year 9) is showing a 2.2x TVPI but only 0.5x DPI, with RVPI that has risen each quarter for 2 years and marks that did not decline during the 2022–2023 public market drawdown. Walk through how you would assess this fund's track record.",
+      "modelAnswer": "This is a red-flag pattern. Start by splitting the track record into realized (DPI = 0.5x) and unrealized (RVPI = 1.7x). At year 9, a top-quartile buyout fund should have ~1.5x DPI; 0.5x is well below the vintage cohort norm and raises a realization problem. The rising RVPI while DPI stalls suggests the GP is marking up assets it cannot sell — the canonical late-cycle signal. The fact that marks did not move through the 2022–2023 public drawdown (when public comparables fell hard) is NAV smoothing: the marks are stale and likely overstated. I would haircut RVPI by 20–40% in my own model and re-underwrite on the haircut number. I would demand the valuation methodology and inputs deal-by-deal, and ask for the auditor's sign-off on marks. I would then check whether the 2.2x TVPI collapses to an unattractive multiple on the haircut. I would also ask: is the GP planning to extend the fund term? Long GP-controlled extensions in this situation are a zombie-fund flag. Finally, compare DPI to the vintage cohort using Cambridge Associates or Preqin data — if the fund is in the bottom quartile of its vintage on realized cash, the 2.2x TVPI headline is not credible."
+    }
+  ]
+}

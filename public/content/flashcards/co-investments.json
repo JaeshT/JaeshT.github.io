@@ -1,0 +1,251 @@
+{
+  "id": "coinv-deck",
+  "title": "Co-investments",
+  "cards": [
+    {
+      "id": "coinv-c1",
+      "front": "What is a co-investment?",
+      "back": "A direct minority equity investment by an LP into a single company, made alongside a GP's fund but outside the main fund vehicle, usually with little or no fee and carry.",
+      "tags": ["rationale", "economics"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c2",
+      "front": "How is a co-investment usually structured?",
+      "back": "Through a single-asset SPV (special purpose vehicle) into which co-investors commit; capital is typically called and deployed almost immediately.",
+      "tags": ["process"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c3",
+      "front": "Is a co-investor a controlling investor?",
+      "back": "No. Co-investors are passive, minority, non-controlling; the GP controls and monitors the company.",
+      "tags": ["rationale"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c4",
+      "front": "Give three reasons GPs offer co-investment.",
+      "back": "To fill the equity check on deals too large for one fund, to stay within fund concentration limits, and to reward and win commitments from key LPs (a fundraising and relationship tool).",
+      "tags": ["rationale"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c5",
+      "front": "What is the uncomfortable implication of a GP needing your co-investment capital?",
+      "back": "The GP has decided not to put more of its own fund's capital in. That can be benign (capacity, concentration caps, deal size) or a warning of limited conviction; distinguishing the two is the core diligence task.",
+      "tags": ["rationale", "underwriting"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c6",
+      "front": "What is the primary reason LPs want co-investment?",
+      "back": "Net-return enhancement: no-fee/no-carry economics preserve gross returns that fees and carry would otherwise skim.",
+      "tags": ["rationale", "economics"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c7",
+      "front": "Name four LP benefits beyond fee savings.",
+      "back": "Faster capital deployment, selectivity over exposures, transparency into a named asset, and J-curve mitigation. (Also relationship deepening and capability building.)",
+      "tags": ["rationale"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c8",
+      "front": "What does '2 and 20' mean?",
+      "back": "A 2% annual management fee plus 20% carried interest on profits above a hurdle.",
+      "tags": ["economics"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c9",
+      "front": "What is the no-fee/no-carry identity for co-investments?",
+      "back": "Net co-investment return approximately equals gross co-investment return, because the capital sits outside the fee-bearing fund.",
+      "tags": ["economics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c10",
+      "front": "How does a management fee differ from carried interest in how it hurts returns?",
+      "back": "Management fee is a drag on capital paid regardless of performance; carry is a drag on profit, taking ~20% of upside above the hurdle.",
+      "tags": ["economics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c11",
+      "front": "On a deal exiting at 2.5x gross, $10M LP equity, 8% hurdle, full catch-up, 20% carry, what does the fund LP net and what does the co-investor net?",
+      "back": "Fund LP nets 2.20x ($22M); co-investor nets 2.50x ($25M). The $3M / 0.30x difference is pure carry saving. (Example 1.)",
+      "tags": ["economics"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c12",
+      "front": "Roughly how much of a 2.5x gross multiple do 2-and-20 economics consume at the fund level?",
+      "back": "About 24% (gross 2.50x to net ~1.90x), combining fees and carry under illustrative assumptions. (Example 2.)",
+      "tags": ["economics"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c13",
+      "front": "Define adverse selection in co-investment.",
+      "back": "The risk that GPs share systematically worse deals than they keep, because they know more and choose what to offer; co-investors may face a winner's curse.",
+      "tags": ["adverse-selection"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c14",
+      "front": "What did Fang, Ivashina and Lerner (2015) find about co-investments?",
+      "back": "Across seven institutions over 1991 to 2011, co-investments underperformed the funds they were made alongside (apparent adverse selection), while solo direct deals outperformed; co-invests were also poorly timed.",
+      "tags": ["adverse-selection"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c15",
+      "front": "What did Braun, Jenkinson and Schemmerl (2020) find, and how does it differ from FIL?",
+      "back": "Using a larger, selection-bias-free deal-level sample (464 funds), they found no evidence of adverse selection: gross returns were similar, and diversified co-investment portfolios outperform funds net of fees. They contradict FIL on the headline.",
+      "tags": ["adverse-selection"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c16",
+      "front": "How do you reconcile the FIL and BJS papers on adverse selection?",
+      "back": "Different samples and methods: FIL measures specific institutions' realized choices; BJS measures the full fund deal universe. Both agree fee savings help net returns. Convergence: timing and concentration dominate, and co-investment supply peaks in frothy markets. Adverse selection is a manageable risk, not a verdict.",
+      "tags": ["adverse-selection"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c17",
+      "front": "What is the flaw in the Cambridge 'Making Waves' adverse-selection comparison?",
+      "back": "It compares co-investments gross of fees against sponsoring funds net of fees, which structurally favors co-investments and overstates the advantage.",
+      "tags": ["adverse-selection"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c18",
+      "front": "How big does adverse selection have to be to make co-investing lose net?",
+      "back": "Worse than the fee cushion — roughly 12% to 24% of gross MOIC under standard 2-and-20 assumptions. (Example 4.)",
+      "tags": ["adverse-selection", "economics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c19",
+      "front": "Define syndicated co-investment.",
+      "back": "Co-investment offered after the GP has signed/closed the deal (post-signing); execution-de-risked but more competitive.",
+      "tags": ["process"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c20",
+      "front": "Define co-underwriting.",
+      "back": "Co-investment offered while the GP is still competing for the asset (pre-signing), with diligence shared in real time, fastest timelines, and no certainty the GP wins.",
+      "tags": ["process"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c21",
+      "front": "Which performs better in the data — syndicated or co-underwritten deals — and why?",
+      "back": "Pre-signing/co-underwritten deals (StepStone: ~2.7x gross TVPI) beat post-signing/syndicated (~2.2x), likely because they are less competed.",
+      "tags": ["process"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c22",
+      "front": "How fast must an LP move on a co-underwriting?",
+      "back": "Often a commitment in three to four weeks, with no guarantee the GP wins the deal.",
+      "tags": ["process"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c23",
+      "front": "Why is speed itself a selection pressure in co-investment?",
+      "back": "The best deals go to LPs who can move; slow LPs get the leftovers, turning slowness into self-inflicted adverse selection.",
+      "tags": ["process", "risks"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c24",
+      "front": "What is the J-curve?",
+      "back": "The early-life dip in a fund's net return/NAV from fees and undeployed/unrealized capital, recovering into a 'J.'",
+      "tags": ["economics"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c25",
+      "front": "How do co-investments mitigate the J-curve?",
+      "back": "No annual fee drag and immediate deployment, so capital starts working at once and is not eroded by early fees.",
+      "tags": ["economics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c26",
+      "front": "State the diversification math for a co-investment program and its lesson.",
+      "back": "For equal-weighted independent deals, σ_portfolio ≈ σ_deal / √N. Twenty deals cut dispersion to ~22% of one deal's, which is why co-invest outperformance is a portfolio result, not a single-deal one. (Example 5.)",
+      "tags": ["risks"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c27",
+      "front": "Does J-curve mitigation in co-investments reduce risk?",
+      "back": "No. Faster deployment means faster, concentrated single-asset exposure; you shorten time-to-positive-marks by taking risk sooner.",
+      "tags": ["risks", "economics"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c28",
+      "front": "What protections does a passive co-investor rely on?",
+      "back": "Contractual terms in the SPV: information rights, confirmed economics/expense allocation, pari passu treatment, drag/tag rights, follow-on terms, and conflict provisions.",
+      "tags": ["process"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c29",
+      "front": "What does pari passu mean in co-investment?",
+      "back": "The co-investor holds the same security, entry price, and terms as the fund; any divergence is a red flag.",
+      "tags": ["underwriting"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "coinv-c30",
+      "front": "How does co-investment DD differ from primary fund DD?",
+      "back": "Fund DD is top-down on a manager and a blind pool over weeks to months; co-invest DD is bottom-up on a single named asset, in days to weeks, on the GP's clock, with heavy reliance on the GP's specific diligence and an extra 'why us?' question.",
+      "tags": ["underwriting", "process"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "coinv-c31",
+      "front": "What are the six underwriting lenses for a single co-investment?",
+      "back": "Market, company/business quality, management, financials/model, deal structure, and downside/risk.",
+      "tags": ["underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c32",
+      "front": "What is a value-creation bridge and why does it matter?",
+      "back": "A decomposition of equity return into EBITDA growth, margin expansion, multiple change, and deleveraging. A thesis leaning on multiple expansion is fragile; one driven by EBITDA growth and debt paydown is sturdier.",
+      "tags": ["underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c33",
+      "front": "What section does a co-invest IC memo contain that a fund memo does not?",
+      "back": "A 'why is this deal being offered to us?' / adverse-selection section assessing the GP's motive and alignment.",
+      "tags": ["underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c34",
+      "front": "List four co-investment red flags.",
+      "back": "No clean reason for sharing the deal; weak GP/fund alignment or non-pari-passu terms; thesis driven by multiple expansion; and a 'do every deal' posture, especially heavy deployment in a hot market.",
+      "tags": ["risks", "underwriting"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "coinv-c35",
+      "front": "Why is 'we'll do every co-investment the GP offers' dangerous?",
+      "back": "It loads the LP into whatever the market overproduces (large, high-multiple deals at cycle peaks) and doubles down on existing fund exposures, exactly the conditions under which co-investments have historically underperformed.",
+      "tags": ["risks", "adverse-selection"],
+      "difficulty": "hard"
+    }
+  ]
+}
