@@ -1,0 +1,324 @@
+{
+  "terms": [
+    {
+      "term": "LP (Limited Partner)",
+      "definition": "The investor in the fund (pension, endowment, sovereign wealth fund, insurer, fund-of-funds, family office). Has limited liability and no day-to-day control over fund investments.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "GP (General Partner)",
+      "definition": "The manager that runs the fund, makes investment decisions, and earns management fees and carried interest. Has unlimited liability and full control of the fund.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Primary commitment",
+      "definition": "An LP investing in a fund at its formation, committing capital to be called over time as the GP deploys it — as opposed to buying an existing stake (secondary) or investing directly alongside the fund (co-investment).",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "LPA (Limited Partnership Agreement)",
+      "definition": "The governing legal contract of the fund covering economics, governance, and obligations of the GP and LPs. Typically 80–150 pages, supplemented by side letters.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "PPM (Private Placement Memorandum)",
+      "definition": "The GP's marketing and offering document describing the fund, strategy, team, and track record. The GP's self-reported pitch — the analyst's job is to falsify it.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Side letter",
+      "definition": "A bilateral agreement granting a specific LP bespoke rights beyond the LPA, such as MFN, fee discounts, custom reporting, or an LPAC seat.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Committed capital",
+      "definition": "The total amount an LP has agreed to invest over the fund's life via the subscription agreement. The LP is legally obligated to fund capital calls up to this amount.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Paid-in / called capital",
+      "definition": "The portion of the LP's commitment actually wired to the fund in response to capital calls. The denominator for DPI, RVPI, and TVPI.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Capital call (drawdown)",
+      "definition": "The GP's request that LPs wire a portion of their commitment to fund an investment or pay fund expenses. LPs must respond within a specified notice period (typically 10 business days).",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Distribution",
+      "definition": "Cash (or occasionally stock) the fund returns to LPs from investment realizations, dividends, or other proceeds.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Vintage year",
+      "definition": "The year a fund begins investing or holds its first close. The basis for peer benchmarking — all performance comparisons must be vintage-controlled.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "J-curve",
+      "definition": "The characteristic early-life dip in fund returns and NAV as fees and costs hit before investments appreciate or exit, followed by an upward curve as value is realized. Near-zero year-3 DPI is normal.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "DPI (Distributions to Paid-In)",
+      "definition": "Cumulative distributions to LPs divided by cumulative paid-in capital. Measures realized, returned cash — the only metric that cannot be marked up by the GP. The dominant LP focus in 2025–2026.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "RVPI (Residual Value to Paid-In)",
+      "definition": "Residual fund NAV attributable to LPs divided by cumulative paid-in capital. Measures unrealized value — a GP mark. TVPI = DPI + RVPI.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "TVPI (Total Value to Paid-In)",
+      "definition": "(Cumulative distributions + residual NAV) divided by cumulative paid-in capital. The net multiple. Includes unrealized marks that may be overstated. TVPI = DPI + RVPI.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "MOIC (Multiple on Invested Capital)",
+      "definition": "Total value of an investment (realized + unrealized) divided by invested capital. Usually quoted gross at the deal level. Ignores time entirely — a 3.0x in 3 years and a 3.0x in 12 years look identical.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "IRR (Internal Rate of Return)",
+      "definition": "The annualized money-weighted return that zeros the NPV of all dated cash flows. Timing-sensitive and can be inflated by subscription lines and early wins. Always read alongside MOIC/TVPI.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Gross return",
+      "definition": "Deal-level return before management fees, carried interest, and fund expenses. What the GP earns on the investment itself, not what the LP actually receives.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Net return",
+      "definition": "LP return after all fees, carry, and expenses. What the LP actually earns. The gross-to-net spread (typically 5–7 IRR points; 0.4x–0.6x MOIC) is the total cost of the relationship.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "PME (Public Market Equivalent)",
+      "definition": "A family of methods comparing PE returns to what the same cash flows would have earned in a public index, using the GP's own timing. Neutralizes IRR timing games and provides a meaningful benchmark.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "KS-PME (Kaplan-Schoar PME)",
+      "definition": "A PME variant (Kaplan & Schoar, 2005) returning a wealth-multiple ratio. Above 1.0 means the fund beat the chosen index; below 1.0 means it underperformed. Most widely cited PME measure.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Direct Alpha",
+      "definition": "The most rigorous PME variant (Gredil, Griffiths & Stucke), expressing outperformance as an annualized alpha — essentially the IRR of the index-discounted cash flows, or approximately (KS-PME)^(1/n) − 1.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Long-Nickels PME / ICM",
+      "definition": "The original 1996 PME method. Builds a hypothetical index investment using fund cash flows and compares hypothetical IRR. Weakness: can produce a negative index position when distributions are large, yielding nonsensical results.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Capital loss ratio",
+      "definition": "Percent of invested capital in deals realized below cost, net of recovered proceeds, divided by total invested capital. US buyout clusters around the low-double-digit (~10%) range. A far higher rate indicates a riskier book than the strategy label suggests.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Impairment ratio",
+      "definition": "Percent of invested capital realized or currently valued below cost, including unrealized write-downs. Broader than the capital loss ratio — it captures losses not yet crystallized.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Value-creation bridge (value bridge)",
+      "definition": "Decomposition of equity gains into EBITDA growth, multiple expansion, and deleveraging. EBITDA growth is the skill signal; multiple expansion and leverage are beta/financial engineering.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Multiple expansion",
+      "definition": "Selling at a higher EV/EBITDA multiple than entry. Often reflects favorable market conditions (beta and timing) rather than operating skill. McKinsey found this and leverage drove ~two-thirds of buyout returns for 2010+ deals.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "EBITDA",
+      "definition": "Earnings before interest, taxes, depreciation, and amortization. The common proxy for operating profit in buyout underwriting and deal valuation.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Deleveraging",
+      "definition": "Paying down acquisition debt with portfolio-company cash flow over the holding period, mechanically growing the equity slice. A function of leverage, not operating improvement.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Management fee",
+      "definition": "Annual fee (typically 1.5%–2.0% for buyout) charged on committed capital during the investment period, then stepping down to invested capital or a lower rate. Covers the GP's operating costs regardless of performance.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Step-down",
+      "definition": "The reduction in management fee base and/or rate that occurs at the end of the investment period. Absence of a step-down is a GP-favorable flag.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Fee offset",
+      "definition": "Reduction of the management fee by portfolio-company transaction, monitoring, and director fees collected by the GP. ILPA recommends 100% offset so LPs are not paying twice.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Carried interest (carry)",
+      "definition": "The GP's profit share, market 20%, earned on investment gains above the hurdle rate. The primary incentive alignment mechanism.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Hurdle / preferred return",
+      "definition": "The minimum LP return (market 8% for buyout) before the GP earns carry. Hard hurdle: carry applies only to returns above the hurdle. Soft hurdle: once cleared, the catch-up lets the GP earn carry on all profits.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Catch-up",
+      "definition": "The waterfall tier where the GP receives distributions until it has its full carry share of all profits. A 100% catch-up (market) is GP-friendly; an 80% catch-up is more LP-friendly.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Distribution waterfall",
+      "definition": "The contractual order in which fund proceeds are split between LPs and GP: (1) return of capital, (2) preferred return, (3) GP catch-up, (4) carried interest split.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "European (whole-fund) waterfall",
+      "definition": "Carry paid only after all LP capital plus preferred return is returned across the entire fund. LP-friendly and the institutional default.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "American (deal-by-deal) waterfall",
+      "definition": "Carry paid as each deal exits, before the whole fund returns capital to LPs. GP-friendly; requires a strong clawback (escrow-backed, gross-of-tax, joint-and-several).",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Clawback",
+      "definition": "The GP's obligation to return carry it was overpaid — common risk under American waterfalls when later deals lose money. Quality depends on escrow backing, gross-of-tax computation, and joint-and-several partner liability.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Recycling",
+      "definition": "The right to re-invest early distributions or returned capital so that more than 100% of commitments is eventually deployed. Reasonable in moderation; abusive if uncapped.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "GP commitment",
+      "definition": "The GP's own capital invested in the fund (market 1%–3% of fund size). ILPA prefers it substantial and funded in cash, not via fee waiver. Distribution across partners matters as much as the headline percentage.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Key-person provision",
+      "definition": "LPA clause naming principals on whom the strategy depends. A trigger (departure, disability, failure to devote time) suspends the investment period until LPs consent to resume, typically within a 90–180-day cure window.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "GP removal (for cause)",
+      "definition": "Removal of the GP for fraud, gross negligence, willful misconduct, material LPA breach, or key felony. Can strip or reduce carried interest.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "No-fault divorce",
+      "definition": "The LP right to remove the GP or terminate the fund without proving wrongdoing, by supermajority vote (commonly 66.7%–85% in interest; ILPA standard often cited as 75%). A deterrent even when not exercised.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "LPAC (LP Advisory Committee)",
+      "definition": "A committee of large LPs that approves conflicts, valuation methodology questions, related-party transactions, and certain waivers — without directing day-to-day investments. A key monitoring tool for larger investors.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Subscription line of credit",
+      "definition": "Short-term fund-level borrowing collateralized by uncalled LP commitments, used to delay capital calls. Inflates IRR without improving MOIC; ILPA recommends the preferred return accrue from the draw date, not the LP call date.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Continuation vehicle / GP-led secondary",
+      "definition": "A transaction moving an asset from an old fund into a new vehicle the same GP manages. A liquidity tool but conflict-laden: the GP sits on both sides of the transaction. Requires LPAC approval, independent fairness opinion, and LP option to cash out.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "NAV (Net Asset Value)",
+      "definition": "The GP's reported fair value of fund holdings, determined by the GP's own valuation methodology. The basis for RVPI — a mark, not cash.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "NAV smoothing / return smoothing",
+      "definition": "Slow or sticky marking — GPs are slow to write down in falling markets, artificially lowering reported volatility and propping up TVPI/RVPI. Marks that did not move through 2022–2023 are a red flag.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "IDD (Investment Due Diligence)",
+      "definition": "Diligence on strategy, team, and track record: 'can you make money?' One of four parallel DD workstreams; recommends but does not hold a veto.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "ODD (Operational Due Diligence)",
+      "definition": "Diligence on administration, valuation, compliance, cybersecurity, and controls: 'can we trust you with our capital?' Holds a formal veto at most institutions. Roughly half of manager failures are operational.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "DDQ (Due Diligence Questionnaire)",
+      "definition": "Standardized information request sent by an LP to a GP. The ILPA DDQ 2.0 (2021) is the industry standard, covering ~250 questions across ~21 categories. The GP's self-report — it frames verification work, not replaces it.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "ILPA",
+      "definition": "Institutional Limited Partners Association. Publisher of the Principles 3.0, DDQ 2.0, Model LPA, and Reporting Template. The standard-setter for LP-GP best practices.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "ILPA Principles 3.0",
+      "definition": "2019 voluntary best-practice guidance built on three pillars: alignment of interest, governance, and transparency. The reference grammar for LP-GP negotiation.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "SOC 1 / SOC 2",
+      "definition": "Service Organization Control reports: SOC 1 covers a provider's controls over financial reporting; SOC 2 covers security, availability, and processing integrity. Reviewed in ODD for the fund administrator, auditor, and technology providers.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "SFDR",
+      "definition": "EU Sustainable Finance Disclosure Regulation. Classifies funds as Article 6 (no sustainability objective), Article 8 (promotes environmental/social characteristics), or Article 9 (sustainable investment objective). Relevant for European mandates.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Dry powder",
+      "definition": "Committed but uninvested capital available to GPs. As of 2025, roughly $1.2 trillion of buyout dry powder exists, nearly a quarter of it more than four years old.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Denominator effect",
+      "definition": "When public-portfolio declines shrink the total portfolio, private holdings' share rises above target, constraining new LP commitments — often forcing the LP to slow commitments exactly when vintages are attractive.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Pacing / commitment plan",
+      "definition": "A strategy of committing steadily across vintages to diversify entry-point timing, maintain target exposure, and manage the timing of capital calls and distributions without trying to time the market.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Persistence",
+      "definition": "The tendency for a GP's relative performance to repeat across funds. Strong historically for both buyout and VC (Kaplan & Schoar 2005); substantially weakened for buyout post-2000 (HJKS 2014). The bottom persists more reliably than the top.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Quartile",
+      "definition": "The performance ranking of a fund within its vintage/strategy peer set. Dataset- and vintage-dependent: a fund can be top quartile in one database and second quartile in another. 'Top-quartile claims' must be pinned to a named benchmark and exact vintage.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "MFN (most-favored-nation)",
+      "definition": "A side-letter provision that entitles an LP to elect the most favorable terms granted to any other LP of equal or smaller commitment size, ensuring no LP receives undisclosed advantages.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Strategy drift / style drift",
+      "definition": "Strategy drift: a GP departs from its stated strategy (new sectors, geographies, deal types). Style drift: a GP gradually changes investment parameters (higher leverage, larger deals, higher multiples). Both gut the predictive value of the historical track record.",
+      "tags": ["primaries"]
+    },
+    {
+      "term": "Zombie fund",
+      "definition": "A fund whose investment period has ended but that has not returned capital, continuing to collect management fees on aging assets with little realistic prospect of meaningful exits. Often enabled by long GP-controlled term extensions.",
+      "tags": ["primaries"]
+    }
+  ]
+}

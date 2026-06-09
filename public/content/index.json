@@ -45,6 +45,7 @@
     { "id": "pf-interview", "title": "PE Fundamentals — Interview Q&A", "domain": "pe-fundamentals", "path": "questionbank/pe-fundamentals.json" },
     { "id": "fe-interview", "title": "Fund Economics — Interview Q&A", "domain": "fund-economics", "path": "questionbank/fund-economics.json" },
     { "id": "perf-interview", "title": "Performance — Interview Q&A", "domain": "performance", "path": "questionbank/performance.json" },
+    { "id": "prim-interview", "title": "Primaries — Interview Q&A", "domain": "primaries", "path": "questionbank/primaries.json" },
     { "id": "coinv-interview", "title": "Co-investments — Interview Q&A", "domain": "co-investments", "path": "questionbank/co-investments.json" },
     { "id": "firm-interview", "title": "Behavioral & Firm — Interview Q&A", "domain": "firm", "path": "questionbank/firm.json" }
   ],
@@ -57,6 +58,6 @@
     { "id": "coinv-quiz", "title": "Co-investments Quiz", "domain": "co-investments", "path": "quizzes/co-investments.json" },
     { "id": "firm-quiz", "title": "Neuberger Berman Quiz", "domain": "firm", "path": "quizzes/firm.json" }
   ],
-  "glossary": { "paths": ["glossary/technicals.json", "glossary/pe-fundamentals.json", "glossary/terms.json", "glossary/performance.json", "glossary/co-investments.json", "glossary/firm.json"] },
+  "glossary": { "paths": ["glossary/technicals.json", "glossary/pe-fundamentals.json", "glossary/terms.json", "glossary/performance.json", "glossary/primaries.json", "glossary/co-investments.json", "glossary/firm.json"] },
   "excel": []
 }
