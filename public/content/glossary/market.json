@@ -1,0 +1,139 @@
+{
+  "terms": [
+    {
+      "term": "LP-led secondary",
+      "definition": "A secondary transaction initiated by a limited partner selling its existing fund interest(s) to a buyer; the GP is largely a bystander who approves the transfer.",
+      "tags": ["market"]
+    },
+    {
+      "term": "GP-led secondary",
+      "definition": "A secondary transaction initiated by the GP itself — typically moving assets from an older fund into a continuation vehicle — with the GP as the driver rather than a bystander.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Continuation vehicle (CV)",
+      "definition": "A new fund raised and managed by the same GP that purchases one or more assets from an older fund nearing the end of its life, extending the hold while giving original LPs a cash-out or roll-over choice.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Single-asset CV",
+      "definition": "A continuation vehicle holding one portfolio company — often a high-conviction 'trophy' asset the GP believes has significant remaining upside.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Multi-asset CV",
+      "definition": "A continuation vehicle holding several companies from an older fund, typically used to extend holds on a group of assets rather than just one.",
+      "tags": ["market"]
+    },
+    {
+      "term": "NAV-based facility (NAV loan)",
+      "definition": "A loan to a fund secured by the fair value of its investment portfolio (NAV) rather than by LP commitments; used later in fund life and sits on top of any portfolio-company-level leverage.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Denominator effect",
+      "definition": "When public-market holdings fall in value, a portfolio's total value (the denominator) shrinks while private holdings hold their marks, mechanically pushing the private-equity allocation above target and prompting LPs to sell stakes or slow new commitments.",
+      "tags": ["market"]
+    },
+    {
+      "term": "DPI drought",
+      "definition": "The multi-year period (2022–2025+) in which distributions as a percentage of NAV fell below 15% for four consecutive years — a record low driven by stalled exits — leaving LPs starved of cash.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Dry powder",
+      "definition": "Capital that has been committed to a fund by LPs but not yet invested by the GP; aging dry powder creates deployment pressure as investment-period deadlines approach.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Discount to NAV",
+      "definition": "The percentage by which a secondary buyer pays below the fund's reported net asset value; calculated as 1 − (purchase price ÷ reference NAV), compensating the buyer for illiquidity, NAV staleness, and required return.",
+      "tags": ["market"]
+    },
+    {
+      "term": "K-shaped recovery",
+      "definition": "Bain's characterization of 2025 PE activity: a headline rebound in deal and exit values concentrated in a narrow band of megadeals while the broad mid-market lagged, creating divergent outcomes across the industry.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Deferred consideration",
+      "definition": "A secondary-deal structure in which the buyer pays part of the purchase price at closing and the remainder later (typically 12–24 months), often interest-free, improving buyer IRR while allowing a higher headline bid price.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Status quo option",
+      "definition": "An ILPA-recommended right in a continuation-vehicle election allowing a rolling LP to maintain the original fund's economic terms (fee, carry, hurdle) rather than being forced into the CV's reset — and usually higher — terms.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Strip sale",
+      "definition": "A secondary transaction in which the seller sells a pro-rata slice across many fund positions simultaneously, rather than exiting whole interests one by one.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Preferred equity (secondary)",
+      "definition": "A secondary financing structure in which the capital provider receives a priority claim on distributions up to a capped return, leaving further upside with the existing holder.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Recallable distribution",
+      "definition": "A fund distribution that the GP has the contractual right to require LPs to return at a later date; a key controversy in NAV-loan-funded distributions, since LPs may pay interest on capital later clawed back.",
+      "tags": ["market"]
+    },
+    {
+      "term": "LPAC (LP Advisory Committee)",
+      "definition": "A committee of major limited partners that reviews GP conflicts of interest and approves certain actions, including NAV-facility establishment and use for distributions, and continuation-vehicle conflict waivers.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Fairness opinion",
+      "definition": "An independent third-party opinion that a transaction price is fair from a financial point of view; required best practice (and increasingly SEC-scrutinized) in GP-led continuation-vehicle transactions.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Subscription line (sub line)",
+      "definition": "Short-term fund borrowing secured by LPs' uncalled commitments, used early in a fund's life to bridge capital calls; can inflate reported IRR by 200–500bps by shortening the period LP capital is outstanding.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Tail-end fund",
+      "definition": "An older fund (typically 10+ years) holding a handful of remaining assets near the end of its life; a common LP-led secondary sale candidate, typically priced at deep discounts (~73% of NAV in 2025).",
+      "tags": ["market"]
+    },
+    {
+      "term": "Co-investment",
+      "definition": "A direct investment by an LP into a specific portfolio company alongside a GP's fund, outside the main commingled structure, typically offered on a reduced or zero management fee and carried interest basis.",
+      "tags": ["market"]
+    },
+    {
+      "term": "No fee, no carry",
+      "definition": "The common economic basis for co-investments — no management fee and no carried interest on the co-invest allocation — though portfolio-company-level transaction and monitoring fees may still apply.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Adverse selection (co-investment)",
+      "definition": "The risk that a GP syndicates a co-investment opportunity it did not want to hold in full in the fund — because the deal was unattractive, too large, or risky — rather than because it is genuinely sharing upside.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Semi-liquid / evergreen fund",
+      "definition": "An open-ended investment vehicle offering periodic liquidity windows (quarterly or annually), designed to bring private-markets exposure to retail and wealth-management investors; US fundraising into these vehicles doubled to $204bn in 2025.",
+      "tags": ["market"]
+    },
+    {
+      "term": "IRR-DPI disconnect",
+      "definition": "The gap between a fund's reported internal rate of return (which can reflect unrealized marks and be inflated by subscription lines) and its actual distributions to paid-in capital (real cash returned); a central theme of the 2025–26 LP sentiment.",
+      "tags": ["market"]
+    },
+    {
+      "term": "GP consolidation",
+      "definition": "The trend of larger PE firms acquiring smaller GP platforms to gain scale, talent, or strategy diversification; roughly doubled to ~$34bn in 2025 as scale advantages widened in a hard fundraising environment.",
+      "tags": ["market"]
+    },
+    {
+      "term": "Take-private (public-to-private)",
+      "definition": "A buyout of a publicly listed company that delists it and takes it private; the largest in 2025 was the $56.6bn acquisition of Electronic Arts, a new global buyout record.",
+      "tags": ["market"]
+    }
+  ]
+}

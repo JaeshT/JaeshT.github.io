@@ -1,0 +1,226 @@
+{
+  "id": "market-2026",
+  "title": "PE Market & Secondaries — State of Play",
+  "updated": "June 2026",
+  "intro": "Private equity entered 2025 emerging from one of its hardest stretches in two decades. Interest rates peaked at 5.25–5.50% in 2023–24, choking M&A and IPOs, and the resulting exit drought pushed cash returned to investors (DPI) to record lows for four straight years. The partial thaw of 2025 — buyout deal value up 44%, exit value up 47% — was real but narrow: a handful of megadeals drove the headline gains while the broad mid-market and most LPs' portfolios still felt the drought.\n\nAs of mid-2026, the Fed has held at 3.50–3.75% since December 2025 after a Middle East oil shock reignited inflation (April 2026 CPI at 3.8% YoY). The liquidity problem — roughly 32,000 unsold companies worth ~$3.8tn, four years of sub-15% distribution yields, and primary fundraising down for the fourth consecutive year — is the single force behind almost everything interesting in this market: the secondaries boom, the rise of continuation vehicles, the NAV-financing fight, and the surge in co-investment demand. Understanding why distributions stalled is the master key to understanding everything else.",
+  "stats": [
+    {
+      "value": "$1.3tn",
+      "label": "Buyout dry powder",
+      "note": "Bain 2026; majority in 2022–23 vintages, aging toward investment-period deadlines"
+    },
+    {
+      "value": "$4.63tn",
+      "label": "All private-capital dry powder",
+      "note": "PitchBook Q2 2025; includes PE, credit, real assets, and infrastructure — the broadest measure"
+    },
+    {
+      "value": "−13.3%",
+      "label": "Private-capital fundraising decline in 2025",
+      "note": "PitchBook, all strategies; fourth consecutive annual decline — PE-only down ~32% on a trailing-12-month basis"
+    },
+    {
+      "value": "$904bn",
+      "label": "Global buyout deal value in 2025",
+      "note": "Up 44% YoY; second-highest on record, behind only 2021 (Bain 2026)"
+    },
+    {
+      "value": "$717bn",
+      "label": "Global exit value in 2025",
+      "note": "Up 47% YoY; second-highest on record — but recovery was K-shaped, concentrated in 13 megadeals above $10bn"
+    },
+    {
+      "value": "~32,000",
+      "label": "Unsold PE-backed companies",
+      "note": "Worth ~$3.8tn; average holding period at exit ~7 years (Bain 2026) — the core exit backlog"
+    },
+    {
+      "value": "52%",
+      "label": "Buyout inventory held >4 years",
+      "note": "McKinsey 2026: >16,000 companies, highest share on record; typical hold now >6.5 years"
+    },
+    {
+      "value": "<15%",
+      "label": "Distribution yield (% of NAV) for 4 consecutive years",
+      "note": "Bain 2026: an industry record low — cash back to LPs has stalled"
+    },
+    {
+      "value": "6%",
+      "label": "DPI as % of PE AUM (12 months to June 2025)",
+      "note": "McKinsey 2026; versus 16% historical average (2015–19) — the DPI drought in one number"
+    },
+    {
+      "value": "$240bn",
+      "label": "Total secondary market volume in 2025",
+      "note": "+48% YoY, a record; Jefferies and McKinsey consensus (Bain reports +41% as a dissenting figure)"
+    },
+    {
+      "value": "$115bn",
+      "label": "GP-led secondary volume in 2025",
+      "note": "+53% YoY, 48% of total secondary market; Lazard reports near-identical $116bn"
+    },
+    {
+      "value": "87%",
+      "label": "Average LP-stake secondary pricing (% of NAV)",
+      "note": "Down ~200bps from 2024; buyout 92%, credit 91%, venture/growth 78%, real estate 70% (Jefferies)"
+    },
+    {
+      "value": "$100bn → $600bn",
+      "label": "NAV-loan market: current size and 2030 projection",
+      "note": "Fund Finance Association; ~6x growth projected — ~80% used for portfolio support, ~20% for distributions"
+    },
+    {
+      "value": "33¢",
+      "label": "Median co-investment offered per $1 of fee-bearing capital",
+      "note": "Bain/StepStone GP Survey 2026; implies ~25% reduction in GP fee revenue — the price of capital in a hard market"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Macro & rates backdrop",
+      "body": "### The rate path that matters\n\nThe federal funds rate peaked at **5.25–5.50%**, held from July 2023 to September 2024 — the highest in over two decades. The Fed then cut three times in late 2024 (ending at 4.25–4.50%), and three more times in late 2025 (ending at 3.50–3.75%). Since then it has held at that level through April 2026 as a Middle East oil shock pushed CPI to **3.8% YoY** in April 2026, the highest since 2023, with unemployment at ~4.3–4.4%. Jerome Powell's term expired May 15, 2026; Kevin Hassett is reported as the frontrunner to succeed him, adding policy uncertainty.\n\n### Why rates are the root cause of everything\n\nLeveraged buyouts are financed with debt. Higher rates raise the cost of that debt, compress the enterprise value a sponsor can pay, and raise the discount rate on future cash flows — pressuring both entry and exit multiples. McKinsey's framing is blunt: the conditions that amplified PE returns for a decade — declining rates, expanding multiples, abundant leverage — **\"have passed.\"** Their estimate: **leverage and multiple expansion together accounted for 59% of buyout returns between 2010 and 2022**. With those tailwinds reversed, returns now have to come from operational improvement.\n\n### The 2025 partial thaw — a K-shaped recovery\n\nBain calls 2025 a \"K-shaped recovery\":\n- Buyout deal value rose **44% to $904bn**; exit value jumped **47% to $717bn** — both second-highest on record\n- But **just 13 deals above $10bn drove $274bn** of the global gain, and 11 of those were in the US\n- Landmark megadeals: Electronic Arts ($56.6bn take-private, a new record), Aligned Data Centers ($40bn), Air Lease ($27.5bn), Walgreens Boots Alliance ($23.7bn)\n- IPOs rose 36% off a very low base but remain a minor exit route; sponsor-to-sponsor exits grew 21%\n\nThe recovery helped the headline numbers but did **little for cash back to investors**."
+    },
+    {
+      "heading": "Fundraising environment",
+      "body": "### Four years in the doldrums\n\nPrimary fundraising has declined for **four consecutive years** through 2025. Key measures:\n\n| Measure | 2025 figure | Context |\n|---|---|---|\n| All private capital (PitchBook) | −13.3% | Fund counts fell sharply across strategies |\n| PE-only, trailing 12 months (PitchBook) | ~−32% YoY | Buyout $440bn; down sharply |\n| All PE incl. VC (Preqin) | <$600bn ($502bn through Q3) | vs. $840bn peak in 2023 |\n| Venture (PitchBook TTM) | $140.4bn, −42.5% | Deepest decline |\n\n**Bright spots:** Secondaries fundraising hit **$122.6bn (+22%)** and real assets/infrastructure also grew. Semi-liquid/retail PE vehicles raised **$204bn in 2025, more than double the $92bn of 2023** (McKinsey).\n\n### Structural shifts\n\n- **Scale is winning:** funds under $500m shrank to ~13% of fundraising; GP consolidation (firms buying other firms) roughly doubled to ~$34bn (McKinsey)\n- **Regional split (2025):** North America +8% to $432bn; Europe −41% to $118bn (base effect); Asia-Pacific −49% to $49bn\n- **LP conviction is intact, terms are shifting:** ~70% of LPs plan to maintain or increase PE allocations in 2026 (McKinsey survey of 300 LPs). But more than half of LPs believe they have **more negotiating leverage with GPs** than 12 months ago (ILPA Sentiment Survey), extracting fee concessions and co-investment access"
+    },
+    {
+      "heading": "Dealmaking & valuations",
+      "body": "### Deployment pressure and entry multiples\n\nDry powder is large and aging: **~$1.3tn in buyout dry powder** (Bain), the majority in 2022–23 vintages. Investment periods have time limits, so GPs face pressure to deploy even in a soft market — which supports deal activity but also risks overpayment. McKinsey notes entry multiples are high by historical standards, and cites \"paying more\" as one reason recent-vintage returns are weak.\n\n### The equity check competition\n\nA key qualifier from Bain: even as dry powder appears plentiful, much of the equity in 2025's megadeals came from **outside PE funds** — sovereign wealth funds and corporates wrote large equity checks, competing PE sponsors' share away at the top of the market. The money chasing large deals is larger than the PE dry-powder figure alone suggests.\n\n### Performance\n\nThe 2026 reports delivered a pointed finding: **top-quartile global buyout returns averaged ~8% IRR in 2025, less than half the S&P 500's 18% and MSCI World's 22%** (McKinsey). Overall buyout returned ~7% — the third consecutive year of underperformance versus public equities. Buyout fund IRRs hit a **post-2002 trough of 5.7% pooled average for 2022–25**. The 2015–17 vintages generated only ~2% IRRs. The long-run case — top-quartile buyout funds returned ~24% IRR over the past decade vs. the S&P 500's 15% — remains intact, but recent-vintage performance is the live concern."
+    },
+    {
+      "heading": "The exit & liquidity drought — DPI pressure",
+      "body": "### The backlog\n\nThree straight years (2022–2024) of slow M&A, a mostly shut IPO window, and expensive debt created a massive overhang:\n- **~32,000 unsold companies worth ~$3.8tn**, average holding period at exit ~7 years (Bain)\n- **>16,000 companies held longer than 4 years** = 52% of all buyout-backed inventory, the highest share on record (McKinsey); typical company now held >6.5 years\n\n### The DPI crisis\n\n**DPI (distributions to paid-in capital)** measures actual cash returned versus capital invested — the metric LPs now prioritize above IRR because pension benefits and endowment spending require real cash.\n\n- **Distributions as % of NAV have stayed below 15% for four straight years — an industry record low** (Bain)\n- DPI as a share of total PE AUM was just **6%** in the 12 months to June 2025, versus a 2015–19 average of **16%** (McKinsey)\n- In McKinsey's January 2025 LP survey, **2.5x as many LPs ranked DPI as \"most critical\"** compared with three years earlier\n\n### Why DPI beats IRR as a metric\n\nIRR can be inflated by subscription-line facilities (an estimated 200–500bps without changing cash returned) and reflects unrealized marks. DPI and MOIC cannot be engineered. A fund with 35% net IRR and 0.3x DPI has returned far less cash than one with 11% IRR and 1.9x DPI — but only the second can fund real-world obligations. This \"IRR-DPI disconnect\" is the conceptual heart of today's liquidity debate and is the engine behind the rest of the market structure."
+    },
+    {
+      "heading": "Secondaries — LP-led and GP-led in depth",
+      "body": "### 2025: a record year\n\n**Total secondary volume reached ~$240bn in 2025, up ~48% YoY** (Jefferies/McKinsey consensus; Bain reports +41% as a dissenting figure using a different scope). For reference, 2024 was ~$162bn.\n\n| Segment | 2025 volume | YoY growth | Share |\n|---|---|---|---|\n| LP-led | ~$125bn | ~44% | ~52% |\n| GP-led | ~$115bn | ~53% | ~48% |\n\n27 LP deals exceeded $1bn; the largest LP transaction topped $5bn. About **40% of LP-led sellers in H1 2025 were first-time sellers** (Evercore) — the stigma of selling has largely evaporated; it is now active portfolio management, not distress.\n\n### LP-led secondaries — pricing and mechanics\n\nAn LP sells its fund interest(s) to a secondary buyer, who steps into the seller's shoes: takes over the unfunded commitment, receives future distributions. The buyer underwrites the underlying portfolio company by company, bids a price as a % of NAV at a reference date.\n\n**2025 pricing by strategy:**\n\n| Strategy | Avg. % of NAV |\n|---|---|\n| Buyout | 92% |\n| Credit | 91% |\n| Venture / Growth | 78% |\n| Real estate | 70% |\n\nOverall LP average was **87% of NAV** (down ~200bps from 2024), reflecting an older vintage mix (avg. 2016 vs. 2018 prior year) and more venture/growth supply. By fund age: sub-5-year funds at ~95% of NAV; tail-end (10+ year) funds at ~73%.\n\n**Why a rational LP sells at a discount:** selling at 87% of NAV converts an uncertain 5–7 year cash stream into certain liquidity today, sheds the unfunded commitment and its drawdown risk, frees capital to redeploy, and exits administrative tail-end drag. The discount buys certainty.\n\n**Deferred pricing** was used in ~23% of LP transactions and ~29% of GP-led volume in 2025 (Jefferies) — buyers pay part at closing, the rest 12–24 months later, often interest-free, improving buyer IRR while allowing a higher headline bid.\n\n### GP-led secondaries and continuation vehicles\n\nThe GP initiates a transaction: it moves one or more assets from an older fund into a new **continuation vehicle (CV)**, brings in secondary buyers to fund the purchase, and offers existing LPs a cash-or-roll choice. CVs dominated GP-leds in 2025: **77–90% of GP-led volume** (Lazard/others; range reflects definitional differences).\n\n**Single-asset CVs** hold one company (a trophy asset the GP believes has more runway). **Multi-asset CVs** hold several.\n\n**The structural conflict:** the GP is on both sides — fiduciary to the selling fund (which wants a high price) and manager of the buying CV (which wants a low price) — and sets the price on an asset it sells to itself. Governance mechanisms: LPAC conflict-of-interest waiver, independent fairness opinion and valuation, status quo option, and a meaningful election period of **at least 20 business days** (ILPA 2023). The SEC's 2025 examination priorities specifically flagged CV conflict disclosure.\n\n**The reputation shift:** CVs used to signal distress (\"GP-led restructurings\"). Today they are mostly used for trophy assets and are seen as legitimate portfolio management. The market has spread into private credit (GP-led credit volume more than tripled in 2025; GP-leds became the majority of credit secondary volume for the first time) and infrastructure (84% of LPs saw more infrastructure CVs). Technology was the dominant sector at ~24% of GP-led deal value in H1 2025.\n\n**LP team underwriting questions for a CV:** Is the transfer price fair and independently supported? Are the CV's terms (fee, carry, hurdle) reasonable? Is there a status quo option? Why is the GP keeping the asset? Most importantly — is the GP reinvesting its own crystallized carry into the CV? GP co-investment is the strongest signal that the deal is about upside, not fee extension."
+    },
+    {
+      "heading": "NAV financing — the controversy and the reality",
+      "body": "### What a NAV loan is\n\nA **NAV-based facility** is a loan to a fund secured by the value of its investment portfolio (NAV), rather than by LP commitments. It sits at the fund level, on top of any leverage at portfolio companies, and is typically used later in a fund's life when commitments are largely drawn.\n\nContrast with a **subscription line** (sub line), which is secured by LPs' uncalled commitments and used early in fund life.\n\n### Uses: the 80/20 split\n\n- **~80%** of NAV facilities support portfolio companies: follow-on investments, add-on acquisitions, working capital, currency hedging — largely uncontroversial\n- **~20%** are used to fund distributions to LPs — **this is where all the controversy lives**\n\n### The controversy\n\nUsing NAV loans to fund distributions:\n1. **Manufactures DPI without selling anything.** A GP under fundraising pressure borrows against the portfolio, sends LPs cash that flatters the distribution record and aids the next fundraise, while assets remain unsold\n2. **Recallable distributions.** Those distributions are often recallable — LPs can pay interest on a distribution later clawed back\n3. **Hidden fund-level leverage.** Adds debt on top of company-level leverage, raising risk in a way many LPs cannot see (older LPAs are often silent on NAV facilities)\n4. **Transparency gap.** GPs have sometimes interpreted borrowing limits not to cover holdco-level NAV debt\n\n**The market size:** currently ~$100bn; the Fund Finance Association projects ~$600bn by 2030 (~6x growth).\n\n### ILPA's 2024 guidance (no ban — governance instead)\n\nILPA does not recommend banning NAV loans. Its six core recommendations:\n1. If the LPA is silent, the GP should seek **LPAC consent** before establishing a facility\n2. Even with LPA authorization, the GP should seek **LPAC approval to use it for distributions**\n3. Conflicts of interest must be disclosed to the LPAC\n4. New LPAs should include explicit NAV-facility language and guardrails\n5. LPs should check whether older documents have been interpreted to exclude SPV/holdco-level facilities\n6. GPs should give all LPs standardized disclosures once a facility is in place\n\n**For an LP diligence checklist:** Does the fund permit NAV financing? For what purposes? With what disclosure? Does distribution-funding require LPAC sign-off?"
+    },
+    {
+      "heading": "Co-investment demand",
+      "body": "### What co-investment is and why LPs want it\n\nA **co-investment** is a direct LP investment into a specific portfolio company alongside a GP's fund, outside the commingled structure, typically offered on a **\"no fee, no carry\"** or reduced-fee basis. The math is compelling:\n- An LP paying 2% management fee / 20% carry on its fund commitment and 0%/0% on the co-invest blends down to roughly **1.0% management fee** on combined exposure — half the rate\n- Co-invest deals have historically tended to **outperform their parent funds** (StepStone data)\n\n**Demand is surging:** an Adams Street survey found **88% of LPs intend to allocate up to 20% of portfolios to co-investments by 2030**. Many large LPs already reserve 15–30% of private-investment allocations for co-investments. Dedicated co-investment fund capital reached ~**$43.5bn** on a trailing basis in late 2025 (PitchBook).\n\n### Why GPs offer co-investments\n\nGPs are not being generous — co-investments serve GP interests:\n- **Fund deals too large** for one fund without breaching concentration limits\n- **Reward anchor LPs** and secure their commitment to the next fund\n- **The implicit deal:** commit to my fund (fee-bearing), and I will give you co-investment (low-fee)\n\n**Bain/StepStone 2026 GP Survey:** GPs offered a **median of 33 cents of co-investment per dollar of fee-bearing capital** — implying a ~25% reduction in GP fee revenue. That is the price of capital in a hard fundraising market, and LP leverage is rising.\n\n### The catch on \"no fee, no carry\"\n\nIt does not mean free. Sponsors can still charge:\n- **Transaction fees:** often 1–3% of purchase price\n- **Monitoring fees:** often 1–3.5% of EBITDA or $1–10m per year\n- **Warehousing/catch-up costs:** co-investors' share of carry and interest incurred while the fund held the deal before syndicating\n\n**Adverse selection** is the central underwriting risk: is the GP offering this deal because it is genuinely attractive, or because it could not or did not want to hold it all in the fund? A dedicated co-investment team, an explicit allocation, and the speed to underwrite inside the GP's timeline are prerequisites."
+    },
+    {
+      "heading": "Forward outlook",
+      "body": "### What needs to happen for normalization\n\nA genuine recovery in PE economics requires: sustained rate cuts (currently on hold), a reopening of the IPO window, and clearing of the M&A bid-ask gap between sellers anchored to old marks and buyers pricing today's cost of capital. The 2025 recovery was real but narrow — the broad market still faces a multi-year backlog.\n\n### The structural forces that stay regardless\n\n- **Secondaries as core infrastructure:** the market has scaled from ~$26bn in 2013 to ~$240bn in 2025 and is structurally embedded. Even in a recovery, continuation vehicles and LP portfolio management will sustain large volumes\n- **LP leverage persists:** with DPI low and fundraising hard, LPs have more negotiating power than they have had in years — this shows in fee concessions, co-investment rights, and NAV-facility governance demands\n- **Retail/semi-liquid wave:** US semi-liquid PE fundraising doubled to $204bn in 2025; this channel will grow regardless of institutional dynamics\n- **Manager selection matters more than ever:** with macro tailwinds gone, the spread between top-quartile (~24% decade IRR) and median funds is what determines whether PE earns its illiquidity premium. The primaries job is underwriting GPs, not buying the asset class\n\n### Risks the consensus may be underpricing\n\n- **Quiet off-balance-sheet leverage:** NAV loans + continuation vehicles + sub lines can let the industry report healthier performance and liquidity than underlying cash supports, while adding layers of fund-level debt many LPs cannot fully see\n- **Marks vs. realizations:** if exits stay slow, the gap between reported NAV and realizable value is where the next disappointment comes from — especially in the 2015–17 vintages generating only ~2% IRRs\n- **Inflation and rate stickiness:** the 2026 inflation re-acceleration shows rates may not fall quickly, which means financing costs stay elevated and exit multiples stay compressed longer than the market may be pricing\n- **Policy uncertainty:** the Fed chair succession and potential tariff/trade policy shifts add macro uncertainty that is hard to model into fund returns"
+    }
+  ],
+  "talkingPoints": [
+    {
+      "text": "The DPI drought is the master key to this market — distributions below 15% of NAV for four straight years is what drove the secondaries boom, the NAV-lending fight, and the co-investment surge, all at once.",
+      "tag": "macro"
+    },
+    {
+      "text": "McKinsey's bluntest line from the 2026 report: leverage and multiple expansion accounted for 59% of buyout returns between 2010 and 2022 — those tailwinds are gone, and returns now have to come from operations.",
+      "tag": "macro"
+    },
+    {
+      "text": "The Fed cut to 3.50–3.75% but then stalled — a Middle East oil shock pushed April 2026 CPI back to 3.8%, so PE financing is cheaper than the 2023 peak but not cheap, and the overhang of 32,000 unsold companies is still the dominant problem.",
+      "tag": "macro"
+    },
+    {
+      "text": "Bain's '2025 was K-shaped' framing is important: 13 deals above $10bn drove $274bn of the global gain — strip those out and the broad market recovery was modest.",
+      "tag": "macro"
+    },
+    {
+      "text": "Primary fundraising has declined for four consecutive years and the 2025 numbers are the worst since pre-2019 in PE-only terms — in a hard fundraise, LP leverage is as high as it has been in a generation.",
+      "tag": "fundraising"
+    },
+    {
+      "text": "The one clear growth channel is semi-liquid/retail PE: US fundraising into those vehicles doubled to $204bn in 2025, and it is one of the few areas where GPs have pricing power.",
+      "tag": "fundraising"
+    },
+    {
+      "text": "Buyout dry powder of $1.3tn sounds large until you note that most sits in 2022–23 vintages with investment periods running out — that aging powder is deployment pressure, not a sign of health.",
+      "tag": "fundraising"
+    },
+    {
+      "text": "Top-quartile buyout returned ~8% pooled IRR in 2025 against an S&P 500 up 18% — the asset class underperformed for the third consecutive year, and the honest answer is that the illiquidity premium has not been earning its keep recently.",
+      "tag": "dealmaking"
+    },
+    {
+      "text": "Entry multiples are still elevated — McKinsey cites 'paying more' as a key driver of weak recent-vintage returns, so the leverage-and-multiple-expansion game has been replaced by a 'pay up and hope for operational alpha' game.",
+      "tag": "dealmaking"
+    },
+    {
+      "text": "Sovereign wealth funds and corporates are writing large equity checks in megadeals, competing PE sponsors' share away at the top — the money chasing large assets is bigger than the dry-powder figure suggests.",
+      "tag": "dealmaking"
+    },
+    {
+      "text": "The exit backlog is the stat you need to internalize: 52% of buyout-backed inventory has been held more than four years, the highest share on record — the system cannot clear until exits reopen at scale.",
+      "tag": "exits"
+    },
+    {
+      "text": "McKinsey's 6% DPI vs. 16% historical average is the single most cited number in LP conversations — it means funds are returning roughly one-third the cash they normally would, and that gap has to be filled somehow.",
+      "tag": "exits"
+    },
+    {
+      "text": "The IRR-DPI disconnect is the conceptual heart of today's market: a fund with 35% net IRR and 0.3x DPI has returned far less real cash than one at 11% IRR with 1.9x DPI — pensions pay benefits in cash, not IRR.",
+      "tag": "exits"
+    },
+    {
+      "text": "2025 secondary volume at $240bn was up 48% to a record — the secondary market is now the structural release valve for a stalled exit environment, not a niche distress product.",
+      "tag": "secondaries"
+    },
+    {
+      "text": "About 40% of LP-led sellers in H1 2025 were first-time sellers — the stigma of selling fund interests has essentially disappeared; it is portfolio management, not a distress signal.",
+      "tag": "secondaries"
+    },
+    {
+      "text": "The secondary buyer earns return from two sources only: the entry discount to NAV, and underlying asset growth — the discount is the lever controlled at purchase, which is why pricing discipline matters so much.",
+      "tag": "secondaries"
+    },
+    {
+      "text": "Average LP pricing at 87% of NAV masks wide dispersion: buyout trades at 92%, real estate at 70%, venture at 78% — and tail-end funds (10+ years old) at only 73%. The NAV figure you accept matters enormously.",
+      "tag": "secondaries"
+    },
+    {
+      "text": "GP-led secondaries grew 53% to $115bn in 2025, nearly matching LP-led volume — the market has structurally bifurcated into two roughly equal halves with very different dynamics and conflict profiles.",
+      "tag": "secondaries"
+    },
+    {
+      "text": "Continuation vehicles are now the dominant GP-led form (77–90% of volume) and their reputation has fully reversed — a decade ago they signaled distress; today they are mostly used for trophy assets and have spread into credit and infrastructure.",
+      "tag": "continuation-funds"
+    },
+    {
+      "text": "The core CV conflict is precise: the GP is fiduciary to the selling fund (wants high price) and simultaneously the manager of the buying CV (wants low price) — it is setting the price on an asset it is selling to itself.",
+      "tag": "continuation-funds"
+    },
+    {
+      "text": "When evaluating a CV as an LP, the most important signal is whether the GP is rolling its crystallized carry back into the CV — if the GP is reinvesting its own proceeds, it is a deal about upside; if not, ask harder questions about fee extension.",
+      "tag": "continuation-funds"
+    },
+    {
+      "text": "ILPA's status quo option guidance — at least 20 business days to elect, with the ability to roll on original economic terms — is the single most important governance protection for an LP facing a continuation-vehicle election.",
+      "tag": "continuation-funds"
+    },
+    {
+      "text": "The ~20% of NAV loans used to fund distributions is the whole fight: a GP can borrow against the portfolio and send LPs cash that flatters DPI before a fundraise, without selling a single asset — and the distribution is often recallable.",
+      "tag": "nav-financing"
+    },
+    {
+      "text": "The NAV-loan market is ~$100bn today and the Fund Finance Association projects ~$600bn by 2030 — it is growing whether LPs like it or not, so the LP job is governance (LPAC consent, disclosure) not a blanket ban.",
+      "tag": "nav-financing"
+    },
+    {
+      "text": "ILPA's 2024 NAV guidance is notable for what it does not say: it does not recommend banning them — it demands LPAC consent for distribution use and standardized disclosure. The cat, as Cambridge Associates put it, is out of the bag.",
+      "tag": "nav-financing"
+    },
+    {
+      "text": "The median GP now offers 33 cents of co-investment per dollar of fee-bearing capital — implying a 25% reduction in fee revenue — which is the price GPs are paying for primary commitments in the hardest fundraising market in years.",
+      "tag": "co-investment"
+    },
+    {
+      "text": "'No fee, no carry' does not mean free — transaction fees (1–3% of price) and monitoring fees (1–3.5% of EBITDA) at the portfolio company level can still transfer significant economics from co-investors to the GP.",
+      "tag": "co-investment"
+    },
+    {
+      "text": "The off-balance-sheet leverage risk is the bear case that does not get enough airtime: NAV loans, CVs, and sub lines together let funds report healthier DPI and IRR than the underlying cash supports, while adding layered fund-level debt most LPs cannot fully see.",
+      "tag": "outlook"
+    }
+  ]
+}

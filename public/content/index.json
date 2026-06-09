@@ -58,6 +58,9 @@
     { "id": "coinv-quiz", "title": "Co-investments Quiz", "domain": "co-investments", "path": "quizzes/co-investments.json" },
     { "id": "firm-quiz", "title": "Neuberger Berman Quiz", "domain": "firm", "path": "quizzes/firm.json" }
   ],
-  "glossary": { "paths": ["glossary/technicals.json", "glossary/pe-fundamentals.json", "glossary/terms.json", "glossary/performance.json", "glossary/primaries.json", "glossary/co-investments.json", "glossary/firm.json"] },
-  "excel": []
+  "glossary": { "paths": ["glossary/technicals.json", "glossary/pe-fundamentals.json", "glossary/terms.json", "glossary/performance.json", "glossary/primaries.json", "glossary/co-investments.json", "glossary/firm.json", "glossary/market.json"] },
+  "excel": [],
+  "briefings": [
+    { "id": "market-2026", "title": "PE Market & Secondaries — State of Play", "domain": "market", "path": "briefings/market-2026.json", "updated": "June 2026" }
+  ]
 }
