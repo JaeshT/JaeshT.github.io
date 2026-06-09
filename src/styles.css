@@ -385,6 +385,66 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .tp-dot { color: var(--accent-2); font-weight: 700; }
 .tp-text { flex: 1; line-height: 1.5; font-size: 14.5px; }
 .tp-tag { font-size: 10px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap; align-self: center; }
+/* talking point as a tappable (copy) button */
+.tp { width: 100%; text-align: left; font: inherit; color: var(--text); cursor: pointer; }
+.tp:active { border-color: var(--accent); }
+.tp-copy { color: var(--muted); font-size: 12px; align-self: center; white-space: nowrap; }
+
+/* reading progress bar */
+.read-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 30;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform-origin: left; transform: scaleX(0); transition: transform 0.1s linear;
+}
+.read-done { color: var(--accent-2); }
+
+/* scroll reveal */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.reveal.revealed { opacity: 1; transform: none; }
+
+/* tappable glossary terms */
+.gterm-link {
+  font: inherit; color: var(--accent); background: none; border: none; padding: 0; cursor: pointer;
+  border-bottom: 1px dotted var(--accent); line-height: inherit;
+}
+.gterm-link:active { color: var(--accent-2); }
+
+/* glossary bottom sheet */
+.sheet-backdrop {
+  position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,0.5);
+  display: flex; align-items: flex-end; justify-content: center;
+  animation: fade 0.15s ease;
+}
+.sheet {
+  width: 100%; max-width: 760px; background: var(--bg-elev2); border-top: 1px solid var(--accent);
+  border-radius: 18px 18px 0 0; padding: 22px 20px calc(env(safe-area-inset-bottom) + 22px);
+  animation: slideup 0.22s ease;
+}
+.sheet-term { font-size: 19px; font-weight: 700; margin-bottom: 8px; text-transform: capitalize; }
+.sheet-def { line-height: 1.55; color: var(--text); margin-bottom: 16px; }
+@keyframes fade { from { opacity: 0; } }
+@keyframes slideup { from { transform: translateY(100%); } }
+
+/* completion banner */
+.brief-complete {
+  margin: 22px 0 8px; padding: 16px 18px; border-radius: var(--radius);
+  border: 1px solid var(--accent-2); background: rgba(54, 211, 153, 0.12); line-height: 1.5;
+}
+
+/* confetti */
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 35; overflow: hidden; }
+.confetti span {
+  position: absolute; top: -12px; width: 9px; height: 9px; border-radius: 2px;
+  animation-name: fall; animation-timing-function: linear; animation-fill-mode: forwards;
+}
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0); opacity: 1; }
+  100% { transform: translateY(102vh) rotate(540deg); opacity: 0.9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .confetti { display: none; }
+}
 
 /* ---- cash-flow calculator table ---- */
 .cf-table th, .cf-table td { padding: 4px 5px; }
