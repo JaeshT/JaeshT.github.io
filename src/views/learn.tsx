@@ -37,6 +37,12 @@ export function Learn() {
           🎤 Mock Interview — random Q&A across all domains
         </button>
       )}
+      {(index.briefings ?? []).map((b) => (
+        <button key={b.id} class="btn btn-ghost big" onClick={() => navigate(`brief/${b.id}`)}>
+          📰 {b.title}
+          {b.updated ? ` · ${b.updated}` : ''}
+        </button>
+      ))}
       {domains.map((d) => (
         <DomainBlock key={d} domain={d} index={index} read={read} />
       ))}

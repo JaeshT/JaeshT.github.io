@@ -8,6 +8,7 @@ import { Learn, Lesson, QuizRunner, QuestionDrill, MockInterview, Empty } from '
 import { Cards, Review, Browse } from './views/cards';
 import { Glossary } from './views/glossary';
 import { Tools, WaterfallTool, MetricsTool } from './views/tools';
+import { Briefings, Brief } from './views/brief';
 import { DOMAIN_LABEL, DOMAIN_ORDER } from './lib/domains';
 import { computeMastery, computeAchievements, isLearned, type DomainMastery, type Achievement } from './lib/mastery';
 import type { FlashcardDeck } from './lib/schema';
@@ -21,7 +22,7 @@ const NAV = [
 ];
 
 function tabFor(seg0: string): string {
-  if (['learn', 'lesson', 'quiz', 'qset', 'mock'].includes(seg0)) return 'learn';
+  if (['learn', 'lesson', 'quiz', 'qset', 'mock', 'briefs', 'brief'].includes(seg0)) return 'learn';
   if (['cards', 'review', 'browse'].includes(seg0)) return 'cards';
   if (seg0 === 'tools') return 'tools';
   if (seg0 === 'home') return 'home';
@@ -86,6 +87,10 @@ function Router({ seg0, seg1 }: { seg0: string; seg1?: string }) {
       return seg1 ? <QuestionDrill id={seg1} /> : <Empty title="Q&A" note="No set selected." back="learn" />;
     case 'mock':
       return <MockInterview />;
+    case 'briefs':
+      return <Briefings />;
+    case 'brief':
+      return seg1 ? <Brief id={seg1} /> : <Briefings />;
     case 'cards':
       return <Cards />;
     case 'review':
@@ -187,8 +192,8 @@ function Home() {
 
       <div class="quicklinks">
         <button onClick={() => navigate('mock')}>🎤 Mock interview</button>
+        <button onClick={() => navigate('brief/market-2026')}>📰 Market brief</button>
         <button onClick={() => navigate('tools/pme')}>📈 PME calc</button>
-        <button onClick={() => navigate('tools/waterfall')}>💧 Waterfall</button>
         <button onClick={() => navigate('glossary')}>📖 Glossary</button>
       </div>
 

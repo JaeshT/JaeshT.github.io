@@ -371,6 +371,21 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .bar { height: 9px; border-radius: 999px; background: var(--bg-elev2); overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.5s ease; }
 
+/* ---- market briefing ---- */
+.brief-updated { color: var(--muted); font-size: 13px; margin: 2px 0 14px; }
+.brief-intro { font-size: 16px; }
+.brief-h { font-size: 20px; margin: 24px 0 8px; border-top: 1px solid var(--border); padding-top: 18px; }
+.stat-board { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 12px 0 6px; }
+.stat-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 14px; border-left: 3px solid var(--accent); }
+.stat-card-value { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+.stat-card-label { font-size: 12.5px; margin-top: 3px; }
+.stat-card-note { font-size: 11.5px; color: var(--muted); margin-top: 5px; line-height: 1.4; }
+.talking-points { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+.tp { display: flex; align-items: flex-start; gap: 9px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: 12px 13px; }
+.tp-dot { color: var(--accent-2); font-weight: 700; }
+.tp-text { flex: 1; line-height: 1.5; font-size: 14.5px; }
+.tp-tag { font-size: 10px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; white-space: nowrap; align-self: center; }
+
 /* ---- cash-flow calculator table ---- */
 .cf-table th, .cf-table td { padding: 4px 5px; }
 .cf-input { width: 100%; min-width: 52px; font: inherit; padding: 7px 6px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-elev2); color: var(--text); text-align: right; }

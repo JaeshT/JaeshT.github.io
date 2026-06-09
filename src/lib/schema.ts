@@ -56,6 +56,15 @@ export interface ExcelItemRef {
   macRecommended?: boolean;
 }
 
+/** Market Briefings: narrative "context to absorb" rather than testable SRS material. */
+export interface BriefingRef {
+  id: string;
+  title: string;
+  domain: Domain;
+  path: string;
+  updated?: string;
+}
+
 /** The master manifest at content/index.json — the extensibility backbone. */
 export interface ContentIndex {
   version: number;
@@ -65,6 +74,7 @@ export interface ContentIndex {
   quizzes: QuizRef[];
   glossary?: { paths: string[] };
   excel: ExcelItemRef[];
+  briefings?: BriefingRef[];
 }
 
 // ---- Individual content file shapes ----
@@ -136,4 +146,30 @@ export interface GlossaryTerm {
 
 export interface Glossary {
   terms: GlossaryTerm[];
+}
+
+export interface BriefStat {
+  value: string;
+  label: string;
+  note?: string;
+}
+
+export interface BriefSection {
+  heading: string;
+  body: string; // markdown
+}
+
+export interface BriefTalkingPoint {
+  text: string;
+  tag?: string;
+}
+
+export interface Briefing {
+  id: string;
+  title: string;
+  updated: string;
+  intro?: string; // markdown
+  stats: BriefStat[];
+  sections: BriefSection[];
+  talkingPoints: BriefTalkingPoint[];
 }

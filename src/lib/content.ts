@@ -2,6 +2,7 @@
 // Files are precached by the service worker, so this works fully offline after first load.
 
 import type {
+  Briefing,
   ContentIndex,
   FlashcardDeck,
   Glossary,
@@ -33,6 +34,7 @@ export async function loadIndex(): Promise<ContentIndex> {
 export const loadDeck = (path: string) => fetchJson<FlashcardDeck>(path);
 export const loadQuestionSet = (path: string) => fetchJson<QuestionSet>(path);
 export const loadQuiz = (path: string) => fetchJson<Quiz>(path);
+export const loadBriefing = (path: string) => fetchJson<Briefing>(path);
 export const loadGlossary = (path: string) => fetchJson<Glossary>(path);
 
 /** Load and merge multiple per-domain glossary files, de-duplicating by term (case-insensitive). */
