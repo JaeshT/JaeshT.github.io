@@ -345,3 +345,32 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .quicklinks { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
 .quicklinks button { font: inherit; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; padding: 9px 14px; color: var(--text); cursor: pointer; }
 .loading { padding: 30px 0; text-align: center; }
+
+/* ---- score ring (quiz results) ---- */
+.score-ring { display: block; margin: 0 auto; }
+.ring-text { fill: var(--text); font-size: 30px; font-weight: 700; }
+.result-msg { font-size: 20px; font-weight: 700; margin-top: 6px; }
+
+/* ---- achievement badges ---- */
+.section-h { font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin: 20px 0 10px; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.badge {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  min-width: 70px; padding: 10px 8px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--bg-elev); opacity: 0.4; filter: grayscale(1);
+}
+.badge.earned { opacity: 1; filter: none; border-color: var(--accent-2); }
+.badge-icon { font-size: 22px; }
+.badge-label { font-size: 10px; color: var(--muted); text-align: center; }
+.badge.earned .badge-label { color: var(--text); }
+
+/* ---- mastery bars ---- */
+.mastery { margin: 8px 0 4px; }
+.mastery-row { display: block; width: 100%; text-align: left; background: none; border: none; padding: 8px 0; cursor: pointer; font: inherit; color: var(--text); }
+.mastery-top { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.bar { height: 9px; border-radius: 999px; background: var(--bg-elev2); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 0.5s ease; }
+
+/* ---- cash-flow calculator table ---- */
+.cf-table th, .cf-table td { padding: 4px 5px; }
+.cf-input { width: 100%; min-width: 52px; font: inherit; padding: 7px 6px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-elev2); color: var(--text); text-align: right; }

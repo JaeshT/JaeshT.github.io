@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'preact/hooks';
 import { navigate } from '../lib/router';
 import { europeanWaterfall, dealByDeal, type Deal } from '../lib/waterfall';
+import { computeMetrics, type CashflowRow } from '../lib/metrics';
 import { BackLink } from './learn';
 
 const TOOLS = [
   { id: 'waterfall', icon: '💧', title: 'Distribution Waterfall', note: 'European & deal-by-deal, catch-up, clawback', ready: true },
-  { id: 'pme', icon: '📈', title: 'IRR / MOIC / PME', note: 'Performance metrics calculator', ready: false },
+  { id: 'pme', icon: '📈', title: 'IRR / MOIC / TVPI / PME', note: 'Fund performance & benchmarking calculator', ready: true },
   { id: 'pacing', icon: '🌊', title: 'Takahashi–Alexander Pacing', note: 'Commitment pacing & J-curve simulator', ready: false },
   { id: 'lbo', icon: '🏗️', title: 'Mini-LBO Model', note: 'Sources & uses → returns → value bridge', ready: false },
 ];
@@ -268,3 +269,98 @@ function Kpi({ label, value, accent }: { label: string; value: string; accent?: 
     </div>
   );
 }
+
+// ---------- IRR / MOIC / TVPI / PME calculator ----------
+export function MetricsTool() {
+  const [rows, setRows] = useState<CashflowRow[]>([
+    { year: 0, call: 40, dist: 0, index: 100 },
+    { year: 1, call: 60, dist: 0, index: 110 },
+    { year: 2, call: 0, dist: 50, index: 121 },
+    { year: 3, call: 0, dist: 90, index: 133.1 },
+  ]);
+  const [nav, setNav] = useState('0');
+
+  const navNum = parseFloat(nav) || 0;
+  const m = useMemo(() => computeMetrics(rows, navNum), [rows, navNum]);
+  const set = (i: number, k: keyof CashflowRow, v: number) =>
+    setRows((rs) => rs.map((r, n) => (n === i ? { ...r, [k]: v } : r)));
+
+  return (
+    <section>
+      <BackLink to="tools" label="Tools" />
+      <h1>IRR / MOIC / TVPI / PME</h1>
+      <p class="muted small">
+        Enter the LP cash flows by period ($M). <b>Call</b> = capital called, <b>Dist</b> = distribution
+        received, <b>Index</b> = a public-market level on that date (for KS-PME).
+      </p>
+
+      <table class="wtable cf-table">
+        <thead>
+          <tr>
+            <th>Yr</th>
+            <th>Call</th>
+            <th>Dist</th>
+            <th>Index</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i}>
+              <td><CfInput value={r.year} onChange={(v) => set(i, 'year', v)} /></td>
+              <td><CfInput value={r.call} onChange={(v) => set(i, 'call', v)} /></td>
+              <td><CfInput value={r.dist} onChange={(v) => set(i, 'dist', v)} /></td>
+              <td><CfInput value={r.index} onChange={(v) => set(i, 'index', v)} /></td>
+              <td>
+                {rows.length > 1 && (
+                  <button class="del" onClick={() => setRows((rs) => rs.filter((_, n) => n !== i))}>✕</button>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div class="controls">
+        <button
+          class="btn btn-ghost"
+          onClick={() =>
+            setRows((rs) => [
+              ...rs,
+              { year: (rs[rs.length - 1]?.year ?? -1) + 1, call: 0, dist: 0, index: rs[rs.length - 1]?.index ?? 100 },
+            ])
+          }
+        >
+          + Add period
+        </button>
+        <Field label="Residual NAV $M" value={nav} onChange={setNav} />
+      </div>
+
+      <div class="kpis">
+        <Kpi label="TVPI" value={fmtx(m.tvpi)} accent />
+        <Kpi label="DPI (realized)" value={fmtx(m.dpi)} />
+        <Kpi label="RVPI (unrealized)" value={fmtx(m.rvpi)} />
+        <Kpi label="IRR" value={m.irr === null ? '—' : pct(m.irr)} accent />
+        <Kpi label="KS-PME" value={m.ksPme === null ? '—' : m.ksPme.toFixed(3)} />
+        <Kpi label="Paid-in capital" value={`$${fmt(m.pic)}M`} />
+      </div>
+      <p class="muted small">
+        TVPI = DPI + RVPI. A <b>KS-PME &gt; 1.0</b> means the fund beat the public index on matched cash-flow
+        timing; &lt; 1.0 means it lagged. IRR is annualized (periods treated as years; terminal NAV added as a
+        final inflow).
+      </p>
+    </section>
+  );
+}
+
+function CfInput({ value, onChange }: { value: number; onChange: (v: number) => void }) {
+  return (
+    <input
+      class="cf-input"
+      inputMode="decimal"
+      value={String(value)}
+      onInput={(e) => onChange(parseFloat((e.target as HTMLInputElement).value) || 0)}
+    />
+  );
+}
+
+const fmtx = (n: number) => fmt(n) + 'x';

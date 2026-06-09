@@ -32,6 +32,11 @@ export function Learn() {
   return (
     <section>
       <h1>Learn</h1>
+      {index.questionSets.length > 0 && (
+        <button class="btn btn-primary big" onClick={() => navigate('mock')}>
+          🎤 Mock Interview — random Q&A across all domains
+        </button>
+      )}
       {domains.map((d) => (
         <DomainBlock key={d} domain={d} index={index} read={read} />
       ))}
@@ -155,15 +160,19 @@ export function QuizRunner({ id }: { id: string }) {
   const total = quiz.questions.length;
 
   if (finished) {
+    const pct = Math.round((score / total) * 100);
+    const msg =
+      pct === 100 ? 'Flawless! 💯' : pct >= 80 ? 'Strong work 🎯' : pct >= 50 ? 'Getting there 💪' : 'Keep grinding 🔁';
     return (
       <section>
         <BackLink to="learn" label="Learn" />
         <h1>{quiz.title}</h1>
         <div class="result-card">
-          <div class="result-score">
-            {score} / {total}
+          <ScoreRing pct={pct} />
+          <div class="result-msg">{msg}</div>
+          <div class="muted">
+            {score} / {total} correct · +15 XP
           </div>
-          <div class="muted">{Math.round((score / total) * 100)}% correct</div>
         </div>
         <button
           class="btn btn-primary"
@@ -418,5 +427,121 @@ export function BackLink({ to, label }: { to: string; label: string }) {
     <button class="backlink" onClick={() => navigate(to)}>
       ‹ {label}
     </button>
+  );
+}
+
+/** Circular score gauge for quiz results. */
+export function ScoreRing({ pct }: { pct: number }) {
+  const r = 52;
+  const c = 2 * Math.PI * r;
+  const off = c * (1 - pct / 100);
+  const color = pct >= 80 ? 'var(--accent-2)' : pct >= 50 ? 'var(--accent)' : 'var(--warn)';
+  return (
+    <svg class="score-ring" width="140" height="140" viewBox="0 0 140 140">
+      <circle cx="70" cy="70" r={r} fill="none" stroke="var(--border)" stroke-width="12" />
+      <circle
+        cx="70"
+        cy="70"
+        r={r}
+        fill="none"
+        stroke={color}
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-dasharray={c}
+        stroke-dashoffset={off}
+        transform="rotate(-90 70 70)"
+      />
+      <text x="70" y="78" text-anchor="middle" class="ring-text">
+        {pct}%
+      </text>
+    </svg>
+  );
+}
+
+// ---- Mock Interview: shuffled Q&A drawn from every domain's interview set ----
+interface MockItem {
+  prompt: string;
+  modelAnswer: string;
+  domain: Domain;
+}
+
+export function MockInterview() {
+  const [items, setItems] = useState<MockItem[] | null>(null);
+  const [i, setI] = useState(0);
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const index = await loadIndex();
+        const sets = await Promise.all(
+          index.questionSets.map(async (ref) => {
+            const s = await loadQuestionSet(ref.path);
+            return s.questions.map((q) => ({ prompt: q.prompt, modelAnswer: q.modelAnswer, domain: ref.domain }));
+          }),
+        );
+        const all = sets.flat();
+        // Fisher–Yates shuffle
+        for (let k = all.length - 1; k > 0; k--) {
+          const j = Math.floor(Math.random() * (k + 1));
+          [all[k], all[j]] = [all[j], all[k]];
+        }
+        if (alive) setItems(all);
+      } catch {
+        if (alive) setError(true);
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  if (error) return <Empty title="Mock Interview" note="No interview sets loaded yet." back="learn" />;
+  if (!items) return <Loading />;
+  if (items.length === 0)
+    return <Empty title="Mock Interview" note="Interview questions appear here as domains are added." back="learn" />;
+
+  const it = items[i];
+  const next = async (graded: boolean) => {
+    if (graded) await recordStudy(3);
+    setShow(false);
+    setI((p) => (p + 1) % items.length);
+  };
+
+  return (
+    <section>
+      <BackLink to="learn" label="Learn" />
+      <h1>🎤 Mock Interview</h1>
+      <div class="quiz-progress">
+        Random question {i + 1} · {items.length} in the pool · <span class="pill">{DOMAIN_LABEL[it.domain]}</span>
+      </div>
+      <div class="qcard">
+        <p class="qprompt">{it.prompt}</p>
+        {show ? (
+          <div class="model-answer">{it.modelAnswer}</div>
+        ) : (
+          <button class="btn btn-ghost" onClick={() => setShow(true)}>
+            Reveal model answer
+          </button>
+        )}
+      </div>
+      {show && (
+        <div class="selfgrade">
+          <button class="btn btn-ghost" onClick={() => next(true)}>
+            Shaky — practice again
+          </button>
+          <button class="btn btn-primary" onClick={() => next(true)}>
+            Nailed it →
+          </button>
+        </div>
+      )}
+      {!show && (
+        <button class="btn btn-ghost" onClick={() => next(false)}>
+          Skip →
+        </button>
+      )}
+    </section>
   );
 }
