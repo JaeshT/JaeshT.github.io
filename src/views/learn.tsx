@@ -16,7 +16,17 @@ export function Learn() {
     getProgress().then((p) => setRead(p.lessonsRead));
   }, []);
 
-  if (error) return <Empty title="Learn" note="Couldn't load content. Add content files and rebuild." />;
+  if (error)
+    return (
+      <Empty
+        title="Learn"
+        note={
+          navigator.onLine
+            ? 'Couldn’t load content — try again.'
+            : 'You’re offline and content isn’t downloaded yet. Reconnect, go to the Home tab, and tap “Download for offline.”'
+        }
+      />
+    );
   if (!index) return <Loading />;
 
   const domains = DOMAIN_ORDER.filter(

@@ -13,13 +13,13 @@ import type {
 const BASE = '/content/';
 
 async function fetchJson<T>(path: string): Promise<T> {
-  const res = await fetch(BASE + path, { cache: 'no-cache' });
+  const res = await fetch(BASE + path);
   if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
   return res.json() as Promise<T>;
 }
 
 async function fetchText(path: string): Promise<string> {
-  const res = await fetch(BASE + path, { cache: 'no-cache' });
+  const res = await fetch(BASE + path);
   if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
   return res.text();
 }

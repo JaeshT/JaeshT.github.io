@@ -100,6 +100,20 @@ export async function importAll(json: string): Promise<void> {
   if (data.settings) await set(SETTINGS_KEY, data.settings, store);
 }
 
+// ---- Offline-pack status (set by the "Download for offline" button) ----
+export interface OfflineStatus {
+  at: number; // epoch ms last downloaded
+  count: number; // files cached
+}
+const OFFLINE_KEY = 'offlineReady';
+
+export async function getOfflineStatus(): Promise<OfflineStatus | undefined> {
+  return get<OfflineStatus>(OFFLINE_KEY, store);
+}
+export async function setOfflineStatus(s: OfflineStatus): Promise<void> {
+  await set(OFFLINE_KEY, s, store);
+}
+
 // ---- Activity helpers (streak + XP), called on any study action ----
 export function todayStr(d = new Date()): string {
   return d.toISOString().slice(0, 10);

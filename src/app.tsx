@@ -9,6 +9,7 @@ import { Cards, Review, Browse } from './views/cards';
 import { Glossary } from './views/glossary';
 import { Tools, WaterfallTool, MetricsTool } from './views/tools';
 import { Briefings, Brief } from './views/brief';
+import { DownloadForOffline } from './views/offline';
 import { DOMAIN_LABEL, DOMAIN_ORDER } from './lib/domains';
 import { computeMastery, computeAchievements, isLearned, type DomainMastery, type Achievement } from './lib/mastery';
 import type { FlashcardDeck } from './lib/schema';
@@ -33,10 +34,19 @@ export function App() {
   const path = useRoute();
   const [seg0, seg1] = segments(path);
   const [needRefresh, setNeedRefresh] = useState(false);
+  const [online, setOnline] = useState(typeof navigator === 'undefined' ? true : navigator.onLine);
   const reload = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     reload.current = setupPWA(() => setNeedRefresh(true));
+    const on = () => setOnline(true);
+    const off = () => setOnline(false);
+    window.addEventListener('online', on);
+    window.addEventListener('offline', off);
+    return () => {
+      window.removeEventListener('online', on);
+      window.removeEventListener('offline', off);
+    };
   }, []);
 
   return (
@@ -44,6 +54,7 @@ export function App() {
       <header class="topbar">
         <span class="brand">PE&nbsp;Prep</span>
         <span class="brand-sub">Primaries &amp; Co-investments</span>
+        {!online && <span class="offline-pill">● offline</span>}
       </header>
 
       <main class="content">
@@ -162,6 +173,8 @@ function Home() {
         {due > 0 ? `Review ${due} due card${due === 1 ? '' : 's'}` : 'No cards due — explore a lesson'}
       </button>
 
+      <DownloadForOffline />
+
       {achievements.some((a) => a.earned) && (
         <div class="badge-row">
           {achievements.map((a) => (
@@ -247,6 +260,7 @@ function ProgressView() {
   return (
     <section>
       <h1>Progress &amp; backup</h1>
+      <DownloadForOffline />
       <p class="muted">
         Everything is stored locally on this device (no server). Export to back up or to sync between
         your Mac and iPhone.
