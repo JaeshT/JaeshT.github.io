@@ -25,6 +25,28 @@ node scripts/gen-icons.mjs   # regenerate the J-curve app icons
 
 To test offline behavior: `npm run build && npm run preview`, open the URL, then go offline.
 
+## Continue this project locally (Claude Code)
+
+Everything — the app, all study content, and the deep-research reports in [`research/`](research/) —
+lives in this repo, and [`CLAUDE.md`](CLAUDE.md) is a full handoff. So local Claude Code understands
+the project the moment you open the folder.
+
+1. **Get the repo** (skip the clone if you already have it):
+   ```bash
+   git clone -b claude/pe-internship-prep-program-DBiQz https://github.com/JaeshT/JaeshT.github.io.git pe-prep
+   cd pe-prep
+   git checkout claude/pe-internship-prep-program-DBiQz   # the active dev branch
+   npm install
+   ```
+2. **Open the `pe-prep` folder in the Claude Code app** (or run `claude` in that folder from a
+   terminal). It auto-reads `CLAUDE.md` and can then read/edit all code, content, and research.
+3. Ask it to continue — e.g. *"read CLAUDE.md, then build the Takahashi–Alexander pacing simulator
+   from research/Q06"*. It edits locally; `git push` to `main` redeploys to tewess.com.
+
+Local Claude Code can also reach files in your **OneDrive/iCloud Drive** folders (they're just local
+folders on your Mac) — the web version cannot.
+
+
 ## Structure
 
 ```
