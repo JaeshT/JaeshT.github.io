@@ -1,0 +1,211 @@
+// The ladder: which stages are locked, which are cleared, and how ready you actually are.
+// Pure functions over the manifest + question banks + user state. No I/O, so it's testable
+// and the views stay dumb.
+//
+// Gating rules (deliberately generous — this is a study aid, not a jail):
+//   • A module's EASY stage opens when the previous core module's EASY stage is cleared.
+//   • MEDIUM opens when EASY is cleared; HARD opens when MEDIUM is cleared.
+//   • Sector desks open once every core EASY stage is cleared.
+//   • The "fit" track is never locked.
+//   • Anything can be force-opened; the map records that it was opened early rather than earned.
+
+import type { ContentIndex, ModuleRef, Question, QuestionBank, Tier } from './schema';
+import { TIERS } from './schema';
+import type { AttemptMap, Progress, SrsMap } from './db';
+import { isDue } from './srs';
+
+export type StageStatus = 'locked' | 'open' | 'cleared';
+
+/** Fraction of a stage's questions you must have nailed at least once to clear it. */
+export const CLEAR_THRESHOLD = 0.8;
+
+export function stageKey(moduleId: string, tier: Tier): string {
+  return `${moduleId}:${tier}`;
+}
+
+export interface Stage {
+  moduleId: string;
+  tier: Tier;
+  key: string;
+  total: number;
+  nailed: number; // answered correctly at least once
+  strength: number; // 0..1, decays when reviews go overdue
+  status: StageStatus;
+  earnedEarly: boolean; // opened by hand rather than by clearing the stage before it
+}
+
+export interface ModuleState {
+  ref: ModuleRef;
+  stages: Stage[];
+  total: number;
+  strength: number; // 0..1 across the whole module
+  status: StageStatus; // cleared only when all three tiers are cleared
+  ready: boolean; // has a question bank at all
+}
+
+/**
+ * How solid one question is right now.
+ *   never answered           -> 0
+ *   nailed but review overdue -> 0.5   (you knew it; that was a while ago)
+ *   nailed and fresh          -> 1
+ * Missing it after claiming confidence drags it back to 0 — that's the point of the Danger Zone.
+ */
+export function strengthOf(id: string, attempts: AttemptMap, srs: SrsMap, now = Date.now()): number {
+  const a = attempts[id];
+  if (!a || a.hits === 0) return 0;
+  if (a.burned) return 0;
+  return isDue(srs[id], now) ? 0.5 : 1;
+}
+
+function questionsFor(bank: QuestionBank | undefined, tier: Tier): Question[] {
+  return bank ? bank.questions.filter((q) => q.tier === tier) : [];
+}
+
+export function buildLadder(
+  index: ContentIndex,
+  banks: Record<string, QuestionBank>,
+  attempts: AttemptMap,
+  srs: SrsMap,
+  progress: Progress,
+  now = Date.now(),
+): ModuleState[] {
+  const modules = [...index.modules].sort((a, b) => a.order - b.order);
+  const core = modules.filter((m) => m.track === 'core');
+
+  // First pass: raw stats per stage.
+  const raw = new Map<string, { stage: Stage; questions: Question[] }>();
+  for (const ref of modules) {
+    const bank = banks[ref.id];
+    for (const tier of TIERS) {
+      const questions = questionsFor(bank, tier);
+      const nailed = questions.filter((q) => (attempts[q.id]?.hits ?? 0) > 0 && !attempts[q.id]?.burned).length;
+      const strength = questions.length
+        ? questions.reduce((s, q) => s + strengthOf(q.id, attempts, srs, now), 0) / questions.length
+        : 0;
+      const key = stageKey(ref.id, tier);
+      raw.set(key, {
+        questions,
+        stage: {
+          moduleId: ref.id,
+          tier,
+          key,
+          total: questions.length,
+          nailed,
+          strength,
+          status: 'locked',
+          earnedEarly: progress.unlockedEarly.includes(key),
+        },
+      });
+    }
+  }
+
+  const isCleared = (key: string): boolean => {
+    if (progress.stagesCleared[key]) return true;
+    const entry = raw.get(key);
+    if (!entry || entry.stage.total === 0) return false;
+    return entry.stage.nailed / entry.stage.total >= CLEAR_THRESHOLD;
+  };
+
+  const allCoreEasyCleared = core.every((m) => isCleared(stageKey(m.id, 'easy')));
+
+  // Second pass: resolve lock state now that every stage's clear status is known.
+  const out: ModuleState[] = [];
+  for (const ref of modules) {
+    const stages: Stage[] = [];
+    for (let i = 0; i < TIERS.length; i++) {
+      const tier = TIERS[i];
+      const key = stageKey(ref.id, tier);
+      const stage = raw.get(key)!.stage;
+
+      let open: boolean;
+      if (i > 0) {
+        open = isCleared(stageKey(ref.id, TIERS[i - 1]));
+      } else if (ref.track === 'fit') {
+        open = true;
+      } else if (ref.track === 'sector') {
+        open = allCoreEasyCleared;
+      } else {
+        const idx = core.findIndex((m) => m.id === ref.id);
+        open = idx <= 0 || isCleared(stageKey(core[idx - 1].id, 'easy'));
+      }
+
+      stage.status = isCleared(key) ? 'cleared' : open || stage.earnedEarly ? 'open' : 'locked';
+      stages.push(stage);
+    }
+
+    const total = stages.reduce((s, st) => s + st.total, 0);
+    const strength = total
+      ? stages.reduce((s, st) => s + st.strength * st.total, 0) / total
+      : 0;
+    out.push({
+      ref,
+      stages,
+      total,
+      strength,
+      status: stages.every((s) => s.status === 'cleared')
+        ? 'cleared'
+        : stages.some((s) => s.status !== 'locked')
+          ? 'open'
+          : 'locked',
+      ready: total > 0,
+    });
+  }
+  return out;
+}
+
+/** Headline number: how much of the built material you could actually deliver right now. */
+export function readiness(modules: ModuleState[]): number {
+  const built = modules.filter((m) => m.ready && m.ref.track !== 'sector');
+  const total = built.reduce((s, m) => s + m.total, 0);
+  if (!total) return 0;
+  return Math.round((built.reduce((s, m) => s + m.strength * m.total, 0) / total) * 100);
+}
+
+/** The stage to point the user at: the first open, uncleared stage in ladder order. */
+export function nextStage(modules: ModuleState[]): Stage | undefined {
+  for (const tier of TIERS) {
+    for (const m of modules) {
+      if (!m.ready) continue;
+      const st = m.stages.find((s) => s.tier === tier);
+      if (st && st.status === 'open' && st.total > 0) return st;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * The Danger Zone: questions you were confident about and then got wrong.
+ * Anything on this list would have gone badly in a real interview, which makes it the
+ * highest-value thing you can restudy.
+ */
+export function dangerZone(
+  banks: Record<string, QuestionBank>,
+  attempts: AttemptMap,
+): { question: Question; moduleId: string }[] {
+  const out: { question: Question; moduleId: string }[] = [];
+  for (const [moduleId, bank] of Object.entries(banks)) {
+    for (const q of bank.questions) {
+      if (attempts[q.id]?.burned) out.push({ question: q, moduleId });
+    }
+  }
+  return out.sort((a, b) => (attempts[b.question.id]?.last ?? 0) - (attempts[a.question.id]?.last ?? 0));
+}
+
+/** Everything due for spaced review right now, hardest-first so you hit the weak stuff awake. */
+export function dueQuestions(
+  banks: Record<string, QuestionBank>,
+  attempts: AttemptMap,
+  srs: SrsMap,
+  now = Date.now(),
+): Question[] {
+  const seen: Question[] = [];
+  for (const bank of Object.values(banks)) {
+    for (const q of bank.questions) {
+      const a = attempts[q.id];
+      if (!a || a.hits + a.misses === 0) continue; // never attempted = new, not "due"
+      if (isDue(srs[q.id], now)) seen.push(q);
+    }
+  }
+  const rank: Record<Tier, number> = { hard: 0, medium: 1, easy: 2 };
+  return seen.sort((a, b) => rank[a.tier] - rank[b.tier]);
+}

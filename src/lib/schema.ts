@@ -1,142 +1,125 @@
 // Content schema — the shapes of every data file under public/content/.
-// Content is git-versioned & cacheable; USER STATE (progress/SRS) lives in IndexedDB, never here.
+// Content is git-versioned & cacheable; USER STATE (attempts/SRS) lives in IndexedDB, never here.
+//
+// The model has exactly two axes:
+//   1. MODULE — a rung on the curriculum ladder (accounting -> valuation -> DCF -> M&A -> LBO -> ...)
+//   2. TIER   — easy / medium / hard *within* a module. You clear a tier to open the next one.
+// A question may additionally carry a SECTOR tag (TMT, FIG, …) so sector desks can slice the bank.
 
-export type Difficulty = 'easy' | 'medium' | 'hard';
+export type Tier = 'easy' | 'medium' | 'hard';
+export const TIERS: Tier[] = ['easy', 'medium', 'hard'];
 
-/** Top-level domains used for filtering, mastery bars, and the dashboard. */
-export type Domain =
-  | 'technicals'
-  | 'pe-fundamentals'
-  | 'fund-economics'
-  | 'performance'
-  | 'primaries'
-  | 'portfolio-pacing'
-  | 'co-investments'
-  | 'excel'
-  | 'market'
-  | 'firm';
+export const TIER_LABEL: Record<Tier, string> = {
+  easy: 'Easy',
+  medium: 'Medium',
+  hard: 'Hard',
+};
+
+/** Which ladder a module belongs to. Core is the gated spine; the others are always open. */
+export type Track = 'core' | 'sector' | 'fit';
+
+export type Sector =
+  | 'tmt'
+  | 'saas'
+  | 'fig'
+  | 'healthcare'
+  | 'consumer'
+  | 'industrials'
+  | 'oil-gas'
+  | 'power-renewables'
+  | 'real-estate'
+  | 'restructuring'
+  | 'levfin'
+  | 'ecm'
+  | 'sponsors';
+
+export const SECTOR_LABEL: Record<Sector, string> = {
+  tmt: 'TMT',
+  saas: 'SaaS',
+  fig: 'FIG',
+  healthcare: 'Healthcare',
+  consumer: 'Consumer & Retail',
+  industrials: 'Industrials',
+  'oil-gas': 'Oil & Gas',
+  'power-renewables': 'Power & Renewables',
+  'real-estate': 'Real Estate',
+  restructuring: 'Restructuring',
+  levfin: 'DCM & LevFin',
+  ecm: 'ECM',
+  sponsors: 'Financial Sponsors',
+};
+
+// ---- Manifest ----
 
 export interface LessonRef {
   id: string;
   title: string;
-  domain: Domain;
-  path: string; // markdown file under content/, e.g. "lessons/pe-fundamentals/j-curve.md"
-  order?: number;
+  path: string; // markdown under content/, e.g. "lessons/accounting/primer.md"
+  tier?: Tier; // which stage this primer belongs to (defaults to easy)
   estMinutes?: number;
 }
 
-export interface FlashcardDeckRef {
-  id: string;
-  title: string;
-  domain: Domain;
-  path: string; // json file
-  count?: number;
-}
-
-export interface QuestionSetRef {
-  id: string;
-  title: string;
-  domain: Domain;
-  path: string;
-}
-
-export interface QuizRef {
-  id: string;
-  title: string;
-  domain: Domain;
-  path: string;
-}
-
-export interface ExcelItemRef {
-  id: string;
-  title: string;
-  walkthrough: string; // markdown path
-  file?: string; // .xlsx path under content/excel/files/
-  sizeKb?: number;
-  macRecommended?: boolean;
-}
-
-/** Market Briefings: narrative "context to absorb" rather than testable SRS material. */
-export interface BriefingRef {
-  id: string;
-  title: string;
-  domain: Domain;
-  path: string;
-  updated?: string;
+export interface ModuleRef {
+  id: string; // 'accounting'
+  title: string; // 'Accounting & the Three Statements'
+  short: string; // 'Accounting'
+  icon: string;
+  track: Track;
+  order: number; // position on its ladder
+  blurb: string;
+  bank?: string; // path to the question bank json; absent = not built yet
+  lessons?: LessonRef[];
+  sector?: Sector; // set on sector-desk modules
 }
 
 /** The master manifest at content/index.json — the extensibility backbone. */
 export interface ContentIndex {
   version: number;
-  lessons: LessonRef[];
-  flashcardDecks: FlashcardDeckRef[];
-  questionSets: QuestionSetRef[];
-  quizzes: QuizRef[];
+  updated?: string;
+  modules: ModuleRef[];
   glossary?: { paths: string[] };
-  excel: ExcelItemRef[];
-  briefings?: BriefingRef[];
 }
 
-// ---- Individual content file shapes ----
+// ---- The question: one unit, three uses (drill, spaced review, graded check) ----
 
-export interface Flashcard {
-  id: string;
-  front: string;
-  back: string;
-  tags?: string[];
-  difficulty?: Difficulty;
-}
-
-export interface FlashcardDeck {
-  id: string;
-  title: string;
-  cards: Flashcard[];
-}
-
-export interface QuestionItem {
-  id: string;
-  prompt: string;
-  modelAnswer: string;
-  difficulty?: Difficulty;
-  tags?: string[];
-}
-
-export interface QuestionSet {
-  id: string;
-  title: string;
-  questions: QuestionItem[];
-}
-
-export type QuizQuestion =
+/** An objectively gradeable check attached to a question. Optional — most questions are spoken. */
+export type Check =
   | {
-      id: string;
       type: 'mcq';
-      prompt: string;
       choices: string[];
       answerIndex: number;
       explanation?: string;
     }
   | {
-      id: string;
       type: 'numeric';
-      prompt: string;
       answer: number;
-      tolerance?: number; // absolute tolerance for self-grading
+      tolerance?: number; // absolute; defaults to 1% of |answer|
       unit?: string;
       explanation?: string;
-    }
-  | {
-      id: string;
-      type: 'free';
-      prompt: string;
-      modelAnswer: string;
     };
 
-export interface Quiz {
+export interface Question {
   id: string;
-  title: string;
-  questions: QuizQuestion[];
+  tier: Tier;
+  prompt: string;
+  /** The say-it-out-loud answer — roughly 60 seconds of speech. Markdown. */
+  answer: string;
+  /** What you say when they push further. Markdown. */
+  deepDive?: string;
+  /** Must-hit points. Present on walkthrough questions; you self-grade against them. */
+  keyPoints?: string[];
+  sector?: Sector;
+  tags?: string[];
+  check?: Check;
 }
+
+export interface QuestionBank {
+  module: string; // module id
+  title: string;
+  questions: Question[];
+}
+
+// ---- Glossary ----
 
 export interface GlossaryTerm {
   term: string;
@@ -146,30 +129,4 @@ export interface GlossaryTerm {
 
 export interface Glossary {
   terms: GlossaryTerm[];
-}
-
-export interface BriefStat {
-  value: string;
-  label: string;
-  note?: string;
-}
-
-export interface BriefSection {
-  heading: string;
-  body: string; // markdown
-}
-
-export interface BriefTalkingPoint {
-  text: string;
-  tag?: string;
-}
-
-export interface Briefing {
-  id: string;
-  title: string;
-  updated: string;
-  intro?: string; // markdown
-  stats: BriefStat[];
-  sections: BriefSection[];
-  talkingPoints: BriefTalkingPoint[];
 }
