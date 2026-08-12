@@ -29,7 +29,7 @@
   {
    "id": "ev-e03",
    "tier": "easy",
-   "prompt": "Why do you need both equity value and enterprise value? Why not just use market cap?",
+   "prompt": "Why do you need both equity value and enterprise value? Why can't you use market cap alone?",
    "answer": "- Market cap depends on how the company is funded, so two identical businesses with different debt loads show different market caps.\n- Enterprise value strips financing out, which makes operating performance comparable across a peer set.\n- You still need equity value because that is what a shareholder actually owns and what the share price implies.\n- In practice you use EV multiples to compare businesses and then bridge back to equity value to get a price per share.",
    "tags": [
     "definitions"
@@ -537,7 +537,7 @@
     "Ownership versus leasing distorts EBITDA and the balance sheet",
     "IFRS 16 narrows the gap, US GAAP operating leases do not",
     "Capitalise leases into EV, or compare on EBITDAR",
-    "EV/EBIT is the more robust cross-check"
+    "EV/EBIT is the steadier cross-check"
    ],
    "tags": [
     "leases",

@@ -61,8 +61,9 @@ Both big guides are **copyrighted commercial products** and the site is public. 
    cleared the stage, opened Accounting · Medium and EV/Equity Value · Easy, and left the rest locked.
 8. **Accounting and EV/equity value written in full** — 70 questions from the 400 Questions guide and the Red
    Book, tiered 25/25/20, every answer as scannable bullets, `keyPoints` on all 27 walkthroughs.
-   EV/equity value followed: 55 questions covering the bridge, the treasury stock method, the
-   which-changes transaction drills, leases and pensions, and multiple-metric consistency.
+   EV/equity value followed with 55 covering the bridge, the treasury stock method, the
+   which-changes transaction drills, leases and pensions, and metric/multiple consistency. Then
+   valuation with 55 on comps, precedents, multiple selection and the judgment questions.
 9. **House style, enforced on every file**: answers are scannable bullets rather than paragraphs,
    and the `humanizer` skill (installed at `~/.claude/skills/humanizer/`) is applied to all prose.
    No em dashes, no en dashes, no curly quotes, no bold, no "not just X but Y". There is a scan for

@@ -3,166 +3,695 @@
  "title": "Valuation: comps & precedents",
  "questions": [
   {
-   "id": "valuation-q15",
+   "id": "val-e01",
    "tier": "easy",
-   "prompt": "What is the main reason precedent transaction multiples tend to be higher than trading comp multiples?",
-   "answer": "- In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies.\n- Public trading prices reflect minority stakes with no ability to control.\n- This structural difference makes precedent multiples consistently higher than trading comp multiples.",
-   "check": {
-    "type": "mcq",
-    "explanation": "In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies. Public trading prices reflect minority stakes with no ability to control. This structural difference makes precedent multiples consistently higher than trading comp multiples.",
-    "choices": [
-     "Precedents use a different earnings metric",
-     "Trading comps reflect minority stakes with no control premium; precedents include a control premium and synergies",
-     "Precedent deals are more recent and reflect current market conditions",
-     "Precedents use equity value while trading comps use EV"
-    ],
-    "answerIndex": 1
-   }
-  },
-  {
-   "id": "valuation-tech-c36",
-   "tier": "easy",
-   "prompt": "Name the three core valuation methods.",
-   "answer": "Trading comps, precedent transactions, DCF.",
+   "prompt": "What are the three main valuation methodologies?",
+   "answer": "- Public comparable companies: what similar listed businesses trade at today.\n- Precedent transactions: what acquirers have actually paid for similar businesses.\n- Discounted cash flow: the present value of the cash the business is expected to generate.\n- The first two are relative and tell you what the market pays. The DCF is intrinsic and tells you what the cash flows are worth on your own assumptions.",
+   "keyPoints": [
+    "Public comps, precedent transactions, DCF",
+    "The first two are market-based and relative",
+    "The DCF is intrinsic and assumption-driven",
+    "Say what each one is actually measuring"
+   ],
    "tags": [
-    "valuation"
+    "methodologies"
    ]
   },
   {
-   "id": "valuation-tech-c41",
+   "id": "val-e02",
    "tier": "easy",
-   "prompt": "When is P/E the right multiple?",
-   "answer": "For banks and insurers, where capital structure is the business, and broadly for equity-holder comparisons.",
+   "prompt": "Which methodology usually gives the highest value, and why?",
+   "answer": "- Precedent transactions are normally highest, because acquirers pay a control premium and expect synergies.\n- A DCF can come out anywhere, since it is driven by your growth and discount rate assumptions, and it is often the highest if you are optimistic.\n- Public comps typically sit lowest, as they reflect minority stakes changing hands with no control.\n- The safe framing is that precedents usually exceed comps for a specific reason, and the DCF depends entirely on inputs.",
    "tags": [
-    "valuation"
+    "methodologies"
    ]
   },
   {
-   "id": "valuation-iq13",
-   "tier": "medium",
-   "prompt": "EV/EBITDA versus P/E: when and why?",
-   "answer": "- EV/EBITDA is the default for comparing operating businesses because it is neutral to capital structure, tax regime, and non-cash D&A, so two companies with different leverage are comparable.\n- P/E uses equity value and net income, which are distorted by leverage and taxes, but it is the right lens for banks and insurers, where capital structure is the business, and for quick equity-holder comparisons.\n- I would not compare a heavily levered firm to an unlevered one on P/E; I would use EV/EBITDA.",
+   "id": "val-e03",
+   "tier": "easy",
+   "prompt": "What is a valuation multiple, in theory?",
+   "answer": "- It is a ratio of value to a financial metric, which standardises price so businesses of different sizes can be compared.\n- The analogy is price per square metre for property. Nobody compares two houses by total price alone.\n- A multiple compresses growth, risk and returns on capital into a single number.\n- That compression is both why it is useful and why it hides things.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-e04",
+   "tier": "easy",
+   "prompt": "What is a comparable companies analysis?",
+   "answer": "- You take a set of listed companies similar to the target, calculate their trading multiples, and apply the range to the target's metrics.\n- The output is an implied valuation range based on what the market pays for similar businesses right now.\n- It is current, market-tested and easy to update daily.\n- It gives you a minority-stake value, so no control premium is included.",
+   "tags": [
+    "comps"
+   ]
+  },
+  {
+   "id": "val-e05",
+   "tier": "easy",
+   "prompt": "How do you screen for comparable companies?",
+   "answer": "- Industry and business model first, since that drives the economics.\n- Size, usually by revenue or market cap, because large and small companies trade differently.\n- Geography, for regulation, growth and tax reasons.\n- Growth and margin profile, so you are comparing businesses with similar prospects.\n- In practice you start from the company's own filings, equity research and peer lists, then defend every inclusion and exclusion.",
    "keyPoints": [
-    "EV/EBITDA is capital-structure neutral; P/E is not",
-    "Use EV/EBITDA when leverage or tax rates differ across the set",
-    "P/E is fine within a sector with similar capital structures, and for financials",
-    "Flag the weakness: EBITDA ignores capex, so it flatters capital-intensive businesses"
+    "Industry and business model",
+    "Size, geography, growth and margins",
+    "Start from filings, research and the company own peer list",
+    "Be ready to defend each inclusion and exclusion"
+   ],
+   "tags": [
+    "comps"
    ]
   },
   {
-   "id": "valuation-iq14",
-   "tier": "medium",
-   "prompt": "Precedent transactions versus trading comps: which is higher and why?",
-   "answer": "- Precedents are usually higher.\n- Trading comps reflect where public peers trade today on a minority basis, with no control.\n- Precedents reflect prices actually paid in deals, which include a control premium and often the value of expected synergies, so the multiples are richer.\n- The offsetting issue is that precedents are dated: a deal struck under cheaper financing and frothier conditions overstates what a buyer would pay now, so I weight recency and the comparability of the deal environment.",
+   "id": "val-e06",
+   "tier": "easy",
+   "prompt": "What are precedent transactions?",
+   "answer": "- Multiples paid in past M&A deals for similar companies.\n- They tell you what buyers actually paid, including the premium for control and whatever synergies they underwrote.\n- They are useful for pricing a sale process, since the seller wants to know what acquirers have paid.\n- They age quickly, because a deal from a different market environment says little about today.",
+   "tags": [
+    "precedents"
+   ]
+  },
+  {
+   "id": "val-e07",
+   "tier": "easy",
+   "prompt": "Why are precedent transaction multiples usually higher than trading comps?",
+   "answer": "- They include a control premium, since a buyer taking full ownership pays for the right to direct the business.\n- They often include synergies, which buyers partly hand over in the price to win a competitive process.\n- Deal dynamics matter too: an auction with several bidders pushes the price up.\n- The gap is typically 20% to 40% over the undisturbed share price, though it varies with the sector and the moment.",
    "keyPoints": [
-    "Precedents are usually higher",
-    "They include a control premium and expected synergies",
-    "They are point-in-time, so the market environment at the deal date matters",
-    "Fewer clean comparables and stale data are the practical limits"
+    "Control premium for full ownership",
+    "Synergies the buyer is willing to share",
+    "Competitive auction dynamics",
+    "Roughly 20-40% over the undisturbed price"
+   ],
+   "tags": [
+    "precedents"
    ]
   },
   {
-   "id": "valuation-iq6",
+   "id": "val-e08",
+   "tier": "easy",
+   "prompt": "What is the difference between LTM and NTM multiples?",
+   "answer": "- LTM is last twelve months, so it uses reported historical figures.\n- NTM is next twelve months, using forecast figures from research or your own model.\n- Historical numbers are factual but backward-looking. Forward numbers are what actually drives the share price, and they depend on whose estimates you use.\n- Standard practice is to show both, and to be explicit about the source of the forward figures.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-e09",
+   "tier": "easy",
+   "prompt": "What is calendarisation and why does it matter in comps?",
+   "answer": "- Companies have different fiscal year ends, so their reported periods do not line up.\n- Calendarisation restates everyone onto a common calendar year so the multiples cover the same span of time.\n- Without it you might compare a company whose year ended in June with one whose year ended in December, across a period when conditions changed.\n- It is a small mechanical step that quietly fixes a real comparability problem.",
+   "tags": [
+    "comps"
+   ]
+  },
+  {
+   "id": "val-e10",
+   "tier": "easy",
+   "prompt": "Should the company you are valuing be included in its own peer group?",
+   "answer": "- No. Including it makes the analysis partly circular, since you would be using the company's own multiple to value itself.\n- You still calculate its multiple and show it alongside the peers, because the comparison is the point.\n- The interesting output is where it sits against the median and why.",
+   "tags": [
+    "comps"
+   ]
+  },
+  {
+   "id": "val-e11",
+   "tier": "easy",
+   "prompt": "What does it mean if a company trades below the peer median?",
+   "answer": "- It can mean the market expects slower growth, weaker margins or lower returns on capital.\n- It can reflect a specific risk: customer concentration, litigation, a controlling shareholder, or a regulatory overhang.\n- It can be a data problem, where the metric or the bridge is calculated differently across the set.\n- Or it can be genuine mispricing, which is the least likely explanation and the one to reach for last.",
+   "tags": [
+    "comps"
+   ]
+  },
+  {
+   "id": "val-e12",
+   "tier": "easy",
+   "prompt": "What is a football field chart?",
+   "answer": "- A summary chart showing the valuation range produced by each methodology as a horizontal bar.\n- Typically comps, precedents, DCF and sometimes an LBO analysis and the 52-week trading range.\n- It shows where the methods overlap, and the overlap is usually where the negotiation lands.\n- It is the page that ends up in the pitch book, because it communicates a range rather than a false single number.",
+   "tags": [
+    "output"
+   ]
+  },
+  {
+   "id": "val-e13",
+   "tier": "easy",
+   "prompt": "What is a sum-of-the-parts valuation and when do you use it?",
+   "answer": "- You value each business segment separately with its own peer set and multiple, then add them up and subtract corporate costs and net debt.\n- Use it for conglomerates and diversified groups where one blended multiple would be meaningless.\n- The advantage is that each division gets valued against businesses that actually resemble it.\n- The difficulties are allocating shared costs, getting segment disclosure that is good enough, and deciding on a conglomerate discount.",
+   "tags": [
+    "methodologies"
+   ]
+  },
+  {
+   "id": "val-e14",
+   "tier": "easy",
+   "prompt": "What is a liquidation valuation?",
+   "answer": "- You value the assets as if they were sold off individually and the liabilities repaid, with a discount to book value on most asset classes.\n- It is relevant in distress and restructuring, where the going-concern assumption no longer holds.\n- It sets a floor value, which matters to lenders working out recovery.\n- For a healthy business it is close to useless, since the value is in the operations rather than the assets.",
+   "tags": [
+    "methodologies"
+   ]
+  },
+  {
+   "id": "val-e15",
+   "tier": "easy",
+   "prompt": "What is a dividend discount model and when is it used?",
+   "answer": "- You discount expected dividends at the cost of equity to get equity value directly.\n- It is used for banks and insurers, where free cash flow is hard to define because debt is part of operations and capital requirements bind.\n- It works for mature, stable dividend payers and badly for companies that reinvest everything.\n- The variant used for banks discounts excess capital above a regulatory ratio rather than dividends as reported.",
+   "tags": [
+    "methodologies",
+    "fig"
+   ]
+  },
+  {
+   "id": "val-e16",
+   "tier": "easy",
+   "prompt": "What does the P/E ratio actually mean?",
+   "answer": "- The price you pay for one unit of current annual earnings.\n- Inverted, it is the earnings yield, which is a rough measure of what the equity returns you at today's price.\n- A P/E of 20x means roughly 20 years of earnings at today's level to pay for the share, which is why high multiples imply expected growth.\n- It is after interest and tax, so it reflects capital structure and jurisdiction as well as the business.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-e17",
+   "tier": "easy",
+   "prompt": "When would you use a revenue multiple?",
+   "answer": "- When earnings are negative or meaningless: early-stage software, biotech, or a company in a cyclical trough.\n- When accounting differences make profit figures hard to compare across a set.\n- The concession is that it says nothing about profitability, so it implicitly assumes margins will converge.\n- I would pair it with a margin comparison, or use a forward multiple for the year profitability is expected.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-e18",
+   "tier": "easy",
+   "prompt": "When is P/B ratio the right multiple?",
+   "answer": "- For financial institutions, where the balance sheet is the business and assets are carried near fair value.\n- For asset-heavy businesses in distress, where book value is a proxy for what could be recovered.\n- It is meaningless for asset-light businesses, since their value sits in intangibles that never reach the balance sheet.\n- For banks it is usually read alongside return on equity, because the two move together.",
+   "tags": [
+    "multiples",
+    "fig"
+   ]
+  },
+  {
+   "id": "val-e19",
+   "tier": "easy",
+   "prompt": "What is the PEG ratio and when is it useful?",
+   "answer": "- P/E divided by the expected earnings growth rate, so a 20x multiple with 20% growth gives a PEG of 1.0.\n- It is a rough way to compare companies with very different growth rates, where raw P/E would always favour the slower business.\n- Below 1.0 is conventionally called cheap, though that convention has no theoretical basis.\n- It ignores risk and the durability of the growth, so it is a screen rather than a valuation.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-e20",
+   "tier": "easy",
+   "prompt": "Why do you need a valuation at all when a public company already has a share price?",
+   "answer": "- The share price tells you what a minority stake trades at, not what the whole company is worth to a buyer.\n- An acquirer needs to know what to pay including control and synergies, which the price does not show.\n- You also want a view on whether the market price is right, which is the entire point of a DCF.\n- And in a transaction you need a defensible range to advise a board, not a single observed number.",
+   "tags": [
+    "methodologies"
+   ]
+  },
+  {
+   "id": "val-m01",
    "tier": "medium",
-   "prompt": "Why might two companies with identical current financials trade at different valuations?",
-   "answer": "- Valuation reflects what the market expects to happen, rather than what the financials already show.\n- Differences in expected growth, margin trajectory, returns on capital, business and financial risk, capital structure, quality and predictability of cash flows, management, and the comparability of the peer set all move the multiple. Market sentiment and liquidity matter too.\n- Two identical income statements can imply very different enterprise values once you account for where each business is going and how certain that path is.",
+   "prompt": "Walk me through how you would value a company.",
+   "answer": "- I would use three approaches and triangulate rather than pick one.\n- Public comps: build a peer set, calculate their EV/EBITDA and P/E multiples, and apply the range to the target's metrics.\n- Precedent transactions: find recent acquisitions of similar businesses and apply those multiples, remembering they include a control premium.\n- DCF: project unlevered free cash flow, discount at WACC, add a terminal value, and bridge from enterprise value to equity value.\n- Then I would show the ranges together on a football field and explain where they overlap and why they differ.",
    "keyPoints": [
-    "Growth rate and its durability",
-    "Margins, returns on capital and cash conversion",
-    "Risk: cyclicality, customer concentration, leverage",
-    "Say the frame: multiples are shorthand for growth, returns and risk"
+    "Three approaches, triangulated rather than one answer",
+    "Comps: peer set, multiples, apply the range",
+    "Precedents: control premium included",
+    "DCF: UFCF discounted at WACC plus terminal value",
+    "Present a range and explain the differences"
+   ],
+   "tags": [
+    "methodologies",
+    "walkthrough"
    ]
   },
   {
-   "id": "valuation-q6",
+   "id": "val-m02",
    "tier": "medium",
-   "prompt": "Why is EV/EBITDA preferred over P/E for comparing companies with different capital structures?",
-   "answer": "- EV/EBITDA sits above interest, taxes, and D&A, it measures operating profitability independent of how the company is financed.\n- P/E is distorted by leverage (interest expense) and different tax regimes.",
+   "prompt": "What are the advantages and disadvantages of each of the three methodologies?",
+   "answer": "- Comps: current and market-based, easy to update, but no two companies are truly comparable and the whole sector can be mispriced at once.\n- Precedents: based on prices actually paid and they capture control, but the data is thin, deal circumstances vary and the multiples age quickly.\n- DCF: grounded in the actual economics of the business and independent of market sentiment, but extremely sensitive to assumptions, particularly the discount rate and terminal value.\n- The reason you use all three is that their weaknesses are different.",
+   "tags": [
+    "methodologies"
+   ]
+  },
+  {
+   "id": "val-m03",
+   "tier": "medium",
+   "prompt": "How do you decide which metrics and multiples to use?",
+   "answer": "- Start with what the sector actually uses, since that is what buyers and research analysts quote.\n- Use EV multiples with pre-interest metrics and equity multiples with post-interest metrics, and never mix them.\n- Choose a metric that is meaningful for the business: EBITDA for most industrials, EBIT where capital intensity differs a lot, revenue where profit is negative, and sector-specific metrics where they exist.\n- Say which one you would lead with and why, because that judgment is what is being tested.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-m04",
+   "tier": "medium",
+   "prompt": "Why would it be wrong to use EV/net income?",
+   "answer": "- Enterprise value covers claims from all capital providers, while net income is what remains after debt holders have been paid.\n- The numerator and denominator would cover different populations, so the ratio has no consistent meaning.\n- Mechanically it would make levered companies look artificially expensive, because their net income is lower while enterprise value is not.\n- The correct pairings are EV with EBITDA, EBIT or revenue, and equity value with net income.",
+   "keyPoints": [
+    "EV covers all capital providers, net income is post-interest",
+    "Numerator and denominator cover different claims",
+    "Levered companies would look artificially expensive",
+    "Give the correct pairings"
+   ],
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-m05",
+   "tier": "medium",
+   "prompt": "Two companies have identical financials but trade at different multiples. What explains it?",
+   "answer": "- Expected growth, which is the single biggest driver of multiples.\n- The durability of that growth, and the returns on capital that come with it.\n- Risk: cyclicality, customer concentration, leverage, regulation and governance.\n- Market factors such as free float, index membership, liquidity and analyst coverage.\n- Multiples price expectations, and identical historical financials say nothing about expectations.",
+   "keyPoints": [
+    "Expected growth and how long it lasts",
+    "Returns on capital and cash conversion",
+    "Risk: cyclicality, concentration, leverage, governance",
+    "Multiples price the future, not the reported past"
+   ],
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-m06",
+   "tier": "medium",
+   "prompt": "Should two identical companies with different leverage trade at different P/E multiples?",
+   "answer": "- Yes, and this catches people out. Leverage raises the risk of the equity claim, so the cost of equity rises and the P/E should fall.\n- Net income is also lower because of interest, so both the numerator and denominator move.\n- Their EV/EBITDA multiples should be broadly similar, which is exactly why that multiple is the default comparison.\n- The tax shield pulls slightly the other way, so the net effect is not enormous at moderate leverage.",
+   "tags": [
+    "multiples",
+    "leverage"
+   ]
+  },
+  {
+   "id": "val-m07",
+   "tier": "medium",
+   "prompt": "A peer set has EV/EBITDA multiples of 8.0x, 9.0x, 7.5x, 14.0x and 8.5x. What do you use?",
+   "answer": "- The median of 8.5x, because 14.0x is an outlier that drags the mean to 9.4x.\n- Then I would find out why that company trades at 14.0x. It may have much faster growth, a pending acquisition, or a business mix that means it does not belong in the set at all.\n- If it does not belong, exclude it and say so. If it does, keep it and use the median.\n- Standard practice is to show the range, the mean and the median, and to apply the median or the interquartile range.",
    "check": {
     "type": "mcq",
-    "explanation": "EV/EBITDA sits above interest, taxes, and D&A, it measures operating profitability independent of how the company is financed. P/E is distorted by leverage (interest expense) and different tax regimes.",
     "choices": [
-     "EV/EBITDA is always lower and more conservative",
-     "P/E incorporates the tax shield but EV/EBITDA does not",
-     "EV/EBITDA is neutral to capital structure, tax regime, and non-cash D&A",
-     "P/E uses enterprise value while EV/EBITDA uses equity value"
+     "Mean, which is 9.4x",
+     "Median, which is 8.5x",
+     "The highest, 14.0x",
+     "The lowest, 7.5x"
     ],
-    "answerIndex": 2
-   }
+    "answerIndex": 1,
+    "explanation": "Sorted: 7.5, 8.0, 8.5, 9.0, 14.0. The median of 8.5x is not distorted by the 14.0x outlier."
+   },
+   "tags": [
+    "comps",
+    "calculation"
+   ]
   },
   {
-   "id": "valuation-q7",
+   "id": "val-m08",
    "tier": "medium",
-   "prompt": "You are valuing a target using comps. Peer EV/EBITDA multiples are: 8.0×, 9.0×, 7.5×, 14.0×, 8.5×. Which central tendency should you apply and what is it?",
-   "answer": "Use the median to resist distortion from outliers (here the 14.0× outlier inflates the mean). Sorted: 7.5, 8.0, 8.5, 9.0, 14.0, so the median is 8.5×.",
-   "check": {
-    "type": "mcq",
-    "explanation": "Use the median to resist distortion from outliers (here the 14.0× outlier inflates the mean). Sorted: 7.5, 8.0, 8.5, 9.0, 14.0, so the median is 8.5×.",
-    "choices": [
-     "Mean, which is 9.4×",
-     "Median, which is 8.5×",
-     "Median, which is 9.0×",
-     "Mode, which is 8.0×"
-    ],
-    "answerIndex": 1
-   }
-  },
-  {
-   "id": "valuation-q8",
-   "tier": "medium",
-   "prompt": "Using a peer median EV/EBITDA of 9.0×, target EBITDA of $50M, and net debt of $100M with 10M diluted shares, what is the implied share price in dollars?",
-   "answer": "Implied EV = 9.0 × $50M = $450M. Equity value = $450M - $100M = $350M. Share price = $350M ÷ 10M = $35.00.",
+   "prompt": "Peer median EV/EBITDA is 9.0x, the target has $50M of EBITDA, $100M of net debt and 10M shares. What is the implied share price?",
+   "answer": "- Implied enterprise value is 9.0x times $50M, which is $450M.\n- Subtract $100M of net debt to get $350M of implied equity value.\n- Divide by 10M shares, giving $35.00 per share.\n- I would then show it as a range rather than a point, using the quartiles of the peer set.",
+   "keyPoints": [
+    "EV = 9.0x x $50M = $450M",
+    "Equity value = $450M - $100M = $350M",
+    "Per share = $350M / 10M = $35.00",
+    "Present a range, not a single number"
+   ],
    "check": {
     "type": "numeric",
-    "explanation": "Implied EV = 9.0 × $50M = $450M. Equity value = $450M - $100M = $350M. Share price = $350M ÷ 10M = $35.00.",
-    "answer": 35.0,
-    "tolerance": 0.1,
-    "unit": "$"
-   }
-  },
-  {
-   "id": "valuation-tech-c37",
-   "tier": "medium",
-   "prompt": "Why is EV/EBITDA preferred to P/E for cross-company comparison?",
-   "answer": "It is neutral to capital structure, tax regime, and non-cash D&A.",
+    "answer": 35,
+    "unit": "$",
+    "tolerance": 0.05,
+    "explanation": "9.0 x 50 = 450 EV, less 100 net debt = 350 equity, over 10M shares = $35.00."
+   },
    "tags": [
-    "valuation"
+    "comps",
+    "calculation"
    ]
   },
   {
-   "id": "valuation-tech-c38",
+   "id": "val-m09",
    "tier": "medium",
-   "prompt": "Why do you usually use the median multiple in comps, not the mean?",
-   "answer": "The median resists distortion from outliers.",
+   "prompt": "How do you calculate EBITDA for a public company, and what would you adjust?",
+   "answer": "- Start from operating income and add back depreciation and amortisation from the cash flow statement, since the income statement often buries D&A inside COGS and SG&A.\n- Adjust for non-recurring items: restructuring, impairments, gains on disposals, legal settlements and acquisition costs.\n- Decide on stock-based compensation and be consistent across the whole peer set, since practice varies.\n- Watch the lease treatment, because IFRS and US GAAP produce different EBITDA for the same company.\n- The rule that matters is consistency. Whatever you decide, apply it identically to every company in the set.",
+   "keyPoints": [
+    "Operating income plus D&A taken from the cash flow statement",
+    "Adjust non-recurring items",
+    "Take a consistent view on stock comp and leases",
+    "Consistency across the peer set is what matters"
+   ],
    "tags": [
-    "valuation"
+    "multiples",
+    "adjustments"
    ]
   },
   {
-   "id": "valuation-tech-c39",
+   "id": "val-m10",
    "tier": "medium",
-   "prompt": "Which typically gives higher values, precedents or trading comps, and why?",
-   "answer": "Precedents, because buyers pay a control premium and for synergies.",
+   "prompt": "What are the advantages and disadvantages of EV/EBITDA, EV/EBIT and P/E?",
+   "answer": "- EV/EBITDA: capital-structure neutral and unaffected by depreciation policy, but it ignores capex, so it flatters capital-intensive businesses.\n- EV/EBIT: captures the cost of the asset base through depreciation, which makes it fairer for capital-intensive companies, but depreciation policies still differ between companies.\n- P/E: what equity investors actually quote and simple to calculate, but it is affected by leverage, tax rate and one-off items below the operating line.\n- I would lead with EV/EBITDA for most industries, EV/EBIT where capital intensity varies, and P/E for financials.",
    "tags": [
-    "valuation"
+    "multiples"
    ]
   },
   {
-   "id": "valuation-tech-c40",
+   "id": "val-m11",
    "tier": "medium",
-   "prompt": "What is a control premium?",
-   "answer": "The extra paid to acquire control of a company versus its public trading price.",
+   "prompt": "Why do you look at both historical and projected multiples?",
+   "answer": "- Historical figures are factual and auditable, so they anchor the analysis in something real.\n- Projected figures are what the market is actually pricing, and share prices move on expectations rather than on last year.\n- The gap between the two tells you what growth the market is assuming, which is often the most useful single output.\n- Forward estimates come with a health warning, since they depend on whose consensus you use and how stale it is.",
    "tags": [
-    "valuation"
+    "multiples"
    ]
   },
   {
-   "id": "valuation-tech-c55",
+   "id": "val-m12",
    "tier": "medium",
-   "prompt": "Why might two firms with identical financials be valued differently?",
-   "answer": "Differences in growth, margins, risk, capital structure, market sentiment, and peer-set or deal-environment context.",
+   "prompt": "When calculating forward multiples for comps, whose estimates should you use?",
+   "answer": "- Consensus estimates, from a source that covers the whole peer set on the same basis, so the comparison is like for like.\n- Using your own estimates for the target and consensus for the peers introduces a bias, and you should say so if you do it.\n- Check how recent the estimates are, since consensus goes stale quickly after results or a profit warning.\n- Also check the definitions, because a data provider's EBITDA may not match the company's own adjusted figure.",
    "tags": [
-    "valuation"
+    "comps"
+   ]
+  },
+  {
+   "id": "val-m13",
+   "tier": "medium",
+   "prompt": "How would you value a company with negative EBITDA?",
+   "answer": "- Revenue multiples first, since EBITDA multiples are meaningless when the denominator is negative.\n- Sector-specific metrics where they exist: ARR and net revenue retention for software, monthly active users for consumer platforms, gross profit for marketplaces.\n- A forward multiple on the first year with positive earnings, if the path there is credible.\n- A DCF with an explicit path to profitability, though the value will sit almost entirely in the terminal value, which is worth admitting up front.",
+   "tags": [
+    "multiples",
+    "growth"
+   ]
+  },
+  {
+   "id": "val-m14",
+   "tier": "medium",
+   "prompt": "How would you compile precedent transaction data?",
+   "answer": "- Screen a deal database such as Mergermarket, Capital IQ or Dealogic for transactions in the sector over the last three to five years.\n- Pull the announced enterprise value and the target's LTM metrics as of the announcement date, not today.\n- Read the merger proxy or offer document, where available, for the actual figures and the deal terms.\n- Note the process type, the consideration mix and whether the buyer was strategic or financial, since all three affect the multiple.\n- Exclude distressed sales and related-party deals unless they are relevant, and say why you excluded them.",
+   "keyPoints": [
+    "Screen a deal database over three to five years",
+    "Use metrics as of the announcement date",
+    "Read the proxy or offer document for real numbers",
+    "Note strategic versus financial buyer and the process type"
+   ],
+   "tags": [
+    "precedents"
+   ]
+  },
+  {
+   "id": "val-m15",
+   "tier": "medium",
+   "prompt": "Why is precedent transaction analysis harder than trading comps?",
+   "answer": "- Private targets do not publish financials, so the metrics behind the multiple are often unavailable.\n- Deal values get reported inconsistently, and earnouts, assumed debt and contingent payments may or may not be included.\n- Each deal happened in its own market environment, so multiples from different years are not really comparable.\n- The circumstances differ: a competitive auction and a bilateral negotiation with a distressed seller produce very different numbers.\n- Trading comps refresh every day from public data, which is why they are the more reliable of the two.",
+   "tags": [
+    "precedents"
+   ]
+  },
+  {
+   "id": "val-m16",
+   "tier": "medium",
+   "prompt": "Why is a control premium paid in M&A?",
+   "answer": "- Control lets the buyer direct strategy, replace management, change the capital structure and access the cash flows directly.\n- Synergies are worth more to a strategic buyer than the standalone business is worth to the market.\n- A seller's board will not recommend a bid at the undisturbed price, so a premium is the price of getting the deal agreed.\n- Competitive tension in an auction pushes it further, which is why premia vary so much between processes.",
+   "tags": [
+    "precedents",
+    "ma"
+   ]
+  },
+  {
+   "id": "val-m17",
+   "tier": "medium",
+   "prompt": "A company trades at 10x EV/EBITDA and sells an operating asset. What happens?",
+   "answer": "- Cash comes in and the operating asset leaves, so enterprise value falls by roughly the value of the asset sold.\n- Whether the multiple rises or falls depends on the price relative to the multiple. Selling an asset above 10x is accretive to the multiple, and selling below is dilutive.\n- Equity value moves by the after-tax gain or loss on the sale, plus whatever the market thinks about the decision.\n- The interesting question is what the buyer paid relative to what the market was implicitly assigning it, which is the argument behind most break-up cases.",
+   "tags": [
+    "transactions",
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-m18",
+   "tier": "medium",
+   "prompt": "A company has $100 of revenue, a 15% EBIT margin and D&A of 5% of revenue. What is EBITDA?",
+   "answer": "- EBIT is 15% of $100, so $15.\n- D&A is 5% of $100, so $5.\n- EBITDA is EBIT plus D&A, which is $20.\n- The EBITDA margin is therefore 20%.",
+   "check": {
+    "type": "numeric",
+    "answer": 20,
+    "unit": "$",
+    "tolerance": 0.01,
+    "explanation": "EBIT $15 plus D&A $5 gives EBITDA of $20, a 20% margin."
+   },
+   "tags": [
+    "multiples",
+    "calculation"
+   ]
+  },
+  {
+   "id": "val-m19",
+   "tier": "medium",
+   "prompt": "How would you value a private company differently from a listed one?",
+   "answer": "- The method is the same, and the inputs are harder. There is no share price and often no audited detail, so you rely on management figures.\n- The peer set is listed companies, which means you may apply a discount for illiquidity, and often for smaller size.\n- Beta has to come from the peer set, unlevered and relevered to the target's own capital structure.\n- Precedent transactions for private targets are often the most relevant evidence, since that is the market the company would actually be sold into.\n- Be explicit about which discounts you applied and why, since they are judgment rather than calculation.",
+   "tags": [
+    "private"
+   ]
+  },
+  {
+   "id": "val-m20",
+   "tier": "medium",
+   "prompt": "What is an LBO valuation and what does it tell you?",
+   "answer": "- You work out the highest price a financial sponsor could pay while still hitting a target return, usually around 20% IRR over five years.\n- Run the LBO backwards: fix the return and the exit assumptions, and solve for the entry price.\n- It sets a floor value in a sale process, because a company can normally be sold to a sponsor at that price.\n- It is not a view on intrinsic value, and it is very sensitive to how much debt the market will provide, which changes with credit conditions.",
+   "keyPoints": [
+    "Solve for the entry price that delivers the target IRR",
+    "It sets a floor value in a sale process",
+    "It is not a measure of intrinsic value",
+    "Very sensitive to available leverage and credit conditions"
+   ],
+   "tags": [
+    "methodologies",
+    "lbo"
+   ]
+  },
+  {
+   "id": "val-h01",
+   "tier": "hard",
+   "prompt": "Company A trades at 15x P/E with $120 of net income. Company B has the same net income but 12x EV/EBITDA. What can you say?",
+   "answer": "- A's equity value is 15 times $120, so $1,800.\n- B's figure is on a different basis, so the two cannot be compared until you bridge one of them.\n- To compare, I would need B's EBITDA and its net debt, then either convert A to an EV/EBITDA multiple or convert B back to equity value.\n- The point of the question is that a P/E and an EV/EBITDA cannot be compared side by side, and the difference between them is driven by leverage, tax and D&A.\n- If B carries more debt, its lower equity multiple may reflect exactly that, rather than the market disliking the business.",
+   "keyPoints": [
+    "A equity value = 15 x $120 = $1,800",
+    "The two multiples are on different bases",
+    "You need EBITDA and net debt to bridge between them",
+    "Leverage, tax and D&A drive the gap"
+   ],
+   "tags": [
+    "multiples",
+    "calculation"
+   ]
+  },
+  {
+   "id": "val-h02",
+   "tier": "hard",
+   "prompt": "Operating income is $100, debt is $500 at 4% and the tax rate is 25%. Walk from EBIT to net income and to a P/E.",
+   "answer": "- Interest is 4% of $500, so $20.\n- Pre-tax income is $100 less $20, so $80.\n- Tax at 25% is $20, so net income is $60.\n- At an equity value of, say, $900, the P/E is 15.0x. The same company unlevered would earn $75 after tax, so the same equity value would imply 12.0x.\n- That contrast is the cleanest demonstration that P/E is not comparable across capital structures.",
+   "keyPoints": [
+    "Interest $20, pre-tax $80, tax $20, net income $60",
+    "P/E depends on the equity value assumed",
+    "Unlevered net income would be $75",
+    "Conclude that P/E moves with leverage"
+   ],
+   "check": {
+    "type": "numeric",
+    "answer": 60,
+    "unit": "$",
+    "tolerance": 0.01,
+    "explanation": "EBIT $100 less $20 interest is $80 pre-tax; 25% tax leaves $60 of net income."
+   },
+   "tags": [
+    "multiples",
+    "calculation"
+   ]
+  },
+  {
+   "id": "val-h03",
+   "tier": "hard",
+   "prompt": "Give an example of a change that affects unlevered free cash flow but not EBITDA.",
+   "answer": "- A change in working capital. If customers start paying 30 days later, receivables rise and cash falls, while EBITDA is untouched.\n- Capex. Doubling the investment programme changes cash flow enormously and leaves EBITDA exactly where it was.\n- Cash taxes. A change in the effective rate or the use of NOLs moves free cash flow while EBITDA sits above the tax line.\n- This is the substance behind the standard criticism of EBITDA, and giving a concrete example is far better than saying it ignores capex.",
+   "keyPoints": [
+    "Working capital changes",
+    "Capex",
+    "Cash taxes",
+    "Give a concrete example rather than the general criticism"
+   ],
+   "tags": [
+    "fcf",
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-h04",
+   "tier": "hard",
+   "prompt": "You are building a global comp set and the companies report under different standards. What do you do?",
+   "answer": "- Identify the differences that actually move the multiples: leases under IFRS 16 versus ASC 842, LIFO in the US, capitalised development costs, and pension accounting.\n- Restate onto one basis. The most common fix is to put everyone on a pre-lease basis, or to add lease liabilities to enterprise value for the IFRS reporters.\n- Watch tax rates, since a global set spans jurisdictions and P/E will vary for reasons unrelated to the business.\n- Currency matters as well. Convert consistently and be clear whether you used spot or average rates.\n- Then say what you adjusted, because an unexplained adjustment looks like a mistake to whoever reviews the page.",
+   "keyPoints": [
+    "Find the differences that move multiples: leases, inventory, capitalisation",
+    "Restate onto a single basis, commonly pre-lease",
+    "Watch tax rates and currency conversion",
+    "Document every adjustment"
+   ],
+   "tags": [
+    "comps",
+    "accounting"
+   ]
+  },
+  {
+   "id": "val-h05",
+   "tier": "hard",
+   "prompt": "A company is trading at 12.5x EBITDA. Is it overvalued?",
+   "answer": "- On its own that number tells you nothing. A multiple is only meaningful against a peer set, the company's own history and the growth behind it.\n- I would ask what the peers trade at, what growth and margin the company delivers relative to them, and whether the EBITDA figure is clean.\n- I would check where the multiple has traded historically, since a sector can rerate as a whole.\n- Then I would compare the implied expectations against a DCF, because a high multiple is a statement about the future that can be tested.\n- The honest answer is that I cannot say from one number, and here is what I would need.",
+   "keyPoints": [
+    "One multiple in isolation says nothing",
+    "Compare against peers, history and growth",
+    "Check the quality of the EBITDA figure",
+    "Test the implied expectations against a DCF"
+   ],
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "val-h06",
+   "tier": "hard",
+   "prompt": "How would you value a pre-revenue early-stage company?",
+   "answer": "- Traditional methods do not work, since there is no revenue or profit to multiply and no reliable cash flow to discount.\n- In practice the value comes from the venture market: recent funding rounds, what similar companies raised at, and the ownership the round implies.\n- You can build a scenario DCF with probability weights across outcomes, which is standard in biotech as a risk-adjusted NPV using clinical trial success rates.\n- Comparable exits give a sense of the upside case, discounted heavily for the probability of getting there.\n- The value is essentially an option on a future business, and it is worth saying that rather than pretending a spreadsheet settles it.",
+   "keyPoints": [
+    "Standard methods fail with no revenue or cash flow",
+    "The venture market prices it: recent rounds and comparable exits",
+    "Scenario or probability-weighted DCF, as in biotech rNPV",
+    "It is closer to an option than a going concern"
+   ],
+   "tags": [
+    "growth",
+    "methodologies"
+   ]
+  },
+  {
+   "id": "val-h07",
+   "tier": "hard",
+   "prompt": "Which should be worth more: a $500M EBITDA healthcare company or a $500M EBITDA industrials company?",
+   "answer": "- Almost certainly the healthcare company, and the reasoning matters more than the answer.\n- Healthcare typically has higher growth, higher margins, lower capital intensity and more defensible positions, so the same EBITDA converts into more cash and lasts longer.\n- Industrials are more cyclical and more capital-intensive, so more of that EBITDA goes back into the business as capex.\n- The counter is that a specialist industrial with a strong niche can outrank a commodity generics business, so sector labels are a starting point rather than an answer.\n- What is really being tested is whether you know that multiples reflect growth, returns and risk rather than industry names.",
+   "keyPoints": [
+    "Healthcare usually commands the higher multiple",
+    "Growth, margins, capital intensity and defensibility drive it",
+    "Industrials cycle and consume capex, so EBITDA converts less well",
+    "Give the counterexample rather than relying on sector labels"
+   ],
+   "tags": [
+    "multiples",
+    "sectors"
+   ]
+  },
+  {
+   "id": "val-h08",
+   "tier": "hard",
+   "prompt": "Your comps say $40 per share, precedents say $55 and the DCF says $30. The stock trades at $38. What do you tell the client?",
+   "answer": "- I would start with why the three differ rather than averaging them, since the average of three different questions means nothing.\n- Precedents at $55 include control and synergies, so that is roughly the price a strategic buyer might pay, not what the shares are worth today.\n- Comps at $40 against a $38 price says the market values it in line with peers.\n- The DCF at $30 says my assumptions are more conservative than the market's, so the honest next step is to work out which assumption drives the gap, usually growth or the discount rate.\n- The advice depends on the question being asked: if the client is selling, the precedent range is the relevant one; if they are considering a buyback, the DCF matters more.",
+   "keyPoints": [
+    "Explain the differences rather than averaging them",
+    "Precedents include control and synergies",
+    "Comps near the market price means it is priced in line",
+    "Find the assumption driving the DCF gap",
+    "Tailor the answer to what the client is actually deciding"
+   ],
+   "tags": [
+    "methodologies",
+    "judgment"
+   ]
+  },
+  {
+   "id": "val-h09",
+   "tier": "hard",
+   "prompt": "The market rerates an entire sector upward. Do your comps still work?",
+   "answer": "- They still tell you what the market pays today, which is what a comps analysis is for.\n- They do not tell you whether the sector is correctly priced, and that is the known weakness of any relative method.\n- This is why a DCF belongs in the analysis, since it is the only method that does not inherit the market's mood.\n- Looking at where multiples have traded historically helps, though a rerating can be justified by a genuine change in growth or rates.\n- In a bubble, comps will confidently tell you an overpriced company is fairly priced relative to other overpriced companies.",
+   "tags": [
+    "comps",
+    "judgment"
+   ]
+  },
+  {
+   "id": "val-h10",
+   "tier": "hard",
+   "prompt": "How do you handle a comp set where one company is about to be acquired?",
+   "answer": "- Exclude it, or at least flag it, because its share price now reflects the bid rather than standalone trading value.\n- Its multiple has jumped to the deal multiple, which will drag the whole peer median upward and make the target look cheap.\n- The deal itself belongs in your precedent transactions analysis instead, where the control premium is expected.\n- If you keep it, use the undisturbed price from before the announcement, and say clearly that you have done so.",
+   "keyPoints": [
+    "Exclude or flag it: the price reflects the bid",
+    "Leaving it in drags the peer median up",
+    "The deal belongs in precedents, not in trading comps",
+    "If kept, use the undisturbed pre-announcement price"
+   ],
+   "tags": [
+    "comps"
+   ]
+  },
+  {
+   "id": "val-h11",
+   "tier": "hard",
+   "prompt": "What is a sum-of-the-parts valuation worth if the market applies a conglomerate discount?",
+   "answer": "- The sum of the parts tells you what the divisions would be worth if they traded separately, and the market price tells you what the group is worth as it stands.\n- The gap is the conglomerate discount, typically explained by opaque disclosure, cross-subsidy between divisions, corporate overhead and the lack of a natural investor base for the mixture.\n- That gap is the entire argument for a break-up, spin-off or activist campaign, so it is a useful number rather than a nuisance.\n- To use it properly, subtract capitalised corporate costs and any tax leakage on a separation before claiming the parts are worth more.",
+   "keyPoints": [
+    "Sum of the parts values divisions as if separately traded",
+    "The gap to the market price is the conglomerate discount",
+    "It explains opacity, cross-subsidy and overhead",
+    "Deduct corporate costs and separation tax before claiming upside"
+   ],
+   "tags": [
+    "methodologies"
+   ]
+  },
+  {
+   "id": "val-h12",
+   "tier": "hard",
+   "prompt": "How would an M&A premiums analysis work and when would you use it?",
+   "answer": "- You take the premium paid over the undisturbed share price in comparable deals, usually measured one day, one week and one month before announcement, and apply that range to the target's current price.\n- It is used for public targets, where the question is what premium a board could recommend rather than what multiple a buyer would pay.\n- It is simple and it speaks directly to the negotiation, since boards think in premium terms.\n- The weakness is that it ignores the target's fundamentals entirely. A stock that has already run up will show a misleadingly low implied value.",
+   "tags": [
+    "precedents",
+    "ma"
+   ]
+  },
+  {
+   "id": "val-h13",
+   "tier": "hard",
+   "prompt": "You are told to value a business using a multiple, but every peer is loss-making. What do you do?",
+   "answer": "- Move up the income statement until you reach a metric that is positive and meaningful: gross profit, or revenue if necessary.\n- Consider sector-specific metrics, such as EV per subscriber, per bed, per megawatt or per tonne of capacity, which are common where profitability is volatile.\n- Use forward multiples on a year when the set is expected to be profitable, and be explicit that the estimates are doing the work.\n- Then lean harder on the DCF and on precedent transactions, since the relative method is weak here.\n- Saying the multiple approach is unreliable in this case is a better answer than producing a confident number from a broken denominator.",
+   "keyPoints": [
+    "Move up the income statement to a positive metric",
+    "Use sector-specific per-unit metrics where they exist",
+    "Forward multiples on the first profitable year",
+    "Say plainly that relative valuation is weak here"
+   ],
+   "tags": [
+    "multiples",
+    "judgment"
+   ]
+  },
+  {
+   "id": "val-h14",
+   "tier": "hard",
+   "prompt": "A client says the DCF is the only real valuation. How would you respond?",
+   "answer": "- I would agree with the principle and disagree with the conclusion. A business is worth the cash it produces, so the DCF is the only method that models value directly.\n- The problem is practical. Small changes in the discount rate or terminal growth swing the answer enormously, and most of the value sits in a terminal value calculated from assumptions about a period nobody can forecast.\n- Market-based methods are a reality check on those assumptions, since they show what buyers actually pay.\n- The productive use is to run the DCF backwards: work out what growth and margin the current price implies, and then argue about whether that is plausible.\n- That reframes the debate from whose model is right to whose assumptions are defensible.",
+   "keyPoints": [
+    "Agree on principle: value is the cash the business produces",
+    "The practical problem is assumption sensitivity and terminal value",
+    "Market methods are a reality check on the assumptions",
+    "Run the DCF backwards to test what the price implies"
+   ],
+   "tags": [
+    "methodologies",
+    "judgment"
+   ]
+  },
+  {
+   "id": "val-h15",
+   "tier": "hard",
+   "prompt": "Walk me through how you would build a comps page from scratch for a company you have never looked at.",
+   "answer": "- Read the company's own filings first: what it actually does, how it makes money, and who it names as competitors.\n- Build a candidate peer list from those competitors, equity research, and a screen on industry code, size and geography.\n- Pull market data for each: share price, diluted shares, and the full bridge to enterprise value including debt-like items.\n- Pull financials on a consistent basis, calendarised, with the same adjustments applied to everyone, and note the source of forward estimates.\n- Calculate the multiples, look at the outliers and decide whether each one belongs, then present the range with the median and quartiles.\n- Finish by writing down why the target sits where it does relative to the set, since that sentence is the actual output.",
+   "keyPoints": [
+    "Start with the filings and the company own competitor list",
+    "Build the full bridge for every peer, rather than stopping at market cap",
+    "Calendarise and apply identical adjustments across the set",
+    "Investigate outliers and decide on inclusion deliberately",
+    "The conclusion is where the target sits and why"
+   ],
+   "tags": [
+    "comps",
+    "walkthrough"
    ]
   }
  ]
