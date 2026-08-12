@@ -1,0 +1,707 @@
+{
+ "module": "markets",
+ "title": "Capital markets, debt & market knowledge",
+ "questions": [
+  {
+   "id": "mkt-e01",
+   "tier": "easy",
+   "prompt": "What is the difference between a bond and a leveraged loan?",
+   "answer": "- Loans are private agreements with banks and institutional lenders, usually secured and senior, on a floating rate.\n- Bonds are securities sold to a broad investor base, usually unsecured and subordinated to the loans, on a fixed coupon.\n- Loans typically amortise and can be prepaid without penalty, so a borrower repays them early when cash allows. Bonds have a bullet maturity and call protection.\n- Loans sit higher in the capital structure, so they price tighter. Bonds cost more and give the borrower more freedom.",
+   "keyPoints": [
+    "Loans: private, secured, senior, floating rate, prepayable",
+    "Bonds: public securities, unsecured, fixed coupon, bullet maturity",
+    "Loans amortise, bonds have call protection",
+    "Loans price tighter because they rank higher"
+   ],
+   "tags": [
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-e02",
+   "tier": "easy",
+   "prompt": "What is the difference between investment grade and high yield?",
+   "answer": "- Investment grade is BBB minus and above from S&P or Baa3 and above from Moody's. High yield, or speculative grade, is below that.\n- Investment grade issuers borrow cheaply, with light covenants and a deep buyer base including insurers and pension funds who are often mandated to hold only IG paper.\n- High yield pays a materially wider spread, carries tighter covenants and is bought by dedicated credit funds.\n- The boundary matters more than one notch should, because a downgrade to high yield forces some holders to sell, which is why issuers defend the rating so hard.",
+   "tags": [
+    "debt",
+    "credit"
+   ]
+  },
+  {
+   "id": "mkt-e03",
+   "tier": "easy",
+   "prompt": "What does first lien and second lien mean?",
+   "answer": "- Lien position sets the order of claim on the collateral if the borrower defaults.\n- First lien is paid first out of the security, so it has the best recovery and the lowest yield.\n- Second lien sits behind it on the same collateral, so it takes more risk and is paid more.\n- Unsecured debt has no claim on specific collateral at all, and structurally subordinated debt sits at a holding company above the operating subsidiaries, which is worse again.",
+   "tags": [
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-e04",
+   "tier": "easy",
+   "prompt": "What is the difference between a coupon and a yield?",
+   "answer": "- The coupon is the fixed contractual interest the bond pays, set at issuance as a percentage of face value.\n- The current yield is the coupon divided by the current market price, so it moves as the price moves.\n- Yield to maturity also accounts for the capital gain or loss from holding to redemption, so it is the true expected return.\n- A bond bought below par has a yield to maturity above its coupon, because you also collect the pull to par.",
+   "keyPoints": [
+    "Coupon is fixed at issuance on face value",
+    "Current yield is coupon over market price",
+    "Yield to maturity includes the pull to par",
+    "Below par means yield exceeds the coupon"
+   ],
+   "tags": [
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-e05",
+   "tier": "easy",
+   "prompt": "What does it mean for a bond to trade at par, at a discount or at a premium?",
+   "answer": "- Par is 100, meaning the price equals the face value, which happens when the coupon matches the required market yield.\n- A discount is below 100. Rates have risen or the credit has deteriorated since issue, so the fixed coupon is now unattractive.\n- A premium is above 100, meaning the coupon is generous relative to current market rates.\n- Prices are quoted as a percentage of face, so 98.5 means 98.5% of par.",
+   "tags": [
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-e06",
+   "tier": "easy",
+   "prompt": "What is the relationship between bond prices and interest rates?",
+   "answer": "- They move inversely. When market rates rise, existing bonds with lower fixed coupons become less attractive, so their prices fall until the yield matches the new market level.\n- The size of the move depends on duration: longer-dated bonds fall further for the same change in rates.\n- Floating rate instruments are far less sensitive, because the coupon resets with the benchmark.\n- This is the single most important relationship in fixed income and it is asked constantly.",
+   "tags": [
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-e07",
+   "tier": "easy",
+   "prompt": "What is the difference between fixed and floating rate debt?",
+   "answer": "- Fixed pays the same coupon for the life of the instrument, so the borrower knows its cost and the lender carries the rate risk.\n- Floating resets periodically at a benchmark plus a spread, so the borrower carries the rate risk and the lender is protected.\n- Leveraged loans are typically floating over SOFR, while high yield bonds are typically fixed.\n- A borrower expecting rates to fall prefers floating. A borrower wanting certainty, or expecting rates to rise, prefers fixed, and many hedge the difference with swaps.",
+   "tags": [
+    "debt",
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-e08",
+   "tier": "easy",
+   "prompt": "What is SOFR and why did it replace LIBOR?",
+   "answer": "- SOFR is the Secured Overnight Financing Rate, based on actual overnight transactions in the US Treasury repo market.\n- LIBOR was based on banks estimating what they would pay to borrow, which was a submission rather than a transaction.\n- That design allowed the manipulation scandals of the 2010s, and the underlying interbank market had also thinned out to the point where the estimates rested on very little.\n- SOFR is transaction-based and therefore harder to manipulate. The practical difference is that it is secured and nearly risk-free, so it sits below where LIBOR did and contracts needed a spread adjustment on transition.",
+   "tags": [
+    "fixed-income",
+    "benchmarks"
+   ]
+  },
+  {
+   "id": "mkt-e09",
+   "tier": "easy",
+   "prompt": "What is a revolving credit facility?",
+   "answer": "- A committed line the borrower can draw, repay and redraw as needed, sized for working capital swings and seasonality.\n- The borrower pays interest only on drawn amounts, plus an undrawn commitment fee on the rest, typically a fraction of a percent.\n- It is usually the most senior and most secured part of the structure, and often the cheapest.\n- A revolver drawn continuously is a warning sign, since it is meant to be a buffer rather than permanent funding.",
+   "tags": [
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-e10",
+   "tier": "easy",
+   "prompt": "What is a callable bond and what is call protection?",
+   "answer": "- A callable bond lets the issuer redeem early at a set price, which is valuable when rates fall or the credit improves and the debt can be refinanced more cheaply.\n- Investors dislike it, because their upside is capped. If rates fall they get called and have to reinvest at lower yields.\n- So they demand a higher coupon, and they demand call protection: a period during which the bond cannot be called.\n- NC/2 means non-call for two years. After that a call schedule sets declining premiums, often starting near half the coupon and stepping down to par.",
+   "keyPoints": [
+    "The issuer can redeem early, valuable when rates fall",
+    "Investors are exposed to reinvestment risk, so they charge more",
+    "Call protection is a non-call period, quoted as NC/2 and similar",
+    "A call schedule sets declining premiums down to par"
+   ],
+   "tags": [
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-e11",
+   "tier": "easy",
+   "prompt": "What is the difference between maintenance and incurrence covenants?",
+   "answer": "- Maintenance covenants are tested every quarter regardless of what the company does, such as a maximum leverage ratio or minimum interest coverage. Simply underperforming can breach them.\n- Incurrence covenants are only tested when the company takes an action: raising more debt, paying a dividend, making an acquisition.\n- Maintenance covenants give lenders an early seat at the table when a business deteriorates.\n- Covenant-lite structures have only incurrence covenants, which became the market standard for leveraged loans and shifted power toward borrowers.",
+   "keyPoints": [
+    "Maintenance: tested each quarter, breached by underperformance",
+    "Incurrence: tested only when the company acts",
+    "Maintenance covenants give lenders early control",
+    "Covenant-lite means incurrence only"
+   ],
+   "tags": [
+    "debt",
+    "credit"
+   ]
+  },
+  {
+   "id": "mkt-e12",
+   "tier": "easy",
+   "prompt": "What is mezzanine financing and what is an equity kicker?",
+   "answer": "- Mezzanine sits between senior debt and equity: subordinated, usually unsecured, and expensive, often in the low to mid teens all in.\n- It frequently pays part of its return in kind rather than in cash, which preserves the borrower's liquidity.\n- An equity kicker is warrants or a small equity stake attached to the debt, giving the lender upside if the business does well.\n- It is used when a borrower has exhausted senior capacity but wants to avoid issuing more equity, and it is priced accordingly.",
+   "tags": [
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-e13",
+   "tier": "easy",
+   "prompt": "What is an IPO?",
+   "answer": "- The first sale of shares to public investors, after which the stock trades on an exchange.\n- Primary shares are newly issued and the money goes to the company. Secondary shares are sold by existing holders, and that money goes to them.\n- The company gets access to permanent capital, a currency for acquisitions, and a public valuation.\n- The costs are disclosure obligations, quarterly scrutiny, underwriting fees of several percent, and a management team that now spends real time on investors.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-e14",
+   "tier": "easy",
+   "prompt": "What does the underwriter do in an IPO?",
+   "answer": "- Advises on structure, timing and valuation, then prepares the registration statement with the company.\n- Markets the deal: builds the syndicate, publishes research where permitted, runs the roadshow, and builds an order book from institutional investors.\n- Prices the deal based on that book, then allocates shares to investors.\n- In a firm commitment the bank buys the shares and resells them, so it carries the risk of an unsold deal. In best efforts it only agrees to try, which is used for riskier issuers.",
+   "keyPoints": [
+    "Structure, timing and valuation advice, plus the filing",
+    "Build the syndicate, run the roadshow, build the book",
+    "Price and allocate",
+    "Firm commitment means the bank takes the risk; best efforts does not"
+   ],
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-e15",
+   "tier": "easy",
+   "prompt": "What is an S-1 and a red herring?",
+   "answer": "- The S-1 is the registration statement filed with the SEC before a US IPO, containing the business description, risk factors, financials and use of proceeds.\n- The red herring is the preliminary prospectus circulated to investors during marketing. It contains everything except the final price and share count.\n- The name comes from the red text on the cover warning that the information is not yet final.\n- The final prospectus with the agreed price is filed once the deal is priced.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-e16",
+   "tier": "easy",
+   "prompt": "What is a lockup period?",
+   "answer": "- A contractual restriction, typically 180 days, preventing insiders and pre-IPO holders from selling their shares after listing.\n- It stops a flood of supply hitting a stock with no trading history, which would overwhelm the float.\n- It also signals alignment, since insiders cannot immediately cash out of the story they just sold.\n- Lockup expiry is a watched date, and stocks often trade weakly into it as the market anticipates the supply.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-e17",
+   "tier": "easy",
+   "prompt": "What is a greenshoe option?",
+   "answer": "- An over-allotment option letting the underwriters sell up to 15% more shares than planned, and buy them from the company at the offer price.\n- The bank sells the extra shares short in the offering. If the stock trades up, it exercises the option to cover. If the stock trades down, it buys in the market instead, which supports the price.\n- So it stabilises the aftermarket and lets a hot deal be upsized.\n- The formal name is the over-allotment option, and the nickname comes from Green Shoe Manufacturing, the first company to use one.",
+   "keyPoints": [
+    "Option to sell up to 15% extra shares",
+    "The bank shorts the extra shares in the offering",
+    "Cover by exercising if the stock rises, by buying if it falls",
+    "It stabilises the aftermarket"
+   ],
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-e18",
+   "tier": "easy",
+   "prompt": "What is a SPAC?",
+   "answer": "- A special purpose acquisition company: a shell that raises money in an IPO with no business, then hunts for a private company to merge with.\n- The sponsor typically has two years to complete a deal, and investors can redeem their shares rather than participate.\n- It offers a private company a faster route to being listed with a negotiated price rather than a book-built one.\n- The economics favour the sponsor, who usually takes 20% of the shell's equity for a nominal sum, and redemptions mean the money actually delivered is often far less than the headline raise.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-e19",
+   "tier": "easy",
+   "prompt": "What is the treasury yield curve?",
+   "answer": "- A plot of government bond yields against their maturities, from very short bills out to thirty years.\n- Normally it slopes upward, since investors want more compensation for lending over longer periods.\n- The shape reflects expectations about growth, inflation and policy rates.\n- It is the base layer for pricing almost everything else, since corporate debt is priced as a spread over the equivalent government yield.",
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-e20",
+   "tier": "easy",
+   "prompt": "What is the difference between the primary and secondary market?",
+   "answer": "- Primary is where securities are issued and the proceeds go to the issuer: an IPO, a follow-on, a bond issue.\n- Secondary is where existing securities trade between investors, with no money reaching the company.\n- Banks earn underwriting fees in the primary market and commissions or spreads in the secondary market.\n- The two are linked, since the secondary price of comparable securities is what determines the price a new issue can be sold at.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-m01",
+   "tier": "medium",
+   "prompt": "How does a company decide between issuing debt and issuing equity?",
+   "answer": "- Cost. Debt is cheaper because it is senior and the interest is tax deductible, so a company with capacity generally uses debt first.\n- Capacity. What can the balance sheet take without threatening the credit rating or breaching existing covenants.\n- Cash flow stability. Predictable cash flow supports debt, while volatile cash flow makes fixed payments dangerous.\n- Dilution and control, since equity gives away a permanent share of the business and existing shareholders resist it.\n- Signalling. Issuing equity tells the market management may think the shares are expensive, which is why announcements of equity raises usually knock the share price.",
+   "keyPoints": [
+    "Debt is cheaper: senior and tax deductible",
+    "Capacity constrained by rating and covenants",
+    "Cash flow stability determines how much fixed cost is safe",
+    "Equity dilutes and signals that shares may be overvalued"
+   ],
+   "tags": [
+    "capital-structure"
+   ]
+  },
+  {
+   "id": "mkt-m02",
+   "tier": "medium",
+   "prompt": "How is a leveraged loan priced?",
+   "answer": "- As a floating rate: a benchmark, now SOFR, plus a credit spread quoted in basis points.\n- The spread reflects the credit quality, the leverage, the lien position and the market appetite at the time.\n- Many loans have a floor on the benchmark, so if the reference rate falls below it the borrower still pays the floor.\n- There is usually an original issue discount, so the loan is sold at say 99 rather than 100, which lifts the effective yield.\n- The all-in yield combines the benchmark, the spread and the amortised discount, which is what a lender actually compares across deals.",
+   "keyPoints": [
+    "Floating: SOFR plus a spread in basis points",
+    "Spread reflects credit, leverage, lien and market appetite",
+    "Floors protect lenders when the benchmark falls",
+    "Original issue discount lifts the effective yield"
+   ],
+   "tags": [
+    "debt",
+    "levfin"
+   ]
+  },
+  {
+   "id": "mkt-m03",
+   "tier": "medium",
+   "prompt": "What is duration and why does it matter?",
+   "answer": "- Duration measures how sensitive a bond price is to a change in interest rates, expressed in years.\n- Modified duration gives the approximate percentage price change for a one percentage point move in yield. A duration of 5 means a 100 basis point rise costs roughly 5% of the price.\n- Macaulay duration is the weighted average time to receive the cash flows, and modified duration adjusts it for the yield.\n- Longer maturities and lower coupons mean higher duration, because more of the value sits further out.\n- Convexity captures the fact that the relationship is curved rather than linear, which matters for large rate moves.",
+   "keyPoints": [
+    "Sensitivity of price to a change in yield, in years",
+    "Duration of 5 means roughly 5% price fall per 100bp rise",
+    "Longer maturity and lower coupon mean higher duration",
+    "Convexity captures the curvature for larger moves"
+   ],
+   "check": {
+    "type": "numeric",
+    "answer": -5,
+    "unit": "%",
+    "tolerance": 0.5,
+    "explanation": "A modified duration of 5 implies roughly a 5% price fall for a 100bp rise in yields."
+   },
+   "tags": [
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-m04",
+   "tier": "medium",
+   "prompt": "What does an inverted yield curve mean?",
+   "answer": "- Short-dated yields exceed long-dated yields, which is the opposite of normal.\n- It usually means the market expects the central bank to cut rates, which in turn means it expects growth to weaken.\n- It has preceded most US recessions, which is why it gets so much attention, though the lag has varied from months to over two years.\n- It also compresses bank profitability, since banks borrow short and lend long, which can tighten credit and become self-fulfilling.\n- The honest caveat is that it has produced false signals, and the level of rates and the reason for the inversion matter as much as the shape.",
+   "keyPoints": [
+    "Short yields above long yields",
+    "The market expects rate cuts, so it expects weaker growth",
+    "A recession indicator with a long and variable lag",
+    "It squeezes bank margins, which can tighten credit",
+    "Give the caveat rather than treating it as a law"
+   ],
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-m05",
+   "tier": "medium",
+   "prompt": "What tools does a central bank use to influence rates?",
+   "answer": "- The policy rate itself, which anchors the short end of the curve.\n- Open market operations: buying securities injects reserves and pushes rates down, selling drains them and pushes rates up.\n- Quantitative easing, which is large-scale asset purchases aimed at the long end when the policy rate is already near zero.\n- Forward guidance, which shapes expectations about the future path of rates and therefore moves the curve today.\n- Reserve requirements and the discount window, though these are secondary in most modern frameworks.",
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-m06",
+   "tier": "medium",
+   "prompt": "What is quantitative easing?",
+   "answer": "- Large-scale purchases of government bonds and sometimes other assets by a central bank, funded by creating reserves.\n- The purpose is to push down long-term yields when the short-term policy rate is already at or near zero, so conventional policy has run out of room.\n- It works by removing duration from the market and by pushing investors into riskier assets, which supports credit and equity prices.\n- The criticisms are that it inflates asset prices more than the real economy, that it widens wealth inequality, and that unwinding it is disruptive.",
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-m07",
+   "tier": "medium",
+   "prompt": "Walk me through the IPO process.",
+   "answer": "- Selection and kickoff: the company picks banks, agrees roles and fees, and holds an organisational meeting.\n- Due diligence and drafting: preparing the registration statement, financial statements and the equity story, which takes months.\n- Filing, then SEC review and comment, with amendments until the filing clears.\n- Marketing: analyst presentations, a price range set, the red herring circulated, and a roadshow lasting one to two weeks.\n- Bookbuilding: orders collected with price and size, and demand assessed.\n- Pricing the night before listing, allocation to investors, then trading and a stabilisation period supported by the greenshoe.\n- Start to finish, four to six months for a company already prepared.",
+   "keyPoints": [
+    "Kickoff and bank selection",
+    "Diligence, drafting and the registration statement",
+    "Filing, SEC review and amendments",
+    "Roadshow and bookbuilding within a price range",
+    "Pricing, allocation, trading and stabilisation"
+   ],
+   "tags": [
+    "ecm",
+    "walkthrough"
+   ]
+  },
+  {
+   "id": "mkt-m08",
+   "tier": "medium",
+   "prompt": "Why are IPOs typically priced at a discount?",
+   "answer": "- To ensure the deal is fully covered and trades up on day one, which rewards the investors who took the risk and builds a stable shareholder base.\n- Underwriters have an interest in it too, since a deal that breaks issue damages their franchise with both issuers and buyers.\n- The usual target is a first-day rise of roughly 10% to 20%, though hot markets produce far more.\n- The company's view is less positive, since a large pop is money the company did not raise, and that tension is the standard criticism of the model.\n- Direct listings and Dutch auctions exist largely as attempts to solve it.",
+   "keyPoints": [
+    "Ensure coverage and a stable aftermarket",
+    "Underwriter franchise depends on deals not breaking issue",
+    "A target pop of roughly 10-20%",
+    "A large pop is capital the company left behind"
+   ],
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-m09",
+   "tier": "medium",
+   "prompt": "What is a direct listing and how does it differ from an IPO?",
+   "answer": "- Existing shares list on the exchange without an underwritten offering and, in the original form, without raising new capital.\n- There is no book building and no underwriter allocating shares. The opening price is set by supply and demand on the day.\n- The advantages are no underwriting discount, no lockup, and no dilution.\n- The drawbacks are no guaranteed capital raised, no stabilisation from a greenshoe, and no bank building a long-only shareholder base.\n- It suits well-known companies with strong balance sheets that need a listing rather than money, which is why Spotify and Slack used it.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-m10",
+   "tier": "medium",
+   "prompt": "What is a follow-on offering and how does it differ from a rights issue?",
+   "answer": "- A follow-on is a sale of additional shares by an already listed company, marketed to institutional investors, usually at a small discount to the market price.\n- A rights issue offers new shares to existing shareholders in proportion to their holdings, usually at a meaningful discount, so they can avoid being diluted.\n- Rights issues are the norm in Europe and are used for large raises, particularly when the company is under stress.\n- Follow-ons are faster and are the norm in the US, where pre-emption rights are weaker.\n- Both dilute earnings per share, and both usually knock the share price on announcement.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-m11",
+   "tier": "medium",
+   "prompt": "What is a convertible bond and why would a company issue one?",
+   "answer": "- A bond that the holder can convert into a fixed number of shares, so it is debt with an embedded equity call option.\n- The company pays a lower coupon than on straight debt, because the investor is paying for the option through the reduced yield.\n- It is effectively selling equity at a premium to today's price, since conversion only happens above the conversion price.\n- It suits growth companies with volatile shares, where the option is worth a lot, and companies that would find straight debt expensive.\n- The cost is dilution if the shares perform, and accounting that splits the instrument between debt and equity components.",
+   "keyPoints": [
+    "Debt with an embedded equity call option",
+    "Lower coupon because the investor pays for the option",
+    "Equivalent to selling equity above today price",
+    "Suits volatile growth companies",
+    "Dilution follows if the shares perform"
+   ],
+   "tags": [
+    "ecm",
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-m12",
+   "tier": "medium",
+   "prompt": "What is staple financing and why would a seller offer it?",
+   "answer": "- A pre-arranged financing package offered by the sell-side adviser to whoever buys the business, stapled to the offering memorandum.\n- It speeds the process up and widens the buyer field, since bidders without their own financing lined up can still participate.\n- It sets a floor on the terms available, which supports the price and gives the seller certainty of funding.\n- The conflict is obvious: the adviser earns fees on both the sale and the financing, so the terms need to be seen to be market standard.",
+   "tags": [
+    "levfin"
+   ]
+  },
+  {
+   "id": "mkt-m13",
+   "tier": "medium",
+   "prompt": "What is a bridge loan?",
+   "answer": "- Short-term financing that funds a deal at closing, intended to be refinanced quickly into permanent debt in the bond or loan market.\n- It exists because acquisitions need certain funds on a fixed date while bond issuance depends on markets being open.\n- Pricing usually steps up over time, deliberately, to push the borrower to refinance rather than sit on it.\n- The risk sits with the underwriting banks. If markets shut before the takeout, they are left holding the paper, which is exactly what happened to several banks in 2007 and 2008 and again in 2022.",
+   "keyPoints": [
+    "Short-term funding at closing, refinanced into permanent debt",
+    "It exists because deals need certain funds on a date",
+    "Pricing steps up to force refinancing",
+    "The banks carry the risk if markets shut"
+   ],
+   "tags": [
+    "levfin"
+   ]
+  },
+  {
+   "id": "mkt-m14",
+   "tier": "medium",
+   "prompt": "What is the difference between a firm commitment letter and a highly confident letter?",
+   "answer": "- A commitment letter is a binding undertaking to provide the financing, subject to stated conditions, so the buyer can show a seller that funding is certain.\n- A highly confident letter states only that the bank believes it can raise the money in the market, with no obligation.\n- Sellers strongly prefer commitment letters, and in a competitive auction a bidder without one is at a real disadvantage.\n- Highly confident letters were associated with the 1980s high yield market and are still used where a full commitment is impractical.",
+   "tags": [
+    "levfin"
+   ]
+  },
+  {
+   "id": "mkt-m15",
+   "tier": "medium",
+   "prompt": "How do credit ratings work and why do they matter?",
+   "answer": "- Agencies assess the likelihood of default and the expected recovery, and publish a letter grade from AAA down.\n- The grade drives the spread the issuer pays, and drives who is allowed to buy the paper, since many funds and insurers have mandates tied to ratings.\n- The step from BBB minus to BB plus is the important one, since it moves the issuer from investment grade to high yield and forces some holders out.\n- Agencies are paid by issuers, which is a well-documented conflict, and they were slow in 2008.\n- In practice the market often prices credit ahead of the agencies, so spreads move before ratings do.",
+   "tags": [
+    "credit"
+   ]
+  },
+  {
+   "id": "mkt-m16",
+   "tier": "medium",
+   "prompt": "What is refinancing risk and how do companies manage it?",
+   "answer": "- The risk that debt comes due when markets are closed or the company's credit has deteriorated, so it cannot be replaced on acceptable terms.\n- It is managed by laddering maturities rather than letting them cluster, so no single year carries too much.\n- By refinancing early when markets are open rather than waiting until the maturity approaches.\n- By keeping revolver capacity available as a backstop.\n- A maturity wall inside two years is a genuine credit concern regardless of how healthy the business looks, and it is one of the first things to check on a levered company.",
+   "keyPoints": [
+    "Debt maturing when markets are shut or credit has worsened",
+    "Ladder maturities so no year is overloaded",
+    "Refinance opportunistically when markets are open",
+    "A maturity wall inside two years is a red flag"
+   ],
+   "tags": [
+    "credit",
+    "debt"
+   ]
+  },
+  {
+   "id": "mkt-m17",
+   "tier": "medium",
+   "prompt": "What does the VIX measure?",
+   "answer": "- The market's expectation of S&P 500 volatility over the next 30 days, derived from index option prices.\n- It is quoted as an annualised percentage, and it rises sharply when markets fall, which is why it is called the fear gauge.\n- Long-run averages sit in the mid teens, calm markets run below that, and crisis readings run well above 30.\n- It reflects the price of insurance rather than a forecast, so a high VIX tells you protection is expensive rather than that a fall is coming.",
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-m18",
+   "tier": "medium",
+   "prompt": "What does CPI measure and why does the market care?",
+   "answer": "- The change in the price of a basket of consumer goods and services, so it is the headline measure of inflation.\n- Core CPI strips out food and energy, which are volatile, and is the number policymakers watch more closely.\n- Markets care because inflation drives central bank policy, which drives rates, which drives the discount rate on every asset.\n- A hotter reading means higher expected rates, which hurts long-duration assets most, and that is the transmission chain worth being able to state.",
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-m19",
+   "tier": "medium",
+   "prompt": "What is a repo, and why does it matter?",
+   "answer": "- A repurchase agreement is a sale of securities with a commitment to buy them back shortly after at a slightly higher price, so it is a secured short-term loan.\n- Banks and funds use it to finance positions overnight, and it is the plumbing of the fixed income market.\n- The central bank uses repo and reverse repo operations to add or drain reserves and keep the policy rate where it wants it.\n- It matters because stress shows up here first. The repo market seizing up in 2008, and the spike in September 2019, both signalled problems before they were visible elsewhere.",
+   "tags": [
+    "macro",
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-m20",
+   "tier": "medium",
+   "prompt": "How should a company decide between a buyback, a dividend and paying down debt?",
+   "answer": "- Compare the returns. Paying down debt earns the after-tax interest rate risk-free. A buyback earns the earnings yield if the shares are fairly valued, and more if they are cheap.\n- Consider the balance sheet. If leverage is above target or a downgrade is a risk, debt paydown wins regardless of the arithmetic.\n- Consider the signal. A dividend is a commitment the market expects to be maintained, while a buyback is flexible and can be paused quietly.\n- Consider the shareholder base, since income investors want dividends and growth investors generally prefer buybacks.\n- And consider whether the money would be better invested in the business, which should always be the first question.",
+   "keyPoints": [
+    "Compare after-tax interest against the earnings yield",
+    "Leverage and rating constraints can settle it outright",
+    "A dividend is a commitment, a buyback is flexible",
+    "Ask first whether reinvestment beats all three"
+   ],
+   "tags": [
+    "capital-structure"
+   ]
+  },
+  {
+   "id": "mkt-h01",
+   "tier": "hard",
+   "prompt": "Rates rise 200 basis points. Walk me through the effect on a levered company.",
+   "answer": "- Floating rate debt reprices immediately, so interest expense rises and free cash flow falls. Fixed rate debt is unaffected until it matures.\n- Interest coverage deteriorates, which can approach or breach covenants and restricts what the company is allowed to do.\n- Less cash is left for debt paydown, capex and dividends, so deleveraging slows.\n- Refinancing gets more expensive, so any maturity inside a few years now costs materially more to replace.\n- On valuation, WACC rises so the DCF value falls, and comparable multiples usually compress across the whole market.\n- The companies that survive this well are the ones that fixed or hedged their rates when it was cheap to do so.",
+   "keyPoints": [
+    "Floating debt reprices immediately, fixed does not until maturity",
+    "Coverage deteriorates and covenants come into play",
+    "Less cash for paydown, capex and dividends",
+    "Refinancing costs rise on the maturity wall",
+    "WACC rises so valuations fall and multiples compress"
+   ],
+   "tags": [
+    "macro",
+    "credit"
+   ]
+  },
+  {
+   "id": "mkt-h02",
+   "tier": "hard",
+   "prompt": "What happens to credit spreads in a downturn, and why does it matter more than the level of rates?",
+   "answer": "- Spreads widen, often violently, and they widen most for the weakest credits, so the gap between investment grade and high yield opens up.\n- Government yields frequently fall at the same time as investors buy safety, so the all-in yield on strong credit can fall while the all-in yield on weak credit rises sharply.\n- That divergence is the point: the risk-free rate tells you about policy, and the spread tells you what the market thinks about default risk.\n- For a levered borrower the spread is what determines whether refinancing is possible at all, so it matters far more than the base rate.\n- The high yield spread is one of the better real-time indicators of financial conditions, and it usually moves before economic data does.",
+   "keyPoints": [
+    "Spreads widen most for the weakest credits",
+    "Government yields often fall at the same time",
+    "The base rate reflects policy, the spread reflects default risk",
+    "For a levered borrower the spread decides refinancing",
+    "High yield spreads lead the economic data"
+   ],
+   "tags": [
+    "credit",
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-h03",
+   "tier": "hard",
+   "prompt": "A bond has a 6% coupon, trades at 90 and matures in five years. Talk me through its yield.",
+   "answer": "- The current yield is the coupon over the price: 6 over 90, so about 6.7%.\n- Yield to maturity is higher again, because you also collect the 10 points of pull to par over five years, worth roughly 2 points a year on a 90 price.\n- So the yield to maturity is somewhere around 8.5%, and the precise figure requires solving for the rate that discounts the cash flows to 90.\n- The reason it trades below par is that market yields for this credit and maturity have risen above 6% since issuance, whether from rates or from a deterioration in the credit.\n- The approximation to quote is coupon plus the annualised pull to par, divided by the average of price and par, which gets you close enough to talk about.",
+   "keyPoints": [
+    "Current yield 6/90 is about 6.7%",
+    "Add the pull to par, roughly 2 points a year",
+    "Yield to maturity lands near 8.5%",
+    "It trades at a discount because required yields have risen",
+    "Give the approximation formula rather than claiming precision"
+   ],
+   "check": {
+    "type": "numeric",
+    "answer": 6.7,
+    "unit": "%",
+    "tolerance": 0.2,
+    "explanation": "Current yield is the coupon divided by the price: 6 / 90 = 6.67%. Yield to maturity is higher because of the pull to par."
+   },
+   "tags": [
+    "fixed-income",
+    "calculation"
+   ]
+  },
+  {
+   "id": "mkt-h04",
+   "tier": "hard",
+   "prompt": "Why did covenant-lite lending change the credit cycle?",
+   "answer": "- Without maintenance covenants, a deteriorating borrower does not trip anything until it actually misses a payment or tries to take an action.\n- Lenders therefore find out later and have far less ability to force an early restructuring while there is still value to protect.\n- The effect is that defaults happen later and recoveries are lower, since problems compound in the meantime.\n- It also lets weak companies survive longer than they otherwise would, which supports the economy in the short run and leaves more zombie borrowers in it.\n- The tradeoff for borrowers is real flexibility to work through a bad year without a lender negotiation, which is why sponsors fought hard for it.",
+   "keyPoints": [
+    "Problems surface only at a payment default or an action",
+    "Lenders lose the early seat at the table",
+    "Defaults arrive later and recoveries are lower",
+    "Weak borrowers survive longer than they otherwise would"
+   ],
+   "tags": [
+    "credit",
+    "levfin"
+   ]
+  },
+  {
+   "id": "mkt-h05",
+   "tier": "hard",
+   "prompt": "An IPO prices at $20 and closes its first day at $28. Who won and who lost?",
+   "answer": "- Investors allocated in the offering won, gaining 40% in a day on a price they did not have to bid up.\n- The underwriters look successful, since the deal traded well, and their institutional clients are happy.\n- The company lost the most. It sold shares worth $28 for $20, so on a 10 million share deal that is $80M of capital it could have raised and did not.\n- Existing shareholders selling in the offering lost in the same way.\n- The counterargument is that a strong debut builds a stable base and makes future raises easier, and that the true clearing price was unknowable in advance. Both points are fair, and a 40% pop is still a large transfer of value.",
+   "keyPoints": [
+    "Allocated investors gain immediately",
+    "The company left roughly $80M on the table on a 10M share deal",
+    "Selling shareholders lost in the same way",
+    "The counterargument is a stable base and easier future raises",
+    "Name the transfer rather than calling it a success"
+   ],
+   "tags": [
+    "ecm",
+    "judgment"
+   ]
+  },
+  {
+   "id": "mkt-h06",
+   "tier": "hard",
+   "prompt": "Explain the greenshoe mechanics in detail.",
+   "answer": "- The syndicate sells 115% of the base deal, so it is short 15% of the shares it has delivered.\n- It holds an option to buy that 15% from the company at the offer price.\n- If the stock trades above the offer price, the bank exercises the option, buys from the company at the offer price and closes the short at no loss. The company raises more money.\n- If the stock trades below, the bank buys shares in the open market to cover, which is real buying support at exactly the moment the deal needs it, and it profits from the difference.\n- So it is a stabilisation mechanism that costs the bank nothing in either state, and the company either raises more capital or gets price support.\n- Exercising it in full is a signal that the deal went well.",
+   "keyPoints": [
+    "Syndicate sells 115%, so it is short 15%",
+    "Option to buy that 15% from the company at the offer price",
+    "Stock up: exercise, company raises more",
+    "Stock down: buy in the market, which supports the price",
+    "The bank is protected either way"
+   ],
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-h07",
+   "tier": "hard",
+   "prompt": "Why would a company issue debt to fund a buyback rather than using cash it already holds?",
+   "answer": "- The cash may be held offshore where repatriating it triggers tax, which was a common reason before the US rules changed.\n- Debt is tax deductible and the after-tax cost may be below the earnings yield, so the buyback is accretive on borrowed money.\n- The company may want to keep its cash buffer for operational or strategic flexibility.\n- And it moves the capital structure toward target, if the company is underlevered relative to where it thinks it should be.\n- The critique is that it manufactures EPS growth without improving the business, and it leaves the company more fragile if earnings fall, which is precisely what several large borrowers discovered in 2020.",
+   "keyPoints": [
+    "Trapped or offshore cash may be expensive to use",
+    "After-tax cost of debt can be below the earnings yield",
+    "Preserve the cash buffer and move toward target leverage",
+    "The critique: manufactured EPS growth and added fragility"
+   ],
+   "tags": [
+    "capital-structure",
+    "judgment"
+   ]
+  },
+  {
+   "id": "mkt-h08",
+   "tier": "hard",
+   "prompt": "What would happen if interest rates went negative?",
+   "answer": "- Lenders effectively pay borrowers to hold their money, which inverts the normal incentive to save.\n- It has been tried in Japan, the euro area and Switzerland, aimed at forcing money out of deposits and into lending and investment.\n- Banks are squeezed, because they are reluctant to charge retail depositors, so the negative rate compresses the margin rather than passing through.\n- Cash becomes an attractive asset simply because it yields zero, which sets a practical floor below which policy cannot go.\n- Asset prices rise, since the discount rate falls, and pension funds and insurers with fixed liabilities are badly hurt.",
+   "tags": [
+    "macro"
+   ]
+  },
+  {
+   "id": "mkt-h09",
+   "tier": "hard",
+   "prompt": "How would you advise a company on the right amount of leverage?",
+   "answer": "- Start with cash flow stability. The more predictable and contracted the cash flow, the more fixed cost it can safely carry.\n- Set a target credit rating, since that determines the cost of all its debt and its access to markets, then work backwards to the leverage that supports it.\n- Test the downside. Model a recession case and check that coverage and covenants survive it, because leverage is set by the bad year rather than the good one.\n- Consider the industry norm, since lenders and investors benchmark against peers.\n- Think about strategic flexibility, since a company with capacity can act on an acquisition or survive a shock while an overlevered peer cannot.\n- The answer is a range with a stated rationale rather than a single number.",
+   "keyPoints": [
+    "Cash flow stability sets the safe fixed cost",
+    "Work backwards from a target credit rating",
+    "Size leverage from the downside case, not the base case",
+    "Benchmark against the sector",
+    "Keep capacity for strategic flexibility"
+   ],
+   "tags": [
+    "capital-structure",
+    "judgment"
+   ]
+  },
+  {
+   "id": "mkt-h10",
+   "tier": "hard",
+   "prompt": "What is a PIPE and when is it used?",
+   "answer": "- A private investment in public equity: a listed company sells shares directly to selected investors, usually at a discount, without a public offering.\n- It is fast and certain, which matters when a company needs money quickly or when markets are too volatile for a marketed deal.\n- It is common alongside SPAC mergers, where the PIPE provides the capital that redemptions would otherwise remove and validates the valuation.\n- The costs are the discount, dilution to existing holders and the signal that the company could not raise conventionally.\n- Terms often include registration rights and sometimes warrants, so the effective discount is larger than the headline.",
+   "tags": [
+    "ecm"
+   ]
+  },
+  {
+   "id": "mkt-h11",
+   "tier": "hard",
+   "prompt": "Why do banks syndicate loans rather than holding them?",
+   "answer": "- To manage risk concentration. No bank wants its entire exposure to one borrower or one sector on its own balance sheet.\n- Regulatory capital, since holding the loan consumes capital that could support other business.\n- Deal size, because a large financing simply exceeds what one lender will underwrite.\n- And because the fee is earned on arranging rather than on holding, so the economics favour distribution.\n- The risk sits in the gap: the arranger underwrites first and distributes afterwards, so if the market moves against it before distribution, the bank is left holding paper at a loss. That is precisely what hung deals are.",
+   "keyPoints": [
+    "Manage concentration risk and regulatory capital",
+    "Deal size exceeds any one lender appetite",
+    "Fees are earned on arranging, not holding",
+    "The risk is the underwriting gap, which creates hung deals"
+   ],
+   "tags": [
+    "levfin"
+   ]
+  },
+  {
+   "id": "mkt-h12",
+   "tier": "hard",
+   "prompt": "A company wants to raise capital but its shares have fallen 40% this year. What would you recommend?",
+   "answer": "- Establish first how urgent it is, since a company that needs money now has fewer options than one that wants it.\n- Issuing equity at a depressed price is expensive dilution, so I would look at debt first if the balance sheet and covenants allow it.\n- A convertible is worth considering, since it prices off volatility and lets the company issue equity effectively above the current price.\n- Asset disposals or a sale and leaseback can raise money without issuing securities at a bad moment.\n- If equity is genuinely required, a rights issue lets existing holders avoid dilution and is the standard route for a large raise under stress.\n- I would also ask what the money is for, because the market treats capital raised for growth very differently from capital raised to survive.",
+   "keyPoints": [
+    "Establish urgency, since it determines the option set",
+    "Debt first if capacity allows, given the depressed equity price",
+    "A convertible prices off volatility and defers dilution",
+    "Disposals or sale and leaseback avoid issuing at the bottom",
+    "A rights issue is the standard route if equity is unavoidable"
+   ],
+   "tags": [
+    "ecm",
+    "judgment"
+   ]
+  },
+  {
+   "id": "mkt-h13",
+   "tier": "hard",
+   "prompt": "How do you value a company when the whole market has repriced in a month?",
+   "answer": "- Update the discount rate first, since the risk-free rate and often the equity risk premium have both moved, and a DCF built on last month's WACC is wrong.\n- Refresh the comps on the same date as the market data, because a mismatch between a current share price and a stale multiple produces nonsense.\n- Ask whether the repricing reflects changed cash flow expectations or only a changed discount rate, since the two have very different implications for a specific company.\n- Be careful with precedent transactions, which now reflect a market that no longer exists.\n- And say plainly that valuations in a fast-moving market are a range with a date attached, rather than a number.",
+   "tags": [
+    "macro",
+    "judgment"
+   ]
+  },
+  {
+   "id": "mkt-h14",
+   "tier": "hard",
+   "prompt": "What is the difference between a bond bought at issue and the same bond bought in the secondary market at a discount?",
+   "answer": "- The contractual cash flows are identical: the same coupons and the same repayment of par at maturity.\n- The return differs because the price paid differs. The buyer at a discount receives the same coupons on a smaller outlay, so the current yield is higher, and also collects the gain to par at maturity.\n- So the discount buyer has a higher yield to maturity, which is the market repricing the same cash flows for higher rates or higher perceived risk.\n- Tax treatment can differ as well, since the accretion of a market discount may be taxed as income rather than as a capital gain depending on the jurisdiction.\n- The general point is that the coupon is fixed at issue and the yield is set continuously by the market.",
+   "tags": [
+    "fixed-income"
+   ]
+  },
+  {
+   "id": "mkt-h15",
+   "tier": "hard",
+   "prompt": "An interviewer asks what the market did yesterday and where the ten-year sits. How do you prepare for that?",
+   "answer": "- There is no way to learn this from a study app, because the numbers change daily. What you can do is build a routine.\n- Know roughly where the major indices sit and how they have moved over the past week and year to date, plus the ten-year government yield in your market and its recent direction.\n- Know the current policy rate, the last inflation print, and what the market expects at the next central bank meeting.\n- Have one view you can defend on where rates and equities go from here, with two reasons and one thing that would change your mind.\n- Have one recent deal you can discuss in the sector you are interviewing for.\n- Read one market summary every morning for the month before interviews. Fifteen minutes a day is enough, and it is obvious to an interviewer who has done it and who has not.",
+   "keyPoints": [
+    "Index levels, weekly and year to date direction",
+    "Ten-year yield, policy rate, last inflation print, next meeting",
+    "One defensible view with two reasons and a falsifier",
+    "One recent deal in your sector",
+    "A daily reading habit for the month before interviews"
+   ],
+   "tags": [
+    "macro",
+    "preparation"
+   ]
+  }
+ ]
+}

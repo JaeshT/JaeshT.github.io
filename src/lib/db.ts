@@ -89,6 +89,8 @@ export interface Progress {
   streak: { count: number; lastDay: string }; // lastDay = YYYY-MM-DD
   /** Stages you chose to open early rather than earn. Kept so the map can be honest about it. */
   unlockedEarly: string[];
+  /** Highest island the climber has already been shown standing on, so hops animate once. */
+  climbSeen?: number;
 }
 
 const EMPTY_PROGRESS: Progress = {

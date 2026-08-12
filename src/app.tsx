@@ -6,6 +6,7 @@ import { Path, ModuleView } from './views/path';
 import { StageDrill, ReviewDrill, DangerDrill } from './views/drill';
 import { Lesson } from './views/lesson';
 import { Glossary } from './views/glossary';
+import { Climb } from './views/climb';
 import { DownloadForOffline } from './views/offline';
 import { Empty, Loading, LoadError, Ring } from './views/ui';
 import { dangerZone, dueQuestions, nextStage, readiness } from './lib/curriculum';
@@ -16,14 +17,14 @@ const NAV = [
   { tab: 'home', label: 'Home', icon: '🏠' },
   { tab: 'path', label: 'Path', icon: '🗺️' },
   { tab: 'review', label: 'Review', icon: '🎯' },
-  { tab: 'glossary', label: 'Terms', icon: '📖' },
+  { tab: 'climb', label: 'Climb', icon: '🏔️' },
   { tab: 'more', label: 'More', icon: '⋯' },
 ];
 
 function tabFor(seg0: string): string {
   if (['path', 'module', 'lesson', 'drill'].includes(seg0)) return 'path';
   if (['review', 'danger'].includes(seg0)) return 'review';
-  if (seg0 === 'glossary') return 'glossary';
+  if (seg0 === 'climb') return 'climb';
   if (seg0 === 'home') return 'home';
   return 'more';
 }
@@ -106,6 +107,8 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
       return <DangerDrill />;
     case 'lesson':
       return seg1 ? <Lesson id={seg1} /> : <Empty title="Primer" note="No primer selected." back="path" />;
+    case 'climb':
+      return <Climb />;
     case 'glossary':
       return <Glossary />;
     case 'progress':

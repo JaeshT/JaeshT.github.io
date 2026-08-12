@@ -105,7 +105,8 @@
    "icon": "📈",
    "track": "core",
    "order": 7,
-   "blurb": "Debt instruments, LevFin, ECM, and having a view on the market."
+   "blurb": "Debt instruments, LevFin, ECM, and having a view on the market.",
+   "bank": "modules/markets.json"
   },
   {
    "id": "fit",
