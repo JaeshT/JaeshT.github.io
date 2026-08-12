@@ -7,7 +7,7 @@ domain: technicals
 
 ## 1. What the three statements are
 
-The **income statement (IS)** measures profitability over a period. It runs from revenue down through expenses to **net income**, on an **accrual basis** — revenue is booked when earned and expenses when incurred, regardless of cash timing.
+The **income statement (IS)** measures profitability over a period. It runs from revenue down through expenses to **net income**, on an **accrual basis**: revenue is booked when earned and expenses when incurred, regardless of cash timing.
 
 The **balance sheet (BS)** is a snapshot at a point in time of what a company owns and owes:
 
@@ -17,9 +17,9 @@ It must balance by construction. Every transaction that changes one side must ch
 
 The **cash flow statement (CFS)** reconciles accrual net income to the actual change in cash over the period. It has three sections:
 
-- **CFO — Cash Flow from Operations:** starts at net income, adds back non-cash charges, adjusts for working capital changes.
-- **CFI — Cash Flow from Investing:** capital expenditure, acquisitions, asset disposals.
-- **CFF — Cash Flow from Financing:** debt issuance and repayment, equity issuance, dividends.
+- **CFO. Cash Flow from Operations:** starts at net income, adds back non-cash charges, adjusts for working capital changes.
+- **CFI. Cash Flow from Investing:** capital expenditure, acquisitions, asset disposals.
+- **CFF. Cash Flow from Financing:** debt issuance and repayment, equity issuance, dividends.
 
 The bottom line of the CFS is the net change in cash, which ties to the cash line on the balance sheet.
 
@@ -27,7 +27,7 @@ The bottom line of the CFS is the net change in cash, which ties to the cash lin
 
 ## 2. How the statements link
 
-The three statements are not independent documents — they are one model with three views, joined at specific seams.
+The three statements are not independent documents: they are one model with three views, joined at specific seams.
 
 1. **Net income** flows from the bottom of the IS → to the top of the CFS (starting point of CFO) → and into **retained earnings** within shareholders' equity on the BS.
 2. The **net change in cash** on the CFS equals the change in the BS cash line. Ending cash on the CFS equals cash on the new balance sheet.
@@ -41,7 +41,7 @@ The discipline that makes the model self-checking: **every change to one stateme
 
 ## 3. The canonical flow-through: depreciation increases by $10
 
-This is the most frequently asked accounting question in finance interviews. The example uses a **40% tax rate** because interviewers expect it and it produces clean arithmetic (current US combined corporate rates are closer to 25–26%, which changes the numbers but not the logic).
+This is the most frequently asked accounting question in finance interviews. The example uses a **40% tax rate** because interviewers expect it and it produces clean arithmetic (current US combined corporate rates are closer to 25-26%, which changes the numbers but not the logic).
 
 **Income statement:**
 - Depreciation is an expense → pre-tax income falls $10
@@ -75,7 +75,7 @@ Balance check: assets $-6$ = equity $-6$. **It balances.**
 | | **Total assets** | **$-6$** |
 | | Retained earnings (equity) | $-6$ |
 
-**The insight — the tax shield:** depreciation lowers taxable income so the company keeps $4 that it would otherwise have paid in cash taxes. That is why analysts care about D&A even though it is "not real cash." The general formula:
+**The insight: the tax shield:** depreciation lowers taxable income so the company keeps $4 that it would otherwise have paid in cash taxes. That is why analysts care about D&A even though it is "not real cash." The general formula:
 
 $$\Delta\text{Net income} = -\text{Dep} \times (1-t) \qquad \Delta\text{Cash} = +\text{Dep} \times t \qquad \Delta\text{PP\&E} = -\text{Dep}$$
 
@@ -115,7 +115,7 @@ Note: the textbook definition (current assets minus current liabilities) include
 
 A growing company that must fund receivables and inventory ahead of collecting can be profitable on the IS and still starved for cash. This is why $\Delta\text{NWC}$ is subtracted in the free cash flow build.
 
-**Example — sale on credit ($15 revenue, $10 COGS, already held in inventory):**
+**Example: sale on credit ($15 revenue, $10 COGS, already held in inventory):**
 - IS: revenue +$15$, COGS $-10$, pre-tax income +$5$ (ignoring tax)
 - CFS: net income +$5$ (approximately), AR up $15$ (use of cash), inventory down $10$ (source) → CFO = $5 - 15 + 10 = 0$. Cash unchanged until AR is collected.
 - BS: AR +$15$, inventory $-10$, cash flat → assets +$5$; retained earnings +$5$ → equity +$5$. Balances.
@@ -124,7 +124,7 @@ A growing company that must fund receivables and inventory ahead of collecting c
 
 ## 6. D&A (depreciation and amortization)
 
-**Depreciation** spreads the cost of tangible assets (PP&E) over their useful lives. **Amortization** does the same for definite-lived intangibles — acquired customer relationships, capitalized software, patents. Both are:
+**Depreciation** spreads the cost of tangible assets (PP&E) over their useful lives. **Amortization** does the same for definite-lived intangibles: acquired customer relationships, capitalized software, patents. Both are:
 
 - **Non-cash** (no cash consumed in the period)
 - **Reduce taxable income** (tax shield)
@@ -157,4 +157,4 @@ Companies keep two sets of books: one for shareholders (GAAP/IFRS) and one for t
 | Expense recognition | When incurred | When cash paid |
 | Who uses it | Public companies (GAAP/IFRS) | Small businesses, some tax filings |
 
-Accrual accounting produces smoother earnings but can diverge significantly from cash flow. The CFS is the bridge that reconciles accrual net income to actual cash movement. This is why analysts stress-test earnings quality by comparing net income to operating cash flow — a persistent gap can signal aggressive revenue recognition or deteriorating working capital management.
+Accrual accounting produces smoother earnings but can diverge significantly from cash flow. The CFS is the bridge that reconciles accrual net income to actual cash movement. This is why analysts stress-test earnings quality by comparing net income to operating cash flow: a persistent gap can signal aggressive revenue recognition or deteriorating working capital management.

@@ -11,17 +11,17 @@ domain: technicals
 
 ## 1. What is an LBO?
 
-A **leveraged buyout (LBO)** is the acquisition of a company funded primarily with **debt**, with a smaller contribution of **sponsor equity** (private equity). The debt is serviced and repaid by the **target's own operating cash flows** over the holding period, typically 3–7 years.
+A **leveraged buyout (LBO)** is the acquisition of a company funded primarily with **debt**, with a smaller contribution of **sponsor equity** (private equity). The debt is serviced and repaid by the **target's own operating cash flows** over the holding period, typically 3-7 years.
 
 The PE sponsor:
-- Contributes a minority of the purchase price as equity (historically 30–50%)
-- Borrows the rest (historically 50–70% of EV, though leverage has compressed)
+- Contributes a minority of the purchase price as equity (historically 30-50%)
+- Borrows the rest (historically 50-70% of EV, though leverage has compressed)
 - Controls the company's strategy and operations
 - Aims to sell the company (or IPO it) at a higher value than the purchase price
 
 ---
 
-## 2. Why LBOs generate equity returns — the three levers
+## 2. Why LBOs generate equity returns: the three levers
 
 Equity value at exit is created through three sources. **You must be able to attribute returns across all three:**
 
@@ -35,13 +35,13 @@ Grow revenue, expand margins, or do both. Higher EBITDA at the same multiple mea
 
 $$\Delta\text{EV from multiple} = \Delta\text{Multiple} \times \text{Exit EBITDA}$$
 
-Buy at 8× and sell at 10× — the same EBITDA is now worth more. In a strong macro/credit environment (cheap leverage, risk appetite) multiples expand widely. In today's high-multiple, higher-rate environment, this lever is far less reliable: many deals now assume flat or compressing multiples.
+Buy at 8× and sell at 10×: the same EBITDA is now worth more. In a strong macro/credit environment (cheap leverage, risk appetite) multiples expand widely. In today's high-multiple, higher-rate environment, this lever is far less reliable: many deals now assume flat or compressing multiples.
 
 ### Lever 3: Debt paydown (deleveraging)
 
 $$\Delta\text{Equity from deleveraging} = \text{Debt repaid during hold}$$
 
-Free cash flow repays debt. Each dollar of debt paid down transfers a claim from the lender to the equity holder — equity value rises by the same amount as net debt falls.
+Free cash flow repays debt. Each dollar of debt paid down transfers a claim from the lender to the equity holder: equity value rises by the same amount as net debt falls.
 
 **Return attribution identity:**
 
@@ -79,7 +79,7 @@ Every LBO begins with a **sources-and-uses table** that must balance (sources = 
 
 **Sources** (where the money comes from):
 - New debt: senior secured (term loans), high-yield bonds, mezzanine, revolving credit facility
-- Sponsor equity (the **plug** — whatever is left after all other sources)
+- Sponsor equity (the **plug**: whatever is left after all other sources)
 - Management rollover equity (management reinvests their proceeds into the new structure)
 - Excess cash on the target's balance sheet
 
@@ -161,13 +161,13 @@ The ideal LBO target has:
 5. **Reasonable entry multiple:** paying too high at entry makes it harder for deleveraging and EBITDA growth to generate adequate returns; multiple expansion becomes a necessity rather than a bonus.
 6. **Manageable existing debt:** ideally a clean or underleveraged balance sheet that can absorb the new debt load.
 
-**Current market context (Bain 2026):** LBO borrowing costs are in the 8–9% range and leverage ratios have compressed to roughly 30–40% of EV (vs ~50% a decade ago). Entry multiples in North America averaged near 11.9× EV/EBITDA in 2025. In this environment, Bain's "12 is the new 5" thesis applies: deals now need roughly **12% annual EBITDA growth** (versus ~5% historically) to generate comparable returns, because the leverage and multiple-expansion tailwinds of the 2010s are largely gone.
+**Current market context (Bain 2026):** LBO borrowing costs are in the 8-9% range and leverage ratios have compressed to roughly 30-40% of EV (vs ~50% a decade ago). Entry multiples in North America averaged near 11.9× EV/EBITDA in 2025. In this environment, Bain's "12 is the new 5" thesis applies: deals now need roughly **12% annual EBITDA growth** (versus ~5% historically) to generate comparable returns, because the leverage and multiple-expansion tailwinds of the 2010s are largely gone.
 
 ---
 
 ## 8. Dividend recapitalization
 
-A **dividend recapitalization** (div recap) is when the PE sponsor raises **new debt** at the portfolio company and uses the proceeds to pay itself a **distribution** mid-hold — before any exit. It pulls forward returns without requiring a sale.
+A **dividend recapitalization** (div recap) is when the PE sponsor raises **new debt** at the portfolio company and uses the proceeds to pay itself a **distribution** mid-hold: before any exit. It pulls forward returns without requiring a sale.
 
 - Increases equity value returned earlier → improves IRR (time-sensitive)
 - Does **not** improve MOIC on its own (the same proceeds come back, just sooner)
@@ -181,6 +181,6 @@ A **dividend recapitalization** (div recap) is when the PE sponsor raises **new 
 | | LBO | Leveraged recapitalization |
 |---|---|---|
 | Who controls company? | PE sponsor (new owner) | Existing management/shareholders |
-| Ownership change? | Yes — acquired by PE | No — same shareholders |
+| Ownership change? | Yes: acquired by PE | No: same shareholders |
 | Purpose | Acquisition and value creation | Return cash to existing shareholders |
 | Leverage added | At acquisition | Added to existing structure |

@@ -7,7 +7,7 @@ domain: technicals
 
 ## 1. The three core valuation methods
 
-There are three core methodologies. Each answers "what is this business worth" from a different angle; the output is a range across all three — the **"football field."**
+There are three core methodologies. Each answers "what is this business worth" from a different angle; the output is a range across all three: the **"football field."**
 
 | Method | Source of value | Typical level |
 |---|---|---|
@@ -19,7 +19,7 @@ No single number is "the answer." You triangulate across all three and defend th
 
 ---
 
-## 2. Enterprise value vs equity value — the bridge
+## 2. Enterprise value vs equity value: the bridge
 
 Before computing any multiple you must be precise about what the numerator and denominator represent.
 
@@ -80,7 +80,7 @@ Value the target against a peer set of **publicly traded** companies using marke
 **Process:**
 1. Identify comparable companies (similar industry, business model, size, growth, margins, geography).
 2. Calculate their multiples (typically on a last-twelve-months or next-twelve-months basis).
-3. Take the **median** (not the mean — the median resists distortion from outliers).
+3. Take the **median** (not the mean: the median resists distortion from outliers).
 4. Apply the median multiple to the target's metric to get an implied EV or equity value.
 
 **Common multiples:**
@@ -96,7 +96,7 @@ Value the target against a peer set of **publicly traded** companies using marke
 
 **Why EV/EBITDA is the workhorse:** it strips out capital structure (interest), tax regime, and non-cash D&A, allowing cleaner cross-company comparison. P/E is distorted by leverage and taxes but is standard for financials where capital structure is the business.
 
-**Comps reflect a minority, public-market value** — no control premium is embedded. They also move with market sentiment, so a broad selloff will compress all comps regardless of individual fundamentals.
+**Comps reflect a minority, public-market value**: no control premium is embedded. They also move with market sentiment, so a broad selloff will compress all comps regardless of individual fundamentals.
 
 **Worked example:** peer median EV/EBITDA 9.0×; target EBITDA $50M; target net debt $100M; shares 10M.
 
@@ -116,14 +116,14 @@ Same idea, but multiples come from **prices paid in past M&A deals** for compara
 
 **Limitations and caveats:**
 - **Dated:** a 2021 deal reflects 2021 financing conditions (cheap leverage, high multiples), not today's. A deal from a different rate environment can significantly overstate or understate what a buyer would pay now.
-- **Deal-specific factors:** strategic vs financial buyer, competitive auction vs negotiated, unique synergies, seller desperation — all distort comparability.
+- **Deal-specific factors:** strategic vs financial buyer, competitive auction vs negotiated, unique synergies, seller desperation: all distort comparability.
 - **Selection bias:** announced deals are public, but not all are. Failed deals are rarely disclosed.
 
 When presenting precedents, always note the vintage and deal environment alongside the multiple.
 
 ---
 
-## 6. Which multiple when — a decision framework
+## 6. Which multiple when: a decision framework
 
 | Scenario | Preferred multiple | Reason |
 |---|---|---|

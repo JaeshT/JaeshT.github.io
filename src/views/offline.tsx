@@ -32,7 +32,7 @@ export function DownloadForOffline() {
       {!status && !prog && (
         <p class="muted small">
           Save the whole app + all content to this device so it works with no signal. Do this once on WiFi.
-          Re-tap if it ever stops working offline — iOS clears caches after about a week unused.
+          Re-tap if it ever stops working offline. iOS clears caches after about a week unused.
         </p>
       )}
       {prog ? (

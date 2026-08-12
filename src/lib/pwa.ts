@@ -15,7 +15,7 @@ export function setupPWA(onNeedRefresh: UpdateHandler): () => void {
   return () => updateSW(true);
 }
 
-/** iOS standalone (home-screen) detection — used to hide the "Add to Home Screen" hint. */
+/** iOS standalone (home-screen) detection: used to hide the "Add to Home Screen" hint. */
 export function isStandalone(): boolean {
   return (
     window.matchMedia('(display-mode: standalone)').matches ||

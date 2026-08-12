@@ -23,7 +23,7 @@ export function BackLink({ to, label }: { to: string; label: string }) {
   );
 }
 
-/** The message shown when content can't be fetched — different advice online vs. offline. */
+/** The message shown when content can't be fetched. Different advice online vs. offline. */
 export function LoadError({ title, back }: { title: string; back?: string }) {
   return (
     <Empty
@@ -31,8 +31,8 @@ export function LoadError({ title, back }: { title: string; back?: string }) {
       back={back}
       note={
         navigator.onLine
-          ? 'Couldn’t load content — try again.'
-          : 'You’re offline and content isn’t downloaded yet. Reconnect, open Home, and tap “Download for offline”.'
+          ? 'Could not load content. Try again.'
+          : 'You are offline and the content is not downloaded yet. Reconnect, open Home, and tap "Download for offline".'
       }
     />
   );

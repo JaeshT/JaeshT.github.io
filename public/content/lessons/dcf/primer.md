@@ -7,11 +7,11 @@ domain: technicals
 
 ## 1. Overview
 
-The **discounted cash flow (DCF)** values a business on its own projected cash flows, discounted to present value. It is the most theoretically grounded valuation method and also the most assumption-sensitive — small changes in WACC or growth rate produce large swings in value, which is why interviewers probe every assumption.
+The **discounted cash flow (DCF)** values a business on its own projected cash flows, discounted to present value. It is the most theoretically grounded valuation method and also the most assumption-sensitive: small changes in WACC or growth rate produce large swings in value, which is why interviewers probe every assumption.
 
 The standard approach is an **unlevered DCF** that values the enterprise:
 
-1. Build unlevered free cash flow (UFCF) for an explicit forecast period (typically 5–10 years)
+1. Build unlevered free cash flow (UFCF) for an explicit forecast period (typically 5-10 years)
 2. Estimate a terminal value (TV) for all cash flows beyond the forecast
 3. Discount both at WACC to get enterprise value (EV)
 4. Bridge from EV to equity value
@@ -20,19 +20,19 @@ The standard approach is an **unlevered DCF** that values the enterprise:
 
 ## 2. Unlevered free cash flow (UFCF)
 
-**UFCF** (also called Free Cash Flow to the Firm, FCFF) is the cash available to **all** capital providers — debt and equity — before financing costs:
+**UFCF** (also called Free Cash Flow to the Firm, FCFF) is the cash available to **all** capital providers: debt and equity: before financing costs:
 
 $$\text{UFCF} = \underbrace{\text{EBIT} \times (1-t)}_{\text{NOPAT}} + \text{D\&A} - \text{Capex} - \Delta\text{NWC}$$
 
 where $\Delta\text{NWC}$ = change in net working capital (an **increase** in NWC is a **use** of cash, subtracted).
 
-**Why "unlevered"?** UFCF is computed **before interest**, so it ignores the capital structure. It represents the operating business's cash generation as if it were entirely equity-financed. Discounting UFCF at WACC yields **enterprise value** — the value to all capital providers.
+**Why "unlevered"?** UFCF is computed **before interest**, so it ignores the capital structure. It represents the operating business's cash generation as if it were entirely equity-financed. Discounting UFCF at WACC yields **enterprise value**: the value to all capital providers.
 
 **Contrast with levered FCF (FCFE):** levered FCF subtracts interest and mandatory debt repayment. It represents cash available to **equity holders only** and is discounted at the **cost of equity** to yield **equity value directly.** The unlevered approach is the convention in most valuation work.
 
 ---
 
-## 3. WACC — Weighted Average Cost of Capital
+## 3. WACC. Weighted Average Cost of Capital
 
 WACC is the blended required return across all of the company's capital, weighted by market values:
 
@@ -48,13 +48,13 @@ where:
 
 **Use market-value weights, not book-value weights.** Book values are historical; the market determines the current opportunity cost of capital.
 
-### 3.1 Cost of equity — CAPM
+### 3.1 Cost of equity. CAPM
 
 $$K_e = R_f + \beta \times \text{ERP}$$
 
 - $R_f$ = **risk-free rate**: typically the 10-year government bond yield
 - $\beta$ = **beta**: the stock's systematic risk relative to the market (market = 1.0)
-- **ERP (equity risk premium)**: the expected market return over the risk-free rate; practitioners commonly use 4–6%
+- **ERP (equity risk premium)**: the expected market return over the risk-free rate; practitioners commonly use 4-6%
 
 **For private companies:** no public beta is available. Take comparable public company betas, **unlever** them to remove the effect of each comp's capital structure, take the median unlevered beta, then **relever** to the target's own capital structure:
 
@@ -74,20 +74,20 @@ $$\text{WACC} = 0.80 \times 10.0\% + 0.20 \times 5.0\% = 8.0\% + 1.0\% = \mathbf
 
 ## 4. Terminal value
 
-The explicit forecast covers 5–10 years. Everything after is captured in the **terminal value (TV)**, which often drives **60–80% of total DCF value** — making TV assumptions the single most important (and most scrutinized) inputs.
+The explicit forecast covers 5-10 years. Everything after is captured in the **terminal value (TV)**, which often drives **60-80% of total DCF value**: making TV assumptions the single most important (and most scrutinized) inputs.
 
 ### 4.1 Gordon Growth Model (perpetuity growth)
 
 $$\text{TV} = \frac{\text{UFCF}_n \times (1+g)}{\text{WACC} - g}$$
 
 - $g$ = perpetual growth rate; must be **below WACC** or the formula produces a negative/infinite value
-- $g$ is conventionally capped at long-run GDP/inflation (roughly **2–3%**); a company cannot outgrow the economy forever
+- $g$ is conventionally capped at long-run GDP/inflation (roughly **2-3%**); a company cannot outgrow the economy forever
 
 ### 4.2 Exit (terminal) multiple
 
 $$\text{TV} = \text{Terminal-year EBITDA} \times \text{Exit EV/EBITDA multiple}$$
 
-The exit multiple is typically informed by current trading comps — you are essentially saying "the business will be sold for whatever a peer would trade for today."
+The exit multiple is typically informed by current trading comps: you are essentially saying "the business will be sold for whatever a peer would trade for today."
 
 ### 4.3 Cross-check between methods
 
@@ -112,7 +112,7 @@ This raises value modestly because cash is treated as received half a year soone
 
 **Inputs:** Year-1 UFCF = $130.0M, growing 5% per year; Year-5 EBITDA = $280M; exit multiple 8.0×; Gordon growth $g = 2.5\%$; WACC = 9.0% (from Section 3.2 above); net debt = $400M.
 
-**Step 1 — Explicit cash flows:**
+**Step 1. Explicit cash flows:**
 
 | Year | UFCF ($M) | Discount factor (year-end) | PV year-end ($M) | Discount factor (mid-year) | PV mid-year ($M) |
 |---|---|---|---|---|---|
@@ -123,7 +123,7 @@ This raises value modestly because cash is treated as received half a year soone
 | 5 | 158.02 | 0.6499 | 102.70 | 0.6785 | 107.22 |
 | **Sum PV(UFCF)** | | | **554.14** | | **578.55** |
 
-**Step 2 — Terminal values:**
+**Step 2. Terminal values:**
 
 *Gordon Growth:*
 $$\text{TV} = \frac{158.02 \times 1.025}{0.09 - 0.025} = \frac{161.97}{0.065} = \$2{,}491.8\text{M}$$
@@ -133,7 +133,7 @@ $$\text{PV(TV)} = 2{,}491.8 \times 0.6499 = \$1{,}619.4\text{M} \quad \text{(yea
 $$\text{TV} = 8.0 \times \$280\text{M} = \$2{,}240.0\text{M}$$
 $$\text{PV(TV)} = 2{,}240.0 \times 0.6499 = \$1{,}455.8\text{M}$$
 
-**Step 3 — Enterprise and equity value:**
+**Step 3. Enterprise and equity value:**
 
 | Method | PV(UFCF) | PV(TV) | EV | Net Debt | **Equity Value** |
 |---|---|---|---|---|---|
@@ -164,7 +164,7 @@ A DCF without sensitivity tables is incomplete. The key sensitivities:
 - **WACC vs exit multiple:** similar table for the exit-multiple TV method.
 - **Revenue growth and margin:** how sensitive is EV to the top-line assumption?
 
-Because TV often represents 60–80% of EV, a 0.5% change in $g$ or 0.5× change in exit multiple can move equity value by 15–25%. Always show this to the reader.
+Because TV often represents 60-80% of EV, a 0.5% change in $g$ or 0.5× change in exit multiple can move equity value by 15-25%. Always show this to the reader.
 
 ---
 

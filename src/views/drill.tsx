@@ -1,11 +1,11 @@
-// The drill runner — the main study loop, and the thing that makes this not a flashcard app.
+// The drill runner: the main study loop, and the thing that makes this not a flashcard app.
 //
 // Each question runs: commit → answer → grade.
 //   1. COMMIT  you say out loud whether you know it, before seeing anything. A timer runs, because
 //              in a real interview the silence is part of the question.
 //   2. ANSWER  the say-it-out-loud model answer, plus the must-hit points as a checklist you tick
 //              off against what you actually said. Auto-gradeable questions get checked properly.
-//   3. GRADE   nailed or missed. Confident-then-missed marks the question "burned" — it turns up
+//   3. GRADE   nailed or missed. Confident-then-missed marks the question "burned": it turns up
 //              in the Danger Zone, because that combination is what actually loses interviews.
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
@@ -66,7 +66,7 @@ function Drill({ mode }: { mode: Mode }) {
     if (mode.kind === 'stage') {
       const bank = data.banks[mode.moduleId];
       if (!bank) return [];
-      // Unseen questions first — you make progress before you revise.
+      // Unseen questions first: you make progress before you revise.
       const qs = bank.questions.filter((q) => q.tier === mode.tier);
       const seen = (q: Question) => (data.attempts[q.id]?.hits ?? 0) > 0 && !data.attempts[q.id]?.burned;
       return [...qs.filter((q) => !seen(q)), ...qs.filter(seen)];
@@ -252,7 +252,7 @@ function QuestionRunner({
       <div class="qcard">
         <Timer elapsed={elapsed} target={timerTarget} />
         <p class="qprompt">{q.prompt}</p>
-        <p class="muted small">Answer it out loud first. Then commit — honestly.</p>
+        <p class="muted small">Answer it out loud first. Then commit, honestly.</p>
         <div class="commit-row">
           <button class="btn btn-ghost" onClick={() => reveal(false)}>
             Not sure
@@ -310,7 +310,7 @@ function QuestionRunner({
       </div>
       {points.length > 0 && hitCount < Math.ceil(points.length * 0.6) && (
         <p class="muted small center">
-          You ticked {hitCount} of {points.length} — that’s usually a “missed it”.
+          You ticked {hitCount} of {points.length}, which is usually a "missed it".
         </p>
       )}
     </div>
@@ -323,7 +323,7 @@ function Timer({ elapsed, target }: { elapsed: number; target: number }) {
   return (
     <div class={'timer' + (over ? ' over' : '')}>
       {String(Math.floor(elapsed / 60)).padStart(2, '0')}:{String(elapsed % 60).padStart(2, '0')}
-      {over && <span class="muted small"> · you’re rambling</span>}
+      {over && <span class="muted small"> · you're rambling</span>}
     </div>
   );
 }

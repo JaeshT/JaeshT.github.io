@@ -1,9 +1,9 @@
-// Content schema — the shapes of every data file under public/content/.
+// Content schema: the shapes of every data file under public/content/.
 // Content is git-versioned & cacheable; USER STATE (attempts/SRS) lives in IndexedDB, never here.
 //
 // The model has exactly two axes:
-//   1. MODULE — a rung on the curriculum ladder (accounting -> valuation -> DCF -> M&A -> LBO -> ...)
-//   2. TIER   — easy / medium / hard *within* a module. You clear a tier to open the next one.
+//   1. MODULE: a rung on the curriculum ladder (accounting -> valuation -> DCF -> M&A -> LBO -> ...)
+//   2. TIER: easy / medium / hard *within* a module. You clear a tier to open the next one.
 // A question may additionally carry a SECTOR tag (TMT, FIG, …) so sector desks can slice the bank.
 
 export type Tier = 'easy' | 'medium' | 'hard';
@@ -72,7 +72,7 @@ export interface ModuleRef {
   sector?: Sector; // set on sector-desk modules
 }
 
-/** The master manifest at content/index.json — the extensibility backbone. */
+/** The master manifest at content/index.json: the extensibility backbone. */
 export interface ContentIndex {
   version: number;
   updated?: string;
@@ -82,7 +82,7 @@ export interface ContentIndex {
 
 // ---- The question: one unit, three uses (drill, spaced review, graded check) ----
 
-/** An objectively gradeable check attached to a question. Optional — most questions are spoken. */
+/** An objectively gradeable check attached to a question. Optional: most questions are spoken. */
 export type Check =
   | {
       type: 'mcq';
@@ -102,7 +102,7 @@ export interface Question {
   id: string;
   tier: Tier;
   prompt: string;
-  /** The say-it-out-loud answer — roughly 60 seconds of speech. Markdown. */
+  /** The say-it-out-loud answer: roughly 60 seconds of speech. Markdown. */
   answer: string;
   /** What you say when they push further. Markdown. */
   deepDive?: string;

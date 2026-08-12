@@ -20,7 +20,7 @@ export function review(prev: SrsState | undefined, grade: Grade, now = Date.now(
   let { ease, interval, reps } = s;
 
   if (q < 3) {
-    // lapse — reset reps, short relearn interval
+    // lapse: reset reps, short relearn interval
     reps = 0;
     interval = 1;
   } else {

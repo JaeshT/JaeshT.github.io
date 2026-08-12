@@ -3,188 +3,676 @@
  "title": "Equity value & enterprise value",
  "questions": [
   {
-   "id": "ev-eqv-q3",
+   "id": "ev-e01",
    "tier": "easy",
-   "prompt": "A company has equity value of $5,000M, total debt of $2,000M, cash of $500M, preferred stock of $100M, and minority interest of $150M. What is its enterprise value?",
-   "answer": "EV = $5,000 + $2,000 + $100 + $150 − $500 = $6,750M. Add debt, preferred, and minority interest; subtract cash.",
-   "check": {
-    "type": "mcq",
-    "explanation": "EV = $5,000 + $2,000 + $100 + $150 − $500 = $6,750M. Add debt, preferred, and minority interest; subtract cash.",
-    "choices": [
-     "$6,250M",
-     "$6,650M",
-     "$6,750M",
-     "$7,250M"
-    ],
-    "answerIndex": 2
-   }
-  },
-  {
-   "id": "ev-eqv-tech-c22",
-   "tier": "easy",
-   "prompt": "Define enterprise value in one sentence.",
-   "answer": "The value of the entire operating business, independent of capital structure.",
-   "tags": [
-    "enterprise-value"
-   ]
-  },
-  {
-   "id": "ev-eqv-tech-c23",
-   "tier": "easy",
-   "prompt": "Define equity value.",
-   "answer": "Value to common shareholders: diluted shares × price.",
-   "tags": [
-    "enterprise-value"
-   ]
-  },
-  {
-   "id": "ev-eqv-tech-c33",
-   "tier": "easy",
-   "prompt": "Are out-of-the-money options dilutive under the treasury stock method?",
-   "answer": "No; only in-the-money instruments are included.",
-   "tags": [
-    "enterprise-value"
-   ]
-  },
-  {
-   "id": "ev-eqv-iq4",
-   "tier": "medium",
-   "prompt": "Walk me through the enterprise-value-to-equity bridge and justify each line.",
-   "answer": "- Enterprise value equals equity value plus debt plus preferred stock plus minority interest minus cash.\n- I add debt because a buyer must repay or assume it — debt holders have a senior claim that is part of the cost of owning the whole business.\n- I subtract cash because it is non-operating, can reduce the net purchase price, and its interest income is excluded from EBITDA so it would be double-counted if not removed.\n- I add preferred because it is a financing claim senior to common.\n- I add minority interest because consolidated EBITDA includes all of a partly-owned subsidiary while equity value includes only the parent's share, so I align the numerator with the denominator.\n- Enterprise value is capital-structure neutral, which is why it pairs with revenue, EBITDA, and EBIT.",
+   "prompt": "What do equity value and enterprise value actually mean?",
+   "answer": "- Equity value is what the common shareholders own: the market's price for the whole equity stake, calculated as share price times diluted shares.\n- Enterprise value is the value of the core operating business itself, before you decide who has a claim on it.\n- Put differently, enterprise value is what you would pay to own the operations outright, and equity value is what is left for owners after the other claims are settled.\n- The two answer different questions, which is why you need both.",
    "keyPoints": [
-    "Start at equity value, add debt, subtract cash",
-    "Add preferred stock, minority interest and other claims on the business",
-    "Say the logic: EV is the value of the operations to all capital providers",
-    "Cash is subtracted because an acquirer effectively gets it back"
+    "Equity value: share price times diluted shares, what owners hold",
+    "Enterprise value: the value of the operating business itself",
+    "EV is claim-neutral, equity value is what remains after other claims",
+    "They answer different questions"
+   ],
+   "tags": [
+    "definitions"
    ]
   },
   {
-   "id": "ev-eqv-q4",
+   "id": "ev-e02",
+   "tier": "easy",
+   "prompt": "Explain enterprise value in plain English, as if to someone outside finance.",
+   "answer": "- Think about buying a house listed at $500,000 where the seller has a $300,000 mortgage.\n- The equity value is the seller's $200,000 slice. The enterprise value is the $500,000 the house is worth, because you have to deal with the mortgage either way.\n- If the seller left $10,000 of cash in a drawer that comes with the house, you would happily pay $510,000, since you get the cash straight back. That is why cash is subtracted.\n- Companies work the same way. You buy the business, you inherit the debt, and the cash comes back to you.",
+   "tags": [
+    "definitions"
+   ]
+  },
+  {
+   "id": "ev-e03",
+   "tier": "easy",
+   "prompt": "Why do you need both equity value and enterprise value? Why not just use market cap?",
+   "answer": "- Market cap depends on how the company is funded, so two identical businesses with different debt loads show different market caps.\n- Enterprise value strips financing out, which makes operating performance comparable across a peer set.\n- You still need equity value because that is what a shareholder actually owns and what the share price implies.\n- In practice you use EV multiples to compare businesses and then bridge back to equity value to get a price per share.",
+   "tags": [
+    "definitions"
+   ]
+  },
+  {
+   "id": "ev-e04",
+   "tier": "easy",
+   "prompt": "Walk me through the bridge from equity value to enterprise value.",
+   "answer": "- Start with diluted equity value.\n- Add total debt, including short-term debt and the current portion of long-term debt.\n- Add preferred stock and any noncontrolling interest.\n- Subtract cash and cash equivalents, and subtract equity investments in associates.\n- The logic behind every line is the same test: does the item represent a claim on the operations that a buyer takes on, or an asset the buyer gets back?",
+   "keyPoints": [
+    "Start at diluted equity value",
+    "Add debt, preferred and noncontrolling interest",
+    "Subtract cash and equity investments in associates",
+    "Justify with the claim test rather than reciting the formula"
+   ],
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-e05",
+   "tier": "easy",
+   "prompt": "Why do you subtract cash in the bridge?",
+   "answer": "- A buyer who acquires the company also acquires its cash, so the effective purchase price falls by that amount.\n- Cash is also not an operating asset. It does not generate the EBITDA you are putting in the denominator of the multiple.\n- The caveat worth adding: you subtract excess cash, not every dollar. Businesses need some operating cash to function, and trapped or restricted cash should not be netted at all.",
+   "tags": [
+    "bridge",
+    "cash"
+   ]
+  },
+  {
+   "id": "ev-e06",
+   "tier": "easy",
+   "prompt": "Why do you add debt in the bridge?",
+   "answer": "- Because the buyer has to repay or assume it, so it is part of the real cost of acquiring the business.\n- Debt holders also have a senior claim on the same operating cash flows that the equity holders are claiming, and enterprise value has to capture every claim.\n- The same reasoning is why you use total debt rather than net debt when you list the components separately.",
+   "tags": [
+    "bridge",
+    "debt"
+   ]
+  },
+  {
+   "id": "ev-e07",
+   "tier": "easy",
+   "prompt": "What is the difference between basic and diluted equity value?",
+   "answer": "- Basic uses only the shares currently outstanding.\n- Diluted also counts securities that will probably become shares: in-the-money options and warrants, restricted stock, and convertible debt or preferred.\n- Diluted is the number to use in valuation, because an acquirer has to pay for those claims too.\n- The treasury stock method is how you convert options into net new shares.",
+   "tags": [
+    "shares"
+   ]
+  },
+  {
+   "id": "ev-e08",
+   "tier": "easy",
+   "prompt": "What is the treasury stock method?",
+   "answer": "- It converts in-the-money options into the net number of new shares they create.\n- The holder pays the strike price to exercise, so the company receives cash. Assume the company uses that cash to buy back shares at the current market price.\n- Net new shares = options outstanding less shares repurchased with the proceeds.\n- Out-of-the-money options are ignored, because nobody exercises at a loss.",
+   "keyPoints": [
+    "Only in-the-money options count",
+    "Proceeds = options times strike price",
+    "Shares repurchased = proceeds / current share price",
+    "Net new shares = options less repurchased shares"
+   ],
+   "tags": [
+    "shares",
+    "tsm"
+   ]
+  },
+  {
+   "id": "ev-e09",
+   "tier": "easy",
+   "prompt": "What is net debt?",
+   "answer": "- Total debt less cash and cash equivalents.\n- It is the shorthand for the bridge when a company has no preferred stock, noncontrolling interest or associates, which is most of the time.\n- Enterprise value = equity value + net debt in that simple case.\n- Negative net debt means the company holds more cash than debt, so its enterprise value is below its market cap.",
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-e10",
+   "tier": "easy",
+   "prompt": "What is the difference between current and implied enterprise value?",
+   "answer": "- Current enterprise value is built from the market price today, so it tells you what the market thinks the business is worth.\n- Implied enterprise value comes out of your own analysis, such as a DCF or a multiple you think is right.\n- The gap between the two is the investment case. If your implied value is well above the current value, you think the market is wrong.\n- Keep them separate in a model, because mixing your assumptions into a market-based number hides what you are actually claiming.",
+   "tags": [
+    "definitions"
+   ]
+  },
+  {
+   "id": "ev-e11",
+   "tier": "easy",
+   "prompt": "Why is preferred stock added in the bridge?",
+   "answer": "- Preferred sits above common equity in the capital structure and has to be paid before common holders see anything.\n- It behaves like debt: a fixed claim with a set dividend, senior to common.\n- A buyer has to redeem it or assume it, so it belongs in enterprise value.\n- Convertible preferred is the exception worth flagging. If it is in the money, treat it as equity and count the shares instead.",
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-e12",
+   "tier": "easy",
+   "prompt": "Why do you add noncontrolling interest?",
+   "answer": "- When a parent controls a subsidiary but owns less than all of it, consolidation puts 100% of that subsidiary's revenue and EBITDA into the financials.\n- The parent's equity value only reflects its own share.\n- Adding the noncontrolling interest makes the numerator cover the same 100% that the denominator already includes.\n- It is a consistency fix, not a claim on cash.",
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-e13",
+   "tier": "easy",
+   "prompt": "Why do you subtract equity investments in associates?",
+   "answer": "- A stake of roughly 20% to 50% is accounted for under the equity method, so the associate's revenue and EBITDA never appear in the parent's consolidated numbers.\n- Only the share of net income shows up, and it sits below the operating line.\n- Since the asset contributes nothing to EBITDA, its value has to come out of enterprise value.\n- Same consistency test as noncontrolling interest, applied in the opposite direction.",
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-e14",
+   "tier": "easy",
+   "prompt": "Which multiples pair with enterprise value and which pair with equity value?",
+   "answer": "- Enterprise value pairs with metrics available to all capital providers: EBITDA, EBIT, revenue, unlevered free cash flow.\n- Equity value pairs with metrics after interest: net income, so P/E, and levered free cash flow, and book value of equity.\n- The test is whether the metric is calculated before or after paying debt holders.\n- Getting this wrong is the single most common technical error in an interview, and it is obvious to the person asking.",
+   "keyPoints": [
+    "EV pairs with pre-interest metrics: EBITDA, EBIT, revenue",
+    "Equity value pairs with post-interest metrics: net income, book equity",
+    "The test is whether debt holders have been paid yet",
+    "Name it as the classic consistency error"
+   ],
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "ev-e15",
+   "tier": "easy",
+   "prompt": "Can equity value be negative?",
+   "answer": "- Not for a listed company. Share price cannot go below zero and the share count is positive, so market equity value has a floor at zero.\n- Book value of equity can absolutely be negative, from accumulated losses or large buybacks, but that is an accounting figure rather than a market value.\n- Limited liability is the underlying reason. Shareholders can lose what they put in and no more.",
+   "tags": [
+    "edge-cases"
+   ]
+  },
+  {
+   "id": "ev-e16",
+   "tier": "easy",
+   "prompt": "Can enterprise value be negative?",
+   "answer": "- Yes, when cash exceeds market cap plus debt.\n- It happens with cash-rich companies whose operations the market values at less than nothing, often failing businesses that raised a lot of money.\n- It also shows up in distressed situations and in some Japanese small caps that have historically traded below net cash.\n- The reading is that the market expects the operations to burn the cash rather than add to it.",
+   "tags": [
+    "edge-cases"
+   ]
+  },
+  {
+   "id": "ev-e17",
+   "tier": "easy",
+   "prompt": "How do you calculate diluted shares for a company with restricted stock units?",
+   "answer": "- Unvested RSUs are usually added straight to the diluted count, with no treasury stock method adjustment.\n- The reason is that there is no strike price, so the company receives no proceeds on vesting.\n- Performance shares are judged on whether the conditions are expected to be met.\n- The details sit in the diluted EPS footnote, which is where I would check rather than guess.",
+   "tags": [
+    "shares"
+   ]
+  },
+  {
+   "id": "ev-e18",
+   "tier": "easy",
+   "prompt": "Where do you find the share count and the option detail for a public company?",
+   "answer": "- The share count on the cover page of the 10-K or 10-Q is the most recent one, and it is more current than the balance sheet figure.\n- Options and their weighted average strike prices are in the stock compensation footnote.\n- Convertibles are in the debt footnote.\n- Use the latest available count rather than the year-end figure, since buybacks and issuance move it constantly.",
+   "tags": [
+    "shares",
+    "filings"
+   ]
+  },
+  {
+   "id": "ev-e19",
+   "tier": "easy",
+   "prompt": "If a company issues new shares, what happens to equity value and enterprise value?",
+   "answer": "- Equity value rises by the amount raised, because there are more shares outstanding.\n- Cash rises by the same amount, so net debt falls by that amount.\n- Enterprise value is unchanged. The operations did not change, only the funding.\n- This is the cleanest illustration of what enterprise value is designed to ignore.",
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-e20",
+   "tier": "easy",
+   "prompt": "A company pays a $10 common dividend. What happens to equity value and enterprise value?",
+   "answer": "- Equity value falls by $10, since that value has left the company and gone to shareholders.\n- Cash falls by $10, so net debt rises by $10.\n- The two moves cancel, so enterprise value is unchanged.\n- The same logic holds for a buyback: equity value falls, net debt rises, and the operating business is worth what it was before.",
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m01",
    "tier": "medium",
-   "prompt": "Given EV = $6,750M, total debt = $2,000M, cash = $500M, preferred = $100M, minority interest = $150M, and 100M diluted shares, what is the implied share price in dollars?",
-   "answer": "Equity value = $6,750 − $2,000 − $100 − $150 + $500 = $5,000M. Share price = $5,000M ÷ 100M = $50.00.",
+   "prompt": "A company issues $100 of debt to buy a factory. What happens to equity value and enterprise value?",
+   "answer": "- Equity value is unchanged. Shareholders neither put money in nor took money out.\n- Debt rises $100 and cash is unchanged, because the money went straight into PP&E.\n- Enterprise value rises $100.\n- That is the right answer economically as well as mechanically: the business now controls an extra $100 of operating assets, and a buyer would have to fund them.",
+   "keyPoints": [
+    "Equity value unchanged",
+    "Debt +$100, cash unchanged because it was spent on the asset",
+    "Enterprise value rises $100",
+    "Tie it back to the operating asset base growing"
+   ],
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m02",
+   "tier": "medium",
+   "prompt": "A company buys $100 of inventory with cash. What happens to equity value and enterprise value?",
+   "answer": "- Equity value is unchanged. One asset became another, and no profit was recognised.\n- Cash falls $100, so net debt rises $100.\n- Enterprise value rises $100.\n- People find this counterintuitive. The resolution is that enterprise value counts operating assets and excludes cash, so converting cash into inventory moves value into the operating perimeter.",
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m03",
+   "tier": "medium",
+   "prompt": "A company issues $200 of stock and uses $100 of it to buy another company. Walk through both steps.",
+   "answer": "- Step one, the issuance: equity value up $200, cash up $200, net debt down $200, so enterprise value is unchanged.\n- Step two, the acquisition: cash falls $100 and the acquired business comes on. Equity value is unchanged, since shareholders paid nothing extra.\n- Net debt rises $100 as the cash leaves, so enterprise value rises $100.\n- Across both steps: equity value up $200, enterprise value up $100, which reflects the $100 of operating assets actually bought.",
+   "keyPoints": [
+    "Issuance: equity value +$200, EV flat",
+    "Acquisition: cash out, so EV +$100, equity value flat",
+    "Combined: equity value +$200, EV +$100",
+    "Explain the difference as the operating assets acquired"
+   ],
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m04",
+   "tier": "medium",
+   "prompt": "Name actions that change equity value but leave enterprise value alone.",
+   "answer": "- Issuing shares, repurchasing shares, and paying a common dividend. In each case cash and equity move together and cancel.\n- Issuing debt and holding the proceeds in cash, which raises debt and cash by the same amount.\n- Repaying debt with cash on hand.\n- The pattern is that anything purely on the financing side moves the split between claims without touching the operations.",
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m05",
+   "tier": "medium",
+   "prompt": "Name actions that change enterprise value.",
+   "answer": "- Anything that changes the operating business: capex funded by debt or cash, acquisitions, disposals, and changes in expected operating performance.\n- Spending cash on operating assets, including working capital, since cash leaves the netting line and enters the operating perimeter.\n- Revisions to the market's forecast, which is what actually moves EV day to day.\n- Financing choices are the exception rather than the rule, which is the whole point of the metric.",
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m06",
+   "tier": "medium",
+   "prompt": "How should pensions be treated in enterprise value?",
+   "answer": "- An underfunded defined benefit plan is a debt-like claim, so add the net deficit to enterprise value.\n- Use the net figure, the projected benefit obligation less plan assets, not the gross obligation.\n- Many practitioners tax-effect it, since contributions are generally deductible, so the after-tax deficit is the economic claim.\n- An overfunded plan is arguably an asset you could subtract, though most people leave it alone because the surplus is hard to access.",
+   "tags": [
+    "bridge",
+    "pensions"
+   ]
+  },
+  {
+   "id": "ev-m07",
+   "tier": "medium",
+   "prompt": "Should operating leases be added to enterprise value?",
+   "answer": "- It depends entirely on what your EBITDA includes, and the answer changed with the new lease standards.\n- Under IFRS 16 the lease expense is split into depreciation and interest, so EBITDA excludes it. To stay consistent, add the lease liability to enterprise value.\n- Under US GAAP an operating lease keeps a single rent expense inside EBITDA, so the liability should not be added.\n- The rule is consistency between numerator and denominator. Adding the liability while leaving rent in EBITDA double counts the lease.",
+   "keyPoints": [
+    "The answer depends on what EBITDA already includes",
+    "IFRS 16: lease cost is out of EBITDA, so add the liability",
+    "US GAAP operating lease: rent stays in EBITDA, so do not add it",
+    "State the principle: numerator and denominator must match"
+   ],
+   "tags": [
+    "bridge",
+    "leases"
+   ]
+  },
+  {
+   "id": "ev-m08",
+   "tier": "medium",
+   "prompt": "A company has 200 shares at $10.00 and 50 options at a $5.00 strike. What is diluted equity value?",
+   "answer": "- The options are in the money, so they count.\n- Proceeds from exercise are 50 times $5.00, which is $250.\n- At $10.00 a share the company buys back 25 shares with those proceeds.\n- Net new shares are 50 less 25, so 25. Diluted shares are 225.\n- Diluted equity value is 225 times $10.00, which is $2,250.",
+   "keyPoints": [
+    "Check the options are in the money first",
+    "Proceeds = 50 x $5.00 = $250",
+    "Repurchase = $250 / $10.00 = 25 shares",
+    "Net new shares 25, diluted count 225",
+    "Diluted equity value $2,250"
+   ],
    "check": {
     "type": "numeric",
-    "explanation": "Equity value = $6,750 − $2,000 − $100 − $150 + $500 = $5,000M. Share price = $5,000M ÷ 100M = $50.00.",
-    "answer": 50.0,
-    "tolerance": 0.1,
-    "unit": "$"
-   }
+    "answer": 2250,
+    "unit": "$",
+    "tolerance": 1,
+    "explanation": "Proceeds $250 buy back 25 shares, so net dilution is 25 shares. 225 x $10 = $2,250."
+   },
+   "tags": [
+    "tsm",
+    "calculation"
+   ]
   },
   {
-   "id": "ev-eqv-q5",
+   "id": "ev-m09",
    "tier": "medium",
-   "prompt": "Under the treasury stock method, a company has 10M in-the-money options with a $20 strike and a current price of $50. How many net new diluted shares are created?",
-   "answer": "Proceeds = 10M × $20 = $200M. Shares repurchased = $200M ÷ $50 = 4M. Net new shares = 10M − 4M = 6M.",
+   "prompt": "Equity value is $5,000, debt is $2,000, cash is $500, preferred is $100 and noncontrolling interest is $150. What is enterprise value?",
+   "answer": "- Start at $5,000 of equity value.\n- Add $2,000 of debt, $100 of preferred and $150 of noncontrolling interest.\n- Subtract $500 of cash.\n- Enterprise value is $6,750.",
    "check": {
-    "type": "mcq",
-    "explanation": "Proceeds = 10M × $20 = $200M. Shares repurchased = $200M ÷ $50 = 4M. Net new shares = 10M − 4M = 6M.",
-    "choices": [
-     "2M",
-     "4M",
-     "6M",
-     "10M"
-    ],
-    "answerIndex": 2
-   }
-  },
-  {
-   "id": "ev-eqv-tech-c24",
-   "tier": "medium",
-   "prompt": "Write the EV bridge.",
-   "answer": "EV = Equity value + Debt + Preferred + Minority interest − Cash.",
+    "type": "numeric",
+    "answer": 6750,
+    "unit": "$",
+    "tolerance": 1,
+    "explanation": "5,000 + 2,000 + 100 + 150 - 500 = 6,750."
+   },
    "tags": [
-    "enterprise-value"
+    "bridge",
+    "calculation"
    ]
   },
   {
-   "id": "ev-eqv-tech-c25",
+   "id": "ev-m10",
    "tier": "medium",
-   "prompt": "Why add debt in the EV bridge?",
-   "answer": "A buyer must repay/assume it; debt holders' claim is part of the cost of the whole business.",
+   "prompt": "Two companies in the same industry have identical EBITDA. One is funded entirely with equity, the other is half debt. What differs?",
+   "answer": "- Enterprise value should be broadly the same, because the operating businesses are the same.\n- Equity value differs a lot. The levered company has a smaller equity slice, since debt holders own part of the claim.\n- EV/EBITDA will look similar for both, while P/E will differ, because net income is after interest.\n- That contrast is exactly why EV/EBITDA is the default comparison multiple.\n- In theory leverage does affect enterprise value a little through the tax shield and distress costs, and it is worth saying so if the interviewer pushes.",
+   "keyPoints": [
+    "Enterprise values are broadly comparable",
+    "Equity values differ because of the debt claim",
+    "EV/EBITDA holds up, P/E does not",
+    "Concede the second-order effect: tax shield and distress costs"
+   ],
    "tags": [
-    "enterprise-value"
+    "multiples"
    ]
   },
   {
-   "id": "ev-eqv-tech-c26",
+   "id": "ev-m11",
    "tier": "medium",
-   "prompt": "Why subtract cash in the EV bridge?",
-   "answer": "Cash is non-operating, can offset the purchase price, and its interest income is not in EBITDA.",
+   "prompt": "Why is EV/EBITDA preferred to P/E for comparing companies?",
+   "answer": "- EV/EBITDA is neutral to capital structure, so a levered company and an unlevered one can be compared directly.\n- It is also before differing tax rates and depreciation policies, which vary with jurisdiction and asset age rather than with business quality.\n- P/E is affected by all of those, so differences in the multiple can reflect financing rather than performance.\n- The trade-off is that EBITDA ignores capex, so EV/EBITDA flatters capital-intensive businesses. For those I would look at EV/EBIT or EV/unlevered free cash flow too.",
    "tags": [
-    "enterprise-value"
+    "multiples"
    ]
   },
   {
-   "id": "ev-eqv-tech-c28",
+   "id": "ev-m12",
    "tier": "medium",
-   "prompt": "Why add preferred stock in the EV bridge?",
-   "answer": "It is a financing claim senior to common equity, part of the capital funding the enterprise.",
+   "prompt": "When would you use P/E rather than an enterprise value multiple?",
+   "answer": "- For banks and insurers, where debt is raw material rather than financing, so enterprise value has no clean meaning. P/E and P/B are the standard there.\n- Within a sector where capital structures are similar and the audience thinks in earnings per share.\n- When the question is explicitly about the equity return to shareholders.\n- Otherwise I would default to EV multiples and use P/E as a cross-check.",
    "tags": [
-    "enterprise-value"
+    "multiples"
    ]
   },
   {
-   "id": "ev-eqv-tech-c30",
+   "id": "ev-m13",
    "tier": "medium",
-   "prompt": "Which multiples pair with EV vs equity value?",
-   "answer": "EV pairs with revenue/EBITDA/EBIT; equity value pairs with net income (P/E), book value (P/B).",
+   "prompt": "How do you treat convertible bonds in equity value?",
+   "answer": "- If the convertible is in the money, treat it as equity: add the shares it converts into and remove the debt from the bridge.\n- If it is out of the money, treat it as ordinary debt.\n- The if-converted method is the usual approach for accounting purposes, while the treasury stock method applies to options and warrants.\n- Whichever you choose, do not count it twice by leaving the debt in the bridge and also adding the shares.",
+   "keyPoints": [
+    "In the money: treat as equity, add shares, drop the debt",
+    "Out of the money: treat as debt",
+    "If-converted for convertibles, treasury stock method for options",
+    "The failure mode is double counting"
+   ],
    "tags": [
-    "enterprise-value"
+    "shares",
+    "debt"
    ]
   },
   {
-   "id": "ev-eqv-tech-c32",
+   "id": "ev-m14",
    "tier": "medium",
-   "prompt": "Walk through the treasury stock method.",
-   "answer": "For in-the-money options: proceeds = options × strike; shares bought back = proceeds ÷ price; net new shares = options − buyback; add to basic shares.",
+   "prompt": "Should you use the balance sheet book value of debt or its market value in the bridge?",
+   "answer": "- Market value is theoretically right, since that is what it would cost to retire the debt.\n- Book value is the standard shortcut and is usually close enough for investment grade debt trading near par.\n- The gap matters when the debt trades well away from par, which happens in distress or after large rate moves. Then use market value.\n- Bank debt and revolvers are typically floating rate and sit close to par, so book value is a fair proxy.",
    "tags": [
-    "enterprise-value"
+    "bridge",
+    "debt"
    ]
   },
   {
-   "id": "ev-eqv-tech-c34",
+   "id": "ev-m15",
    "tier": "medium",
-   "prompt": "10M options, $20 strike, $50 price: net new shares under TSM?",
-   "answer": "Proceeds $200M; buyback 4M; net new = 6M.",
+   "prompt": "What counts as debt-like beyond the items labelled debt?",
+   "answer": "- Unfunded pension obligations and other post-employment benefits.\n- Capital or finance lease obligations, and operating lease liabilities where EBITDA excludes the lease cost.\n- Deferred or contingent consideration from past acquisitions, and earnouts.\n- Large legal or environmental provisions that will be settled in cash.\n- The general test is whether it is a fixed future cash obligation with a claim ahead of shareholders.",
    "tags": [
-    "enterprise-value"
+    "bridge"
    ]
   },
   {
-   "id": "ev-eqv-tech-c27",
+   "id": "ev-m16",
+   "tier": "medium",
+   "prompt": "Why do you use excess cash rather than total cash?",
+   "answer": "- Every business needs a working balance to make payroll and fund the operating cycle, and that cash is not available to a buyer.\n- A common rule of thumb is to treat some percentage of revenue as operating cash, though most models simply net all of it and note the simplification.\n- Restricted cash and cash trapped offshore should not be netted, because it cannot be used to pay down debt without a cost.\n- If the company holds a large balance for a known reason, such as a pending acquisition, that is worth saying out loud.",
+   "tags": [
+    "cash",
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-m17",
+   "tier": "medium",
+   "prompt": "A company issues $100 of common stock and $100 of preferred stock. What happens?",
+   "answer": "- The common issuance raises equity value by $100 and cash by $100, so enterprise value is unaffected.\n- The preferred issuance raises the preferred line by $100 and cash by $100, and those cancel in the bridge as well.\n- So enterprise value is unchanged and common equity value rises $100.\n- The pattern is the same in both cases: money in, cash up, enterprise value flat.",
+   "tags": [
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-m18",
+   "tier": "medium",
+   "prompt": "Why can enterprise value be used across companies with different tax rates, but not without care?",
+   "answer": "- EBITDA sits before tax, so the multiple is not distorted by where the company books its profits.\n- The care is needed because tax still affects the cash a buyer receives, so two businesses with identical EBITDA are not worth the same if one pays 15% and the other 35%.\n- EV/EBIT and EV/unlevered free cash flow bring tax back into view.\n- The honest framing is that EV/EBITDA improves comparability, and it does not make the companies identical.",
+   "tags": [
+    "multiples",
+    "tax"
+   ]
+  },
+  {
+   "id": "ev-m19",
+   "tier": "medium",
+   "prompt": "How would you calculate equity value per share from an enterprise value you have derived?",
+   "answer": "- Start from your implied enterprise value.\n- Subtract debt, preferred and noncontrolling interest, and add cash and equity investments, which is the bridge in reverse.\n- That gives implied equity value.\n- Divide by diluted shares, using the treasury stock method at your implied price rather than the current market price if you want to be strict about it.\n- Compare the result with the current price, since that difference is the actual output of the analysis.",
+   "keyPoints": [
+    "Reverse the bridge: subtract debt, preferred and NCI, add cash",
+    "Divide by diluted shares",
+    "Strictly, dilution should be computed at the implied price",
+    "Compare with the current price to state the conclusion"
+   ],
+   "tags": [
+    "bridge",
+    "calculation"
+   ]
+  },
+  {
+   "id": "ev-m20",
+   "tier": "medium",
+   "prompt": "What does it mean when a company trades at a negative enterprise value, and what would you check?",
+   "answer": "- It means cash exceeds market cap plus debt, so the market is valuing the operations below zero.\n- The first check is whether the cash is real and accessible. Trapped, restricted or offshore cash explains many cases.\n- The second is burn rate. If the business loses money, that cash is a melting ice cube and the market is pricing the melt.\n- The third is control. A minority shareholder cannot force a distribution, so the cash may never reach them.\n- Only after those would I treat it as a genuine mispricing.",
+   "tags": [
+    "edge-cases"
+   ]
+  },
+  {
+   "id": "ev-h01",
    "tier": "hard",
-   "prompt": "Why add minority interest in the EV bridge?",
-   "answer": "Consolidated EBITDA includes 100% of a partly-owned subsidiary, but equity value reflects only the parent's share; adding MI makes numerator and denominator consistent.",
+   "prompt": "A company buys $100 of inventory with cash and later sells it for $200. Walk through the effect on equity value and enterprise value across both steps. 40% tax.",
+   "answer": "- Step one: cash falls $100 and inventory rises $100. Equity value is unchanged and enterprise value rises $100, because cash left the netting line and became an operating asset.\n- Step two: revenue of $200 against COGS of $100 gives $100 of pre-tax profit and $60 after tax. Equity value rises $60.\n- Cash rises by $200 less the $40 of tax, so $160. Net debt falls $160.\n- Enterprise value changes by the equity move plus the net debt move: $60 less $160, so it falls $100.\n- Across both steps enterprise value is back where it started and equity value is $60 higher, which is the profit the business actually made.",
+   "keyPoints": [
+    "Step one: EV +$100, equity value flat",
+    "Step two: after-tax profit $60 lifts equity value",
+    "Cash rises $160 after tax, so net debt falls $160",
+    "EV change = +$60 - $160 = -$100",
+    "Net across both: EV unchanged, equity value +$60"
+   ],
    "tags": [
-    "enterprise-value"
+    "transactions",
+    "walkthrough"
    ]
   },
   {
-   "id": "ev-eqv-tech-c29",
+   "id": "ev-h02",
    "tier": "hard",
-   "prompt": "Can enterprise value be negative?",
-   "answer": "Yes, when cash exceeds debt plus equity value; rare, seen in distressed or extremely cash-rich firms.",
+   "prompt": "A company has 10,000 shares at $20.00, 500 options at a $10.00 strike and 300 options at a $25.00 strike. What is diluted equity value?",
+   "answer": "- Only the $10.00 options are in the money. The $25.00 options are ignored while the price is $20.00.\n- Proceeds from the in-the-money options are 500 times $10.00, so $5,000.\n- At $20.00 a share that buys back 250 shares.\n- Net new shares are 500 less 250, so 250. Diluted shares are 10,250.\n- Diluted equity value is 10,250 times $20.00, which is $205,000.",
+   "keyPoints": [
+    "Screen out the out-of-the-money tranche first",
+    "Proceeds $5,000 from the in-the-money options",
+    "Repurchase 250 shares at $20.00",
+    "Diluted count 10,250",
+    "Diluted equity value $205,000"
+   ],
+   "check": {
+    "type": "numeric",
+    "answer": 205000,
+    "unit": "$",
+    "tolerance": 100,
+    "explanation": "Only the $10 strike counts. $5,000 of proceeds buys back 250 shares, so 250 net new shares. 10,250 x $20 = $205,000."
+   },
    "tags": [
-    "enterprise-value"
+    "tsm",
+    "calculation"
    ]
   },
   {
-   "id": "ev-eqv-tech-c31",
+   "id": "ev-h03",
    "tier": "hard",
-   "prompt": "If a company issues $100 of stock to buy $100 of equipment, what happens to EV?",
-   "answer": "Equity value +$100, but cash unchanged and debt unchanged; EV is roughly flat (the new equity is offset by the operating asset acquired, not a financing change to net debt).",
+   "prompt": "A company issues $150 of debt and $50 of stock to buy $175 of PP&E and $25 of cash. Walk through the effect.",
+   "answer": "- Equity value rises $50 from the share issuance.\n- Debt rises $150.\n- Cash rises $25 net: $200 came in and $175 went out on the PP&E.\n- Enterprise value change is the equity move plus the debt move less the cash move: $50 plus $150 less $25, so $175.\n- That equals the PP&E acquired, which is the sanity check. Enterprise value tracks the operating assets, however the purchase was funded.",
+   "keyPoints": [
+    "Equity value +$50 from the issuance",
+    "Debt +$150, cash +$25 net of the PP&E purchase",
+    "EV change = 50 + 150 - 25 = $175",
+    "Check it against the $175 of PP&E acquired"
+   ],
    "tags": [
-    "enterprise-value"
+    "transactions",
+    "walkthrough"
    ]
   },
   {
-   "id": "ev-eqv-tech-c35",
+   "id": "ev-h04",
    "tier": "hard",
-   "prompt": "How are convertible bonds treated for diluted shares?",
-   "answer": "If-converted method: if in the money, add converted shares and add back the after-tax interest expense.",
+   "prompt": "A company issues $50 of debt to buy a factory, and its share price falls after the announcement. What happened?",
+   "answer": "- Mechanically, debt is up $50, cash is unchanged and the new asset is on the books, so enterprise value rises by roughly $50.\n- The share price falling means equity value has dropped, so the market is telling you something about the deal.\n- The usual reading is that the market expects the factory to earn below the cost of capital, so it destroys value.\n- It can also reflect the added leverage raising the risk of the equity claim, or a signal about management's judgment.\n- The useful point to make is that the accounting effect and the market's verdict are separate questions, and the interviewer is testing whether you notice that.",
+   "keyPoints": [
+    "Mechanically EV rises by the debt-funded asset",
+    "A falling share price means the market disagrees with the deal",
+    "Most likely the return on the asset is below the cost of capital",
+    "Separate the mechanical effect from the market verdict"
+   ],
    "tags": [
-    "enterprise-value"
+    "transactions"
+   ]
+  },
+  {
+   "id": "ev-h05",
+   "tier": "hard",
+   "prompt": "Company A and Company B have identical operations, but A owns its factories and B leases them. How do you compare them?",
+   "answer": "- Their reported figures are not comparable as they stand. A carries PP&E and depreciation, B carries lease liabilities and a rent or lease charge.\n- Under IFRS 16 both now show an asset and a liability, which narrows the gap, but under US GAAP an operating lease keeps rent inside EBITDA.\n- To compare cleanly, either capitalise B's leases and add the liability to enterprise value, or use EBITDAR for both and compare on a pre-rent basis.\n- EV/EBIT usually holds up better as a comparison, because depreciation and lease depreciation both sit above it.\n- The lesson worth stating: an accounting difference can produce a valuation gap that has nothing to do with the businesses.",
+   "keyPoints": [
+    "Ownership versus leasing distorts EBITDA and the balance sheet",
+    "IFRS 16 narrows the gap, US GAAP operating leases do not",
+    "Capitalise leases into EV, or compare on EBITDAR",
+    "EV/EBIT is the more robust cross-check"
+   ],
+   "tags": [
+    "leases",
+    "multiples"
+   ]
+  },
+  {
+   "id": "ev-h06",
+   "tier": "hard",
+   "prompt": "Why do noncontrolling interest and equity investments move in opposite directions in the bridge?",
+   "answer": "- Both are consistency fixes, and the direction follows the accounting.\n- A consolidated subsidiary puts 100% of its EBITDA into the denominator while equity value reflects only the parent's share, so you add noncontrolling interest to the numerator.\n- An equity-method associate contributes no EBITDA at all, yet its value sits inside the parent's market cap, so you subtract it.\n- Stated as one rule: make the numerator cover exactly the businesses whose earnings are in the denominator.\n- If you can give that single rule rather than two memorised signs, you have answered the question they were actually asking.",
+   "keyPoints": [
+    "Both are consistency adjustments driven by the accounting",
+    "Consolidation puts 100% of EBITDA in, so add the NCI",
+    "Equity method contributes no EBITDA, so subtract the stake",
+    "Give the one-line rule rather than two memorised signs"
+   ],
+   "tags": [
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-h07",
+   "tier": "hard",
+   "prompt": "You calculate EV/EBITDA of 6.0x for a company where peers trade at 9.0x. What would you check before calling it cheap?",
+   "answer": "- Whether the EBITDA is clean. One-off gains, capitalised costs or an unusual accounting policy can flatter the denominator.\n- Whether the bridge is right: missing pension deficits, leases, earnouts or minority interests all understate enterprise value.\n- Whether the peer set is genuinely comparable on growth, margins and end markets.\n- Whether the market is pricing something forward-looking, such as a contract loss or a patent expiry, that trailing EBITDA does not show.\n- Cheap on a screen is usually either a data problem or a story the market knows and you do not.",
+   "keyPoints": [
+    "Check the quality of the EBITDA figure",
+    "Check the bridge for missing debt-like items",
+    "Check that the peer set is really comparable",
+    "Ask what the market knows that the trailing multiple does not"
+   ],
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "ev-h08",
+   "tier": "hard",
+   "prompt": "How does a large buyback funded by debt change equity value, enterprise value and EPS?",
+   "answer": "- Debt rises and cash goes out to shareholders, so net debt rises by the amount of the buyback.\n- Equity value falls by roughly the cash returned, though the share price itself may move on the signal.\n- Enterprise value is broadly unchanged, since the operating business did not change.\n- EPS usually rises, because the share count falls while net income only falls by the after-tax interest on the new debt.\n- Whether it creates value depends on whether the earnings yield exceeds the after-tax cost of debt, and on whether the shares were actually undervalued.",
+   "keyPoints": [
+    "Net debt rises, equity value falls, EV roughly flat",
+    "EPS rises if the earnings yield beats the after-tax cost of debt",
+    "Accretion is not the same as value creation",
+    "The test is whether the shares were undervalued"
+   ],
+   "tags": [
+    "transactions",
+    "eps"
+   ]
+  },
+  {
+   "id": "ev-h09",
+   "tier": "hard",
+   "prompt": "A company announces it will pay a large special dividend next month. How does that affect the multiples you calculate today?",
+   "answer": "- The share price already reflects the coming payment, so market cap today includes cash that is about to leave.\n- If you use the current balance sheet cash, you subtract cash that will not be there, and enterprise value comes out too low.\n- The clean treatment is to reduce the cash balance by the announced dividend, which leaves enterprise value where it should be.\n- Enterprise value should be roughly unchanged by the dividend itself, so if your calculation shows a jump, the timing mismatch is the cause.\n- The general principle is to match the date of the market data with the date of the balance sheet data.",
+   "tags": [
+    "edge-cases",
+    "bridge"
+   ]
+  },
+  {
+   "id": "ev-h10",
+   "tier": "hard",
+   "prompt": "Walk me through how you would build the diluted share count for a real company from its filings.",
+   "answer": "- Start with the share count on the cover of the most recent 10-Q or 10-K, which is more current than the balance sheet.\n- Take options outstanding and the weighted average exercise price from the stock compensation footnote, then apply the treasury stock method at the current price.\n- Add unvested RSUs directly, since there are no proceeds.\n- Check the debt footnote for convertibles and apply the if-converted method to any that are in the money.\n- Sanity-check the total against the diluted share count in the EPS footnote. If they are far apart, find out why before using the number.",
+   "keyPoints": [
+    "Cover page share count, not the balance sheet",
+    "Options and strikes from the stock comp footnote, then TSM",
+    "RSUs added directly, convertibles via if-converted",
+    "Reconcile against the diluted EPS footnote"
+   ],
+   "tags": [
+    "shares",
+    "filings"
+   ]
+  },
+  {
+   "id": "ev-h11",
+   "tier": "hard",
+   "prompt": "Why is enterprise value described as capital-structure neutral when we know leverage affects value?",
+   "answer": "- The neutrality is a first-order approximation. In a world with no taxes and no bankruptcy costs, Modigliani and Miller says the value of the operations does not depend on the funding mix.\n- In the real world the interest tax shield adds value, so a levered firm is worth somewhat more.\n- Push leverage further and financial distress costs, lost customers, forced asset sales and constrained investment start to reduce value.\n- So enterprise value is close enough to neutral over normal ranges of leverage to make comparison useful, and it stops being a good approximation for very highly levered or distressed companies.\n- Saying this rather than reciting neutrality is what separates a memorised answer from an understood one.",
+   "keyPoints": [
+    "Neutrality is a first-order Modigliani-Miller result",
+    "The tax shield adds value in practice",
+    "Distress costs subtract it at high leverage",
+    "The approximation breaks down for distressed companies"
+   ],
+   "tags": [
+    "theory"
+   ]
+  },
+  {
+   "id": "ev-h12",
+   "tier": "hard",
+   "prompt": "A private company has no share price. How do you get to equity value?",
+   "answer": "- Work backwards. Derive enterprise value first, from a DCF or from applying peer multiples to the company's own metrics.\n- Then run the bridge in reverse: subtract debt, preferred and noncontrolling interest, and add cash.\n- The result is implied equity value, and dividing by the share count gives a per-share figure if there is one.\n- Apply judgment on top: private companies usually attract a discount for illiquidity and often for smaller size, and control changes the answer again.\n- Be explicit about which of those you have applied, since they are assumptions rather than calculations.",
+   "tags": [
+    "bridge",
+    "private"
+   ]
+  },
+  {
+   "id": "ev-h13",
+   "tier": "hard",
+   "prompt": "When is EV/revenue the right multiple, and what are you conceding by using it?",
+   "answer": "- It is the right choice when earnings are negative or meaningless: early-stage software, biotech, or a business in a cyclical trough.\n- You are conceding that you cannot compare profitability, so the multiple assumes the companies will converge to similar margins eventually.\n- That assumption is doing all the work, and it is often wrong across different business models.\n- The usual mitigation is to pair it with a margin comparison, or to use a forward multiple on the year when profitability is expected to arrive.",
+   "tags": [
+    "multiples"
+   ]
+  },
+  {
+   "id": "ev-h14",
+   "tier": "hard",
+   "prompt": "How would enterprise value change if a company signs a large multi-year contract that has not started yet?",
+   "answer": "- Nothing happens on the balance sheet, since no revenue has been recognised and no cash has moved.\n- Market cap should rise as soon as the market believes the contract, so equity value rises and enterprise value rises with it.\n- The contract shows up in future forecasts rather than in trailing figures, so trailing multiples will suddenly look expensive.\n- That gap is the standard argument for using forward multiples, which is what practitioners actually quote.",
+   "tags": [
+    "multiples",
+    "edge-cases"
+   ]
+  },
+  {
+   "id": "ev-h15",
+   "tier": "hard",
+   "prompt": "You are handed two comparable companies where one has a much lower EV/EBITDA. Talk me through how you would work out whether that is a real signal.",
+   "answer": "- First check that both EBITDA figures are calculated the same way, including how they treat leases, stock compensation and one-off items.\n- Then check both bridges for anything debt-like that has been missed, since that is the most common source of a fake gap.\n- Then look at growth, margins and returns on capital. A lower multiple is often a correct assessment of a slower or lower-quality business.\n- Then look for a known overhang: litigation, a regulatory decision, customer concentration, or a controlling shareholder.\n- If none of those explain it, the gap may be real, and at that point I would look at what has changed recently rather than assuming the market is simply wrong.",
+   "keyPoints": [
+    "Normalise the two EBITDA definitions first",
+    "Audit both bridges for missing debt-like items",
+    "Compare growth, margins and returns before calling it cheap",
+    "Look for a known overhang or a recent change"
+   ],
+   "tags": [
+    "multiples"
    ]
   }
  ]

@@ -121,10 +121,10 @@
    "id": "lbo-q12",
    "tier": "hard",
    "prompt": "In the paper LBO (entry EBITDA $100M at 8.0×, 50% debt, 10% EBITDA growth for 5 years, $40M/year debt paydown, flat exit multiple), what is the MOIC?",
-   "answer": "- Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M.\n- Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
+   "answer": "- Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M.\n- Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M - $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
    "check": {
     "type": "mcq",
-    "explanation": "Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M. Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
+    "explanation": "Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M. Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M - $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
     "choices": [
      "2.00×",
      "2.50×",
@@ -137,11 +137,11 @@
   {
    "id": "lbo-q13",
    "tier": "hard",
-   "prompt": "In the paper LBO above, what is the approximate IRR (%)? Use IRR ≈ MOIC^(1/years) − 1 with MOIC = 2.72 and hold = 5 years.",
-   "answer": "IRR ≈ 2.72^(1/5) − 1 = 2.72^0.2 − 1 ≈ 1.222 − 1 = 22.2%.",
+   "prompt": "In the paper LBO above, what is the approximate IRR (%)? Use IRR ≈ MOIC^(1/years) - 1 with MOIC = 2.72 and hold = 5 years.",
+   "answer": "IRR ≈ 2.72^(1/5) - 1 = 2.72^0.2 - 1 ≈ 1.222 - 1 = 22.2%.",
    "check": {
     "type": "numeric",
-    "explanation": "IRR ≈ 2.72^(1/5) − 1 = 2.72^0.2 − 1 ≈ 1.222 − 1 = 22.2%.",
+    "explanation": "IRR ≈ 2.72^(1/5) - 1 = 2.72^0.2 - 1 ≈ 1.222 - 1 = 22.2%.",
     "answer": 22.2,
     "tolerance": 0.5,
     "unit": "%"
@@ -169,7 +169,7 @@
    "id": "lbo-tech-c68",
    "tier": "hard",
    "prompt": "Why has the leverage lever weakened recently?",
-   "answer": "Borrowing costs near 8–9% and leverage down to roughly 30–40% of EV from about 50% a decade ago, so debt does less of the work (Bain 2026).",
+   "answer": "Borrowing costs near 8-9% and leverage down to roughly 30-40% of EV from about 50% a decade ago, so debt does less of the work (Bain 2026).",
    "tags": [
     "lbo"
    ]

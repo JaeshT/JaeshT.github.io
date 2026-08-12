@@ -2,7 +2,7 @@
 // Pure functions over the manifest + question banks + user state. No I/O, so it's testable
 // and the views stay dumb.
 //
-// Gating rules (deliberately generous — this is a study aid, not a jail):
+// Gating rules (deliberately generous: this is a study aid, not a jail):
 //   • A module's EASY stage opens when the previous core module's EASY stage is cleared.
 //   • MEDIUM opens when EASY is cleared; HARD opens when MEDIUM is cleared.
 //   • Sector desks open once every core EASY stage is cleared.
@@ -48,7 +48,7 @@ export interface ModuleState {
  *   never answered           -> 0
  *   nailed but review overdue -> 0.5   (you knew it; that was a while ago)
  *   nailed and fresh          -> 1
- * Missing it after claiming confidence drags it back to 0 — that's the point of the Danger Zone.
+ * Missing it after claiming confidence drags it back to 0: that's the point of the Danger Zone.
  */
 export function strengthOf(id: string, attempts: AttemptMap, srs: SrsMap, now = Date.now()): number {
   const a = attempts[id];
@@ -70,7 +70,7 @@ export function buildLadder(
   now = Date.now(),
 ): ModuleState[] {
   const modules = [...index.modules].sort((a, b) => a.order - b.order);
-  // Only modules that actually have questions can gate anything — an unwritten module in the
+  // Only modules that actually have questions can gate anything: an unwritten module in the
   // middle of the ladder must not wall off everything behind it.
   const core = modules.filter((m) => m.track === 'core' && (banks[m.id]?.questions.length ?? 0) > 0);
 
@@ -125,7 +125,7 @@ export function buildLadder(
       const key = stageKey(ref.id, tier);
       const stage = raw.get(key)!.stage;
 
-      // Look back past any tier that has no questions yet — an unwritten tier gates nothing.
+      // Look back past any tier that has no questions yet: an unwritten tier gates nothing.
       let prev = i - 1;
       while (prev >= 0 && (raw.get(stageKey(ref.id, TIERS[prev]))?.stage.total ?? 0) === 0) prev--;
 

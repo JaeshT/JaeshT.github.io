@@ -37,7 +37,7 @@ registerRoute(
   }),
 );
 
-// SPA navigation fallback — serve precached index.html offline.
+// SPA navigation fallback: serve precached index.html offline.
 registerRoute(new NavigationRoute(createHandlerBoundToURL('index.html')));
 
 // Update flow: app sends SKIP_WAITING when the user taps the "reload to update" toast.

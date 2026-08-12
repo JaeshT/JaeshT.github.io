@@ -113,7 +113,7 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
     case 'more':
       return <More />;
     default:
-      return <Empty title="Not found" note="That page doesn’t exist." back="home" />;
+      return <Empty title="Not found" note="That page doesn't exist." back="home" />;
   }
 }
 
@@ -141,7 +141,7 @@ function Home() {
             <strong>{data.progress.xp}</strong> XP
           </div>
           <div class="hero-stat muted small">
-            Readiness decays if you stop reviewing — it’s what you could deliver today, not what you
+            Readiness decays if you stop reviewing. It's what you could deliver today, not what you
             once read.
           </div>
         </div>
@@ -152,7 +152,7 @@ function Home() {
           class="btn btn-primary big"
           onClick={() => navigate(`drill/${next.moduleId}/${next.tier}`)}
         >
-          Next up — {nextModule.ref.short} · {TIER_LABEL[next.tier]} ({next.nailed}/{next.total})
+          Next up: {nextModule.ref.short} · {TIER_LABEL[next.tier]} ({next.nailed}/{next.total})
         </button>
       ) : (
         <button class="btn btn-primary big" onClick={() => navigate('path')}>
@@ -206,7 +206,7 @@ function More() {
         <li onClick={() => navigate('progress')}>📊 Progress &amp; backup</li>
       </ul>
       <p class="muted small">
-        Tip: open this app once on WiFi before you travel — iOS clears offline data after about a week
+        Tip: open this app once on WiFi before you travel. iOS clears offline data after about a week
         of not opening it.
       </p>
     </section>
@@ -235,7 +235,7 @@ function ProgressView() {
       setMsg('Imported. Reloading…');
       setTimeout(() => window.location.reload(), 600);
     } catch {
-      setMsg('Import failed — not a valid backup file.');
+      setMsg('Import failed. That is not a valid backup file.');
     }
   }
 

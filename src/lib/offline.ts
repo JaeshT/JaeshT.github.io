@@ -1,4 +1,4 @@
-// "Download for offline" — warms the service-worker cache with every content file so the
+// "Download for offline": warms the service-worker cache with every content file so the
 // app works with no network even after iOS evicts caches (just re-tap to re-arm).
 
 import { loadIndex } from './content';

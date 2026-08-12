@@ -59,9 +59,14 @@ Both big guides are **copyrighted commercial products** and the site is public. 
 6. **Rebranded** — title, PWA manifest, icons (three ascending bars), 404, README, CLAUDE.md.
 7. **Verified** — `npm run build` green; ran the ladder in a browser: clearing Accounting · Easy
    cleared the stage, opened Accounting · Medium and EV/Equity Value · Easy, and left the rest locked.
-8. **Accounting module written in full** — 70 questions from the 400 Questions guide and the Red
+8. **Accounting and EV/equity value written in full** — 70 questions from the 400 Questions guide and the Red
    Book, tiered 25/25/20, every answer as scannable bullets, `keyPoints` on all 27 walkthroughs.
-   House style, applied everywhere from here: answers are bullets, not paragraphs.
+   EV/equity value followed: 55 questions covering the bridge, the treasury stock method, the
+   which-changes transaction drills, leases and pensions, and multiple-metric consistency.
+9. **House style, enforced on every file**: answers are scannable bullets rather than paragraphs,
+   and the `humanizer` skill (installed at `~/.claude/skills/humanizer/`) is applied to all prose.
+   No em dashes, no en dashes, no curly quotes, no bold, no "not just X but Y". There is a scan for
+   this; re-run it after writing any content.
 
 ## Resume — next steps, in order
 

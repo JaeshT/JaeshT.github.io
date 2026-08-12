@@ -1,5 +1,5 @@
 // The Path: the curriculum ladder and the detail screen for one module.
-// Every rung shows three tier pips — easy, medium, hard — and you climb them in order.
+// Every rung shows three tier pips: easy, medium, hard, and you climb them in order.
 
 import { navigate } from '../lib/router';
 import { updateProgress } from '../lib/db';
@@ -26,7 +26,7 @@ export function Path() {
       <h1>The path</h1>
       <p class="muted">
         Clear <strong>easy</strong> to open <strong>medium</strong>, clear medium to open{' '}
-        <strong>hard</strong>. Finishing a module’s easy tier also opens the next module.
+        <strong>hard</strong>. Finishing a module's easy tier also opens the next module.
       </p>
 
       {tracks.map((track) => {
@@ -62,7 +62,7 @@ function ModuleRow({ m }: { m: ModuleState }) {
         {m.ready ? (
           <span class="pips">
             {m.stages.map((s) => (
-              <span key={s.tier} class={'pip ' + s.tier + ' ' + s.status} title={`${TIER_LABEL[s.tier]} — ${s.status}`}>
+              <span key={s.tier} class={'pip ' + s.tier + ' ' + s.status} title={`${TIER_LABEL[s.tier]}: ${s.status}`}>
                 {s.status === 'cleared' ? '✓' : s.status === 'locked' ? '🔒' : `${s.nailed}/${s.total}`}
               </span>
             ))}
@@ -82,7 +82,7 @@ export function ModuleView({ id }: { id: string }) {
   if (!data) return <Loading />;
 
   const m = data.modules.find((x) => x.ref.id === id);
-  if (!m) return <Empty title="Module" note="That module doesn’t exist." back="path" />;
+  if (!m) return <Empty title="Module" note="That module doesn't exist." back="path" />;
 
   return (
     <section>

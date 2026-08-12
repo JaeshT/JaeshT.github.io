@@ -6,7 +6,7 @@
    "id": "dcf-iq5",
    "tier": "medium",
    "prompt": "Walk me through a DCF.",
-   "answer": "- I project unlevered free cash flow for five to ten years as NOPAT plus D&A minus capex minus the change in net working capital.\n- UFCF is pre-interest, representing cash to all capital providers, so I discount it at WACC, which blends the after-tax cost of debt and the CAPM cost of equity at market-value weights.\n- I add a terminal value — either via Gordon growth (last-year FCF times one plus g, divided by WACC minus g) or via an exit EV/EBITDA multiple — and cross-check the two methods by backing out the implied growth rate from the multiple and vice versa.\n- I discount the terminal value back and sum it with the explicit flows to get enterprise value, often using the mid-year convention to reflect intra-year cash receipt.\n- Finally I bridge from enterprise to equity value by subtracting net debt, preferred, and minority interest, then divide by diluted shares for an implied price.\n- The biggest sensitivities are WACC and the terminal value, which often drives 60–80% of the total.",
+   "answer": "- I project unlevered free cash flow for five to ten years as NOPAT plus D&A minus capex minus the change in net working capital.\n- UFCF is pre-interest, representing cash to all capital providers, so I discount it at WACC, which blends the after-tax cost of debt and the CAPM cost of equity at market-value weights.\n- I add a terminal value, either via Gordon growth (last-year FCF times one plus g, divided by WACC minus g) or via an exit EV/EBITDA multiple, and cross-check the two methods by backing out the implied growth rate from the multiple and vice versa.\n- I discount the terminal value back and sum it with the explicit flows to get enterprise value, often using the mid-year convention to reflect intra-year cash receipt.\n- Finally I bridge from enterprise to equity value by subtracting net debt, preferred, and minority interest, then divide by diluted shares for an implied price.\n- The biggest sensitivities are WACC and the terminal value, which often drives 60-80% of the total.",
    "keyPoints": [
     "Project unlevered free cash flow over 5-10 years",
     "UFCF = EBIT x (1 - t) + D&A - capex - change in working capital",
@@ -19,10 +19,10 @@
    "id": "dcf-q10",
    "tier": "medium",
    "prompt": "Using the DCF from the lesson (WACC = 9.0%, Year-5 UFCF = $158.02M, g = 2.5%), what is the Gordon Growth terminal value in millions of dollars?",
-   "answer": "TV = 158.02 × (1.025) ÷ (0.09 − 0.025) = 161.97 ÷ 0.065 = $2,491.8M.",
+   "answer": "TV = 158.02 × (1.025) ÷ (0.09 - 0.025) = 161.97 ÷ 0.065 = $2,491.8M.",
    "check": {
     "type": "numeric",
-    "explanation": "TV = 158.02 × (1.025) ÷ (0.09 − 0.025) = 161.97 ÷ 0.065 = $2,491.8M.",
+    "explanation": "TV = 158.02 × (1.025) ÷ (0.09 - 0.025) = 161.97 ÷ 0.065 = $2,491.8M.",
     "answer": 2491.8,
     "tolerance": 2.0,
     "unit": "$M"
@@ -62,7 +62,7 @@
    "id": "dcf-tech-c42",
    "tier": "medium",
    "prompt": "Walk through building unlevered free cash flow.",
-   "answer": "EBIT × (1 − tax) = NOPAT; + D&A; − capex; − change in NWC.",
+   "answer": "EBIT × (1 - tax) = NOPAT; + D&A; - capex; - change in NWC.",
    "tags": [
     "dcf"
    ]
@@ -80,7 +80,7 @@
    "id": "dcf-tech-c45",
    "tier": "medium",
    "prompt": "Write the WACC formula.",
-   "answer": "WACC = (E/V)Ke + (D/V)Kd(1 − t).",
+   "answer": "WACC = (E/V)Ke + (D/V)Kd(1 - t).",
    "tags": [
     "wacc"
    ]
@@ -107,7 +107,7 @@
    "id": "dcf-tech-c49",
    "tier": "medium",
    "prompt": "State the Gordon growth terminal value formula.",
-   "answer": "TV = FCF_n × (1 + g) ÷ (WACC − g).",
+   "answer": "TV = FCF_n × (1 + g) ÷ (WACC - g).",
    "tags": [
     "dcf"
    ]
@@ -152,7 +152,7 @@
    "id": "dcf-tech-c51",
    "tier": "hard",
    "prompt": "What should the perpetual growth rate be capped at and why?",
-   "answer": "At or below long-run GDP/inflation (about 2–3%); nothing can outgrow the economy forever, and g must be below WACC.",
+   "answer": "At or below long-run GDP/inflation (about 2-3%); nothing can outgrow the economy forever, and g must be below WACC.",
    "tags": [
     "dcf"
    ]
@@ -161,7 +161,7 @@
    "id": "dcf-tech-c52",
    "tier": "hard",
    "prompt": "Roughly what share of DCF value sits in terminal value, and why does that matter?",
-   "answer": "Often 60–80%; it makes the DCF highly sensitive to terminal assumptions.",
+   "answer": "Often 60-80%; it makes the DCF highly sensitive to terminal assumptions.",
    "tags": [
     "dcf"
    ]

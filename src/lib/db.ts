@@ -1,6 +1,6 @@
 // IndexedDB persistence (via idb-keyval). Holds USER STATE only: SRS scheduling,
 // per-question attempt history, progress, settings. Kept strictly separate from git-versioned content.
-// Async + large quota — correct for hundreds of questions + attempt history (localStorage is not).
+// Async + large quota: correct for hundreds of questions + attempt history (localStorage is not).
 
 import { get, set, update, createStore } from 'idb-keyval';
 
@@ -19,8 +19,8 @@ export type SrsMap = Record<string, SrsState>;
 
 /**
  * What happened the last time this question came up.
- *   hits/misses  — how often you nailed it vs. missed it
- *   confident    — you said "I know this" BEFORE seeing the answer
+ *   hits/misses: how often you nailed it vs. missed it
+ *   confident: you said "I know this" BEFORE seeing the answer
  * A question you were confident about and then missed is the highest-value thing to restudy;
  * that combination is what the Danger Zone surfaces.
  */
