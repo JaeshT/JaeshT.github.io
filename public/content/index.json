@@ -76,7 +76,8 @@
    "icon": "🤝",
    "track": "core",
    "order": 5,
-   "blurb": "Deal structure, purchase accounting, and calling accretive or dilutive fast."
+   "blurb": "Deal structure, purchase accounting, and calling accretive or dilutive fast.",
+   "bank": "modules/ma.json"
   },
   {
    "id": "lbo",
