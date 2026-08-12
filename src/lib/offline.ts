@@ -8,13 +8,11 @@ const BASE = '/content/';
 
 export function allContentPaths(index: ContentIndex): string[] {
   const p = new Set<string>(['index.json']);
-  index.lessons.forEach((l) => p.add(l.path));
-  index.flashcardDecks.forEach((d) => p.add(d.path));
-  index.questionSets.forEach((q) => p.add(q.path));
-  index.quizzes.forEach((q) => p.add(q.path));
+  for (const m of index.modules) {
+    if (m.bank) p.add(m.bank);
+    m.lessons?.forEach((l) => p.add(l.path));
+  }
   index.glossary?.paths.forEach((g) => p.add(g));
-  index.briefings?.forEach((b) => p.add(b.path));
-  index.excel?.forEach((e) => e.walkthrough && p.add(e.walkthrough));
   return [...p];
 }
 

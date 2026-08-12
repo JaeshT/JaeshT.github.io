@@ -70,7 +70,9 @@ export function buildLadder(
   now = Date.now(),
 ): ModuleState[] {
   const modules = [...index.modules].sort((a, b) => a.order - b.order);
-  const core = modules.filter((m) => m.track === 'core');
+  // Only modules that actually have questions can gate anything — an unwritten module in the
+  // middle of the ladder must not wall off everything behind it.
+  const core = modules.filter((m) => m.track === 'core' && (banks[m.id]?.questions.length ?? 0) > 0);
 
   // First pass: raw stats per stage.
   const raw = new Map<string, { stage: Stage; questions: Question[] }>();
@@ -106,7 +108,13 @@ export function buildLadder(
     return entry.stage.nailed / entry.stage.total >= CLEAR_THRESHOLD;
   };
 
-  const allCoreEasyCleared = core.every((m) => isCleared(stageKey(m.id, 'easy')));
+  /** A module counts as "entered" once its lowest tier that actually has questions is cleared. */
+  const entryCleared = (moduleId: string): boolean => {
+    const tier = TIERS.find((t) => (raw.get(stageKey(moduleId, t))?.stage.total ?? 0) > 0);
+    return tier ? isCleared(stageKey(moduleId, tier)) : true;
+  };
+
+  const allCoreEntered = core.every((m) => entryCleared(m.id));
 
   // Second pass: resolve lock state now that every stage's clear status is known.
   const out: ModuleState[] = [];
@@ -117,16 +125,20 @@ export function buildLadder(
       const key = stageKey(ref.id, tier);
       const stage = raw.get(key)!.stage;
 
+      // Look back past any tier that has no questions yet — an unwritten tier gates nothing.
+      let prev = i - 1;
+      while (prev >= 0 && (raw.get(stageKey(ref.id, TIERS[prev]))?.stage.total ?? 0) === 0) prev--;
+
       let open: boolean;
-      if (i > 0) {
-        open = isCleared(stageKey(ref.id, TIERS[i - 1]));
+      if (prev >= 0) {
+        open = isCleared(stageKey(ref.id, TIERS[prev]));
       } else if (ref.track === 'fit') {
         open = true;
       } else if (ref.track === 'sector') {
-        open = allCoreEasyCleared;
+        open = allCoreEntered;
       } else {
         const idx = core.findIndex((m) => m.id === ref.id);
-        open = idx <= 0 || isCleared(stageKey(core[idx - 1].id, 'easy'));
+        open = idx <= 0 || entryCleared(core[idx - 1].id);
       }
 
       stage.status = isCleared(key) ? 'cleared' : open || stage.earnedEarly ? 'open' : 'locked';

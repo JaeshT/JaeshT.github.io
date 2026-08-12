@@ -1,5 +1,5 @@
 // Generates PWA icons as PNGs with zero dependencies (Node built-in zlib only).
-// Theme: a private-equity "J-curve" on a dark tile. Regenerate with: node scripts/gen-icons.mjs
+// Theme: three ascending bars — the easy/medium/hard ladder — on a dark tile. Regenerate with: node scripts/gen-icons.mjs
 import { deflateSync } from 'node:zlib';
 import { writeFileSync, mkdirSync } from 'node:fs';
 
@@ -105,29 +105,28 @@ function draw(size, { maskable = false } = {}) {
     }
   }
 
-  // J-curve: dips below zero then rises — plotted across the tile interior
-  const pad = inset + Math.round(size * 0.14);
+  // Three ascending bars — the easy / medium / hard ladder.
+  const pad = inset + Math.round(size * 0.17);
   const w = size - 2 * pad;
-  const baseY = pad + Math.round(w * 0.42); // "zero" line
-  const thickness = Math.max(2, Math.round(size * 0.035));
-  const pts = 600;
-  for (let i = 0; i <= pts; i++) {
-    const t = i / pts; // 0..1 along x
-    const x = Math.round(pad + t * w);
-    // J shape: start ~0, dip to trough ~0.35, rise above
-    const dip = -1.9 * Math.exp(-Math.pow((t - 0.28) / 0.18, 2));
-    const rise = 2.6 * Math.pow(Math.max(0, t - 0.18), 1.5);
-    const val = dip + rise; // negative then strongly positive
-    const y = Math.round(baseY - val * (w * 0.16));
-    const color = val >= 0 ? GREEN : ACCENT;
-    for (let dy = -thickness; dy <= thickness; dy++) {
-      for (let dx = -thickness; dx <= thickness; dx++) {
-        if (dx * dx + dy * dy <= thickness * thickness) set(x + dx, y + dy, color);
+  const baseY = size - pad;
+  const gap = Math.round(w * 0.1);
+  const barW = Math.round((w - 2 * gap) / 3);
+  const heights = [0.36, 0.62, 0.94]; // each rung taller than the last
+  const colors = [GREEN, ACCENT, ACCENT];
+  const radius2 = Math.max(1, Math.round(barW * 0.22));
+  heights.forEach((h, i) => {
+    const x0 = pad + i * (barW + gap);
+    const top = baseY - Math.round(w * h);
+    for (let y = top; y <= baseY; y++) {
+      for (let x = x0; x < x0 + barW; x++) {
+        // round the top corners only
+        const dx = x < x0 + radius2 ? x0 + radius2 - x : x >= x0 + barW - radius2 ? x - (x0 + barW - radius2 - 1) : 0;
+        const dy = y < top + radius2 ? top + radius2 - y : 0;
+        if (dx && dy && Math.hypot(dx, dy) > radius2) continue;
+        set(x, y, colors[i]);
       }
     }
-  }
-  // baseline (zero) tick line, faint
-  for (let x = pad; x < pad + w; x += 1) set(x, baseY, [80, 86, 96]);
+  });
 
   return encodePNG(size, size, buf);
 }

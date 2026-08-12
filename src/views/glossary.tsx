@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { loadIndex, loadGlossaries } from '../lib/content';
 import type { GlossaryTerm } from '../lib/schema';
-import { Loading, Empty } from './learn';
+import { Loading, Empty } from './ui';
 
 export function Glossary() {
   const [terms, setTerms] = useState<GlossaryTerm[] | null>(null);

@@ -457,3 +457,86 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 /* ---- cash-flow calculator table ---- */
 .cf-table th, .cf-table td { padding: 4px 5px; }
 .cf-input { width: 100%; min-width: 52px; font: inherit; padding: 7px 6px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-elev2); color: var(--text); text-align: right; }
+
+/* ---- Ladder: home hero, rungs, stages ---- */
+.hero { display: flex; align-items: center; gap: 18px; margin: 8px 0 16px; }
+.hero-side { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.hero-stat { font-size: 14px; color: var(--muted); }
+.hero-stat strong { color: var(--text); font-size: 20px; font-weight: 700; }
+.ring-label { fill: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+
+.quickrow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+.quick {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px; text-align: left; color: var(--text); font: inherit; cursor: pointer;
+}
+.quick:disabled { opacity: 0.45; cursor: default; }
+.quick.danger { border-color: #f06b6b; }
+.quick-n { display: block; font-size: 24px; font-weight: 700; }
+.quick-l { display: block; font-size: 12px; color: var(--muted); }
+
+.track { margin: 18px 0; }
+.rung {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 12px 14px; margin-bottom: 8px; color: var(--text); font: inherit; cursor: pointer;
+}
+.rung.cleared { border-color: var(--accent-2); }
+.rung.unbuilt { opacity: 0.5; cursor: default; }
+.rung-icon { font-size: 22px; }
+.rung-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.rung-title { font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.rung-pct { flex-shrink: 0; }
+
+.pips { display: flex; gap: 6px; }
+.pip {
+  font-size: 11px; min-width: 46px; text-align: center; padding: 3px 8px; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--muted);
+}
+.pip.open { border-color: var(--accent); color: var(--text); }
+.pip.cleared { border-color: var(--accent-2); color: var(--accent-2); }
+.pip.locked { opacity: 0.5; }
+
+.stage-card {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; margin-bottom: 10px;
+}
+.stage-card.cleared { border-color: var(--accent-2); }
+.stage-card.empty { opacity: 0.5; }
+.stage-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.stage-card .bar { margin-bottom: 12px; }
+.stage-locked { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tier-badge {
+  font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px;
+  border: 1px solid var(--border);
+}
+.tier-badge.easy { color: var(--accent-2); border-color: var(--accent-2); }
+.tier-badge.medium { color: var(--accent); border-color: var(--accent); }
+.tier-badge.hard { color: var(--warn); border-color: var(--warn); }
+
+/* ---- Drill runner ---- */
+.drill-head { display: flex; justify-content: space-between; margin: 4px 0 6px; }
+.bar.thin { height: 4px; margin-bottom: 14px; }
+.timer { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+.timer.over { color: var(--warn); }
+.commit-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.commit-row .btn { width: 100%; }
+.answer-label { font-size: 12px; color: var(--muted); margin: 2px 0 10px; }
+
+.keypoints { margin-top: 14px; }
+.kp-head { font-size: 13px; color: var(--muted); margin-bottom: 8px; display: flex; justify-content: space-between; }
+.kp {
+  display: flex; align-items: flex-start; gap: 10px; width: 100%; text-align: left;
+  background: none; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px;
+  margin-bottom: 6px; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer;
+}
+.kp.on { border-color: var(--accent-2); color: var(--text); }
+.kp-box {
+  flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px; border: 1px solid var(--border);
+  display: inline-flex; align-items: center; justify-content: center; font-size: 12px; line-height: 1;
+}
+.kp.on .kp-box { border-color: var(--accent-2); color: var(--accent-2); }
+.deepdive { margin-top: 12px; }
+.btn.small { padding: 7px 12px; font-size: 13px; }
+.center { text-align: center; }
+.banner.ok { border-color: var(--accent-2); color: var(--accent-2); }

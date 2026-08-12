@@ -1,0 +1,301 @@
+{
+ "module": "accounting",
+ "title": "Accounting & the three statements",
+ "questions": [
+  {
+   "id": "accounting-iq1",
+   "tier": "easy",
+   "prompt": "Walk me through the three financial statements.",
+   "answer": "The income statement shows profitability over a period on an accrual basis, from revenue down to net income. The balance sheet is a point-in-time snapshot where assets equal liabilities plus equity. The cash flow statement reconciles accrual net income to the actual change in cash across operating, investing, and financing activities. They link: net income flows from the bottom of the IS to the top of the CFS and into retained earnings on the BS; the CFS explains the change in the BS cash line; non-cash charges and working-capital changes adjust net income to arrive at cash; capex, debt, and equity activity tie the CFS to the asset and capital lines of the BS. The model is self-checking because every change must keep the balance sheet in balance.",
+   "keyPoints": [
+    "IS: revenue to net income, accrual, over a period",
+    "BS: assets = liabilities + equity, at a point in time",
+    "CFS: reconciles net income to the change in cash, three sections",
+    "Say why you need all three: net income is not cash"
+   ]
+  },
+  {
+   "id": "accounting-iq2",
+   "tier": "easy",
+   "prompt": "If depreciation increases by $10 (40% tax rate), walk me through the impact on all three statements.",
+   "answer": "On the income statement, pre-tax income falls $10, taxes fall $4, net income falls $6. On the cash flow statement, I start at net income down $6, add back the $10 non-cash depreciation, so operating cash flow rises $4 and cash rises $4. On the balance sheet, cash is up $4 and PP&E is down $10, so assets fall $6; net income down $6 reduces retained earnings, so equity falls $6. Assets down $6 equals equity down $6, so it balances. The takeaway is the tax shield: the company keeps $4 of cash it would otherwise pay in taxes.",
+   "keyPoints": [
+    "Net income falls by 10 x (1 - tax rate) = $6",
+    "CFS: start at -$6, add back the $10 non-cash charge, cash +$4",
+    "BS: cash +$4, net PP&E -$10, so assets -$6",
+    "Retained earnings -$6, so both sides fall by $6 and it balances",
+    "Name the driver: the $4 is the depreciation tax shield"
+   ]
+  },
+  {
+   "id": "accounting-iq3",
+   "tier": "easy",
+   "prompt": "A company buys $10 of inventory with cash. Walk me through the statements.",
+   "answer": "No income statement impact yet, because nothing has been sold — inventory is capitalized, not expensed. On the cash flow statement, inventory rises $10, which is a use of cash, so operating cash flow and cash fall $10. On the balance sheet, inventory is up $10 and cash is down $10, so total assets are unchanged and it balances. The expense hits later through cost of goods sold when the inventory is sold.",
+   "keyPoints": [
+    "Income statement: no change — buying inventory is not an expense yet",
+    "CFS: inventory up $10 is a use of cash, cash flow from operations -$10",
+    "BS: inventory +$10, cash -$10, assets flat, so it balances",
+    "Flag the follow-up: it hits the IS through COGS only when the inventory is sold"
+   ]
+  },
+  {
+   "id": "accounting-tech-c1",
+   "tier": "easy",
+   "prompt": "What are the three financial statements and what does each measure?",
+   "answer": "Income statement (profitability over a period, accrual basis), balance sheet (assets, liabilities, equity at a point in time), cash flow statement (reconciles net income to the change in cash).",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c15",
+   "tier": "easy",
+   "prompt": "Difference between depreciation and amortization?",
+   "answer": "Depreciation is for tangible PP&E; amortization is for definite-lived intangibles. Both non-cash.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c2",
+   "tier": "easy",
+   "prompt": "State the balance sheet equation.",
+   "answer": "Assets = Liabilities + Shareholders' Equity.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c3",
+   "tier": "easy",
+   "prompt": "What are the three sections of the cash flow statement?",
+   "answer": "Operating (CFO), investing (CFI), financing (CFF).",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c9",
+   "tier": "easy",
+   "prompt": "Why is depreciation added back in CFO?",
+   "answer": "It reduced net income but consumed no cash this period.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-q1",
+   "tier": "medium",
+   "prompt": "A company's depreciation increases by $10 at a 40% tax rate. What is the net change in cash?",
+   "answer": "Net income falls $6 (−$10 × (1−40%)). On the CFS: −$6 net income + $10 add-back = +$4. The company keeps $4 it would have paid in taxes — the depreciation tax shield.",
+   "check": {
+    "type": "mcq",
+    "explanation": "Net income falls $6 (−$10 × (1−40%)). On the CFS: −$6 net income + $10 add-back = +$4. The company keeps $4 it would have paid in taxes — the depreciation tax shield.",
+    "choices": [
+     "+$10 (full depreciation add-back)",
+     "+$6 (net income impact reversed)",
+     "+$4 (tax shield only)",
+     "−$6 (net income falls)"
+    ],
+    "answerIndex": 2
+   }
+  },
+  {
+   "id": "accounting-q14",
+   "tier": "medium",
+   "prompt": "Which of the following correctly describes how an increase in net working capital (NWC) affects free cash flow?",
+   "answer": "An increase in operating assets (AR, inventory) or decrease in operating liabilities (AP) means more cash is tied up in operations and has not been received. This is a use of cash and reduces UFCF. Formula: UFCF = NOPAT + D&A − Capex − ΔNWC.",
+   "check": {
+    "type": "mcq",
+    "explanation": "An increase in operating assets (AR, inventory) or decrease in operating liabilities (AP) means more cash is tied up in operations and has not been received. This is a use of cash and reduces UFCF. Formula: UFCF = NOPAT + D&A − Capex − ΔNWC.",
+    "choices": [
+     "An increase in NWC is added to UFCF because it represents operational growth",
+     "An increase in NWC is subtracted from UFCF because it is a use of cash",
+     "An increase in NWC has no impact on UFCF",
+     "An increase in NWC is added back like depreciation because it is non-cash"
+    ],
+    "answerIndex": 1
+   }
+  },
+  {
+   "id": "accounting-q2",
+   "tier": "medium",
+   "prompt": "Which of these keeps the balance sheet in balance in the depreciation +$10 (40% tax) scenario?",
+   "answer": "Cash +$4 and PP&E −$10 → total assets −$6. Retained earnings (equity) −$6 from net income. Assets −$6 = equity −$6. Balances.",
+   "check": {
+    "type": "mcq",
+    "explanation": "Cash +$4 and PP&E −$10 → total assets −$6. Retained earnings (equity) −$6 from net income. Assets −$6 = equity −$6. Balances.",
+    "choices": [
+     "Cash +$10, PP&E −$10, equity unchanged",
+     "Cash +$4, PP&E −$10, equity −$6",
+     "Cash +$6, PP&E −$10, equity −$4",
+     "Cash +$4, PP&E −$6, equity −$10"
+    ],
+    "answerIndex": 1
+   }
+  },
+  {
+   "id": "accounting-tech-c10",
+   "tier": "medium",
+   "prompt": "Why does depreciation matter if it isn't cash?",
+   "answer": "It is a tax shield: it lowers taxable income, so the company keeps cash it would otherwise pay in taxes.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c11",
+   "tier": "medium",
+   "prompt": "Define operating net working capital.",
+   "answer": "Operating current assets (AR, inventory, prepaids) minus operating current liabilities (AP, accrued expenses); excludes cash and debt.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c12",
+   "tier": "medium",
+   "prompt": "Why is an increase in accounts receivable a use of cash?",
+   "answer": "Revenue was booked but not yet collected, so accrual income overstates cash received.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c13",
+   "tier": "medium",
+   "prompt": "Why is an increase in accounts payable a source of cash?",
+   "answer": "You received goods/services but have not paid, conserving cash.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c16",
+   "tier": "medium",
+   "prompt": "Is goodwill amortized under US GAAP?",
+   "answer": "No; it is tested for impairment and written down only if impaired.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c20",
+   "tier": "medium",
+   "prompt": "A company sells inventory it paid $10 cash for, for $15 on credit. Walk the immediate cash impact.",
+   "answer": "No cash collected yet (AR +$15), inventory −$10; net income +$5 (gross), but cash unchanged until AR is collected.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c4",
+   "tier": "medium",
+   "prompt": "How does net income connect the three statements?",
+   "answer": "It is the bottom of the IS, the top of the CFS (start of CFO), and flows into retained earnings within equity on the BS.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c5",
+   "tier": "medium",
+   "prompt": "How does the cash flow statement connect to the balance sheet?",
+   "answer": "The CFS bottom line (net change in cash) equals the change in the BS cash line; ending cash ties out.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c6",
+   "tier": "medium",
+   "prompt": "If depreciation rises $10 at a 40% tax rate, what happens to net income?",
+   "answer": "Pre-tax income −$10, taxes −$4, net income −$6.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c7",
+   "tier": "medium",
+   "prompt": "If depreciation rises $10 at a 40% tax rate, what happens to cash?",
+   "answer": "CFO = −$6 net income + $10 add-back = +$4; cash rises $4.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-iq15",
+   "tier": "hard",
+   "prompt": "A company takes a $100M non-cash goodwill impairment (no tax benefit, non-deductible). Walk the statements.",
+   "answer": "On the income statement, the $100M impairment is an expense, so pre-tax income and net income fall $100M (no tax benefit if non-deductible). On the cash flow statement, I start at net income down $100M and add back the $100M non-cash impairment, so operating cash flow and cash are unchanged. On the balance sheet, goodwill falls $100M on the asset side and net income down $100M reduces retained earnings, so equity falls $100M; assets down $100M equals equity down $100M and it balances. The point: impairments hit earnings and equity but not cash.",
+   "keyPoints": [
+    "Income statement: $100M impairment, but no tax benefit, so net income falls the full $100M",
+    "CFS: add the $100M back as a non-cash charge, so cash is unchanged",
+    "BS: goodwill -$100M, retained earnings -$100M, and it balances",
+    "Say the giveaway: no tax deduction means no cash impact at all"
+   ]
+  },
+  {
+   "id": "accounting-q16",
+   "tier": "hard",
+   "prompt": "A company takes a $100M non-cash goodwill impairment that is not tax-deductible. Walk through the impact on all three financial statements and confirm the balance sheet balances.",
+   "answer": "Income statement: the $100M impairment is an operating expense, so pre-tax income falls $100M. With no tax benefit (non-deductible), net income also falls $100M. Cash flow statement: start at net income −$100M, add back the $100M non-cash impairment charge, so CFO and cash are unchanged (net zero effect). Balance sheet: goodwill falls $100M on the asset side; retained earnings fall $100M on the equity side (via net income). Total assets down $100M = equity down $100M. It balances. Key insight: impairments hurt earnings and equity but do not consume cash."
+  },
+  {
+   "id": "accounting-tech-c14",
+   "tier": "hard",
+   "prompt": "Can a profitable company run out of cash?",
+   "answer": "Yes; rapid growth that funds rising receivables and inventory ahead of collection drains cash despite positive net income.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c17",
+   "tier": "hard",
+   "prompt": "What creates a deferred tax liability?",
+   "answer": "Book tax expense exceeding cash taxes now (for example accelerated tax depreciation vs straight-line book), reversing later.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c18",
+   "tier": "hard",
+   "prompt": "What creates a deferred tax asset?",
+   "answer": "Paying more cash tax than book expense now (for example NOL carryforwards, reserves), creating a future benefit.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c19",
+   "tier": "hard",
+   "prompt": "How does a $10 increase in a DTL affect the CFS?",
+   "answer": "Added back in CFO; it lowered book net income via the tax line without using cash.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c21",
+   "tier": "hard",
+   "prompt": "A company writes down inventory by $10 (tax 25%). Net income and cash effect?",
+   "answer": "Pre-tax −$10, taxes −$2.5, net income −$7.5; CFS adds back the $10 non-cash write-down, so CFO and cash +$2.5.",
+   "tags": [
+    "accounting"
+   ]
+  },
+  {
+   "id": "accounting-tech-c8",
+   "tier": "hard",
+   "prompt": "If depreciation rises $10 at a 40% tax rate, show the balance sheet balances.",
+   "answer": "Cash +$4, PP&E −$10 → assets −$6; retained earnings −$6 → equity −$6. Balances.",
+   "tags": [
+    "accounting"
+   ]
+  }
+ ]
+}

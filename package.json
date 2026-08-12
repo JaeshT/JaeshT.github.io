@@ -1,9 +1,9 @@
 {
-  "name": "tewess-pe-prep",
+  "name": "tewess-ib-prep",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Offline study app for a private equity Primaries & Co-investments internship",
+  "description": "Offline study app for investment banking technical interviews",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -28,5 +28,10 @@
     "workbox-precaching": "^7.3.0",
     "workbox-routing": "^7.3.0",
     "workbox-strategies": "^7.3.0"
+  },
+  "overrides": {
+    "path-scurry": {
+      "lru-cache": "11.0.2"
+    }
   }
 }

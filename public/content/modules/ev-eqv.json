@@ -1,0 +1,191 @@
+{
+ "module": "ev-eqv",
+ "title": "Equity value & enterprise value",
+ "questions": [
+  {
+   "id": "ev-eqv-q3",
+   "tier": "easy",
+   "prompt": "A company has equity value of $5,000M, total debt of $2,000M, cash of $500M, preferred stock of $100M, and minority interest of $150M. What is its enterprise value?",
+   "answer": "EV = $5,000 + $2,000 + $100 + $150 − $500 = $6,750M. Add debt, preferred, and minority interest; subtract cash.",
+   "check": {
+    "type": "mcq",
+    "explanation": "EV = $5,000 + $2,000 + $100 + $150 − $500 = $6,750M. Add debt, preferred, and minority interest; subtract cash.",
+    "choices": [
+     "$6,250M",
+     "$6,650M",
+     "$6,750M",
+     "$7,250M"
+    ],
+    "answerIndex": 2
+   }
+  },
+  {
+   "id": "ev-eqv-tech-c22",
+   "tier": "easy",
+   "prompt": "Define enterprise value in one sentence.",
+   "answer": "The value of the entire operating business, independent of capital structure.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c23",
+   "tier": "easy",
+   "prompt": "Define equity value.",
+   "answer": "Value to common shareholders: diluted shares × price.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c33",
+   "tier": "easy",
+   "prompt": "Are out-of-the-money options dilutive under the treasury stock method?",
+   "answer": "No; only in-the-money instruments are included.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-iq4",
+   "tier": "medium",
+   "prompt": "Walk me through the enterprise-value-to-equity bridge and justify each line.",
+   "answer": "Enterprise value equals equity value plus debt plus preferred stock plus minority interest minus cash. I add debt because a buyer must repay or assume it — debt holders have a senior claim that is part of the cost of owning the whole business. I subtract cash because it is non-operating, can reduce the net purchase price, and its interest income is excluded from EBITDA so it would be double-counted if not removed. I add preferred because it is a financing claim senior to common. I add minority interest because consolidated EBITDA includes all of a partly-owned subsidiary while equity value includes only the parent's share, so I align the numerator with the denominator. Enterprise value is capital-structure neutral, which is why it pairs with revenue, EBITDA, and EBIT.",
+   "keyPoints": [
+    "Start at equity value, add debt, subtract cash",
+    "Add preferred stock, minority interest and other claims on the business",
+    "Say the logic: EV is the value of the operations to all capital providers",
+    "Cash is subtracted because an acquirer effectively gets it back"
+   ]
+  },
+  {
+   "id": "ev-eqv-q4",
+   "tier": "medium",
+   "prompt": "Given EV = $6,750M, total debt = $2,000M, cash = $500M, preferred = $100M, minority interest = $150M, and 100M diluted shares, what is the implied share price in dollars?",
+   "answer": "Equity value = $6,750 − $2,000 − $100 − $150 + $500 = $5,000M. Share price = $5,000M ÷ 100M = $50.00.",
+   "check": {
+    "type": "numeric",
+    "explanation": "Equity value = $6,750 − $2,000 − $100 − $150 + $500 = $5,000M. Share price = $5,000M ÷ 100M = $50.00.",
+    "answer": 50.0,
+    "tolerance": 0.1,
+    "unit": "$"
+   }
+  },
+  {
+   "id": "ev-eqv-q5",
+   "tier": "medium",
+   "prompt": "Under the treasury stock method, a company has 10M in-the-money options with a $20 strike and a current price of $50. How many net new diluted shares are created?",
+   "answer": "Proceeds = 10M × $20 = $200M. Shares repurchased = $200M ÷ $50 = 4M. Net new shares = 10M − 4M = 6M.",
+   "check": {
+    "type": "mcq",
+    "explanation": "Proceeds = 10M × $20 = $200M. Shares repurchased = $200M ÷ $50 = 4M. Net new shares = 10M − 4M = 6M.",
+    "choices": [
+     "2M",
+     "4M",
+     "6M",
+     "10M"
+    ],
+    "answerIndex": 2
+   }
+  },
+  {
+   "id": "ev-eqv-tech-c24",
+   "tier": "medium",
+   "prompt": "Write the EV bridge.",
+   "answer": "EV = Equity value + Debt + Preferred + Minority interest − Cash.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c25",
+   "tier": "medium",
+   "prompt": "Why add debt in the EV bridge?",
+   "answer": "A buyer must repay/assume it; debt holders' claim is part of the cost of the whole business.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c26",
+   "tier": "medium",
+   "prompt": "Why subtract cash in the EV bridge?",
+   "answer": "Cash is non-operating, can offset the purchase price, and its interest income is not in EBITDA.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c28",
+   "tier": "medium",
+   "prompt": "Why add preferred stock in the EV bridge?",
+   "answer": "It is a financing claim senior to common equity, part of the capital funding the enterprise.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c30",
+   "tier": "medium",
+   "prompt": "Which multiples pair with EV vs equity value?",
+   "answer": "EV pairs with revenue/EBITDA/EBIT; equity value pairs with net income (P/E), book value (P/B).",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c32",
+   "tier": "medium",
+   "prompt": "Walk through the treasury stock method.",
+   "answer": "For in-the-money options: proceeds = options × strike; shares bought back = proceeds ÷ price; net new shares = options − buyback; add to basic shares.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c34",
+   "tier": "medium",
+   "prompt": "10M options, $20 strike, $50 price: net new shares under TSM?",
+   "answer": "Proceeds $200M; buyback 4M; net new = 6M.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c27",
+   "tier": "hard",
+   "prompt": "Why add minority interest in the EV bridge?",
+   "answer": "Consolidated EBITDA includes 100% of a partly-owned subsidiary, but equity value reflects only the parent's share; adding MI makes numerator and denominator consistent.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c29",
+   "tier": "hard",
+   "prompt": "Can enterprise value be negative?",
+   "answer": "Yes, when cash exceeds debt plus equity value; rare, seen in distressed or extremely cash-rich firms.",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c31",
+   "tier": "hard",
+   "prompt": "If a company issues $100 of stock to buy $100 of equipment, what happens to EV?",
+   "answer": "Equity value +$100, but cash unchanged and debt unchanged; EV is roughly flat (the new equity is offset by the operating asset acquired, not a financing change to net debt).",
+   "tags": [
+    "enterprise-value"
+   ]
+  },
+  {
+   "id": "ev-eqv-tech-c35",
+   "tier": "hard",
+   "prompt": "How are convertible bonds treated for diluted shares?",
+   "answer": "If-converted method: if in the money, add converted shares and add back the after-tax interest expense.",
+   "tags": [
+    "enterprise-value"
+   ]
+  }
+ ]
+}

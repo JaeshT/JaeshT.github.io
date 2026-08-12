@@ -1,66 +1,185 @@
 {
-  "version": 1,
-  "lessons": [
-    { "id": "tech-accounting", "title": "Accounting & the 3 Statements", "domain": "technicals", "path": "lessons/technicals/accounting.md", "order": 1, "estMinutes": 14 },
-    { "id": "tech-valuation", "title": "Valuation: Comps & Precedents", "domain": "technicals", "path": "lessons/technicals/valuation.md", "order": 2, "estMinutes": 13 },
-    { "id": "tech-dcf", "title": "DCF & WACC", "domain": "technicals", "path": "lessons/technicals/dcf.md", "order": 3, "estMinutes": 15 },
-    { "id": "tech-lbo-basics", "title": "LBO Basics", "domain": "technicals", "path": "lessons/technicals/lbo-basics.md", "order": 4, "estMinutes": 12 },
-
-    { "id": "pf-structure", "title": "Players & Fund Structure", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/structure-and-players.md", "order": 1, "estMinutes": 12 },
-    { "id": "pf-strategies", "title": "PE Strategies Landscape", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/strategies.md", "order": 2, "estMinutes": 11 },
-    { "id": "pf-lifecycle", "title": "Fund Lifecycle & Capital Flows", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/lifecycle-and-capital-flows.md", "order": 3, "estMinutes": 13 },
-    { "id": "pf-lp-role", "title": "The LP Perspective & Key Documents", "domain": "pe-fundamentals", "path": "lessons/pe-fundamentals/lp-perspective-and-documents.md", "order": 4, "estMinutes": 13 },
-
-    { "id": "fe-fees-carry", "title": "Fees, Carry & Hurdles", "domain": "fund-economics", "path": "lessons/fund-economics/fees-carry-hurdles.md", "order": 1, "estMinutes": 14 },
-    { "id": "fe-waterfalls", "title": "Distribution Waterfalls", "domain": "fund-economics", "path": "lessons/fund-economics/distribution-waterfalls.md", "order": 2, "estMinutes": 16 },
-    { "id": "fe-metrics-pme", "title": "Fund Metrics & PME", "domain": "fund-economics", "path": "lessons/fund-economics/metrics-and-pme.md", "order": 3, "estMinutes": 12 },
-
-    { "id": "perf-irr-multiples", "title": "IRR & Money Multiples", "domain": "performance", "path": "lessons/performance/irr-and-multiples.md", "order": 1, "estMinutes": 14 },
-    { "id": "perf-pme", "title": "Public Market Equivalent (PME)", "domain": "performance", "path": "lessons/performance/pme.md", "order": 2, "estMinutes": 13 },
-    { "id": "perf-benchmarking", "title": "Benchmarking & Pitfalls", "domain": "performance", "path": "lessons/performance/benchmarking.md", "order": 3, "estMinutes": 10 },
-
-    { "id": "prim-process", "title": "The LP Underwriting Process", "domain": "primaries", "path": "lessons/primaries/underwriting-process.md", "order": 1, "estMinutes": 13 },
-    { "id": "prim-track-record", "title": "Track-Record Analysis", "domain": "primaries", "path": "lessons/primaries/track-record-analysis.md", "order": 2, "estMinutes": 13 },
-    { "id": "prim-team-strategy", "title": "Team, Strategy & Edge", "domain": "primaries", "path": "lessons/primaries/team-and-strategy.md", "order": 3, "estMinutes": 12 },
-    { "id": "prim-odd-terms", "title": "Operational DD, Terms & Red Flags", "domain": "primaries", "path": "lessons/primaries/odd-terms-redflags.md", "order": 4, "estMinutes": 12 },
-
-    { "id": "coinv-rationale", "title": "Rationale & Economics", "domain": "co-investments", "path": "lessons/co-investments/rationale-and-economics.md", "order": 1, "estMinutes": 14 },
-    { "id": "coinv-process", "title": "Process & Sourcing", "domain": "co-investments", "path": "lessons/co-investments/process-and-sourcing.md", "order": 2, "estMinutes": 12 },
-    { "id": "coinv-underwriting", "title": "Underwriting & Risks", "domain": "co-investments", "path": "lessons/co-investments/underwriting-and-risks.md", "order": 3, "estMinutes": 13 },
-
-    { "id": "firm-platform", "title": "NB Private Markets Platform", "domain": "firm", "path": "lessons/firm/nb-platform.md", "order": 1, "estMinutes": 13 },
-    { "id": "firm-day-one", "title": "Day-One Readiness", "domain": "firm", "path": "lessons/firm/day-one-readiness.md", "order": 2, "estMinutes": 14 }
-  ],
-  "flashcardDecks": [
-    { "id": "tech-deck", "title": "Technicals", "domain": "technicals", "path": "flashcards/technicals.json", "count": 88 },
-    { "id": "pf-deck", "title": "PE Fundamentals", "domain": "pe-fundamentals", "path": "flashcards/pe-fundamentals.json", "count": 32 },
-    { "id": "fe-deck", "title": "Fund Economics & Waterfalls", "domain": "fund-economics", "path": "flashcards/fund-economics.json", "count": 34 },
-    { "id": "perf-deck", "title": "Performance & Metrics", "domain": "performance", "path": "flashcards/performance.json", "count": 34 },
-    { "id": "prim-deck", "title": "Primaries & Due Diligence", "domain": "primaries", "path": "flashcards/primaries.json", "count": 35 },
-    { "id": "coinv-deck", "title": "Co-investments", "domain": "co-investments", "path": "flashcards/co-investments.json", "count": 35 },
-    { "id": "firm-deck", "title": "Neuberger Berman", "domain": "firm", "path": "flashcards/firm.json", "count": 50 }
-  ],
-  "questionSets": [
-    { "id": "tech-interview", "title": "Technicals — Interview Q&A", "domain": "technicals", "path": "questionbank/technicals.json" },
-    { "id": "pf-interview", "title": "PE Fundamentals — Interview Q&A", "domain": "pe-fundamentals", "path": "questionbank/pe-fundamentals.json" },
-    { "id": "fe-interview", "title": "Fund Economics — Interview Q&A", "domain": "fund-economics", "path": "questionbank/fund-economics.json" },
-    { "id": "perf-interview", "title": "Performance — Interview Q&A", "domain": "performance", "path": "questionbank/performance.json" },
-    { "id": "prim-interview", "title": "Primaries — Interview Q&A", "domain": "primaries", "path": "questionbank/primaries.json" },
-    { "id": "coinv-interview", "title": "Co-investments — Interview Q&A", "domain": "co-investments", "path": "questionbank/co-investments.json" },
-    { "id": "firm-interview", "title": "Behavioral & Firm — Interview Q&A", "domain": "firm", "path": "questionbank/firm.json" }
-  ],
-  "quizzes": [
-    { "id": "tech-quiz", "title": "Technicals Quiz", "domain": "technicals", "path": "quizzes/technicals.json" },
-    { "id": "pf-quiz", "title": "PE Fundamentals Quiz", "domain": "pe-fundamentals", "path": "quizzes/pe-fundamentals.json" },
-    { "id": "fe-quiz", "title": "Fund Economics Quiz", "domain": "fund-economics", "path": "quizzes/fund-economics.json" },
-    { "id": "perf-quiz", "title": "Performance Quiz", "domain": "performance", "path": "quizzes/performance.json" },
-    { "id": "prim-quiz", "title": "Primaries Quiz", "domain": "primaries", "path": "quizzes/primaries.json" },
-    { "id": "coinv-quiz", "title": "Co-investments Quiz", "domain": "co-investments", "path": "quizzes/co-investments.json" },
-    { "id": "firm-quiz", "title": "Neuberger Berman Quiz", "domain": "firm", "path": "quizzes/firm.json" }
-  ],
-  "glossary": { "paths": ["glossary/technicals.json", "glossary/pe-fundamentals.json", "glossary/terms.json", "glossary/performance.json", "glossary/primaries.json", "glossary/co-investments.json", "glossary/firm.json", "glossary/market.json"] },
-  "excel": [],
-  "briefings": [
-    { "id": "market-2026", "title": "PE Market & Secondaries — State of Play", "domain": "market", "path": "briefings/market-2026.json", "updated": "June 2026" }
+ "version": 2,
+ "updated": "2026-08-12",
+ "modules": [
+  {
+   "id": "accounting",
+   "title": "Accounting & the three statements",
+   "short": "Accounting",
+   "icon": "🧾",
+   "track": "core",
+   "order": 1,
+   "blurb": "The statements, how they link, and what moves when you poke one.",
+   "bank": "modules/accounting.json",
+   "lessons": [
+    {
+     "id": "acc-primer",
+     "title": "Accounting & the three statements",
+     "path": "lessons/accounting/primer.md",
+     "tier": "easy",
+     "estMinutes": 14
+    }
+   ]
+  },
+  {
+   "id": "ev-eqv",
+   "title": "Equity value & enterprise value",
+   "short": "EV / Equity Value",
+   "icon": "🧮",
+   "track": "core",
+   "order": 2,
+   "blurb": "The bridge, the treasury stock method, and which metric pairs with which.",
+   "bank": "modules/ev-eqv.json"
+  },
+  {
+   "id": "valuation",
+   "title": "Valuation: comps & precedents",
+   "short": "Valuation",
+   "icon": "📊",
+   "track": "core",
+   "order": 3,
+   "blurb": "Relative valuation: picking the set, picking the multiple, defending the range.",
+   "bank": "modules/valuation.json",
+   "lessons": [
+    {
+     "id": "val-primer",
+     "title": "Comps, precedents & multiples",
+     "path": "lessons/valuation/primer.md",
+     "tier": "easy",
+     "estMinutes": 13
+    }
+   ]
+  },
+  {
+   "id": "dcf",
+   "title": "DCF & the discount rate",
+   "short": "DCF",
+   "icon": "💵",
+   "track": "core",
+   "order": 4,
+   "blurb": "Unlevered free cash flow, WACC, terminal value, and where it breaks.",
+   "bank": "modules/dcf.json",
+   "lessons": [
+    {
+     "id": "dcf-primer",
+     "title": "DCF & WACC",
+     "path": "lessons/dcf/primer.md",
+     "tier": "easy",
+     "estMinutes": 15
+    }
+   ]
+  },
+  {
+   "id": "ma",
+   "title": "M&A and accretion / dilution",
+   "short": "M&A",
+   "icon": "🤝",
+   "track": "core",
+   "order": 5,
+   "blurb": "Deal structure, purchase accounting, and calling accretive or dilutive fast."
+  },
+  {
+   "id": "lbo",
+   "title": "LBO & the paper LBO",
+   "short": "LBO",
+   "icon": "🏦",
+   "track": "core",
+   "order": 6,
+   "blurb": "Sources and uses, the debt schedule, and returns you can do on a napkin.",
+   "bank": "modules/lbo.json",
+   "lessons": [
+    {
+     "id": "lbo-primer",
+     "title": "LBO mechanics",
+     "path": "lessons/lbo/primer.md",
+     "tier": "easy",
+     "estMinutes": 12
+    }
+   ]
+  },
+  {
+   "id": "markets",
+   "title": "Capital markets, debt & market knowledge",
+   "short": "Markets",
+   "icon": "📈",
+   "track": "core",
+   "order": 7,
+   "blurb": "Debt instruments, LevFin, ECM, and having a view on the market."
+  },
+  {
+   "id": "fit",
+   "title": "Fit, story & deal discussion",
+   "short": "Fit & story",
+   "icon": "🎤",
+   "track": "fit",
+   "order": 8,
+   "blurb": "Your story, the behavioural set, and talking about a deal without drowning."
+  },
+  {
+   "id": "restructuring",
+   "title": "Restructuring & distressed",
+   "short": "Restructuring",
+   "icon": "⚖️",
+   "track": "sector",
+   "order": 20,
+   "blurb": "Chapter 11, the waterfall, and distressed valuation.",
+   "sector": "restructuring"
+  },
+  {
+   "id": "tmt",
+   "title": "Technology, media & telecom",
+   "short": "TMT",
+   "icon": "📡",
+   "track": "sector",
+   "order": 21,
+   "blurb": "SaaS metrics, subscriber economics, and the multiples that follow.",
+   "sector": "tmt"
+  },
+  {
+   "id": "fig",
+   "title": "Financial institutions",
+   "short": "FIG",
+   "icon": "🏛️",
+   "track": "sector",
+   "order": 22,
+   "blurb": "Why banks are valued differently, and what replaces EBITDA.",
+   "sector": "fig"
+  },
+  {
+   "id": "healthcare",
+   "title": "Healthcare & biotech",
+   "short": "Healthcare",
+   "icon": "🧬",
+   "track": "sector",
+   "order": 23,
+   "blurb": "Pipelines, risk-adjusted NPV, and payor dynamics.",
+   "sector": "healthcare"
+  },
+  {
+   "id": "industrials",
+   "title": "Industrials",
+   "short": "Industrials",
+   "icon": "🏭",
+   "track": "sector",
+   "order": 24,
+   "blurb": "Cyclicality, capex intensity, and through-cycle margins.",
+   "sector": "industrials"
+  },
+  {
+   "id": "oil-gas",
+   "title": "Oil & gas",
+   "short": "Oil & Gas",
+   "icon": "🛢️",
+   "track": "sector",
+   "order": 25,
+   "blurb": "Reserves, NAV models, and commodity decks.",
+   "sector": "oil-gas"
+  }
+ ],
+ "glossary": {
+  "paths": [
+   "glossary/terms.json",
+   "glossary/technicals.json"
   ]
+ }
 }

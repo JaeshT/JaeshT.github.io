@@ -1,89 +1,48 @@
-# PE Prep — Primaries & Co-investments study app
+# IB Technicals — interview prep app
 
-An installable, **fully-offline** study app (PWA) to prepare for a private equity
-**Primaries & Co-investments** (LP / fund-investing) internship at Neuberger Berman.
-Built to study on iPhone (with a Mac for hands-on Excel), even with no connectivity.
+An installable, **fully-offline** study app (PWA) for **investment banking technical interviews**.
+Built to study on an iPhone, on the tube, with no connectivity. Live at **https://tewess.com**.
 
-> Full design & curriculum: see the approved plan. Deep-research reports go in [`research/`](research/).
-
-## Status
-
-- **Phase 0 — offline shell: ✅ done.** Vite + Preact + TS, installable PWA, service-worker
-  precaching, IndexedDB persistence, hash router, iOS install hint, update toast, GitHub Actions deploy.
-- Phase 1–4 (flashcards/SRS, lessons, quizzes, interactive tools, simulator) are built on top once
-  the deep-research content lands in `research/`.
+Not a flashcard app. Questions are organised as a **ladder** you climb: every module has an
+**easy / medium / hard** tier, and you clear one to open the next. Each question makes you commit
+("I know this" / "Not sure") *before* the reveal, then self-grade against the must-hit points an
+interviewer is actually listening for. Claim you know one and then miss it and it lands in the
+**Danger Zone** — the list worth studying above all others.
 
 ## Develop
 
 ```bash
 npm install
-npm run dev        # local dev (service worker disabled in dev)
-npm run build      # type-check + production build to dist/
-npm run preview    # serve the built dist/ locally (test offline/PWA here)
-node scripts/gen-icons.mjs   # regenerate the J-curve app icons
+npm run dev        # local dev at :5173 (service worker disabled in dev)
+npm run build      # tsc -b && vite build  — run before every commit
+npm run preview    # serve the built app at :4173 (test offline/PWA here)
 ```
 
-To test offline behavior: `npm run build && npm run preview`, open the URL, then go offline.
+**Node 20+.** CI uses Node 20. On Node 18 the service-worker build step needs
+`NODE_OPTIONS=--experimental-global-webcrypto`.
 
-## Continue this project locally (Claude Code)
-
-Everything — the app, all study content, and the deep-research reports in [`research/`](research/) —
-lives in this repo, and [`CLAUDE.md`](CLAUDE.md) is a full handoff. So local Claude Code understands
-the project the moment you open the folder.
-
-1. **Get the repo** (skip the clone if you already have it):
-   ```bash
-   git clone -b claude/pe-internship-prep-program-DBiQz https://github.com/JaeshT/JaeshT.github.io.git pe-prep
-   cd pe-prep
-   git checkout claude/pe-internship-prep-program-DBiQz   # the active dev branch
-   npm install
-   ```
-2. **Open the `pe-prep` folder in the Claude Code app** (or run `claude` in that folder from a
-   terminal). It auto-reads `CLAUDE.md` and can then read/edit all code, content, and research.
-3. Ask it to continue — e.g. *"read CLAUDE.md, then build the Takahashi–Alexander pacing simulator
-   from research/Q06"*. It edits locally; `git push` to `main` redeploys to tewess.com.
-
-Local Claude Code can also reach files in your **OneDrive/iCloud Drive** folders (they're just local
-folders on your Mac) — the web version cannot.
-
-
-## Structure
+## Layout
 
 ```
-src/
-  app.tsx            app shell: hash router, tab bar, update toast, install hint
-  main.tsx           entry
-  sw.ts              service worker (Workbox injectManifest): precache + runtime caching
-  lib/
-    schema.ts        TypeScript types for all content (the content contract)
-    content.ts       runtime loader for the content manifest + files
-    db.ts            IndexedDB (idb-keyval): SRS state, progress, settings, export/import
-    srs.ts           SM-2 spaced-repetition scheduling
-    router.ts        tiny hash router
-    pwa.ts           service-worker registration + iOS detection
-public/
-  manifest.webmanifest, CNAME, 404.html, icons/
-  content/
-    index.json       master manifest — lists every lesson/deck/quiz/glossary/excel item
-    lessons/ flashcards/ questionbank/ quizzes/ glossary/ excel/
+public/content/          all study material — data, not code
+  index.json             the curriculum manifest: every module, in ladder order
+  modules/<id>.json      one question bank per module (all three tiers in one file)
+  lessons/<id>/*.md      primers (markdown + KaTeX)
+  glossary/*.json        merged, de-duplicated across files
+src/lib/                 schema, content loaders, curriculum gating, SRS, IndexedDB, markdown
+src/views/               path (ladder), drill (the study loop), lesson, glossary, offline
 ```
+
+Content is git-versioned and cached; **user state lives only in IndexedDB on the device** and never
+leaves it. Export/import from Progress to back up or move between devices.
 
 ## Adding content
 
-Content is **data, not code**. To add a study item: drop a file under `public/content/…`
-and add one entry to `public/content/index.json`. Shapes are defined in `src/lib/schema.ts`.
-User progress (IndexedDB) is kept separate from content (git) on purpose.
+Drop a bank at `public/content/modules/<id>.json` and point the module's `bank` field at it in
+`index.json`. Shapes are in [`src/lib/schema.ts`](src/lib/schema.ts). A module with no `bank` shows
+on the ladder as "soon" and gates nothing.
 
-## Deploy (GitHub Pages)
+## Deploy
 
-Pushing to `main` runs `.github/workflows/deploy.yml`, which builds and deploys `dist/`.
-**One-time setup:** in the repo, Settings → Pages → *Build and deployment* → Source = **GitHub Actions**.
-The custom domain (`tewess.com`) is preserved via `public/CNAME`. HTTPS must be enabled
-(required for service workers).
-
-## iPhone install & offline notes
-
-- Open the site in Safari → Share → **Add to Home Screen** (iOS has no install prompt).
-- **Open the app once on WiFi before travelling** — iOS evicts PWA caches after ~7 days unused.
-- Use **More → Progress & backup → Export** to back up your progress and to sync Mac ↔ iPhone
-  (there is no server; everything is local).
+Push to `main` → GitHub Actions builds and deploys to GitHub Pages → tewess.com. Development happens
+on `ib-prep`; see [`IB-PIVOT.md`](IB-PIVOT.md) for where the rebuild stands.

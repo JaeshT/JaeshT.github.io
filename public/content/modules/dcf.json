@@ -1,0 +1,188 @@
+{
+ "module": "dcf",
+ "title": "DCF & the discount rate",
+ "questions": [
+  {
+   "id": "dcf-iq5",
+   "tier": "medium",
+   "prompt": "Walk me through a DCF.",
+   "answer": "I project unlevered free cash flow for five to ten years as NOPAT plus D&A minus capex minus the change in net working capital. UFCF is pre-interest, representing cash to all capital providers, so I discount it at WACC, which blends the after-tax cost of debt and the CAPM cost of equity at market-value weights. I add a terminal value — either via Gordon growth (last-year FCF times one plus g, divided by WACC minus g) or via an exit EV/EBITDA multiple — and cross-check the two methods by backing out the implied growth rate from the multiple and vice versa. I discount the terminal value back and sum it with the explicit flows to get enterprise value, often using the mid-year convention to reflect intra-year cash receipt. Finally I bridge from enterprise to equity value by subtracting net debt, preferred, and minority interest, then divide by diluted shares for an implied price. The biggest sensitivities are WACC and the terminal value, which often drives 60–80% of the total.",
+   "keyPoints": [
+    "Project unlevered free cash flow over 5-10 years",
+    "UFCF = EBIT x (1 - t) + D&A - capex - change in working capital",
+    "Discount at WACC because the cash flows are pre-financing",
+    "Terminal value by Gordon growth or exit multiple, then discount it too",
+    "Sum to enterprise value, then bridge to equity value and per-share"
+   ]
+  },
+  {
+   "id": "dcf-q10",
+   "tier": "medium",
+   "prompt": "Using the DCF from the lesson (WACC = 9.0%, Year-5 UFCF = $158.02M, g = 2.5%), what is the Gordon Growth terminal value in millions of dollars?",
+   "answer": "TV = 158.02 × (1.025) ÷ (0.09 − 0.025) = 161.97 ÷ 0.065 = $2,491.8M.",
+   "check": {
+    "type": "numeric",
+    "explanation": "TV = 158.02 × (1.025) ÷ (0.09 − 0.025) = 161.97 ÷ 0.065 = $2,491.8M.",
+    "answer": 2491.8,
+    "tolerance": 2.0,
+    "unit": "$M"
+   }
+  },
+  {
+   "id": "dcf-q11",
+   "tier": "medium",
+   "prompt": "In the same DCF, the exit-multiple TV uses Year-5 EBITDA = $280M and an 8.0× multiple. The year-end discount factor for Year 5 at 9% is 0.6499. What is PV(TV) from the exit multiple in millions of dollars?",
+   "answer": "TV = 8.0 × $280M = $2,240M. PV(TV) = $2,240M × 0.6499 = $1,455.8M.",
+   "check": {
+    "type": "numeric",
+    "explanation": "TV = 8.0 × $280M = $2,240M. PV(TV) = $2,240M × 0.6499 = $1,455.8M.",
+    "answer": 1455.8,
+    "tolerance": 2.0,
+    "unit": "$M"
+   }
+  },
+  {
+   "id": "dcf-q9",
+   "tier": "medium",
+   "prompt": "In the worked DCF (WACC = 9.0%, Rf = 4.5%, ERP = 5.5%, beta = 1.0, equity weight 80%, after-tax debt cost 5.0%), what is the cost of equity?",
+   "answer": "Ke = Rf + β × ERP = 4.5% + 1.0 × 5.5% = 10.0%. WACC = 0.80 × 10.0% + 0.20 × 5.0% = 9.0%.",
+   "check": {
+    "type": "mcq",
+    "explanation": "Ke = Rf + β × ERP = 4.5% + 1.0 × 5.5% = 10.0%. WACC = 0.80 × 10.0% + 0.20 × 5.0% = 9.0%.",
+    "choices": [
+     "9.0%",
+     "9.5%",
+     "10.0%",
+     "11.0%"
+    ],
+    "answerIndex": 2
+   }
+  },
+  {
+   "id": "dcf-tech-c42",
+   "tier": "medium",
+   "prompt": "Walk through building unlevered free cash flow.",
+   "answer": "EBIT × (1 − tax) = NOPAT; + D&A; − capex; − change in NWC.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c43",
+   "tier": "medium",
+   "prompt": "Why is UFCF discounted at WACC, not cost of equity?",
+   "answer": "It is pre-interest cash to all capital providers, so it must be discounted at the blended cost of all capital.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c45",
+   "tier": "medium",
+   "prompt": "Write the WACC formula.",
+   "answer": "WACC = (E/V)Ke + (D/V)Kd(1 − t).",
+   "tags": [
+    "wacc"
+   ]
+  },
+  {
+   "id": "dcf-tech-c46",
+   "tier": "medium",
+   "prompt": "Why use after-tax cost of debt in WACC?",
+   "answer": "Interest is tax-deductible, so the effective cost is lower by the tax shield.",
+   "tags": [
+    "wacc"
+   ]
+  },
+  {
+   "id": "dcf-tech-c47",
+   "tier": "medium",
+   "prompt": "Write CAPM for cost of equity.",
+   "answer": "Ke = risk-free rate + beta × equity risk premium.",
+   "tags": [
+    "wacc"
+   ]
+  },
+  {
+   "id": "dcf-tech-c49",
+   "tier": "medium",
+   "prompt": "State the Gordon growth terminal value formula.",
+   "answer": "TV = FCF_n × (1 + g) ÷ (WACC − g).",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c50",
+   "tier": "medium",
+   "prompt": "State the exit-multiple terminal value formula.",
+   "answer": "TV = terminal-year EBITDA × exit EV/EBITDA multiple.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c53",
+   "tier": "medium",
+   "prompt": "What is the mid-year convention and its effect?",
+   "answer": "Discounting at 0.5, 1.5, 2.5... to reflect intra-year cash receipt; it modestly raises value.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c44",
+   "tier": "hard",
+   "prompt": "What does discounting UFCF at WACC give you, and how do you reach equity value?",
+   "answer": "Enterprise value; then subtract net debt, preferred, and minority interest and divide by diluted shares.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c48",
+   "tier": "hard",
+   "prompt": "How do you get beta for a private company?",
+   "answer": "Take comparable public betas, unlever them, and relever to the target's capital structure.",
+   "tags": [
+    "wacc"
+   ]
+  },
+  {
+   "id": "dcf-tech-c51",
+   "tier": "hard",
+   "prompt": "What should the perpetual growth rate be capped at and why?",
+   "answer": "At or below long-run GDP/inflation (about 2–3%); nothing can outgrow the economy forever, and g must be below WACC.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c52",
+   "tier": "hard",
+   "prompt": "Roughly what share of DCF value sits in terminal value, and why does that matter?",
+   "answer": "Often 60–80%; it makes the DCF highly sensitive to terminal assumptions.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c54",
+   "tier": "hard",
+   "prompt": "Name one cross-check between the two terminal value methods.",
+   "answer": "Back out the implied growth rate from the exit multiple and the implied multiple from the growth rate; large discrepancies flag an error.",
+   "tags": [
+    "dcf"
+   ]
+  },
+  {
+   "id": "dcf-tech-c56",
+   "tier": "hard",
+   "prompt": "How does raising the discount rate affect a DCF, all else equal?",
+   "answer": "Lowers present value of all future cash flows and terminal value, reducing the valuation.",
+   "tags": [
+    "dcf"
+   ]
+  }
+ ]
+}

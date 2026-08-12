@@ -1,38 +1,40 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useRoute, navigate, segments } from './lib/router';
 import { setupPWA, isIOS, isStandalone } from './lib/pwa';
-import { loadIndex, loadDeck } from './lib/content';
-import { getProgress, exportAll, importAll } from './lib/db';
-import { isDue } from './lib/srs';
-import { Learn, Lesson, QuizRunner, QuestionDrill, MockInterview, Empty } from './views/learn';
-import { Cards, Review, Browse } from './views/cards';
+import { exportAll, importAll } from './lib/db';
+import { Path, ModuleView } from './views/path';
+import { StageDrill, ReviewDrill, DangerDrill } from './views/drill';
+import { Lesson } from './views/lesson';
 import { Glossary } from './views/glossary';
-import { Tools, WaterfallTool, MetricsTool } from './views/tools';
-import { Briefings, Brief } from './views/brief';
 import { DownloadForOffline } from './views/offline';
-import { DOMAIN_LABEL, DOMAIN_ORDER } from './lib/domains';
-import { computeMastery, computeAchievements, isLearned, type DomainMastery, type Achievement } from './lib/mastery';
-import type { FlashcardDeck } from './lib/schema';
+import { Empty, Loading, LoadError, Ring } from './views/ui';
+import { dangerZone, dueQuestions, nextStage, readiness } from './lib/curriculum';
+import { useLadder } from './lib/useLadder';
+import { TIER_LABEL, TIERS, type Tier } from './lib/schema';
 
 const NAV = [
   { tab: 'home', label: 'Home', icon: '🏠' },
-  { tab: 'learn', label: 'Learn', icon: '📚' },
-  { tab: 'cards', label: 'Cards', icon: '🃏' },
-  { tab: 'tools', label: 'Tools', icon: '🧮' },
+  { tab: 'path', label: 'Path', icon: '🗺️' },
+  { tab: 'review', label: 'Review', icon: '🎯' },
+  { tab: 'glossary', label: 'Terms', icon: '📖' },
   { tab: 'more', label: 'More', icon: '⋯' },
 ];
 
 function tabFor(seg0: string): string {
-  if (['learn', 'lesson', 'quiz', 'qset', 'mock', 'briefs', 'brief'].includes(seg0)) return 'learn';
-  if (['cards', 'review', 'browse'].includes(seg0)) return 'cards';
-  if (seg0 === 'tools') return 'tools';
+  if (['path', 'module', 'lesson', 'drill'].includes(seg0)) return 'path';
+  if (['review', 'danger'].includes(seg0)) return 'review';
+  if (seg0 === 'glossary') return 'glossary';
   if (seg0 === 'home') return 'home';
   return 'more';
 }
 
+function isTier(s: string | undefined): s is Tier {
+  return !!s && (TIERS as string[]).includes(s);
+}
+
 export function App() {
   const path = useRoute();
-  const [seg0, seg1] = segments(path);
+  const [seg0, seg1, seg2] = segments(path);
   const [needRefresh, setNeedRefresh] = useState(false);
   const [online, setOnline] = useState(typeof navigator === 'undefined' ? true : navigator.onLine);
   const reload = useRef<(() => void) | null>(null);
@@ -52,13 +54,13 @@ export function App() {
   return (
     <div class="app">
       <header class="topbar">
-        <span class="brand">PE&nbsp;Prep</span>
-        <span class="brand-sub">Primaries &amp; Co-investments</span>
+        <span class="brand">IB&nbsp;Technicals</span>
+        <span class="brand-sub">interview prep</span>
         {!online && <span class="offline-pill">● offline</span>}
       </header>
 
       <main class="content">
-        <Router seg0={seg0 ?? 'home'} seg1={seg1} />
+        <Router seg0={seg0 ?? 'home'} seg1={seg1} seg2={seg2} />
       </main>
 
       <nav class="tabbar">
@@ -84,34 +86,26 @@ export function App() {
   );
 }
 
-function Router({ seg0, seg1 }: { seg0: string; seg1?: string }) {
+function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: string }) {
   switch (seg0) {
     case 'home':
       return <Home />;
-    case 'learn':
-      return <Learn />;
-    case 'lesson':
-      return seg1 ? <Lesson id={seg1} /> : <Empty title="Lesson" note="No lesson selected." back="learn" />;
-    case 'quiz':
-      return seg1 ? <QuizRunner id={seg1} /> : <Empty title="Quiz" note="No quiz selected." back="learn" />;
-    case 'qset':
-      return seg1 ? <QuestionDrill id={seg1} /> : <Empty title="Q&A" note="No set selected." back="learn" />;
-    case 'mock':
-      return <MockInterview />;
-    case 'briefs':
-      return <Briefings />;
-    case 'brief':
-      return seg1 ? <Brief id={seg1} /> : <Briefings />;
-    case 'cards':
-      return <Cards />;
+    case 'path':
+      return <Path />;
+    case 'module':
+      return seg1 ? <ModuleView id={seg1} /> : <Path />;
+    case 'drill':
+      return seg1 && isTier(seg2) ? (
+        <StageDrill moduleId={seg1} tier={seg2} />
+      ) : (
+        <Empty title="Drill" note="No stage selected." back="path" />
+      );
     case 'review':
-      return <Review deckId={seg1} />;
-    case 'browse':
-      return seg1 ? <Browse deckId={seg1} /> : <Empty title="Browse" note="No deck selected." back="cards" />;
-    case 'tools':
-      if (seg1 === 'waterfall') return <WaterfallTool />;
-      if (seg1 === 'pme') return <MetricsTool />;
-      return <Tools />;
+      return <ReviewDrill />;
+    case 'danger':
+      return <DangerDrill />;
+    case 'lesson':
+      return seg1 ? <Lesson id={seg1} /> : <Empty title="Primer" note="No primer selected." back="path" />;
     case 'glossary':
       return <Glossary />;
     case 'progress':
@@ -119,97 +113,84 @@ function Router({ seg0, seg1 }: { seg0: string; seg1?: string }) {
     case 'more':
       return <More />;
     default:
-      return <Empty title="Not found" note="That page doesn't exist." back="home" />;
+      return <Empty title="Not found" note="That page doesn’t exist." back="home" />;
   }
 }
 
 function Home() {
-  const [streak, setStreak] = useState(0);
-  const [xp, setXp] = useState(0);
-  const [due, setDue] = useState(0);
-  const [learned, setLearned] = useState(0);
-  const [masteries, setMasteries] = useState<DomainMastery[]>([]);
-  const [achievements, setAchievements] = useState<Achievement[]>([]);
+  const { data, error } = useLadder();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const idx = await loadIndex();
-        const { getSrsMap } = await import('./lib/db');
-        const [srs, progress] = await Promise.all([getSrsMap(), getProgress()]);
-        const deckList = await Promise.all(idx.flashcardDecks.map((d) => loadDeck(d.path)));
-        const byId: Record<string, FlashcardDeck> = {};
-        idx.flashcardDecks.forEach((ref, n) => (byId[ref.id] = deckList[n]));
-        const allCards = deckList.flatMap((d) => d.cards);
-        const learnedCount = allCards.filter((c) => isLearned(srs, c.id)).length;
-        const ms = computeMastery(idx, byId, srs, progress);
-        setDue(allCards.filter((c) => isDue(srs[c.id])).length);
-        setLearned(learnedCount);
-        setStreak(progress.streak.count);
-        setXp(progress.xp);
-        setMasteries(ms);
-        setAchievements(computeAchievements(progress, learnedCount, ms));
-      } catch {
-        /* content not loaded yet */
-      }
-    })();
-  }, []);
+  if (error) return <LoadError title="Home" />;
+  if (!data) return <Loading />;
 
-  const ordered = DOMAIN_ORDER.map((d) => masteries.find((m) => m.domain === d)).filter(Boolean) as DomainMastery[];
+  const score = readiness(data.modules);
+  const next = nextStage(data.modules);
+  const due = dueQuestions(data.banks, data.attempts, data.srs).length;
+  const burned = dangerZone(data.banks, data.attempts).length;
+  const nextModule = next && data.modules.find((m) => m.ref.id === next.moduleId);
 
   return (
     <section>
-      <h1>Welcome back 👋</h1>
-      <p class="muted">Offline prep for the Neuberger Berman Primaries &amp; Co-investments internship.</p>
-
-      <div class="cardgrid">
-        <Stat label="Day streak" value={String(streak)} accent />
-        <Stat label="XP" value={String(xp)} />
-        <Stat label="Cards due" value={String(due)} />
-        <Stat label="Cards learned" value={String(learned)} />
+      <div class="hero">
+        <Ring pct={score} label="ready" size={160} />
+        <div class="hero-side">
+          <div class="hero-stat">
+            <strong>{data.progress.streak.count}</strong> day streak 🔥
+          </div>
+          <div class="hero-stat">
+            <strong>{data.progress.xp}</strong> XP
+          </div>
+          <div class="hero-stat muted small">
+            Readiness decays if you stop reviewing — it’s what you could deliver today, not what you
+            once read.
+          </div>
+        </div>
       </div>
 
-      <button class="btn btn-primary big" disabled={due === 0} onClick={() => navigate('review')}>
-        {due > 0 ? `Review ${due} due card${due === 1 ? '' : 's'}` : 'No cards due — explore a lesson'}
-      </button>
-
-      <DownloadForOffline />
-
-      {achievements.some((a) => a.earned) && (
-        <div class="badge-row">
-          {achievements.map((a) => (
-            <div key={a.id} class={'badge' + (a.earned ? ' earned' : '')} title={`${a.label} — ${a.desc}`}>
-              <span class="badge-icon">{a.icon}</span>
-              <span class="badge-label">{a.label}</span>
-            </div>
-          ))}
-        </div>
+      {next && nextModule ? (
+        <button
+          class="btn btn-primary big"
+          onClick={() => navigate(`drill/${next.moduleId}/${next.tier}`)}
+        >
+          Next up — {nextModule.ref.short} · {TIER_LABEL[next.tier]} ({next.nailed}/{next.total})
+        </button>
+      ) : (
+        <button class="btn btn-primary big" onClick={() => navigate('path')}>
+          Open the path →
+        </button>
       )}
 
-      {ordered.length > 0 && (
-        <div class="mastery">
-          <h2 class="section-h">Mastery</h2>
-          {ordered.map((m) => (
-            <button key={m.domain} class="mastery-row" onClick={() => navigate('learn')}>
+      <div class="quickrow">
+        <button class="quick" onClick={() => navigate('review')} disabled={due === 0}>
+          <span class="quick-n">{due}</span>
+          <span class="quick-l">due for review</span>
+        </button>
+        <button class={'quick' + (burned ? ' danger' : '')} onClick={() => navigate('danger')} disabled={burned === 0}>
+          <span class="quick-n">{burned}</span>
+          <span class="quick-l">danger zone</span>
+        </button>
+      </div>
+
+      <h2 class="section-h">Where you are</h2>
+      <div class="mastery">
+        {data.modules
+          .filter((m) => m.ready)
+          .map((m) => (
+            <button key={m.ref.id} class="mastery-row" onClick={() => navigate(`module/${m.ref.id}`)}>
               <div class="mastery-top">
-                <span>{DOMAIN_LABEL[m.domain]}</span>
-                <span class="muted small">{m.pct}%</span>
+                <span>
+                  {m.ref.icon} {m.ref.short}
+                </span>
+                <span class="muted small">{Math.round(m.strength * 100)}%</span>
               </div>
               <div class="bar">
-                <div class="bar-fill" style={{ width: m.pct + '%' }} />
+                <div class="bar-fill" style={{ width: Math.round(m.strength * 100) + '%' }} />
               </div>
             </button>
           ))}
-        </div>
-      )}
-
-      <div class="quicklinks">
-        <button onClick={() => navigate('mock')}>🎤 Mock interview</button>
-        <button onClick={() => navigate('brief/market-2026')}>📰 Market brief</button>
-        <button onClick={() => navigate('tools/pme')}>📈 PME calc</button>
-        <button onClick={() => navigate('glossary')}>📖 Glossary</button>
       </div>
 
+      <DownloadForOffline />
       <InstallHint />
     </section>
   );
@@ -221,6 +202,7 @@ function More() {
       <h1>More</h1>
       <ul class="list">
         <li onClick={() => navigate('glossary')}>📖 Glossary</li>
+        <li onClick={() => navigate('danger')}>⚠️ Danger zone</li>
         <li onClick={() => navigate('progress')}>📊 Progress &amp; backup</li>
       </ul>
       <p class="muted small">
@@ -241,7 +223,7 @@ function ProgressView() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `pe-prep-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `ib-prep-backup-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
     setMsg('Exported backup.');
@@ -292,15 +274,6 @@ function InstallHint() {
     <div class="banner info">
       <strong>Install on iPhone:</strong> tap the Share button, then “Add to Home Screen” to use this
       fully offline.
-    </div>
-  );
-}
-
-function Stat({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
-  return (
-    <div class={'stat' + (accent ? ' accent' : '')}>
-      <div class="stat-value">{value}</div>
-      <div class="stat-label">{label}</div>
     </div>
   );
 }

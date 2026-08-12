@@ -1,7 +1,7 @@
 # IB pivot — resume here
 
 Status as of **2026-08-11**. Branch: **`ib-prep`** (cut from `claude/pe-internship-prep-program-DBiQz`).
-This branch is a **work in progress and does not build yet** — that is expected, see "Resume" below.
+Step 1 of the resume list is **done**: the app compiles, runs, and the ladder works end to end.
 
 Nothing here is deployed. `main` is untouched, so **tewess.com still serves the old PE site** until we
 deliberately merge and push.
@@ -46,43 +46,41 @@ Both big guides are **copyrighted commercial products** and the site is public. 
    the repo, so it is never deployed.
 2. **Purged from the repo**: `research/`, all `primaries` / `co-investments` / `fund-economics` /
    `pe-fundamentals` / `performance` / `firm` (Neuberger) / `market` content, the market briefing,
-   and the LP-only tools (`lib/waterfall.ts`, `lib/metrics.ts`, `views/tools.tsx`, `views/brief.tsx`).
-   The `technicals` content is deliberately kept — it is the seed for the new modules.
-3. **`src/lib/schema.ts`** rewritten — `Module` / `Tier` / `Sector`, and one unified `Question`
-   (prompt, say-out-loud `answer`, `deepDive`, must-hit `keyPoints`, optional auto-gradeable `check`).
-   One bank per module replaces the old parallel flashcards/questionbank/quizzes files.
-4. **`src/lib/db.ts`** rewritten — new IndexedDB store `ib-prep-db` (clean slate; old PE progress is
-   left alone in the old store), per-question `Attempt` records with a `burned` flag (confident, then
-   missed) that drives the Danger Zone.
-5. **`src/lib/curriculum.ts`** written — ladder construction, lock/clear rules, readiness score with
-   decay, `nextStage`, `dangerZone`, `dueQuestions`.
+   and the LP-only tools (waterfall, PME). The `technicals` content was kept as the seed.
+3. **New data model** — `schema.ts` (Module / Tier / Sector + one unified `Question`), `db.ts`
+   (store `ib-prep-db`, per-question attempts with the `burned` flag), `curriculum.ts` (all gating,
+   readiness with decay, danger zone, due queue), `useLadder.ts`.
+4. **New UI** — `views/path.tsx` (ladder map + stage cards + "Open anyway"), `views/drill.tsx`
+   (commit → reveal → key-point self-grade → nailed/missed), `views/lesson.tsx`, `views/ui.tsx`;
+   `app.tsx` rebuilt around readiness / next-up / due / danger zone.
+5. **Content seeded** — the surviving technicals material was converted into five module banks:
+   accounting 29, ev-eqv 18, valuation 14, dcf 18, lbo 18 = **97 questions**, with hand-written
+   `keyPoints` on the walkthroughs. The manifest lists all 14 modules, including unwritten ones.
+6. **Rebranded** — title, PWA manifest, icons (three ascending bars), 404, README, CLAUDE.md.
+7. **Verified** — `npm run build` green; ran the ladder in a browser: clearing Accounting · Easy
+   (8/8) cleared the stage, opened Accounting · Medium and EV/Equity Value · Easy, and left the rest
+   locked.
 
 ## Resume — next steps, in order
 
-1. **Make it compile.** These still import the old schema and are the reason `npm run build` fails:
-   - `src/lib/domains.ts` and `src/lib/mastery.ts` → delete, replaced by `curriculum.ts`.
-   - `src/lib/content.ts` → new loaders (`loadIndex`, `loadBank`, `loadLesson`, `loadGlossaries`).
-   - `src/lib/offline.ts` → walk the new manifest shape.
-   - `src/views/cards.tsx`, `src/views/learn.tsx` → replaced by `views/path.tsx` (ladder map, module,
-     stage) and `views/drill.tsx` (drill runner); keep `glossary.tsx` and `offline.tsx`.
-   - `src/app.tsx` → new routes (`path`, `module/<id>`, `drill/<module>/<tier>`, `review`, `danger`),
-     new nav, Home = ladder + readiness ring, and the PE branding removed.
-2. **New `public/content/index.json`** — the curriculum manifest (all modules listed so the map shows
-   the whole journey; modules without a `bank` render as "not built yet").
-3. **Accounting module content** — `public/content/modules/accounting.json`, tiered easy/medium/hard.
-   Seed easy from the 21 accounting-tagged cards in `public/content/flashcards/technicals.json` and
-   the accounting items in `questionbank/technicals.json` + `quizzes/technicals.json`; write medium
-   and hard fresh from the two guides, each with `keyPoints`.
-4. **Rebrand** — `index.html`, PWA manifest in `vite.config.ts`, `scripts/gen-icons.mjs` (the icon is
-   currently a PE "J-curve"), `README.md`, `CLAUDE.md`.
-5. `npm run build` green, then decide about merging to `main` (that is what deploys tewess.com).
+1. **Deepen the content, module by module, from the guides.** The seeded 97 questions are the old
+   PE-era technicals material re-cut; they are correct but thin, and several tiers are lopsided
+   (dcf has no easy tier, valuation no hard tier). Target roughly 25 easy / 25 medium / 20 hard per
+   core module. Write `keyPoints` for every walkthrough — they are what makes the self-grade real.
+2. **Write the missing modules**: `ma` (M&A + accretion/dilution), `markets` (debt, LevFin, ECM,
+   market view), `fit` (story, behavioural, deal discussion).
+3. **Sector desks** — restructuring first (there is a dedicated 15pp guide), then TMT, FIG,
+   healthcare, industrials, oil & gas.
+4. **Then the interactive layer** (below).
+5. **Deploy** when a first pass of content is in: merge `ib-prep` → `main`, which is what publishes
+   tewess.com. Until then the old PE site stays up.
 
 ## Then (agreed but not started)
 
 The "not boring" layer, roughly in value order:
 **Impact Engine** (tap the line items that move when D&A rises $10 — a rules engine generating
 infinite three-statement questions) · **paper-LBO speedrun** (timed, staged, graded on speed and
-accuracy) · **branching follow-up trees** (survive five follow-ups) · **out-loud mode** (timer,
-self-grade against `keyPoints`) · **accretive-or-dilutive in 8 seconds** · **Danger Zone** (wired in
-the data model already) · **readiness score with decay** · **sector desks** · **multiple-validity
-drill** · **three-minute daily drill**.
+accuracy) · **branching follow-up trees** (survive five follow-ups) · **accretive-or-dilutive in
+8 seconds** · **out-loud mode with recording** · **multiple-validity drill** · **three-minute daily
+drill**. The commit/timer, key-point self-grade, Danger Zone and decaying readiness score are
+already live.

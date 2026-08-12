@@ -1,0 +1,187 @@
+{
+ "module": "lbo",
+ "title": "LBO & the paper LBO",
+ "questions": [
+  {
+   "id": "lbo-tech-c57",
+   "tier": "easy",
+   "prompt": "What is a leveraged buyout?",
+   "answer": "Acquiring a company mostly with debt that the target's own cash flow repays.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c63",
+   "tier": "easy",
+   "prompt": "Define MOIC.",
+   "answer": "Total equity proceeds ÷ equity invested; a cash-on-cash multiple ignoring time.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c64",
+   "tier": "easy",
+   "prompt": "Define IRR.",
+   "answer": "The annualized discount rate setting NPV of equity cash flows to zero; time-sensitive.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-iq7",
+   "tier": "medium",
+   "prompt": "Why does a leveraged buyout generate returns, and how does leverage help?",
+   "answer": "Three levers: growing EBITDA, expanding the exit multiple, and paying down debt. Leverage amplifies equity returns because the sponsor funds a smaller share of the purchase with expensive equity and a larger share with cheaper, tax-deductible debt; the target's own cash flow then repays that debt over the hold, converting enterprise value into equity value. The same dollar of value creation against a smaller equity base is a higher percentage return. The risk is symmetric: leverage magnifies losses and raises distress risk, so the ideal target has stable, predictable cash flows and low capex.",
+   "keyPoints": [
+    "Three drivers: debt paydown, EBITDA growth, multiple expansion",
+    "Leverage shrinks the equity cheque so the same enterprise gain is a bigger equity return",
+    "Cash flow services the debt, so the equity claim grows every year",
+    "Name the cost: fixed interest and covenants make bad outcomes worse"
+   ]
+  },
+  {
+   "id": "lbo-tech-c58",
+   "tier": "medium",
+   "prompt": "Why does leverage raise equity returns in an LBO?",
+   "answer": "A smaller equity check against the same value creation lifts the percentage return; cheaper debt replaces costly equity.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c60",
+   "tier": "medium",
+   "prompt": "What makes a good LBO candidate?",
+   "answer": "Stable predictable cash flows, low capex, defensible position, room to improve operations or repay debt.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c61",
+   "tier": "medium",
+   "prompt": "What goes in sources and uses?",
+   "answer": "Uses: equity/EV purchase, debt refinancing, fees, cash to balance sheet. Sources: new debt, sponsor equity, rollover, excess cash. They must equal.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c62",
+   "tier": "medium",
+   "prompt": "What is the equity in a sources-and-uses table?",
+   "answer": "The plug: total uses minus all non-equity sources.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c65",
+   "tier": "medium",
+   "prompt": "Rule of thumb: 3x over 5 years is roughly what IRR?",
+   "answer": "About 25%. (2x in 5 years is about 15%.)",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c66",
+   "tier": "medium",
+   "prompt": "What is a dividend recapitalization?",
+   "answer": "Raising new debt at a portfolio company to pay the sponsor a distribution, pulling returns forward without a sale.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c70",
+   "tier": "medium",
+   "prompt": "Why is interest deductibility relevant to an LBO?",
+   "answer": "It shields income from tax, improving cash available to service debt and equity.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-iq8",
+   "tier": "hard",
+   "prompt": "Walk me through a paper LBO.",
+   "answer": "Take entry EBITDA of $100M at an 8.0× multiple, so entry enterprise value is $800M, funded half with debt ($400M) and half with sponsor equity ($400M). Over a five-year hold EBITDA grows 10% a year to about $161M, and free cash flow pays down roughly $200M of debt, leaving $200M. At a flat 8.0× exit, enterprise value is about $1,288M and equity value is $1,088M after the remaining debt. That is a 2.72× MOIC and roughly a 22% IRR. Attribution: EBITDA growth added about $488M of enterprise value, multiple expansion added zero because the multiple was flat, and $200M of debt paydown converted to equity; $488M plus $200M equals the $688M equity gain.",
+   "keyPoints": [
+    "Entry: EBITDA x entry multiple = enterprise value; split into debt and equity",
+    "Project EBITDA growth and free cash flow available for debt paydown",
+    "Track the debt balance year by year",
+    "Exit: exit EBITDA x exit multiple, minus net debt, = exit equity",
+    "MOIC = exit equity / entry equity; convert to IRR"
+   ]
+  },
+  {
+   "id": "lbo-q12",
+   "tier": "hard",
+   "prompt": "In the paper LBO (entry EBITDA $100M at 8.0×, 50% debt, 10% EBITDA growth for 5 years, $40M/year debt paydown, flat exit multiple), what is the MOIC?",
+   "answer": "Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M. Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
+   "check": {
+    "type": "mcq",
+    "explanation": "Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M. Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
+    "choices": [
+     "2.00×",
+     "2.50×",
+     "2.72×",
+     "3.00×"
+    ],
+    "answerIndex": 2
+   }
+  },
+  {
+   "id": "lbo-q13",
+   "tier": "hard",
+   "prompt": "In the paper LBO above, what is the approximate IRR (%)? Use IRR ≈ MOIC^(1/years) − 1 with MOIC = 2.72 and hold = 5 years.",
+   "answer": "IRR ≈ 2.72^(1/5) − 1 = 2.72^0.2 − 1 ≈ 1.222 − 1 = 22.2%.",
+   "check": {
+    "type": "numeric",
+    "explanation": "IRR ≈ 2.72^(1/5) − 1 = 2.72^0.2 − 1 ≈ 1.222 − 1 = 22.2%.",
+    "answer": 22.2,
+    "tolerance": 0.5,
+    "unit": "%"
+   }
+  },
+  {
+   "id": "lbo-tech-c59",
+   "tier": "hard",
+   "prompt": "Name the three levers of LBO value creation.",
+   "answer": "EBITDA growth, multiple expansion, and debt paydown (deleveraging).",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c67",
+   "tier": "hard",
+   "prompt": "In a paper LBO with flat multiple, where do returns come from?",
+   "answer": "EBITDA growth and debt paydown only; multiple expansion contributes zero.",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c68",
+   "tier": "hard",
+   "prompt": "Why has the leverage lever weakened recently?",
+   "answer": "Borrowing costs near 8–9% and leverage down to roughly 30–40% of EV from about 50% a decade ago, so debt does less of the work (Bain 2026).",
+   "tags": [
+    "lbo"
+   ]
+  },
+  {
+   "id": "lbo-tech-c69",
+   "tier": "hard",
+   "prompt": "What does Bain mean by \"12 is the new 5\"?",
+   "answer": "Deals now need roughly 12% annual EBITDA growth, versus about 5% historically, to hit similar returns without leverage and multiple-expansion tailwinds (Bain 2026).",
+   "tags": [
+    "lbo"
+   ]
+  }
+ ]
+}

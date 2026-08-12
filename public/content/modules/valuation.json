@@ -1,0 +1,169 @@
+{
+ "module": "valuation",
+ "title": "Valuation: comps & precedents",
+ "questions": [
+  {
+   "id": "valuation-q15",
+   "tier": "easy",
+   "prompt": "What is the main reason precedent transaction multiples tend to be higher than trading comp multiples?",
+   "answer": "In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies. Public trading prices reflect minority stakes with no ability to control. This structural difference makes precedent multiples consistently higher than trading comp multiples.",
+   "check": {
+    "type": "mcq",
+    "explanation": "In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies. Public trading prices reflect minority stakes with no ability to control. This structural difference makes precedent multiples consistently higher than trading comp multiples.",
+    "choices": [
+     "Precedents use a different earnings metric",
+     "Trading comps reflect minority stakes with no control premium; precedents include a control premium and synergies",
+     "Precedent deals are more recent and reflect current market conditions",
+     "Precedents use equity value while trading comps use EV"
+    ],
+    "answerIndex": 1
+   }
+  },
+  {
+   "id": "valuation-tech-c36",
+   "tier": "easy",
+   "prompt": "Name the three core valuation methods.",
+   "answer": "Trading comps, precedent transactions, DCF.",
+   "tags": [
+    "valuation"
+   ]
+  },
+  {
+   "id": "valuation-tech-c41",
+   "tier": "easy",
+   "prompt": "When is P/E the right multiple?",
+   "answer": "For banks and insurers, where capital structure is the business, and broadly for equity-holder comparisons.",
+   "tags": [
+    "valuation"
+   ]
+  },
+  {
+   "id": "valuation-iq13",
+   "tier": "medium",
+   "prompt": "EV/EBITDA versus P/E: when and why?",
+   "answer": "EV/EBITDA is the default for comparing operating businesses because it is neutral to capital structure, tax regime, and non-cash D&A, so two companies with different leverage are comparable. P/E uses equity value and net income, which are distorted by leverage and taxes, but it is the right lens for banks and insurers, where capital structure is the business, and for quick equity-holder comparisons. I would not compare a heavily levered firm to an unlevered one on P/E; I would use EV/EBITDA.",
+   "keyPoints": [
+    "EV/EBITDA is capital-structure neutral; P/E is not",
+    "Use EV/EBITDA when leverage or tax rates differ across the set",
+    "P/E is fine within a sector with similar capital structures, and for financials",
+    "Flag the weakness: EBITDA ignores capex, so it flatters capital-intensive businesses"
+   ]
+  },
+  {
+   "id": "valuation-iq14",
+   "tier": "medium",
+   "prompt": "Precedent transactions versus trading comps: which is higher and why?",
+   "answer": "Precedents are usually higher. Trading comps reflect where public peers trade today on a minority basis, with no control. Precedents reflect prices actually paid in deals, which include a control premium and often the value of expected synergies, so the multiples are richer. The offsetting issue is that precedents are dated: a deal struck under cheaper financing and frothier conditions overstates what a buyer would pay now, so I weight recency and the comparability of the deal environment.",
+   "keyPoints": [
+    "Precedents are usually higher",
+    "They include a control premium and expected synergies",
+    "They are point-in-time, so the market environment at the deal date matters",
+    "Fewer clean comparables and stale data are the practical limits"
+   ]
+  },
+  {
+   "id": "valuation-iq6",
+   "tier": "medium",
+   "prompt": "Why might two companies with identical current financials trade at different valuations?",
+   "answer": "Valuation reflects the future, not just the present. Differences in expected growth, margin trajectory, returns on capital, business and financial risk, capital structure, quality and predictability of cash flows, management, and the comparability of the peer set all move the multiple. Market sentiment and liquidity matter too. Two identical income statements can imply very different enterprise values once you account for where each business is going and how certain that path is.",
+   "keyPoints": [
+    "Growth rate and its durability",
+    "Margins, returns on capital and cash conversion",
+    "Risk: cyclicality, customer concentration, leverage",
+    "Say the frame: multiples are shorthand for growth, returns and risk"
+   ]
+  },
+  {
+   "id": "valuation-q6",
+   "tier": "medium",
+   "prompt": "Why is EV/EBITDA preferred over P/E for comparing companies with different capital structures?",
+   "answer": "EV/EBITDA sits above interest, taxes, and D&A — it measures operating profitability independent of how the company is financed. P/E is distorted by leverage (interest expense) and different tax regimes.",
+   "check": {
+    "type": "mcq",
+    "explanation": "EV/EBITDA sits above interest, taxes, and D&A — it measures operating profitability independent of how the company is financed. P/E is distorted by leverage (interest expense) and different tax regimes.",
+    "choices": [
+     "EV/EBITDA is always lower and more conservative",
+     "P/E incorporates the tax shield but EV/EBITDA does not",
+     "EV/EBITDA is neutral to capital structure, tax regime, and non-cash D&A",
+     "P/E uses enterprise value while EV/EBITDA uses equity value"
+    ],
+    "answerIndex": 2
+   }
+  },
+  {
+   "id": "valuation-q7",
+   "tier": "medium",
+   "prompt": "You are valuing a target using comps. Peer EV/EBITDA multiples are: 8.0×, 9.0×, 7.5×, 14.0×, 8.5×. Which central tendency should you apply and what is it?",
+   "answer": "Use the median to resist distortion from outliers (here the 14.0× outlier inflates the mean). Sorted: 7.5, 8.0, 8.5, 9.0, 14.0 — median is 8.5×.",
+   "check": {
+    "type": "mcq",
+    "explanation": "Use the median to resist distortion from outliers (here the 14.0× outlier inflates the mean). Sorted: 7.5, 8.0, 8.5, 9.0, 14.0 — median is 8.5×.",
+    "choices": [
+     "Mean, which is 9.4×",
+     "Median, which is 8.5×",
+     "Median, which is 9.0×",
+     "Mode, which is 8.0×"
+    ],
+    "answerIndex": 1
+   }
+  },
+  {
+   "id": "valuation-q8",
+   "tier": "medium",
+   "prompt": "Using a peer median EV/EBITDA of 9.0×, target EBITDA of $50M, and net debt of $100M with 10M diluted shares, what is the implied share price in dollars?",
+   "answer": "Implied EV = 9.0 × $50M = $450M. Equity value = $450M − $100M = $350M. Share price = $350M ÷ 10M = $35.00.",
+   "check": {
+    "type": "numeric",
+    "explanation": "Implied EV = 9.0 × $50M = $450M. Equity value = $450M − $100M = $350M. Share price = $350M ÷ 10M = $35.00.",
+    "answer": 35.0,
+    "tolerance": 0.1,
+    "unit": "$"
+   }
+  },
+  {
+   "id": "valuation-tech-c37",
+   "tier": "medium",
+   "prompt": "Why is EV/EBITDA preferred to P/E for cross-company comparison?",
+   "answer": "It is neutral to capital structure, tax regime, and non-cash D&A.",
+   "tags": [
+    "valuation"
+   ]
+  },
+  {
+   "id": "valuation-tech-c38",
+   "tier": "medium",
+   "prompt": "Why do you usually use the median multiple in comps, not the mean?",
+   "answer": "The median resists distortion from outliers.",
+   "tags": [
+    "valuation"
+   ]
+  },
+  {
+   "id": "valuation-tech-c39",
+   "tier": "medium",
+   "prompt": "Which typically gives higher values, precedents or trading comps, and why?",
+   "answer": "Precedents, because buyers pay a control premium and for synergies.",
+   "tags": [
+    "valuation"
+   ]
+  },
+  {
+   "id": "valuation-tech-c40",
+   "tier": "medium",
+   "prompt": "What is a control premium?",
+   "answer": "The extra paid to acquire control of a company versus its public trading price.",
+   "tags": [
+    "valuation"
+   ]
+  },
+  {
+   "id": "valuation-tech-c55",
+   "tier": "medium",
+   "prompt": "Why might two firms with identical financials be valued differently?",
+   "answer": "Differences in growth, margins, risk, capital structure, market sentiment, and peer-set or deal-environment context.",
+   "tags": [
+    "valuation"
+   ]
+  }
+ ]
+}
