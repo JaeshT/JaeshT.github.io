@@ -33,7 +33,7 @@
    "id": "lbo-iq7",
    "tier": "medium",
    "prompt": "Why does a leveraged buyout generate returns, and how does leverage help?",
-   "answer": "Three levers: growing EBITDA, expanding the exit multiple, and paying down debt. Leverage amplifies equity returns because the sponsor funds a smaller share of the purchase with expensive equity and a larger share with cheaper, tax-deductible debt; the target's own cash flow then repays that debt over the hold, converting enterprise value into equity value. The same dollar of value creation against a smaller equity base is a higher percentage return. The risk is symmetric: leverage magnifies losses and raises distress risk, so the ideal target has stable, predictable cash flows and low capex.",
+   "answer": "- Three levers: growing EBITDA, expanding the exit multiple, and paying down debt.\n- Leverage amplifies equity returns because the sponsor funds a smaller share of the purchase with expensive equity and a larger share with cheaper, tax-deductible debt; the target's own cash flow then repays that debt over the hold, converting enterprise value into equity value.\n- The same dollar of value creation against a smaller equity base is a higher percentage return.\n- The risk is symmetric: leverage magnifies losses and raises distress risk, so the ideal target has stable, predictable cash flows and low capex.",
    "keyPoints": [
     "Three drivers: debt paydown, EBITDA growth, multiple expansion",
     "Leverage shrinks the equity cheque so the same enterprise gain is a bigger equity return",
@@ -108,7 +108,7 @@
    "id": "lbo-iq8",
    "tier": "hard",
    "prompt": "Walk me through a paper LBO.",
-   "answer": "Take entry EBITDA of $100M at an 8.0× multiple, so entry enterprise value is $800M, funded half with debt ($400M) and half with sponsor equity ($400M). Over a five-year hold EBITDA grows 10% a year to about $161M, and free cash flow pays down roughly $200M of debt, leaving $200M. At a flat 8.0× exit, enterprise value is about $1,288M and equity value is $1,088M after the remaining debt. That is a 2.72× MOIC and roughly a 22% IRR. Attribution: EBITDA growth added about $488M of enterprise value, multiple expansion added zero because the multiple was flat, and $200M of debt paydown converted to equity; $488M plus $200M equals the $688M equity gain.",
+   "answer": "- Take entry EBITDA of $100M at an 8.0× multiple, so entry enterprise value is $800M, funded half with debt ($400M) and half with sponsor equity ($400M).\n- Over a five-year hold EBITDA grows 10% a year to about $161M, and free cash flow pays down roughly $200M of debt, leaving $200M.\n- At a flat 8.0× exit, enterprise value is about $1,288M and equity value is $1,088M after the remaining debt. That is a 2.72× MOIC and roughly a 22% IRR.\n- Attribution: EBITDA growth added about $488M of enterprise value, multiple expansion added zero because the multiple was flat, and $200M of debt paydown converted to equity; $488M plus $200M equals the $688M equity gain.",
    "keyPoints": [
     "Entry: EBITDA x entry multiple = enterprise value; split into debt and equity",
     "Project EBITDA growth and free cash flow available for debt paydown",
@@ -121,7 +121,7 @@
    "id": "lbo-q12",
    "tier": "hard",
    "prompt": "In the paper LBO (entry EBITDA $100M at 8.0×, 50% debt, 10% EBITDA growth for 5 years, $40M/year debt paydown, flat exit multiple), what is the MOIC?",
-   "answer": "Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M. Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
+   "answer": "- Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M.\n- Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",
    "check": {
     "type": "mcq",
     "explanation": "Year-5 EBITDA = $100M × (1.10)^5 = $161.05M. Exit EV = 8.0 × $161.05M = $1,288.4M. Debt repaid = 5 × $40M = $200M → exit debt = $200M. Exit equity = $1,288.4M − $200M = $1,088.4M. MOIC = $1,088.4M ÷ $400M = 2.72×.",

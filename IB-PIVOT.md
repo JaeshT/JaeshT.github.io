@@ -58,15 +58,17 @@ Both big guides are **copyrighted commercial products** and the site is public. 
    `keyPoints` on the walkthroughs. The manifest lists all 14 modules, including unwritten ones.
 6. **Rebranded** — title, PWA manifest, icons (three ascending bars), 404, README, CLAUDE.md.
 7. **Verified** — `npm run build` green; ran the ladder in a browser: clearing Accounting · Easy
-   (8/8) cleared the stage, opened Accounting · Medium and EV/Equity Value · Easy, and left the rest
-   locked.
+   cleared the stage, opened Accounting · Medium and EV/Equity Value · Easy, and left the rest locked.
+8. **Accounting module written in full** — 70 questions from the 400 Questions guide and the Red
+   Book, tiered 25/25/20, every answer as scannable bullets, `keyPoints` on all 27 walkthroughs.
+   House style, applied everywhere from here: answers are bullets, not paragraphs.
 
 ## Resume — next steps, in order
 
-1. **Deepen the content, module by module, from the guides.** The seeded 97 questions are the old
-   PE-era technicals material re-cut; they are correct but thin, and several tiers are lopsided
-   (dcf has no easy tier, valuation no hard tier). Target roughly 25 easy / 25 medium / 20 hard per
-   core module. Write `keyPoints` for every walkthrough — they are what makes the self-grade real.
+1. **Deepen the content, module by module, from the guides.** `accounting` is **done** — 70
+   questions (25 easy / 25 medium / 20 hard) written from both guides, bulleted answers, key points
+   on every walkthrough. Use it as the template for the rest. Still thin and lopsided: `ev-eqv` (18),
+   `valuation` (14, no hard tier), `dcf` (18, no easy tier), `lbo` (18). Target ~25/25/20 each.
 2. **Write the missing modules**: `ma` (M&A + accretion/dilution), `markets` (debt, LevFin, ECM,
    market view), `fit` (story, behavioural, deal discussion).
 3. **Sector desks** — restructuring first (there is a dedicated 15pp guide), then TMT, FIG,

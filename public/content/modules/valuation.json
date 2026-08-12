@@ -6,7 +6,7 @@
    "id": "valuation-q15",
    "tier": "easy",
    "prompt": "What is the main reason precedent transaction multiples tend to be higher than trading comp multiples?",
-   "answer": "In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies. Public trading prices reflect minority stakes with no ability to control. This structural difference makes precedent multiples consistently higher than trading comp multiples.",
+   "answer": "- In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies.\n- Public trading prices reflect minority stakes with no ability to control.\n- This structural difference makes precedent multiples consistently higher than trading comp multiples.",
    "check": {
     "type": "mcq",
     "explanation": "In M&A, acquirers pay a control premium (the right to run the company) and often price in expected synergies. Public trading prices reflect minority stakes with no ability to control. This structural difference makes precedent multiples consistently higher than trading comp multiples.",
@@ -41,7 +41,7 @@
    "id": "valuation-iq13",
    "tier": "medium",
    "prompt": "EV/EBITDA versus P/E: when and why?",
-   "answer": "EV/EBITDA is the default for comparing operating businesses because it is neutral to capital structure, tax regime, and non-cash D&A, so two companies with different leverage are comparable. P/E uses equity value and net income, which are distorted by leverage and taxes, but it is the right lens for banks and insurers, where capital structure is the business, and for quick equity-holder comparisons. I would not compare a heavily levered firm to an unlevered one on P/E; I would use EV/EBITDA.",
+   "answer": "- EV/EBITDA is the default for comparing operating businesses because it is neutral to capital structure, tax regime, and non-cash D&A, so two companies with different leverage are comparable.\n- P/E uses equity value and net income, which are distorted by leverage and taxes, but it is the right lens for banks and insurers, where capital structure is the business, and for quick equity-holder comparisons.\n- I would not compare a heavily levered firm to an unlevered one on P/E; I would use EV/EBITDA.",
    "keyPoints": [
     "EV/EBITDA is capital-structure neutral; P/E is not",
     "Use EV/EBITDA when leverage or tax rates differ across the set",
@@ -53,7 +53,7 @@
    "id": "valuation-iq14",
    "tier": "medium",
    "prompt": "Precedent transactions versus trading comps: which is higher and why?",
-   "answer": "Precedents are usually higher. Trading comps reflect where public peers trade today on a minority basis, with no control. Precedents reflect prices actually paid in deals, which include a control premium and often the value of expected synergies, so the multiples are richer. The offsetting issue is that precedents are dated: a deal struck under cheaper financing and frothier conditions overstates what a buyer would pay now, so I weight recency and the comparability of the deal environment.",
+   "answer": "- Precedents are usually higher.\n- Trading comps reflect where public peers trade today on a minority basis, with no control.\n- Precedents reflect prices actually paid in deals, which include a control premium and often the value of expected synergies, so the multiples are richer.\n- The offsetting issue is that precedents are dated: a deal struck under cheaper financing and frothier conditions overstates what a buyer would pay now, so I weight recency and the comparability of the deal environment.",
    "keyPoints": [
     "Precedents are usually higher",
     "They include a control premium and expected synergies",
@@ -65,7 +65,7 @@
    "id": "valuation-iq6",
    "tier": "medium",
    "prompt": "Why might two companies with identical current financials trade at different valuations?",
-   "answer": "Valuation reflects the future, not just the present. Differences in expected growth, margin trajectory, returns on capital, business and financial risk, capital structure, quality and predictability of cash flows, management, and the comparability of the peer set all move the multiple. Market sentiment and liquidity matter too. Two identical income statements can imply very different enterprise values once you account for where each business is going and how certain that path is.",
+   "answer": "- Valuation reflects the future, not just the present.\n- Differences in expected growth, margin trajectory, returns on capital, business and financial risk, capital structure, quality and predictability of cash flows, management, and the comparability of the peer set all move the multiple. Market sentiment and liquidity matter too.\n- Two identical income statements can imply very different enterprise values once you account for where each business is going and how certain that path is.",
    "keyPoints": [
     "Growth rate and its durability",
     "Margins, returns on capital and cash conversion",
@@ -77,7 +77,7 @@
    "id": "valuation-q6",
    "tier": "medium",
    "prompt": "Why is EV/EBITDA preferred over P/E for comparing companies with different capital structures?",
-   "answer": "EV/EBITDA sits above interest, taxes, and D&A — it measures operating profitability independent of how the company is financed. P/E is distorted by leverage (interest expense) and different tax regimes.",
+   "answer": "- EV/EBITDA sits above interest, taxes, and D&A — it measures operating profitability independent of how the company is financed.\n- P/E is distorted by leverage (interest expense) and different tax regimes.",
    "check": {
     "type": "mcq",
     "explanation": "EV/EBITDA sits above interest, taxes, and D&A — it measures operating profitability independent of how the company is financed. P/E is distorted by leverage (interest expense) and different tax regimes.",

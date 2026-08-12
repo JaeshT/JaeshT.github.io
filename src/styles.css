@@ -49,8 +49,8 @@ body {
 
 .content {
   flex: 1;
-  padding: 18px 18px 96px;
-  max-width: 760px;
+  padding: 18px 20px 96px;
+  max-width: 920px;
   width: 100%;
   margin: 0 auto;
 }
@@ -239,7 +239,21 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .numrow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .num-input { font: inherit; padding: 11px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-elev2); color: var(--text); width: 160px; }
 .unit { color: var(--muted); }
-.model-answer { background: var(--bg-elev2); border-radius: 10px; padding: 14px; line-height: 1.55; font-size: 15px; }
+.model-answer { background: var(--bg-elev2); border-radius: 10px; padding: 14px 16px; line-height: 1.55; font-size: 15px; }
+/* Answers are written as bullets so they scan like notes, not like an essay. */
+.model-answer ul, .model-answer ol { margin: 0; padding-left: 20px; }
+.model-answer ul { list-style: none; padding-left: 4px; }
+.model-answer ul > li { position: relative; padding-left: 18px; margin: 7px 0; }
+.model-answer ul > li::before {
+  content: '▸'; position: absolute; left: 0; top: 0; color: var(--accent); font-size: 13px; line-height: 1.7;
+}
+.model-answer ul ul { margin: 6px 0; }
+.model-answer ul ul > li { margin: 4px 0; }
+.model-answer ul ul > li::before { content: '·'; color: var(--muted); left: 2px; }
+.model-answer ol > li { margin: 7px 0; padding-left: 4px; }
+.model-answer ol > li::marker { color: var(--accent); font-weight: 600; }
+.model-answer > p:first-child { margin-top: 0; }
+.model-answer > :last-child { margin-bottom: 0; }
 .selfgrade { display: flex; gap: 10px; margin-top: 12px; }
 .result-card { background: var(--bg-elev); border: 1px solid var(--accent); border-radius: var(--radius); padding: 26px; text-align: center; margin: 16px 0; }
 .result-score { font-size: 40px; font-weight: 700; }
