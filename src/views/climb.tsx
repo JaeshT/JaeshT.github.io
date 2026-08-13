@@ -28,7 +28,8 @@ function buildIslands(modules: ModuleState[]): Island[] {
   const out: Island[] = [];
   for (const tier of TIERS) {
     for (const m of modules) {
-      if (!m.ready || m.ref.track !== 'core') continue;
+      // Core and fit both climb. Sector desks are electives and sit off the main route.
+      if (!m.ready || m.ref.track === 'sector') continue;
       const stage = m.stages.find((s) => s.tier === tier);
       if (!stage || stage.total === 0) continue;
       const index = out.length;

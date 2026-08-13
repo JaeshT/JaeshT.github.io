@@ -1,0 +1,765 @@
+{
+ "module": "fit",
+ "title": "Fit, story & deal discussion",
+ "questions": [
+  {
+   "id": "fit-e01",
+   "tier": "easy",
+   "prompt": "Walk me through your CV.",
+   "answer": "- This is the most predictable question in the process and the one most often wasted. Prepare a 200 to 300 word version and a 100 word version, and know both cold.\n- Structure it in four beats: where you started, the moment finance became interesting, how you built on that, and why you are sitting here today.\n- Move forward in time, and make each step explain the next. The listener should feel a logic, not hear a list.\n- Land on this firm and this role. The last sentence is the one they remember.\n- Two minutes maximum. If it runs longer you are reciting rather than telling.",
+   "keyPoints": [
+    "Four beats: beginning, spark, building, why here now",
+    "Chronological, with each step motivating the next",
+    "End on this firm and this role",
+    "Two minutes, rehearsed but not recited"
+   ],
+   "tags": [
+    "story"
+   ]
+  },
+  {
+   "id": "fit-e02",
+   "tier": "easy",
+   "prompt": "Why investment banking?",
+   "answer": "- Give two or three reasons that are true for you and that could not be said about every job in finance.\n- Reasons that work: the pace and breadth of learning early on, exposure to how companies make big decisions, working on transactions where the analysis has a visible outcome, and the technical skill set you build.\n- Reasons that do not work: money, prestige, exit opportunities. Everyone knows they matter, and saying them out loud reads as either naive or unserious.\n- Anchor each reason in something you have actually done. An internship, a project, a society, a conversation with someone doing the job.\n- Show you know what the job actually involves, including the hours. An answer that sounds like it was written by someone who has never seen a pitch book is transparent.",
+   "keyPoints": [
+    "Two or three reasons specific to banking, not finance generally",
+    "Each one anchored in something you have actually done",
+    "Avoid money, prestige and exits as stated reasons",
+    "Show you understand the day to day, hours included"
+   ],
+   "tags": [
+    "story",
+    "motivation"
+   ]
+  },
+  {
+   "id": "fit-e03",
+   "tier": "easy",
+   "prompt": "Why our firm?",
+   "answer": "- Three layers: the platform, the people, and the fit with your own path.\n- Platform: something specific and verifiable. A sector franchise, a recent mandate, a particular strength in the region, the structure of the analyst programme.\n- People: name the conversations you have had. Who you spoke to, what they said, and what it told you. This is the layer most candidates skip and the one that is hardest to fake.\n- Fit: why this environment suits how you work, tied to something in your own background.\n- The test of a good answer is whether it would still make sense if you swapped in a competitor's name. If it would, it is not an answer yet.",
+   "keyPoints": [
+    "Platform, people, and fit with your own path",
+    "Something specific and verifiable about the platform",
+    "Name real conversations and what you took from them",
+    "It must fail the swap test: it should not work for a rival"
+   ],
+   "tags": [
+    "motivation",
+    "firm"
+   ]
+  },
+  {
+   "id": "fit-e04",
+   "tier": "easy",
+   "prompt": "Why this group rather than another?",
+   "answer": "- Give a genuine reason for the preference and stay open to the alternative, since you may well be placed elsewhere.\n- For a product group such as M&A or LevFin, talk about the type of work: the transaction mechanics, the modelling, the process management.\n- For an industry group, talk about the sector: why you find it interesting, what is happening in it now, and what you have read or done that supports that.\n- If you genuinely do not have a strong preference, say you want broad exposure early and explain what would make you choose later. That is more credible than inventing a passion.\n- Never disparage the other option. The person interviewing you may have spent a decade in it.",
+   "tags": [
+    "motivation",
+    "firm"
+   ]
+  },
+  {
+   "id": "fit-e05",
+   "tier": "easy",
+   "prompt": "What are your greatest strengths?",
+   "answer": "- Pick two or three that are relevant to the job, and prove each with a specific example rather than an adjective.\n- Strengths that matter in this role: attention to detail, working under time pressure, learning quickly, communicating clearly, and reliability.\n- The structure is claim, evidence, result. One sentence each.\n- Avoid the ones every candidate uses without evidence, particularly hard working and team player, unless you have a story that makes them concrete.\n- Choose strengths you can defend if the interviewer probes, because the follow-up question is usually the real test.",
+   "keyPoints": [
+    "Two or three, relevant to the job",
+    "Claim, evidence, result for each",
+    "Specific example rather than an adjective",
+    "Pick ones you can defend under a follow-up"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-e06",
+   "tier": "easy",
+   "prompt": "What is your greatest weakness?",
+   "answer": "- Name a real weakness. Interviewers have heard perfectionism and working too hard several hundred times and both read as evasion.\n- Choose something genuine that does not disqualify you from the role. Public speaking, delegating, saying no to too many commitments, impatience with slow processes.\n- Then spend most of the answer on what you have done about it, with evidence that it worked.\n- Avoid anything that goes to the core of the job: attention to detail, numerical accuracy, or handling pressure.\n- The question is testing self-awareness and honesty, so the willingness to name something real is most of the answer.",
+   "keyPoints": [
+    "Name a genuine weakness, not a disguised strength",
+    "Avoid anything core to the job",
+    "Spend most of the answer on the corrective action and its evidence",
+    "It is a test of self-awareness more than of the weakness"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-e07",
+   "tier": "easy",
+   "prompt": "Tell me about yourself.",
+   "answer": "- Treat it as the CV walkthrough unless the context is clearly social, in which case give a shorter and warmer version.\n- If in doubt, ask: would you like the professional version or a bit of both. That reads as considered rather than evasive.\n- Keep one or two genuine personal details in it. An interviewer spending twelve hours a day at work is also assessing whether they would mind sitting next to you.\n- Do not list your CV line by line. They have it in front of them.",
+   "tags": [
+    "story"
+   ]
+  },
+  {
+   "id": "fit-e08",
+   "tier": "easy",
+   "prompt": "Where do you see yourself in five years?",
+   "answer": "- Show commitment to the near term and honest ambition beyond it, without pretending you have planned a career you have not begun.\n- A workable answer: two to three years as an analyst building the technical foundation, then progressing within the bank, with an interest in developing sector expertise.\n- Do not say private equity, even though everyone knows a large share of analysts leave. You are asking them to invest in training you.\n- Do not claim you will be an MD in five years either. That reads as either a script or a misunderstanding of the timeline.\n- The safest framing is that you want to be good at this job first, and that you will know more about the next step once you have done it.",
+   "keyPoints": [
+    "Commit to the analyst years specifically",
+    "Ambition inside the firm rather than out of it",
+    "Do not name private equity",
+    "Being credible beats being impressive"
+   ],
+   "tags": [
+    "motivation"
+   ]
+  },
+  {
+   "id": "fit-e09",
+   "tier": "easy",
+   "prompt": "What do you know about what an analyst actually does?",
+   "answer": "- Building and maintaining models, comps and precedent analyses, and the underlying research behind them.\n- Producing pitch books and client materials, which is a large share of the first year.\n- Managing data rooms, process trackers and diligence questions during live transactions.\n- Checking everyone else's work and your own, since the cost of an error rises the further it travels.\n- And the reality that a lot of it is unglamorous, deadline-driven and subject to last-minute changes. Saying this plainly shows you know what you are signing up for.",
+   "keyPoints": [
+    "Modelling, comps and the research behind them",
+    "Pitch books and client materials",
+    "Process and diligence management on live deals",
+    "Acknowledge the unglamorous, deadline-driven reality"
+   ],
+   "tags": [
+    "understanding-banking"
+   ]
+  },
+  {
+   "id": "fit-e10",
+   "tier": "easy",
+   "prompt": "What is in a pitch book?",
+   "answer": "- The bank's credentials and relevant transaction experience.\n- A market and industry overview establishing the context for whatever is being proposed.\n- A situation analysis of the client, including its financial position and how the market values it.\n- The valuation work: comps, precedents, DCF, and a football field summarising the range.\n- The proposal itself, whether that is a sale process, an acquisition target list, or a financing structure, with a timeline and next steps.\n- Appendices holding the detailed analysis nobody will turn to in the meeting but which must be right.",
+   "keyPoints": [
+    "Credentials and relevant experience",
+    "Market context and situation analysis",
+    "Valuation with a football field",
+    "The proposal, timeline and next steps"
+   ],
+   "tags": [
+    "understanding-banking"
+   ]
+  },
+  {
+   "id": "fit-e11",
+   "tier": "easy",
+   "prompt": "What are the different groups at an investment bank?",
+   "answer": "- Product groups organised by transaction type: M&A, leveraged finance, debt capital markets, equity capital markets, restructuring.\n- Industry or coverage groups organised by sector: technology, healthcare, industrials, FIG, energy, consumer.\n- Coverage owns the client relationship and brings in the product teams for execution, so most deals involve both.\n- Alongside them sit markets, research, and increasingly private capital advisory.\n- Knowing which model the bank you are interviewing with uses, and where the group you are applying to sits, is worth five minutes of preparation.",
+   "tags": [
+    "understanding-banking"
+   ]
+  },
+  {
+   "id": "fit-e12",
+   "tier": "easy",
+   "prompt": "Why did you choose your university and your degree?",
+   "answer": "- Give a reason that shows deliberate choice rather than drift, even if the real answer involved some luck.\n- Connect it forward if you can. A quantitative degree connects to the analytical side of the job, a humanities degree to communication, structuring an argument and writing clearly.\n- If your degree is unrelated to finance, address that directly and show what you did to close the gap: courses, societies, self-study, internships.\n- Avoid apologising for the choice. Confidence about your own path is part of what is being assessed.",
+   "tags": [
+    "background"
+   ]
+  },
+  {
+   "id": "fit-e13",
+   "tier": "easy",
+   "prompt": "Which other banks are you interviewing with?",
+   "answer": "- Be honest at a category level without listing every process you are in.\n- Saying you are speaking to a small number of firms with similar platforms is fine and normal. Everyone knows you are applying broadly.\n- Then bring it back to why this one is the best fit for you, which is the actual purpose of the question.\n- Do not claim they are your only application. Nobody believes it and it makes everything else you say less credible.\n- Do not overshare either, since naming a full list invites comparisons you cannot control.",
+   "keyPoints": [
+    "Honest at a category level, without a full list",
+    "Pivot back to why this firm fits",
+    "Claiming a single application is not credible",
+    "Oversharing invites comparisons"
+   ],
+   "tags": [
+    "recruiting"
+   ]
+  },
+  {
+   "id": "fit-e14",
+   "tier": "easy",
+   "prompt": "Do you have any questions for me?",
+   "answer": "- Always have three or four ready, and ask two. Having none reads as disinterest and is one of the easiest ways to lose ground at the end.\n- Good questions are about their experience: what they are working on, what surprised them in their first year, how the team works, what distinguishes analysts who do well.\n- Ask something that could only be asked of this person, which shows you have been listening rather than reading from a list.\n- Avoid anything answerable from the website, and avoid pay, hours and holiday at this stage.\n- One question about the team you would join is almost always worth asking, since it tells you something real.",
+   "keyPoints": [
+    "Prepare three or four, ask two",
+    "Questions about their experience and the team",
+    "Something specific to this person, showing you listened",
+    "Nothing answerable from the website, nothing about pay yet"
+   ],
+   "tags": [
+    "recruiting"
+   ]
+  },
+  {
+   "id": "fit-e15",
+   "tier": "easy",
+   "prompt": "What do you do outside work or study?",
+   "answer": "- Answer genuinely. This is partly a check that you are a person and partly a hunt for something memorable.\n- Anything showing commitment over time helps: sport, music, a society you built, a side project.\n- Be ready for a follow-up, since interviewers often probe the thing that sounds most interesting. Do not list something you cannot discuss.\n- One specific, slightly unusual interest is worth more than three generic ones.",
+   "tags": [
+    "background"
+   ]
+  },
+  {
+   "id": "fit-e16",
+   "tier": "easy",
+   "prompt": "What are your three short stories, and why do you need them?",
+   "answer": "- Prepare three stories from your experience that you can adapt to most behavioural questions: one on leadership, one on teamwork or conflict, one on a failure or setback.\n- Each should have a clear situation, your specific action, and a measurable or concrete result.\n- Prepared properly, the same three stories answer twenty different questions, because most behavioural prompts are variations on the same themes.\n- Choose stories where your own contribution is unambiguous. A story where the team succeeded but your role is vague does not answer the question asked.",
+   "keyPoints": [
+    "Three stories: leadership, teamwork or conflict, failure",
+    "Situation, your specific action, concrete result",
+    "They cover most behavioural questions between them",
+    "Your own contribution must be unambiguous"
+   ],
+   "tags": [
+    "behavioural",
+    "preparation"
+   ]
+  },
+  {
+   "id": "fit-e17",
+   "tier": "easy",
+   "prompt": "What is the STAR structure and how do you use it without sounding robotic?",
+   "answer": "- Situation, task, action, result. It is a way to keep a story tight rather than a script to recite.\n- Keep the situation and task to one or two sentences. Candidates routinely spend a minute on background and ten seconds on what they actually did.\n- Spend most of the answer on the action, in the first person. What you decided, what you did, what you had to trade off.\n- Finish on a concrete result, quantified where possible, and add one line on what you took from it.\n- The reason it sounds robotic is usually the opposite of over-structure: it sounds rehearsed when the story is not actually yours or has been told the same way fifty times.",
+   "keyPoints": [
+    "Situation and task short, action long, result concrete",
+    "Speak in the first person about your own decisions",
+    "Quantify the result where you can",
+    "One line of reflection at the end"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-e18",
+   "tier": "easy",
+   "prompt": "How do you handle a technical question you cannot answer?",
+   "answer": "- Do not guess and do not bluff. Both are worse than the gap itself, and experienced interviewers spot it immediately.\n- Say what you do know that is related, then be explicit about where your understanding stops.\n- If the question is unclear rather than unknown, ask a clarifying question. That is a legitimate move and it demonstrates precision.\n- If you genuinely have no idea, say so directly, say you will look it up, and move on without visible distress.\n- How you handle not knowing is itself the test, since you will spend your first year not knowing things.",
+   "keyPoints": [
+    "Never guess or bluff",
+    "Give the part you do know, then mark the boundary",
+    "Ask for clarification when the question is ambiguous",
+    "Composure under not knowing is what is being assessed"
+   ],
+   "tags": [
+    "technique"
+   ]
+  },
+  {
+   "id": "fit-e19",
+   "tier": "easy",
+   "prompt": "Why should we hire you over the other candidates?",
+   "answer": "- Do not attack the alternatives. Give a positive case built on two or three specifics.\n- Combine evidence of capability, evidence of commitment to this path, and something that differentiates you honestly.\n- The differentiator does not have to be exotic. A particular sector interest backed by real work, an unusual combination of skills, or a track record of finishing what you start all work.\n- Close with why that combination suits this firm in particular.\n- Confidence without arrogance is the register. State it plainly and stop talking.",
+   "tags": [
+    "motivation"
+   ]
+  },
+  {
+   "id": "fit-e20",
+   "tier": "easy",
+   "prompt": "How do you prepare for a fit interview in the week before?",
+   "answer": "- Write the CV walkthrough out in full and say it aloud until the shape is automatic and the words are not.\n- Draft the three short stories and check each one has a concrete result.\n- Prepare answers to the two or three obvious objections to your background, since those are certain to come up.\n- Research the firm properly: recent deals, the group, and the people you have spoken to.\n- Prepare questions to ask, and rehearse with someone who will interrupt and push back rather than let you monologue.\n- Then stop. Over-rehearsing past this point is what makes answers sound recited.",
+   "keyPoints": [
+    "CV walkthrough written out and said aloud",
+    "Three stories with concrete results",
+    "Answers to the obvious objections to your background",
+    "Firm and deal research, plus questions to ask",
+    "Practise with someone who pushes back"
+   ],
+   "tags": [
+    "preparation"
+   ]
+  },
+  {
+   "id": "fit-m01",
+   "tier": "medium",
+   "prompt": "Tell me about a time you worked in a team that did not function well.",
+   "answer": "- Choose a real situation with genuine friction. A story where everything went smoothly does not answer the question.\n- Describe the problem factually and briefly: unclear ownership, a member not delivering, a disagreement about direction.\n- Spend the answer on what you did. Did you raise it directly, restructure the work, take on more yourself, involve someone senior. Say what you decided and why.\n- Give the outcome honestly. It is fine if it only partly worked, provided you can say what you learned.\n- Avoid blaming individuals. How you talk about a difficult colleague tells the interviewer how you will talk about them.",
+   "keyPoints": [
+    "Pick a situation with genuine friction",
+    "State the problem briefly and factually",
+    "Most of the answer is your own action and reasoning",
+    "Honest outcome, including partial success",
+    "Do not blame individuals"
+   ],
+   "tags": [
+    "behavioural",
+    "teamwork"
+   ]
+  },
+  {
+   "id": "fit-m02",
+   "tier": "medium",
+   "prompt": "Tell me about a time you led something.",
+   "answer": "- Leadership does not require a title. Organising a project, running a society, coordinating a group under deadline all count.\n- Set up the situation quickly, then focus on the decisions only you made.\n- Include something that went wrong and how you handled it, since a story with no obstacle demonstrates nothing.\n- Show how you handled people as well as tasks. Delegation, motivating someone reluctant, or handling disagreement is what makes it a leadership story rather than a project management one.\n- Finish with a concrete result and what you would do differently.",
+   "keyPoints": [
+    "A title is not required, ownership is",
+    "Focus on decisions only you made",
+    "Include an obstacle and how you handled it",
+    "Show the people dimension alongside the tasks"
+   ],
+   "tags": [
+    "behavioural",
+    "leadership"
+   ]
+  },
+  {
+   "id": "fit-m03",
+   "tier": "medium",
+   "prompt": "Tell me about your biggest failure.",
+   "answer": "- Pick a real failure with real consequences. A disguised success is the most common mistake here and it is obvious.\n- Own your part in it explicitly. Circumstances can be part of the story, and they cannot be the whole story.\n- Describe what you learned in specific terms, and then show where you applied that lesson afterwards. The second part is what separates a good answer from a rehearsed one.\n- Keep it proportionate. Something serious enough to be credible, not something that raises doubts about your judgment or integrity.\n- Do not be defensive. The willingness to sit with it for thirty seconds is a large part of what is being assessed.",
+   "keyPoints": [
+    "A real failure, not a disguised success",
+    "Own your part explicitly",
+    "Specific lesson, and where you later applied it",
+    "Proportionate: credible but not disqualifying"
+   ],
+   "tags": [
+    "behavioural",
+    "failure"
+   ]
+  },
+  {
+   "id": "fit-m04",
+   "tier": "medium",
+   "prompt": "Tell me about a time you received difficult feedback.",
+   "answer": "- Choose feedback that was fair and that stung, since that is the version that shows something.\n- State it plainly, without softening it. Softening the feedback undercuts the whole answer.\n- Describe your reaction honestly, including the initial defensiveness if there was any, then what you did about it.\n- Show the change with evidence: what you did differently and what the result was.\n- If you can say that the person who gave it later commented on the improvement, that is the strongest possible ending.",
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m05",
+   "tier": "medium",
+   "prompt": "Tell me about a time you had to work under significant time pressure.",
+   "answer": "- Pick something with a genuinely hard deadline and real consequences for missing it.\n- Explain how you triaged. What you prioritised, what you deliberately dropped or simplified, and why.\n- Mention how you protected quality on the things that mattered, since in this job accuracy under pressure is the actual skill.\n- Say whether you asked for help. Candidates often omit this thinking it looks weak, and in this role knowing when to escalate is a strength.\n- Concrete outcome, then a line on what you would do earlier next time.",
+   "keyPoints": [
+    "A real deadline with real consequences",
+    "Explain the triage: what you dropped and why",
+    "Protecting accuracy on what mattered",
+    "Asking for help is a strength, not a weakness"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m06",
+   "tier": "medium",
+   "prompt": "Tell me about a time you disagreed with someone more senior.",
+   "answer": "- Choose a disagreement about substance rather than personality.\n- Show that you raised it privately, with evidence, and framed it as a question rather than a challenge.\n- Show that you understood their position before pushing your own, since that is what distinguishes considered disagreement from being difficult.\n- Then show what happened, including the case where you were overruled and executed anyway. That version is often the better answer.\n- Banking is hierarchical. They are testing whether you can be honest without being a problem.",
+   "keyPoints": [
+    "Disagreement about substance, not personality",
+    "Raised privately, with evidence, framed as a question",
+    "Understood their position first",
+    "Being overruled and executing well is a strong ending"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m07",
+   "tier": "medium",
+   "prompt": "Your grades are lower than we usually see. Why?",
+   "answer": "- Answer directly and without defensiveness. Evasion is worse than the grades.\n- Give the honest reason briefly, whether that was a difficult period, competing commitments, or a slow start you later corrected.\n- Then show the evidence that it does not predict your performance now: an upward trend, strong marks in relevant modules, professional performance, or work you did alongside the degree.\n- Do not blame the institution, the marking or bad luck.\n- One or two sentences of explanation and then move to the evidence. Dwelling on it makes it larger than it is.",
+   "keyPoints": [
+    "Answer directly, no defensiveness or blame",
+    "Brief honest reason",
+    "Evidence it does not predict current performance",
+    "Keep it short and move on"
+   ],
+   "tags": [
+    "objections"
+   ]
+  },
+  {
+   "id": "fit-m08",
+   "tier": "medium",
+   "prompt": "You have no finance background. Why should we take you?",
+   "answer": "- Show what you have done to close the gap, concretely: courses, self-study, the technical preparation you are doing right now, an internship, a society, a personal portfolio.\n- Show that you understand the job, since the real concern is that you do not know what you are applying for.\n- Turn the background into an argument where it genuinely is one. A quantitative degree, an engineering background, or a subject that trained you to write and argue all transfer.\n- Give evidence that you learn quickly, ideally a case where you got up to speed on something unfamiliar fast.\n- Then let the technical interview do the rest. The most convincing answer to this question is answering the technical questions well.",
+   "keyPoints": [
+    "Concrete evidence of closing the gap",
+    "Demonstrate you understand the job itself",
+    "Make the background an argument where it honestly is",
+    "Evidence of learning quickly",
+    "The technical round is the real rebuttal"
+   ],
+   "tags": [
+    "objections"
+   ]
+  },
+  {
+   "id": "fit-m09",
+   "tier": "medium",
+   "prompt": "There is a gap on your CV. What happened?",
+   "answer": "- Address it plainly. Gaps are common and the attempt to hide one is what causes damage.\n- Give the reason, briefly and without over-explaining: health, family, travel, a failed venture, a job search that took longer than expected.\n- Say what you did with the time if there is anything to say, and it is fine if the answer is that you needed the time.\n- Then bring it back to the present and why you are ready now.\n- Practise saying it in fifteen seconds without discomfort, since your tone will matter more than the content.",
+   "tags": [
+    "objections"
+   ]
+  },
+  {
+   "id": "fit-m10",
+   "tier": "medium",
+   "prompt": "Why are you leaving your current role, or why did you not return to your last internship?",
+   "answer": "- Never criticise the previous employer, however justified you feel. It reads as a risk regardless of the facts.\n- Frame it around what you are moving toward rather than what you are moving away from.\n- If there was no return offer, address it honestly. The most credible version names the reason: a small class size, a hiring freeze, a group that was not the right fit, or an area where you underperformed and can say what you changed.\n- If you did receive an offer and turned it down, say why this platform or this type of work suits you better.\n- Interviewers will often verify this, so accuracy matters more than presentation.",
+   "keyPoints": [
+    "Never criticise the previous employer",
+    "Frame as moving toward rather than away from",
+    "Address a missing return offer honestly and specifically",
+    "It may be verified, so be accurate"
+   ],
+   "tags": [
+    "objections",
+    "recruiting"
+   ]
+  },
+  {
+   "id": "fit-m11",
+   "tier": "medium",
+   "prompt": "Tell me about a time you had to persuade someone.",
+   "answer": "- Pick a case where you changed a real decision, not one where someone already agreed with you.\n- Show that you understood their position and what they actually cared about before making your case.\n- Describe the evidence or argument you used, and how you adapted it to that person.\n- Give the outcome, and be honest if you only partly succeeded.\n- This is a preview of client work, so the interviewer is listening for whether you argue with evidence or by insisting.",
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m12",
+   "tier": "medium",
+   "prompt": "Tell me about a time you made a mistake at work.",
+   "answer": "- Choose something real but proportionate, ideally where you caught it or escalated it yourself.\n- Describe how you found it and, critically, how fast you told someone.\n- The point of the question is escalation behaviour. In this job an error caught early is manageable and an error hidden until it reaches a client is not.\n- Say what you put in place afterwards to prevent a repeat: a check, a process, a habit.\n- Do not choose a mistake you concealed, and do not claim never to have made one.",
+   "keyPoints": [
+    "Real but proportionate, ideally self-caught",
+    "Emphasise how quickly you escalated it",
+    "The question is about escalation behaviour",
+    "Describe the preventive change you made"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m13",
+   "tier": "medium",
+   "prompt": "How do you handle the hours?",
+   "answer": "- Do not pretend the hours are fine or that you have never been tired. That reads as naive.\n- Show that you understand what they actually are, ideally from an internship or from people you have spoken to.\n- Give evidence of sustained intensity from your own experience: an exam period, a competitive sport, a job alongside full-time study.\n- Say what keeps you functional, whether that is exercise, sleep discipline or protecting one thing you do not give up.\n- The concern behind the question is attrition. They want to know you have thought about it rather than that you are indestructible.",
+   "keyPoints": [
+    "Acknowledge them honestly rather than dismissing them",
+    "Show you know what they actually are",
+    "Evidence of sustained intensity from your own life",
+    "Name what keeps you functional"
+   ],
+   "tags": [
+    "motivation"
+   ]
+  },
+  {
+   "id": "fit-m14",
+   "tier": "medium",
+   "prompt": "What would your last manager say about you?",
+   "answer": "- Answer as if they might actually be asked, because they might.\n- Give one clear strength with the evidence behind it, phrased as something they observed rather than something you claim.\n- Include one development area, which makes the positive credible and shows you receive feedback.\n- Reference real feedback where you have it. Quoting an actual review is far stronger than speculating.\n- Avoid a list of adjectives. One specific observation beats five generic ones.",
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m15",
+   "tier": "medium",
+   "prompt": "Tell me about a time you had to learn something quickly.",
+   "answer": "- Pick something genuinely unfamiliar with a real deadline attached.\n- Describe your method, since the method is the point: what you read, who you asked, how you tested your understanding, how you knew you had it.\n- Show the output, and ideally that someone relied on it.\n- Connect it to this job, where you will be handed unfamiliar sectors and asked to be useful within days.\n- If you can point to the technical preparation you are doing right now as an example, that is a legitimate and current answer.",
+   "keyPoints": [
+    "Genuinely unfamiliar, with a real deadline",
+    "Describe the method, since that is what transfers",
+    "Show an output someone relied on",
+    "Connect it to being handed a new sector on day one"
+   ],
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-m16",
+   "tier": "medium",
+   "prompt": "What is the most interesting thing happening in the market right now?",
+   "answer": "- Have one prepared, and choose something you can actually discuss for two minutes under questioning.\n- Structure it: what is happening, why it is happening, who it affects, and what you think happens next.\n- Connect it to the bank's business where you can. A theme that drives M&A, financing or restructuring activity is more relevant than a macro observation with no transaction implication.\n- Have a view rather than only a summary, and be willing to defend it while conceding what would change your mind.\n- Depth on one topic beats a shallow tour of five.",
+   "keyPoints": [
+    "One topic, prepared to two minutes of depth",
+    "What, why, who it affects, what next",
+    "Tie it to transaction activity",
+    "Have a defensible view, and name what would change it"
+   ],
+   "tags": [
+    "markets"
+   ]
+  },
+  {
+   "id": "fit-m17",
+   "tier": "medium",
+   "prompt": "How do you prioritise when three people give you urgent work?",
+   "answer": "- Establish the real deadlines rather than assuming everything labelled urgent is equally urgent. Ask.\n- Assess how long each task actually takes, since a ten-minute job for a VP may unblock other people and should go first.\n- Communicate early. Tell each person what you are working on and when theirs will be done, so nobody discovers a delay at the deadline.\n- Escalate if the total genuinely does not fit, and let the senior people resolve the conflict between themselves. That is their job, not yours.\n- The failure mode they are testing for is silence: accepting everything and missing a deadline without warning anyone.",
+   "keyPoints": [
+    "Establish real deadlines by asking",
+    "Sequence by duration and what unblocks others",
+    "Communicate expected timing to everyone early",
+    "Escalate conflicts rather than absorbing them silently"
+   ],
+   "tags": [
+    "behavioural",
+    "situational"
+   ]
+  },
+  {
+   "id": "fit-m18",
+   "tier": "medium",
+   "prompt": "You spot an error in a deck that is about to go to a client. What do you do?",
+   "answer": "- Flag it immediately, however late it is and however awkward the timing.\n- Go to whoever owns the document with the specific error, the correct figure and, where you can, the fix already made.\n- Do not quietly change it without telling anyone, since if it has already circulated the version history matters.\n- If it is your own error, say so directly. Owning it is dramatically better than being found out later.\n- The whole answer is about escalation speed. There is no version of this where waiting is correct.",
+   "keyPoints": [
+    "Flag immediately regardless of timing",
+    "Bring the error, the correct figure and the fix",
+    "Never fix it silently if it has circulated",
+    "Own it directly if it is yours"
+   ],
+   "tags": [
+    "situational"
+   ]
+  },
+  {
+   "id": "fit-m19",
+   "tier": "medium",
+   "prompt": "Why should we believe you are committed to banking rather than using it as a stepping stone?",
+   "answer": "- Acknowledge the reality without confirming their fear. Everyone knows where analysts go, and they are asking whether you will be engaged while you are here.\n- Show a consistent pattern of interest over time rather than a recent conversion: what you have done over two or three years that points this way.\n- Talk about what you want to get good at in this role specifically, which is a commitment to the work rather than to a timeline.\n- Avoid promising to stay for a decade, since it is not credible and they know it.\n- The honest version, that you want to be excellent at this job and will decide the next step later, lands better than a promise nobody believes.",
+   "keyPoints": [
+    "Acknowledge the reality without confirming the fear",
+    "Show a consistent pattern rather than a recent conversion",
+    "Commit to the work rather than to a timeline",
+    "Do not make promises nobody believes"
+   ],
+   "tags": [
+    "motivation",
+    "objections"
+   ]
+  },
+  {
+   "id": "fit-m20",
+   "tier": "medium",
+   "prompt": "Tell me about a time you went beyond what was asked.",
+   "answer": "- Pick something with a visible result rather than an example of simply working longer.\n- The strongest version is where you noticed something nobody asked you to notice: an error in a source, a better way to structure an analysis, a question the client would obviously ask next.\n- Show judgment about when it was worth doing, since doing extra work nobody wanted is a real failure mode in this job.\n- Give the result, and say whether it was used.\n- This maps directly onto what separates a good analyst from an adequate one, which is why it gets asked.",
+   "tags": [
+    "behavioural"
+   ]
+  },
+  {
+   "id": "fit-h01",
+   "tier": "hard",
+   "prompt": "Tell me about a recent deal.",
+   "answer": "- Pick a deal in the sector or product you are interviewing for, announced in the last few months, that you can discuss in depth.\n- Structure it: who bought whom, for how much, in what consideration mix, and at what multiple and premium.\n- Then the strategic rationale, in your own words rather than the press release language.\n- Then how it was financed and what that implies for the acquirer's balance sheet.\n- Then your view: whether the price was justified, what the risks are, and what you would want to know that is not public.\n- Prepare two deals rather than one, and know the numbers. Getting the price or the multiple wrong undoes the whole answer.",
+   "keyPoints": [
+    "Who, whom, price, consideration mix, multiple and premium",
+    "Strategic rationale in your own words",
+    "Financing and the balance sheet consequence",
+    "Your own view on price and risk",
+    "Know the numbers, and prepare two deals"
+   ],
+   "tags": [
+    "deals"
+   ]
+  },
+  {
+   "id": "fit-h02",
+   "tier": "hard",
+   "prompt": "Would you have done that deal if it were your money?",
+   "answer": "- Take a position. Sitting on the fence is the weakest available answer.\n- Build the case around the price against the value of the synergies, since that is the test of whether value transferred to the seller.\n- Name the two or three risks that would most concern you: integration, customer overlap, regulatory approval, the leverage taken on.\n- Say what would change your mind, which shows the view is reasoned rather than performed.\n- If you disagree with the deal, say so respectfully. Interviewers respect a defended view more than agreement with the consensus.",
+   "keyPoints": [
+    "Take a clear position",
+    "Price against the value of the synergies",
+    "Two or three specific risks",
+    "Name what would change your mind"
+   ],
+   "tags": [
+    "deals",
+    "judgment"
+   ]
+  },
+  {
+   "id": "fit-h03",
+   "tier": "hard",
+   "prompt": "Walk me through a deal from your internship. What did you actually do?",
+   "answer": "- Respect confidentiality. Anonymise the client if the deal was not public, and say that you are doing so.\n- Set up the transaction briefly: what was being done and why.\n- Then be specific and honest about your own contribution. Interns build comps, run screens, format pages and check numbers, and saying that plainly is more credible than implying you advised the board.\n- Show that you understood the wider context of the work you did, since that is what distinguishes someone who was paying attention.\n- Have one thing you learned that changed how you work, and one thing that surprised you about the process.",
+   "keyPoints": [
+    "Anonymise where the deal was not public, and say so",
+    "Brief setup of the transaction and its purpose",
+    "Honest specificity about your own contribution",
+    "Show you understood the context around your task"
+   ],
+   "tags": [
+    "deals",
+    "experience"
+   ]
+  },
+  {
+   "id": "fit-h04",
+   "tier": "hard",
+   "prompt": "You have an offer from another bank with a deadline. How do you handle it with us?",
+   "answer": "- Be transparent about the situation and the timeline, since concealing it usually backfires and firms deal with this constantly.\n- Say clearly that this firm is where you would prefer to be, if that is true, and ask whether the process can be accelerated.\n- Do not use it as leverage or a threat. Exploding offers are a known feature of the market and firms dislike being played.\n- Have a decision framework ready in case nothing moves, and be prepared to accept the offer you have.\n- Whatever you decide, do not renege after accepting. The market is small and it follows people for years.",
+   "keyPoints": [
+    "Be transparent about the offer and the timeline",
+    "State your preference and ask about accelerating",
+    "Do not use it as leverage",
+    "Never renege after accepting"
+   ],
+   "tags": [
+    "recruiting",
+    "judgment"
+   ]
+  },
+  {
+   "id": "fit-h05",
+   "tier": "hard",
+   "prompt": "Why are you moving from a larger bank to a smaller one, or the reverse?",
+   "answer": "- Frame it as what the new platform offers rather than what the old one lacked.\n- Toward a smaller firm: earlier responsibility, closer contact with senior bankers and clients, a leaner deal team, and a specific franchise you want to work in.\n- Toward a larger firm: scale and balance sheet, the breadth of product, the range of clients, and formal training.\n- Show you understand the trade-off you are making, since claiming the new platform is better in every respect is not credible.\n- Have a specific reason tied to this firm, otherwise the answer is a category argument rather than an answer.",
+   "tags": [
+    "objections",
+    "firm"
+   ]
+  },
+  {
+   "id": "fit-h06",
+   "tier": "hard",
+   "prompt": "What would you do if you were asked to do something you thought was wrong?",
+   "answer": "- Distinguish first between a judgment disagreement and an ethical problem, and say that you are distinguishing them.\n- On judgment: raise it, make the case with evidence, then execute the decision if you are overruled.\n- On ethics: do not do it, and escalate. Say plainly that you would raise it with the person, then with someone above them, and use the formal channels if it went nowhere.\n- Give an example if you have one, since a real instance is far stronger than a hypothetical.\n- Answer directly. This question rewards clarity, and hedging on the ethical version is itself the wrong answer.",
+   "keyPoints": [
+    "Separate judgment disagreements from ethical problems",
+    "Judgment: raise it, then execute if overruled",
+    "Ethics: decline and escalate through proper channels",
+    "Answer directly, since hedging is the failure"
+   ],
+   "tags": [
+    "behavioural",
+    "ethics"
+   ]
+  },
+  {
+   "id": "fit-h07",
+   "tier": "hard",
+   "prompt": "Pitch me a stock.",
+   "answer": "- Structure: what the company does, why it is mispriced, the two or three drivers, the valuation, the risks, and what would prove you wrong.\n- Have a genuine view with a number attached, whether that is a target price or an implied multiple, and say what the market is missing.\n- Know the basics cold: market cap, roughly what it trades at, recent performance. Being wrong on those undermines everything after.\n- Pick something you actually follow. A well-known large cap is fine if you have a real view, and better than an obscure name you cannot defend.\n- Finish with the risks. A pitch with no downside case reads as promotional rather than analytical.",
+   "keyPoints": [
+    "Business, mispricing, drivers, valuation, risks, falsifier",
+    "A number attached to the view",
+    "Know market cap and multiple cold",
+    "Include a genuine downside case"
+   ],
+   "tags": [
+    "markets",
+    "deals"
+   ]
+  },
+  {
+   "id": "fit-h08",
+   "tier": "hard",
+   "prompt": "An interviewer is aggressive or dismissive. How do you handle it?",
+   "answer": "- Recognise it as a test in most cases. Stress interviews are less common than they were, and they still happen.\n- Stay level. Slow down rather than speed up, and do not become apologetic or combative.\n- If challenged on something you are confident about, hold the position and explain your reasoning. Folding under the first push is itself a fail.\n- If you are actually wrong, concede it cleanly and move on. Defending a wrong answer is worse than being wrong.\n- Do not take it personally in the room. You can assess afterwards whether it tells you something about the culture.",
+   "keyPoints": [
+    "Usually a deliberate test",
+    "Slow down, avoid apology and avoid combat",
+    "Hold a correct position under pressure",
+    "Concede cleanly when actually wrong"
+   ],
+   "tags": [
+    "technique"
+   ]
+  },
+  {
+   "id": "fit-h09",
+   "tier": "hard",
+   "prompt": "If you were advising a company on whether to sell now or wait, how would you frame it?",
+   "answer": "- Value now against risk-adjusted value later, rather than treating the higher number as the answer.\n- What is the standalone plan worth if delivered, and what is the probability of delivering it.\n- Where is the cycle, and where is the sector in its consolidation. Waiting can narrow the buyer universe as much as widen it.\n- Who are the realistic buyers today, and does that set improve or shrink over the next two years.\n- Then the non-financial: the founder's intent, the employees, whether the board has the appetite for another two years of execution risk.\n- Give a recommendation and name the assumption it depends on. Advisers who refuse to recommend are not advising.",
+   "keyPoints": [
+    "Value now against risk-adjusted value later",
+    "Probability of delivering the standalone plan",
+    "Cycle and how the buyer universe changes",
+    "Non-financial factors the board actually weighs",
+    "Recommend, and name the assumption it turns on"
+   ],
+   "tags": [
+    "deals",
+    "judgment"
+   ]
+  },
+  {
+   "id": "fit-h10",
+   "tier": "hard",
+   "prompt": "What is the biggest risk facing this bank or this industry?",
+   "answer": "- Pick one and go deep rather than listing five.\n- Credible options: fee compression and competition from independent advisory firms, the effect of higher rates on deal volumes, regulatory change, technology and automation changing the analyst function, or talent retention.\n- Explain the mechanism rather than the headline. Say how the risk actually reaches revenue.\n- Then say what you think the response is, since identifying a problem without a view on it is only half an answer.\n- Avoid anything insulting about the firm specifically, and avoid anything you cannot support if pushed.",
+   "tags": [
+    "understanding-banking",
+    "judgment"
+   ]
+  },
+  {
+   "id": "fit-h11",
+   "tier": "hard",
+   "prompt": "Tell me something about you that is not on your CV.",
+   "answer": "- Have something genuine and specific prepared, since being caught without an answer here is a wasted opportunity.\n- The best answers are memorable and true, and show something the CV cannot: something you built, an unusual skill, a place you lived, something you have done consistently for years.\n- Avoid anything performatively quirky, and avoid oversharing on personal matters.\n- Be ready for a follow-up, since this is the answer interviewers most often pick up on.\n- The purpose is memorability. At the end of a day of twelve identical candidates, this is often what distinguishes you.",
+   "tags": [
+    "background"
+   ]
+  },
+  {
+   "id": "fit-h12",
+   "tier": "hard",
+   "prompt": "How would you value the interviewer sitting in front of you, or another curveball?",
+   "answer": "- These test composure and structure rather than the answer, so the process is the whole assessment.\n- Say your approach out loud before answering: what the asset is, what cash flows it generates, over what period, and at what risk.\n- Make explicit assumptions and state them as assumptions, then be willing to revise if challenged.\n- Keep a sense of humour and stay engaged. Freezing or treating it as unfair is the failure mode.\n- Land on an answer with a number, however rough. Refusing to commit is worse than a defensible estimate.",
+   "keyPoints": [
+    "The structure is the assessment, not the answer",
+    "State the approach before starting",
+    "Explicit, revisable assumptions",
+    "Commit to a number rather than refusing"
+   ],
+   "tags": [
+    "technique"
+   ]
+  },
+  {
+   "id": "fit-h13",
+   "tier": "hard",
+   "prompt": "How do you decide between two offers?",
+   "answer": "- Start with the people you would work with day to day, since at analyst level that determines your experience more than the brand does.\n- Then the group and the work: what deals it does, whether it is busy, and what you would actually be staffed on.\n- Then training and the track record of where analysts from that programme end up.\n- Then platform and brand, which matters and matters less than candidates assume.\n- Compensation last, since it is broadly similar across comparable firms at this level.\n- If asked in an interview, be honest about your criteria and be clear about where they sit. It is a real question, and a considered answer reflects well.",
+   "keyPoints": [
+    "People you work with day to day come first",
+    "The group, its deal flow and staffing",
+    "Training and where alumni end up",
+    "Brand matters less than candidates assume, pay least of all"
+   ],
+   "tags": [
+    "recruiting"
+   ]
+  },
+  {
+   "id": "fit-h14",
+   "tier": "hard",
+   "prompt": "You are asked a question you answered badly earlier in the process. How do you handle it?",
+   "answer": "- If you know you got it wrong, say so and give the correct answer. Volunteering the correction is a strong signal.\n- Say what you did after the earlier interview, since having gone away and learned it is the point.\n- Do not pretend the earlier answer was fine, since interviewers compare notes more than candidates expect.\n- Keep it brief. One sentence of acknowledgment, then the answer.\n- Being someone who fixes gaps quickly is a good thing to demonstrate, and this is a free opportunity to do it.",
+   "tags": [
+    "technique",
+    "recruiting"
+   ]
+  },
+  {
+   "id": "fit-h15",
+   "tier": "hard",
+   "prompt": "Sell me this pen, or convince me of something in thirty seconds.",
+   "answer": "- The classic version fails when candidates describe features. Ask what the person needs first, even in a joke question, since that is the actual lesson.\n- Structure: establish the need, connect the thing to that need, address the obvious objection, then close by asking for the decision.\n- Keep it short. Thirty seconds means thirty seconds, and running long is the most common error.\n- Stay composed and slightly amused rather than either flustered or aggressive.\n- What is being tested is whether you can structure a persuasive case under time pressure with no preparation, which is what a live client call demands.",
+   "keyPoints": [
+    "Establish the need before describing the thing",
+    "Need, connection, objection, close",
+    "Respect the time limit",
+    "Composure under an unprepared persuasive task"
+   ],
+   "tags": [
+    "technique"
+   ]
+  }
+ ]
+}

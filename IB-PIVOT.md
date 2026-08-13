@@ -63,12 +63,16 @@ Both big guides are **copyrighted commercial products** and the site is public. 
    Book, tiered 25/25/20, every answer as scannable bullets, `keyPoints` on all 27 walkthroughs.
    Then `ev-eqv`, `valuation`, `dcf`, `lbo` and `ma` at 55 each. Every worked number in the DCF,
    LBO and M&A banks was recomputed in Python against the written answer before committing.
-9. **The Climb** (`src/views/climb.tsx`, `src/lib/levels.ts`): a vertical run of floating islands,
+9. **`fit` is written as coaching rather than model answers.** Nobody can write another person's
+   story, so each answer gives the structure, what the interviewer is listening for and the usual
+   failure modes, and the `keyPoints` are what a good answer contains regardless of whose life it
+   describes. Keep that convention if you extend it.
+10. **The Climb** (`src/views/climb.tsx`, `src/lib/levels.ts`): a vertical run of floating islands,
    one per stage, ordered easy first across every module, then medium, then hard. A character hops
    up one island each time a stage is cleared, and `progress.climbSeen` records how far it has
    already been animated so each hop plays once. XP converts to an IB rank from Intern to Managing
    Director. The sky darkens from ground level to space as you climb.
-10. **House style, enforced on every file**: answers are scannable bullets rather than paragraphs,
+11. **House style, enforced on every file**: answers are scannable bullets rather than paragraphs,
    and the `humanizer` skill (installed at `~/.claude/skills/humanizer/`) is applied to all prose.
    No em dashes, no en dashes, no curly quotes, no bold, no "not just X but Y". There is a scan for
    this; re-run it after writing any content.

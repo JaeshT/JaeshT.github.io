@@ -115,7 +115,8 @@
    "icon": "🎤",
    "track": "fit",
    "order": 8,
-   "blurb": "Your story, the behavioural set, and talking about a deal without drowning."
+   "blurb": "Your story, the behavioural set, and talking about a deal without drowning.",
+   "bank": "modules/fit.json"
   },
   {
    "id": "restructuring",
