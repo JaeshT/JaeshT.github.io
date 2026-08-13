@@ -9,7 +9,16 @@ import { Glossary } from './views/glossary';
 import { Climb } from './views/climb';
 import { DownloadForOffline } from './views/offline';
 import { Empty, Loading, LoadError, Ring } from './views/ui';
-import { dangerZone, dueQuestions, nextStage, readiness } from './lib/curriculum';
+import {
+  coverage,
+  dangerZone,
+  dueQuestions,
+  nextStage,
+  readiness,
+  tierProgress,
+  weakestFirst,
+} from './lib/curriculum';
+import { progressionFor } from './lib/levels';
 import { useLadder } from './lib/useLadder';
 import { TIER_LABEL, TIERS, type Tier } from './lib/schema';
 
@@ -131,37 +140,64 @@ function Home() {
   const due = dueQuestions(data.banks, data.attempts, data.srs).length;
   const burned = dangerZone(data.banks, data.attempts).length;
   const nextModule = next && data.modules.find((m) => m.ref.id === next.moduleId);
+  const cov = coverage(data.modules);
+  const tiers = tierProgress(data.modules);
+  const weakest = weakestFirst(data.modules);
+  const rank = progressionFor(data.progress.xp).rank;
+  const fresh = cov.nailed === 0;
+
+  // One recommendation, with the reason attached, so the first tap is never a decision.
+  const rec = burned > 0
+    ? { label: `Fix ${burned} burned question${burned === 1 ? '' : 's'}`, why: 'You said you knew these and then missed them.', go: 'danger' }
+    : due > 0
+      ? { label: `Review ${due} due`, why: 'These are fading. Reviewing now is worth more than new material.', go: 'review' }
+      : next && nextModule
+        ? { label: `${nextModule.ref.short} · ${TIER_LABEL[next.tier]}`, why: `${next.total - next.nailed} of ${next.total} still to nail in this stage.`, go: `drill/${next.moduleId}/${next.tier}` }
+        : { label: 'Open the path', why: 'Pick where to go next.', go: 'path' };
 
   return (
     <section>
+      {fresh && (
+        <div class="explainer">
+          <h2>How this works</h2>
+          <ol>
+            <li>
+              Questions are grouped into <strong>modules</strong>, each split into easy, medium and
+              hard. Clear a tier to open the next.
+            </li>
+            <li>
+              In a drill you commit to knowing the answer <em>before</em> the reveal, then grade
+              yourself against the points an interviewer listens for.
+            </li>
+            <li>
+              Readiness is what you could deliver today. It decays if you stop reviewing, so it is
+              not a score you bank.
+            </li>
+          </ol>
+        </div>
+      )}
+
       <div class="hero">
-        <Ring pct={score} label="ready" size={160} />
+        <Ring pct={score} label="ready" size={148} />
         <div class="hero-side">
-          <div class="hero-stat">
-            <strong>{data.progress.streak.count}</strong> day streak 🔥
+          <div class="hero-rank">
+            <span class="hero-rank-dot" style={{ background: rank.colour }} />
+            {rank.title}
           </div>
-          <div class="hero-stat">
-            <strong>{data.progress.xp}</strong> XP
+          <div class="hero-nums">
+            <span><strong>{data.progress.streak.count}</strong> day streak</span>
+            <span><strong>{cov.nailed}</strong>/{cov.total} nailed</span>
           </div>
-          <div class="hero-stat muted small">
-            Readiness decays if you stop reviewing. It's what you could deliver today, not what you
-            once read.
+          <div class="muted small">
+            Readiness is what you could deliver today, not what you once read.
           </div>
         </div>
       </div>
 
-      {next && nextModule ? (
-        <button
-          class="btn btn-primary big"
-          onClick={() => navigate(`drill/${next.moduleId}/${next.tier}`)}
-        >
-          Next up: {nextModule.ref.short} · {TIER_LABEL[next.tier]} ({next.nailed}/{next.total})
-        </button>
-      ) : (
-        <button class="btn btn-primary big" onClick={() => navigate('path')}>
-          Open the path →
-        </button>
-      )}
+      <button class="btn btn-primary big rec" onClick={() => navigate(rec.go)}>
+        <span class="rec-top">Next: {rec.label}</span>
+        <span class="rec-why">{rec.why}</span>
+      </button>
 
       <div class="quickrow">
         <button class="quick" onClick={() => navigate('review')} disabled={due === 0}>
@@ -174,23 +210,47 @@ function Home() {
         </button>
       </div>
 
-      <h2 class="section-h">Where you are</h2>
+      <h2 class="section-h">Stages cleared</h2>
+      <div class="tierrow">
+        {tiers.map((t) => (
+          <button key={t.tier} class={'tiercard ' + t.tier} onClick={() => navigate('climb')}>
+            <span class="tiercard-top">
+              <span class={'tier-badge ' + t.tier}>{TIER_LABEL[t.tier]}</span>
+              <span class="muted small">{t.cleared}/{t.total}</span>
+            </span>
+            <span class="bar thin">
+              <span class="bar-fill" style={{ width: (t.total ? (t.cleared / t.total) * 100 : 0) + '%' }} />
+            </span>
+            <span class="muted small">{t.nailed} of {t.questions} questions</span>
+          </button>
+        ))}
+      </div>
+
+      <h2 class="section-h">Weakest first</h2>
+      <p class="muted small section-note">
+        Sorted by how much of each module you could deliver right now.
+      </p>
       <div class="mastery">
-        {data.modules
-          .filter((m) => m.ready)
-          .map((m) => (
-            <button key={m.ref.id} class="mastery-row" onClick={() => navigate(`module/${m.ref.id}`)}>
-              <div class="mastery-top">
-                <span>
-                  {m.ref.icon} {m.ref.short}
+        {weakest.map((m) => (
+          <button key={m.ref.id} class="mastery-row" onClick={() => navigate(`module/${m.ref.id}`)}>
+            <div class="mastery-top">
+              <span>
+                {m.ref.icon} {m.ref.short}
+              </span>
+              <span class="row-meta">
+                <span class="pips small-pips">
+                  {m.stages.map((st) => (
+                    <span key={st.tier} class={'minipip ' + st.tier + ' ' + st.status} />
+                  ))}
                 </span>
                 <span class="muted small">{Math.round(m.strength * 100)}%</span>
-              </div>
-              <div class="bar">
-                <div class="bar-fill" style={{ width: Math.round(m.strength * 100) + '%' }} />
-              </div>
-            </button>
-          ))}
+              </span>
+            </div>
+            <div class="bar">
+              <div class="bar-fill" style={{ width: Math.round(m.strength * 100) + '%' }} />
+            </div>
+          </button>
+        ))}
       </div>
 
       <DownloadForOffline />

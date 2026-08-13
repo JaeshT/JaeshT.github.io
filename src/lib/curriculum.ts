@@ -221,3 +221,46 @@ export function dueQuestions(
   const rank: Record<Tier, number> = { hard: 0, medium: 1, easy: 2 };
   return seen.sort((a, b) => rank[a.tier] - rank[b.tier]);
 }
+
+// ---- Headline figures for the home screen ----
+
+export interface TierProgress {
+  tier: Tier;
+  cleared: number;
+  total: number;
+  nailed: number;
+  questions: number;
+}
+
+/** Stage completion per tier across the whole curriculum. Answers "how far up am I". */
+export function tierProgress(modules: ModuleState[]): TierProgress[] {
+  return TIERS.map((tier) => {
+    const stages = modules
+      .filter((m) => m.ready && m.ref.track !== 'sector')
+      .map((m) => m.stages.find((s) => s.tier === tier))
+      .filter((s): s is Stage => !!s && s.total > 0);
+    return {
+      tier,
+      cleared: stages.filter((s) => s.status === 'cleared').length,
+      total: stages.length,
+      nailed: stages.reduce((n, s) => n + s.nailed, 0),
+      questions: stages.reduce((n, s) => n + s.total, 0),
+    };
+  });
+}
+
+/** Questions nailed against questions written, across everything built. */
+export function coverage(modules: ModuleState[]): { nailed: number; total: number } {
+  const built = modules.filter((m) => m.ready);
+  return {
+    nailed: built.reduce((n, m) => n + m.stages.reduce((s, st) => s + st.nailed, 0), 0),
+    total: built.reduce((n, m) => n + m.total, 0),
+  };
+}
+
+/** Modules you would least like to be asked about, weakest first, ignoring untouched locked ones. */
+export function weakestFirst(modules: ModuleState[]): ModuleState[] {
+  return modules
+    .filter((m) => m.ready && m.stages.some((s) => s.status !== 'locked'))
+    .sort((a, b) => a.strength - b.strength);
+}

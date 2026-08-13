@@ -38,6 +38,33 @@ export function LoadError({ title, back }: { title: string; back?: string }) {
   );
 }
 
+/**
+ * Switch between the two views of the same curriculum. The path is the list, the climb is the
+ * map; they show identical stages, which is worth making obvious rather than leaving implied.
+ */
+export function ViewToggle({ active }: { active: 'path' | 'climb' }) {
+  return (
+    <div class="viewtoggle" role="tablist">
+      <button
+        role="tab"
+        aria-selected={active === 'path'}
+        class={active === 'path' ? 'on' : ''}
+        onClick={() => navigate('path')}
+      >
+        List
+      </button>
+      <button
+        role="tab"
+        aria-selected={active === 'climb'}
+        class={active === 'climb' ? 'on' : ''}
+        onClick={() => navigate('climb')}
+      >
+        Climb
+      </button>
+    </div>
+  );
+}
+
 /** Circular gauge. Used for the readiness score and end-of-stage results. */
 export function Ring({ pct, label, size = 140 }: { pct: number; label?: string; size?: number }) {
   const r = size * 0.37;

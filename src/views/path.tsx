@@ -6,7 +6,7 @@ import { updateProgress } from '../lib/db';
 import { TIERS, TIER_LABEL, type Tier } from '../lib/schema';
 import { stageKey, type ModuleState, type Stage } from '../lib/curriculum';
 import { useLadder } from '../lib/useLadder';
-import { Loading, LoadError, BackLink, Empty } from './ui';
+import { Loading, LoadError, BackLink, Empty, ViewToggle } from './ui';
 
 const TRACK_HEADING: Record<string, string> = {
   core: 'Core ladder',
@@ -23,10 +23,15 @@ export function Path() {
 
   return (
     <section>
-      <h1>The path</h1>
+      <div class="path-head">
+        <h1>The path</h1>
+        <ViewToggle active="path" />
+      </div>
       <p class="muted">
-        Clear <strong>easy</strong> to open <strong>medium</strong>, clear medium to open{' '}
-        <strong>hard</strong>. Finishing a module's easy tier also opens the next module.
+        Every question sits in a module and a tier. Clear <strong>easy</strong> to open{' '}
+        <strong>medium</strong>, clear medium to open <strong>hard</strong>, and finishing a
+        module's easy tier also opens the next module. The <strong>Climb</strong> tab shows these
+        same stages as a map.
       </p>
 
       {tracks.map((track) => {

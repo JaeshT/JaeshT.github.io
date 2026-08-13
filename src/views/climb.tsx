@@ -6,10 +6,10 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { navigate } from '../lib/router';
 import { updateProgress } from '../lib/db';
 import { TIERS, TIER_LABEL } from '../lib/schema';
-import type { ModuleState, Stage } from '../lib/curriculum';
+import { nextStage, type ModuleState, type Stage } from '../lib/curriculum';
 import { useLadder } from '../lib/useLadder';
 import { progressionFor } from '../lib/levels';
-import { Loading, LoadError } from './ui';
+import { Loading, LoadError, ViewToggle } from './ui';
 
 const ROW = 148; // vertical pitch between islands, px
 const BASE = 96; // height of the ground strip at the bottom, px
@@ -84,19 +84,29 @@ export function Climb() {
     return () => timers.forEach(clearTimeout);
   }, [data, islands.length, target]);
 
-  // Keep the character in view. The first positioning jumps, later hops glide.
+  // Keep the character in view. Driving the scroller directly is more reliable than
+  // scrollIntoView, because the islands are positioned from the bottom of a very tall container.
+  // Retry on animation frames until the container has actually been laid out.
   const positioned = useRef(false);
   useEffect(() => {
-    if (hopTo === null) return;
-    const t = window.setTimeout(() => {
-      charRef.current?.scrollIntoView({
-        behavior: positioned.current ? 'smooth' : 'auto',
-        block: 'center',
-      });
+    if (hopTo === null || islands.length === 0) return;
+    let raf = 0;
+    let tries = 0;
+    const run = () => {
+      const sc = scroller.current;
+      if (!sc || sc.scrollHeight <= sc.clientHeight) {
+        if (tries++ < 30) raf = requestAnimationFrame(run);
+        return;
+      }
+      const isl = hopTo >= 0 ? islands[Math.min(hopTo, islands.length - 1)] : null;
+      const y = isl ? isl.y + 48 : 30; // distance up from the bottom of the content
+      const top = Math.max(0, sc.scrollHeight - y - sc.clientHeight / 2);
+      sc.scrollTo({ top, behavior: positioned.current ? 'smooth' : 'auto' });
       positioned.current = true;
-    }, positioned.current ? 0 : 60);
-    return () => clearTimeout(t);
-  }, [hopTo]);
+    };
+    raf = requestAnimationFrame(run);
+    return () => cancelAnimationFrame(raf);
+  }, [hopTo, islands]);
 
   if (error) return <LoadError title="The climb" />;
   if (!data) return <Loading />;
@@ -105,13 +115,22 @@ export function Climb() {
   const height = BASE + islands.length * ROW + 150;
   const pos = hopTo ?? -1;
   const charIsland = pos >= 0 ? islands[Math.min(pos, islands.length - 1)] : null;
-  // Stand on the grass beside the card rather than in front of it.
-  const charX = charIsland ? charIsland.x + (charIsland.index % 2 === 0 ? 13 : -13) : 50;
+  // Stand on the grass beside the card rather than in front of it. The nudge is in pixels so it
+  // stays the same distance on a phone and a laptop.
+  const charX = charIsland ? charIsland.x : 50;
+  const charOffset = charIsland ? (charIsland.index % 2 === 0 ? 72 : -72) - 22 : -22;
   const charY = charIsland ? charIsland.y + 48 : 30;
+  const nextKey = nextStage(data.modules)?.key;
   const summitReached = clearedCount === islands.length && islands.length > 0;
 
   return (
     <section class="climb-wrap">
+      <div class="climb-head">
+        <ViewToggle active="climb" />
+        <span class="climb-note muted small">
+          Every island is one stage from the path. Clear it to move up.
+        </span>
+      </div>
       <div class="rank-bar">
         <div class="rank-avatar" style={{ '--rank-colour': prog.rank.colour }}>
           <Avatar colour={prog.rank.colour} />
@@ -141,27 +160,29 @@ export function Climb() {
           <div class="cloud c2" />
           <div class="cloud c3" />
 
-          <div class={'summit' + (summitReached ? ' reached' : '')} style={{ bottom: height - 96 + 'px' }}>
-            <span class="summit-icon">{summitReached ? '🏆' : '🎯'}</span>
-            <span class="summit-label">{summitReached ? 'Every island cleared' : 'The summit'}</span>
-          </div>
+          <div class="climb-lane" style={{ height: height + 'px' }}>
+            <div class={'summit' + (summitReached ? ' reached' : '')} style={{ bottom: height - 96 + 'px' }}>
+              <span class="summit-icon">{summitReached ? '🏆' : '🎯'}</span>
+              <span class="summit-label">{summitReached ? 'Every island cleared' : 'The summit'}</span>
+            </div>
 
-          {islands.map((isl, n) => {
-            const prev = islands[n - 1];
-            return prev ? <Trail key={'t' + n} from={prev} to={isl} /> : null;
-          })}
+            {islands.map((isl, n) => {
+              const prev = islands[n - 1];
+              return prev ? <Trail key={'t' + n} from={prev} to={isl} /> : null;
+            })}
 
-          {islands.map((isl) => (
-            <IslandNode key={isl.stage.key} island={isl} />
-          ))}
+            {islands.map((isl) => (
+              <IslandNode key={isl.stage.key} island={isl} isNext={isl.stage.key === nextKey} />
+            ))}
 
-          <div
-            ref={charRef}
-            class={'climber' + (landed ? ' landed' : '')}
-            style={{ left: charX + '%', bottom: charY + 'px' }}
-          >
-            <Avatar colour={prog.rank.colour} />
-            <div class="climber-shadow" />
+            <div
+              ref={charRef}
+              class={'climber' + (landed ? ' landed' : '')}
+              style={{ left: charX + '%', bottom: charY + 'px', marginLeft: charOffset + 'px' }}
+            >
+              <Avatar colour={prog.rank.colour} />
+              <div class="climber-shadow" />
+            </div>
           </div>
 
           <div class="ground">
@@ -192,7 +213,7 @@ function Trail({ from, to }: { from: Island; to: Island }) {
   );
 }
 
-function IslandNode({ island }: { island: Island }) {
+function IslandNode({ island, isNext }: { island: Island; isNext: boolean }) {
   const { stage, module: m } = island;
   const locked = stage.status === 'locked';
   const cleared = stage.status === 'cleared';
@@ -200,7 +221,7 @@ function IslandNode({ island }: { island: Island }) {
 
   return (
     <button
-      class={`island ${stage.tier} ${stage.status}`}
+      class={`island ${stage.tier} ${stage.status}${isNext ? ' next' : ''}`}
       style={{ left: island.x + '%', bottom: island.y + 'px' }}
       onClick={() => navigate(locked ? `module/${m.ref.id}` : `drill/${m.ref.id}/${stage.tier}`)}
     >
@@ -208,6 +229,7 @@ function IslandNode({ island }: { island: Island }) {
         <span class="island-icon">{locked ? '🔒' : cleared ? '🚩' : m.ref.icon}</span>
         <span class="island-name">{m.ref.short}</span>
         <span class={'island-tier ' + stage.tier}>{TIER_LABEL[stage.tier]}</span>
+        {isNext && <span class="island-next">Next up</span>}
         {!locked && (
           <span class="island-progress">
             <span class="island-progress-fill" style={{ width: pct + '%' }} />
