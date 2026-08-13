@@ -76,11 +76,17 @@ Both big guides are **copyrighted commercial products** and the site is public. 
    Google sign-in through Firebase Auth, with the whole user snapshot in one Firestore document
    per uid. The app stays local first: IndexedDB is what the screens use, and sync merges around
    it. Merge rules are in `merge.ts` and are covered by 17 assertions (counters take the max,
-   lists union, schedules keep the later review, settings resolve whole). **It is off until a
-   Firebase project exists**: with no `VITE_FIREBASE_*` values the build has no sign-in button and
-   behaves exactly as before. Setup is `ACCOUNTS.md`, rules are `firestore.rules`, and the deploy
-   workflow reads the config from repository variables. The Firestore round trip is the one part
-   never run for real, because creating the project needs the owner's Google account.
+   lists union, schedules keep the later review, settings resolve whole). Setup is `ACCOUNTS.md`,
+   rules are `firestore.rules`, and the deploy workflow reads the config from repository
+   variables. With no `VITE_FIREBASE_*` values the build has no sign-in button and behaves exactly
+   as it did before any of this, which is still a supported way to run it.
+
+   **Live project: `ib-tech-b24eb`** ("IB tech"), Spark plan, Firestore in `europe-west2`
+   (London), Google provider on, rules published, `tewess.com` and `localhost` authorised. Local
+   config is in `.env.local` (gitignored). Verified end to end on 2026-08-13: signed in, answered
+   a drill question, and watched the attempt, XP, SRS schedule and settings arrive in
+   `users/{uid}`. **Outstanding: the six `VITE_FIREBASE_*` repository variables on GitHub**, which
+   the deployed site needs. Until they are set, a deploy builds without sign-in.
 12. **House style, enforced on every file**: answers are scannable bullets rather than paragraphs,
    and the `humanizer` skill (installed at `~/.claude/skills/humanizer/`) is applied to all prose.
    No em dashes, no en dashes, no curly quotes, no bold, no "not just X but Y". There is a scan for
