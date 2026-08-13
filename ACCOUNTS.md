@@ -79,3 +79,9 @@ few hundred writes a day at most, so this stays free. No card is needed for the 
 - `popup-blocked`: the app retries with a redirect on its own. Nothing to do.
 - `api key not valid`: the env values did not reach the build. Locally, restart the dev server.
 - `permission-denied` on sync: the rules from step 5 were not published.
+
+Sign-in uses a popup and only falls back to a redirect if the popup is blocked. That order is
+deliberate: the redirect flow hands off to `<project>.firebaseapp.com`, which browsers phasing out
+third-party cookies can break for a site on its own domain. If the redirect path ever does start
+failing on tewess.com, the fix Google documents is to serve the auth helper from a subdomain of
+tewess.com rather than from firebaseapp.com.
