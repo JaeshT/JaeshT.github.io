@@ -3,6 +3,7 @@
 // Async + large quota: correct for hundreds of questions + attempt history (localStorage is not).
 
 import { get, set, update, createStore } from 'idb-keyval';
+import type { AvatarConfig } from './avatar';
 
 const store = createStore('ib-prep-db', 'kv');
 
@@ -124,6 +125,7 @@ export interface Settings {
   theme: 'dark' | 'light';
   dailyNewLimit: number;
   timerSeconds: number; // out-loud answer timer; 0 = off
+  avatar?: AvatarConfig; // chosen appearance; gear is earned by rank, not stored here
 }
 
 const DEFAULT_SETTINGS: Settings = { theme: 'dark', dailyNewLimit: 20, timerSeconds: 90 };

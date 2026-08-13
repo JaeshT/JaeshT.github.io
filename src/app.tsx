@@ -7,8 +7,9 @@ import { StageDrill, ReviewDrill, DangerDrill } from './views/drill';
 import { Lesson } from './views/lesson';
 import { Glossary } from './views/glossary';
 import { Climb } from './views/climb';
+import { AvatarCustomiser } from './views/avatar';
 import { DownloadForOffline } from './views/offline';
-import { Empty, Loading, LoadError, Ring } from './views/ui';
+import { BackLink, Empty, Loading, LoadError, Ring } from './views/ui';
 import {
   coverage,
   dangerZone,
@@ -25,8 +26,8 @@ import { TIER_LABEL, TIERS, type Tier } from './lib/schema';
 const NAV = [
   { tab: 'home', label: 'Home', icon: '🏠' },
   { tab: 'path', label: 'Path', icon: '🗺️' },
-  { tab: 'review', label: 'Review', icon: '🎯' },
   { tab: 'climb', label: 'Climb', icon: '🏔️' },
+  { tab: 'review', label: 'Review', icon: '🎯' },
   { tab: 'more', label: 'More', icon: '⋯' },
 ];
 
@@ -48,6 +49,10 @@ export function App() {
   const [needRefresh, setNeedRefresh] = useState(false);
   const [online, setOnline] = useState(typeof navigator === 'undefined' ? true : navigator.onLine);
   const reload = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    if (tabFor(seg0 ?? 'home') !== 'climb') document.documentElement.classList.remove('tabs-hidden');
+  }, [seg0]);
 
   useEffect(() => {
     reload.current = setupPWA(() => setNeedRefresh(true));
@@ -118,6 +123,8 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
       return seg1 ? <Lesson id={seg1} /> : <Empty title="Primer" note="No primer selected." back="path" />;
     case 'climb':
       return <Climb />;
+    case 'character':
+      return <CharacterView />;
     case 'glossary':
       return <Glossary />;
     case 'progress':
@@ -259,11 +266,26 @@ function Home() {
   );
 }
 
+function CharacterView() {
+  return (
+    <section>
+      <BackLink to="climb" label="Climb" />
+      <h1>Your climber</h1>
+      <p class="muted">
+        Appearance is yours to choose. Gear is earned: each rank adds a piece, so the figure on the
+        climb shows how far you have got.
+      </p>
+      <AvatarCustomiser />
+    </section>
+  );
+}
+
 function More() {
   return (
     <section>
       <h1>More</h1>
       <ul class="list">
+        <li onClick={() => navigate('character')}>🧑‍💼 Your climber</li>
         <li onClick={() => navigate('glossary')}>📖 Glossary</li>
         <li onClick={() => navigate('danger')}>⚠️ Danger zone</li>
         <li onClick={() => navigate('progress')}>📊 Progress &amp; backup</li>

@@ -3,9 +3,11 @@
 // and the views stay dumb.
 //
 // Gating rules (deliberately generous: this is a study aid, not a jail):
-//   • A module's EASY stage opens when the previous core module's EASY stage is cleared.
 //   • MEDIUM opens when EASY is cleared; HARD opens when MEDIUM is cleared.
-//   • Sector desks open once every core EASY stage is cleared.
+//   • The next core module opens when the previous one is fully cleared, so you finish a module
+//     before starting the next. That matches the climb, where a module is a level and its three
+//     tiers are its sublevels.
+//   • Sector desks open once every core module has been entered.
 //   • The "fit" track is never locked.
 //   • Anything can be force-opened; the map records that it was opened early rather than earned.
 
@@ -114,6 +116,12 @@ export function buildLadder(
     return tier ? isCleared(stageKey(moduleId, tier)) : true;
   };
 
+  /** Every tier that has questions is cleared. This is what opens the next module. */
+  const fullyCleared = (moduleId: string): boolean =>
+    TIERS.filter((t) => (raw.get(stageKey(moduleId, t))?.stage.total ?? 0) > 0).every((t) =>
+      isCleared(stageKey(moduleId, t)),
+    );
+
   const allCoreEntered = core.every((m) => entryCleared(m.id));
 
   // Second pass: resolve lock state now that every stage's clear status is known.
@@ -138,7 +146,7 @@ export function buildLadder(
         open = allCoreEntered;
       } else {
         const idx = core.findIndex((m) => m.id === ref.id);
-        open = idx <= 0 || entryCleared(core[idx - 1].id);
+        open = idx <= 0 || fullyCleared(core[idx - 1].id);
       }
 
       stage.status = isCleared(key) ? 'cleared' : open || stage.earnedEarly ? 'open' : 'locked';
@@ -175,9 +183,9 @@ export function readiness(modules: ModuleState[]): number {
 
 /** The stage to point the user at: the first open, uncleared stage in ladder order. */
 export function nextStage(modules: ModuleState[]): Stage | undefined {
-  for (const tier of TIERS) {
-    for (const m of modules) {
-      if (!m.ready) continue;
+  for (const m of modules) {
+    if (!m.ready) continue;
+    for (const tier of TIERS) {
       const st = m.stages.find((s) => s.tier === tier);
       if (st && st.status === 'open' && st.total > 0) return st;
     }
