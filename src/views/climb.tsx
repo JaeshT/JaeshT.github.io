@@ -199,11 +199,9 @@ export function Climb() {
 
   return (
     <section class="climb-wrap">
-      <div class="climb-head">
+      {/* Floats over the map rather than sitting in a bar, so the sky runs the full height. */}
+      <div class="climb-toggle">
         <ViewToggle active="climb" />
-        <span class="climb-note muted small">
-          One level per module, three sublevels each. Clear hard to unlock the next level.
-        </span>
       </div>
 
       <div class="climb-scroll" ref={scroller} onScroll={onScroll}>

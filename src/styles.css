@@ -729,13 +729,14 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
   left: 0; right: 0; bottom: var(--tabbar-h);
   display: flex; flex-direction: column;
   background: var(--sky-top);
+  /* follows the tab bar out of the way, so hiding it never leaves a strip of page behind */
+  transition: bottom 0.28s ease;
 }
-.climb-head {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 10px 18px 8px; border-bottom: 1px solid var(--border);
-  background: var(--bg);
+/* The view toggle floats over the map: no bar, so the sky runs the whole height. */
+.climb-toggle { position: absolute; top: 12px; left: 14px; z-index: 20; }
+.climb-toggle .viewtoggle {
+  background: var(--veil); backdrop-filter: blur(10px); box-shadow: var(--shadow);
 }
-.climb-note { text-align: right; line-height: 1.35; }
 
 /* rank header, sticky above the scrolling sky */
 /* the sky: ground level at the bottom, space at the top */
@@ -881,7 +882,7 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 
 @media (prefers-reduced-motion: reduce) {
   .island, .summit.reached .summit-icon, .stars, .cloud { animation: none; }
-  .climber { transition: none; }
+  .climber, .climb-wrap, .tabbar { transition: none; }
 }
 
 /* ---- shared: view toggle ---- */
@@ -942,11 +943,11 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 
 @media (max-width: 420px) {
   .tierrow { grid-template-columns: 1fr; }
-  .climb-note { display: none; }
 }
 
 /* tab bar gets out of the way while climbing, and comes back on the way up */
 :root.tabs-hidden .tabbar { transform: translateY(105%); opacity: 0; pointer-events: none; }
+:root.tabs-hidden .climb-wrap { bottom: 0; }
 
 /* ---- floating rank badge ---- */
 .rank-float { position: absolute; right: 20px; bottom: 24px; z-index: 20; }
@@ -982,8 +983,8 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 
 /* ---- level bands: one hue per module, with a gate where the level changes ---- */
 .band-zone {
-  position: absolute; left: -14px; right: -14px; pointer-events: none;
-  border-radius: 22px;
+  /* the lane is centred and the sky clips, so a symmetric overhang reads as full bleed */
+  position: absolute; left: -50vw; right: -50vw; pointer-events: none;
   background: linear-gradient(0deg,
     hsla(var(--hue), 60%, 55%, 0.15), hsla(var(--hue), 60%, 55%, 0.05) 55%, transparent);
   border-bottom: 1px solid hsla(var(--hue), var(--band-sat), var(--band-lum), 0.45);
@@ -992,7 +993,7 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 /* the gate sits at the foot of the band: you pass through it on the way up */
 .band-gate {
   position: absolute; bottom: -13px; left: 0; right: 0;
-  display: flex; align-items: center; gap: 10px; padding: 0 10px;
+  display: flex; align-items: center; gap: 10px; padding: 0 18px;
 }
 .band-line { flex: 1; height: 2px; border-radius: 2px; background: hsla(var(--hue), var(--band-sat), var(--band-lum), 0.45); }
 .band-chip {
