@@ -9,6 +9,7 @@ import { Lesson } from './views/lesson';
 import { Glossary } from './views/glossary';
 import { Climb } from './views/climb';
 import { AccountButton, AccountView, SignInNudge, useCloud } from './views/account';
+import { ThemeButton, ThemeChoice } from './views/theme';
 import { initCloud } from './lib/cloud';
 import { AvatarCustomiser } from './views/avatar';
 import { DownloadForOffline } from './views/offline';
@@ -76,7 +77,10 @@ export function App() {
         <span class="brand">IB&nbsp;Technicals</span>
         <span class="brand-sub">interview prep</span>
         {!online && <span class="offline-pill">● offline</span>}
-        <AccountButton />
+        <span class="topbar-actions">
+          <ThemeButton />
+          <AccountButton />
+        </span>
       </header>
 
       <main class="content">
@@ -325,6 +329,9 @@ function More() {
   return (
     <section>
       <h1>More</h1>
+      <h2 class="section-h">Appearance</h2>
+      <ThemeChoice />
+      <h2 class="section-h">Everything else</h2>
       <ul class="list">
         <li onClick={() => navigate('account')}>☁️ Account &amp; sync</li>
         <li onClick={() => navigate('character')}>🧑‍💼 Your climber</li>

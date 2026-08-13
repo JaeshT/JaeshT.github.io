@@ -166,7 +166,7 @@ function blankSnapshot(): Snapshot {
       streak: { count: 0, lastDay: '' },
       unlockedEarly: [],
     },
-    settings: { theme: 'dark', dailyNewLimit: 20, timerSeconds: 90 },
+    settings: { theme: 'system', dailyNewLimit: 20, timerSeconds: 90 },
   };
 }
 

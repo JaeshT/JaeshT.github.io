@@ -153,7 +153,8 @@ export async function updateProgress(fn: (p: Progress) => Progress): Promise<Pro
 
 // ---- Settings ----
 export interface Settings {
-  theme: 'dark' | 'light';
+  /** 'system' follows the OS. Older records hold 'dark' or 'light', which stay valid. */
+  theme: 'system' | 'dark' | 'light';
   dailyNewLimit: number;
   timerSeconds: number; // out-loud answer timer; 0 = off
   avatar?: AvatarConfig; // chosen appearance; gear is earned by rank, not stored here
@@ -161,7 +162,7 @@ export interface Settings {
   updatedAt?: number;
 }
 
-const DEFAULT_SETTINGS: Settings = { theme: 'dark', dailyNewLimit: 20, timerSeconds: 90 };
+const DEFAULT_SETTINGS: Settings = { theme: 'system', dailyNewLimit: 20, timerSeconds: 90 };
 
 export async function getSettings(): Promise<Settings> {
   const s = await get<Settings>(SETTINGS_KEY, store);

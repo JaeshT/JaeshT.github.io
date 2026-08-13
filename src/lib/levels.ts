@@ -8,15 +8,19 @@ export interface Rank {
   colour: string; // character accent at this rank
 }
 
+/**
+ * The ladder warms as you climb: stone at the bottom, brass at the top. Chosen to sit on both
+ * the bone and the navy backgrounds, and to stay clear of the blue end entirely.
+ */
 export const RANKS: Rank[] = [
-  { level: 1, title: 'Intern', xp: 0, colour: '#8b95a5' },
-  { level: 2, title: 'Analyst 1', xp: 150, colour: '#4ea3ff' },
-  { level: 3, title: 'Analyst 2', xp: 350, colour: '#36d399' },
-  { level: 4, title: 'Analyst 3', xp: 600, colour: '#2bd4c6' },
-  { level: 5, title: 'Associate', xp: 900, colour: '#a78bfa' },
-  { level: 6, title: 'VP', xp: 1300, colour: '#f0b429' },
-  { level: 7, title: 'Director', xp: 1800, colour: '#fb7185' },
-  { level: 8, title: 'Managing Director', xp: 2500, colour: '#ffd166' },
+  { level: 1, title: 'Intern', xp: 0, colour: '#9a9382' },
+  { level: 2, title: 'Analyst 1', xp: 150, colour: '#7f9a86' },
+  { level: 3, title: 'Analyst 2', xp: 350, colour: '#6faa8c' },
+  { level: 4, title: 'Analyst 3', xp: 600, colour: '#89a86a' },
+  { level: 5, title: 'Associate', xp: 900, colour: '#c9a13f' },
+  { level: 6, title: 'VP', xp: 1300, colour: '#d98b4a' },
+  { level: 7, title: 'Director', xp: 1800, colour: '#c96a45' },
+  { level: 8, title: 'Managing Director', xp: 2500, colour: '#d9a441' },
 ];
 
 export interface Progression {

@@ -21,7 +21,9 @@ const BASE = 96; // ground strip height, px
 const LEFT = 28;
 const RIGHT = 72;
 // One hue per level, cycled. Crossing into a new module changes the colour of the whole band.
-const HUES = [145, 205, 262, 32, 190, 320, 95, 12];
+// Earth tones only, ordered so neighbouring levels never sit close on the wheel, and with the
+// blue and violet range left out so nothing competes with the accent.
+const HUES = [16, 96, 150, 38, 178, 334, 64, 122];
 
 interface Island {
   stage: Stage;

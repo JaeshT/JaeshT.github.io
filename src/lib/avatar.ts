@@ -12,8 +12,9 @@ export const DEFAULT_AVATAR: AvatarConfig = { skin: 2, hair: 1, hairColour: 0, a
 
 export const SKINS = ['#f7d9c0', '#f0c49b', '#d9a273', '#b47a4e', '#8a5a36', '#5c3a22'];
 export const HAIRSTYLES = ['None', 'Short', 'Swept', 'Curly', 'Bun', 'Long'];
-export const HAIR_COLOURS = ['#2c2320', '#5a3b23', '#a86b2d', '#d9c07a', '#9aa0aa', '#7c4dff'];
-export const ACCENTS = ['#e14b4b', '#4ea3ff', '#36d399', '#a78bfa', '#f0b429', '#ff7ab8'];
+export const HAIR_COLOURS = ['#2c2320', '#5a3b23', '#a86b2d', '#d9c07a', '#9a9382', '#6f5b8a'];
+// Tie and pocket-square colours, kept in the same earth range as the rest of the palette.
+export const ACCENTS = ['#c1503c', '#a4761c', '#457f5e', '#8a5a36', '#c96a45', '#7d4a5c'];
 
 /** Gear unlocks with rank. Earned, not chosen, so the climber visibly changes as you progress. */
 export interface Gear {
