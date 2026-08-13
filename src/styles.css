@@ -988,3 +988,68 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 }
 .empty-icon { font-size: 40px; }
 .empty-state p { margin: 0; color: var(--muted); max-width: 42ch; line-height: 1.55; }
+
+/* ================= Account and sync ================= */
+/* The topbar button is the only always-visible piece: a photo when signed in, a word when not. */
+.account-btn {
+  margin-left: auto; position: relative; display: flex; align-items: center; gap: 8px;
+  background: none; border: none; padding: 0; cursor: pointer; color: var(--muted);
+  font: inherit; font-size: 12px; align-self: center;
+}
+.account-btn-out {
+  border: 1px solid var(--border); background: var(--bg-elev); color: var(--text);
+  border-radius: 999px; padding: 5px 12px; font-weight: 600; font-size: 12px;
+}
+.account-btn-out:hover { border-color: var(--accent); }
+.account-dot {
+  position: absolute; top: -2px; right: -2px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--warn); border: 2px solid var(--bg);
+}
+.account-photo { border-radius: 50%; object-fit: cover; display: block; }
+.account-photo.initial {
+  display: grid; place-items: center; background: var(--bg-elev2);
+  border: 1px solid var(--border); color: var(--text); font-weight: 700;
+}
+
+.account-card {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; margin: 14px 0;
+}
+.account-card p { line-height: 1.55; }
+.account-head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+.account-glyph { font-size: 34px; line-height: 1; }
+.account-title { margin: 0 0 2px; font-size: 18px; }
+.account-head p { margin: 0; }
+.account-points { margin: 14px 0 18px; padding-left: 20px; color: var(--muted); line-height: 1.6; }
+.account-points li { margin-bottom: 5px; }
+.account-actions { display: flex; flex-wrap: wrap; gap: 4px; margin: 14px 0 10px; }
+
+/* Google's own mark on the button, on a light surface, the way their branding asks. */
+.btn.google {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: #1f1f1f; border-color: #dadce0; font-weight: 600;
+}
+.btn.google:hover { background: #f6f7f9; }
+.btn.google:disabled { opacity: 0.65; cursor: default; }
+.gmark { width: 18px; height: 18px; flex: none; }
+
+.sync-line {
+  display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 13px;
+  padding: 10px 0 2px;
+}
+.sync-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); flex: none; }
+.sync-line.pending .sync-dot { background: var(--warn); }
+.sync-line.busy .sync-dot { background: var(--accent); animation: syncpulse 1s ease-in-out infinite; }
+@keyframes syncpulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+
+.nudge {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px; margin: 18px 0;
+}
+.nudge .btn { margin: 0; }
+
+.linkish {
+  background: none; border: none; padding: 0; font: inherit; color: var(--accent);
+  cursor: pointer; text-decoration: underline;
+}

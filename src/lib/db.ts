@@ -7,6 +7,29 @@ import type { AvatarConfig } from './avatar';
 
 const store = createStore('ib-prep-db', 'kv');
 
+// ---- Change notifications ----
+// Two separate channels, because they mean different things:
+//   local writes  -> the cloud sync scheduler wants to know about every single one
+//   remote applied -> a sync pulled something new, so open screens need to reload
+// Firing one channel for both would make every graded card re-fetch the ladder mid-drill.
+type Listener = () => void;
+const localWriteListeners = new Set<Listener>();
+const remoteAppliedListeners = new Set<Listener>();
+
+function emitLocalWrite() {
+  for (const fn of localWriteListeners) fn();
+}
+
+export function onLocalWrite(fn: Listener): () => void {
+  localWriteListeners.add(fn);
+  return () => localWriteListeners.delete(fn);
+}
+
+export function onRemoteApplied(fn: Listener): () => void {
+  remoteAppliedListeners.add(fn);
+  return () => remoteAppliedListeners.delete(fn);
+}
+
 // ---- SRS scheduling state (SM-2), keyed by question id ----
 export interface SrsState {
   phase: 'learning' | 'review' | 'relearning';
@@ -32,7 +55,7 @@ export interface Attempt {
   hits: number;
   misses: number;
   confident: boolean;
-  burned: boolean; // was confident, then missed — sticky until you nail it again
+  burned: boolean; // was confident, then missed. Sticky until you nail it again
   last: number; // epoch ms
 }
 
@@ -49,6 +72,7 @@ export async function getSrsMap(): Promise<SrsMap> {
 
 export async function setSrsState(questionId: string, state: SrsState): Promise<void> {
   await update<SrsMap>(SRS_KEY, (prev) => ({ ...(prev ?? {}), [questionId]: state }), store);
+  emitLocalWrite();
 }
 
 export async function getAttempts(): Promise<AttemptMap> {
@@ -81,6 +105,7 @@ export async function recordAttempt(
     },
     store,
   );
+  emitLocalWrite();
   return next;
 }
 
@@ -122,6 +147,7 @@ export async function updateProgress(fn: (p: Progress) => Progress): Promise<Pro
     },
     store,
   );
+  emitLocalWrite();
   return next;
 }
 
@@ -131,6 +157,8 @@ export interface Settings {
   dailyNewLimit: number;
   timerSeconds: number; // out-loud answer timer; 0 = off
   avatar?: AvatarConfig; // chosen appearance; gear is earned by rank, not stored here
+  /** When these settings were last changed. Sync keeps whichever device edited them last. */
+  updatedAt?: number;
 }
 
 const DEFAULT_SETTINGS: Settings = { theme: 'dark', dailyNewLimit: 20, timerSeconds: 90 };
@@ -141,18 +169,57 @@ export async function getSettings(): Promise<Settings> {
 }
 
 export async function setSettings(s: Settings): Promise<void> {
-  await set(SETTINGS_KEY, s, store);
+  await set(SETTINGS_KEY, { ...s, updatedAt: Date.now() }, store);
+  emitLocalWrite();
+}
+
+// ---- Snapshots: the whole of a user's state in one object ----
+// Used by export/import, and by cloud sync as the unit that gets merged and pushed.
+export interface Snapshot {
+  v: 2;
+  updatedAt: number;
+  srs: SrsMap;
+  attempts: AttemptMap;
+  progress: Progress;
+  settings: Settings;
+}
+
+export async function snapshotAll(): Promise<Snapshot> {
+  const [srs, attempts, progress, settings] = await Promise.all([
+    getSrsMap(),
+    getAttempts(),
+    getProgress(),
+    getSettings(),
+  ]);
+  return { v: 2, updatedAt: Date.now(), srs, attempts, progress, settings };
+}
+
+/**
+ * Write a snapshot that came from somewhere else (a sync, or an imported file) over the top of
+ * local state. Returns whether anything actually changed, so callers can avoid pointless reloads.
+ * Deliberately does NOT fire the local-write channel: that would bounce straight back to the cloud.
+ */
+export async function applySnapshot(next: Snapshot): Promise<boolean> {
+  const current = await snapshotAll();
+  const same =
+    JSON.stringify(current.srs) === JSON.stringify(next.srs) &&
+    JSON.stringify(current.attempts) === JSON.stringify(next.attempts) &&
+    JSON.stringify(current.progress) === JSON.stringify(next.progress) &&
+    JSON.stringify(current.settings) === JSON.stringify(next.settings);
+  if (same) return false;
+  await Promise.all([
+    set(SRS_KEY, next.srs, store),
+    set(ATTEMPTS_KEY, next.attempts, store),
+    set(PROGRESS_KEY, next.progress, store),
+    set(SETTINGS_KEY, next.settings, store),
+  ]);
+  for (const fn of remoteAppliedListeners) fn();
+  return true;
 }
 
 // ---- Export / Import (backup against iOS ~7-day cache eviction; Mac<->iPhone sync) ----
 export async function exportAll(): Promise<string> {
-  const [srs, attempts, progress, settings] = await Promise.all([
-    get(SRS_KEY, store),
-    get(ATTEMPTS_KEY, store),
-    get(PROGRESS_KEY, store),
-    get(SETTINGS_KEY, store),
-  ]);
-  return JSON.stringify({ v: 2, srs, attempts, progress, settings }, null, 2);
+  return JSON.stringify(await snapshotAll(), null, 2);
 }
 
 export async function importAll(json: string): Promise<void> {
@@ -161,6 +228,32 @@ export async function importAll(json: string): Promise<void> {
   if (data.attempts) await set(ATTEMPTS_KEY, data.attempts, store);
   if (data.progress) await set(PROGRESS_KEY, data.progress, store);
   if (data.settings) await set(SETTINGS_KEY, data.settings, store);
+  emitLocalWrite();
+}
+
+// ---- Cloud sync bookkeeping (which account this device last synced with, and when) ----
+export interface CloudMeta {
+  lastUid?: string;
+  lastSync?: number;
+  pending?: boolean; // local changes made since the last successful push
+}
+const CLOUD_KEY = 'cloudMeta';
+
+export async function getCloudMeta(): Promise<CloudMeta> {
+  return (await get<CloudMeta>(CLOUD_KEY, store)) ?? {};
+}
+
+export async function setCloudMeta(patch: Partial<CloudMeta>): Promise<CloudMeta> {
+  let next: CloudMeta = {};
+  await update<CloudMeta>(
+    CLOUD_KEY,
+    (prev) => {
+      next = { ...(prev ?? {}), ...patch };
+      return next;
+    },
+    store,
+  );
+  return next;
 }
 
 // ---- Offline-pack status (set by the "Download for offline" button) ----

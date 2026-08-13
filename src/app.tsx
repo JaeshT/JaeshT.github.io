@@ -8,6 +8,8 @@ import { Review, DangerReview } from './views/review';
 import { Lesson } from './views/lesson';
 import { Glossary } from './views/glossary';
 import { Climb } from './views/climb';
+import { AccountButton, AccountView, SignInNudge, useCloud } from './views/account';
+import { initCloud } from './lib/cloud';
 import { AvatarCustomiser } from './views/avatar';
 import { DownloadForOffline } from './views/offline';
 import { BackLink, Empty, Loading, LoadError, Ring } from './views/ui';
@@ -57,6 +59,7 @@ export function App() {
 
   useEffect(() => {
     reload.current = setupPWA(() => setNeedRefresh(true));
+    void initCloud();
     const on = () => setOnline(true);
     const off = () => setOnline(false);
     window.addEventListener('online', on);
@@ -73,6 +76,7 @@ export function App() {
         <span class="brand">IB&nbsp;Technicals</span>
         <span class="brand-sub">interview prep</span>
         {!online && <span class="offline-pill">● offline</span>}
+        <AccountButton />
       </header>
 
       <main class="content">
@@ -130,6 +134,8 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
       return <Glossary />;
     case 'progress':
       return <ProgressView />;
+    case 'account':
+      return <AccountView />;
     case 'more':
       return <More />;
     default:
@@ -294,6 +300,7 @@ function Home() {
         ))}
       </div>
 
+      <SignInNudge />
       <DownloadForOffline />
       <InstallHint />
     </section>
@@ -319,6 +326,7 @@ function More() {
     <section>
       <h1>More</h1>
       <ul class="list">
+        <li onClick={() => navigate('account')}>☁️ Account &amp; sync</li>
         <li onClick={() => navigate('character')}>🧑‍💼 Your climber</li>
         <li onClick={() => navigate('glossary')}>📖 Glossary</li>
         <li onClick={() => navigate('danger')}>⚠️ Danger zone</li>
@@ -362,9 +370,9 @@ function ProgressView() {
     <section>
       <h1>Progress &amp; backup</h1>
       <DownloadForOffline />
+      <SyncNote />
       <p class="muted">
-        Everything is stored locally on this device (no server). Export to back up or to sync between
-        your Mac and iPhone.
+        A file backup works whether or not you are signed in, and is the one copy nobody else holds.
       </p>
       <button class="btn btn-primary" onClick={doExport}>
         Export backup
@@ -384,6 +392,28 @@ function ProgressView() {
       />
       {msg && <div class="banner info">{msg}</div>}
     </section>
+  );
+}
+
+/** Says plainly where this device's progress currently lives. */
+function SyncNote() {
+  const c = useCloud();
+  if (c.phase === 'signed-in' && c.user) {
+    return (
+      <p class="muted">
+        Signed in as {c.user.email}. Your progress syncs to your account, so this device is a copy
+        rather than the only one.
+      </p>
+    );
+  }
+  return (
+    <p class="muted">
+      Everything is stored in this browser on this device. Export to back it up, or{' '}
+      <button class="linkish" onClick={() => navigate('account')}>
+        sign in
+      </button>{' '}
+      to sync it to your account.
+    </p>
   );
 }
 

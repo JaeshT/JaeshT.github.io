@@ -30,11 +30,14 @@ public/content/          all study material — data, not code
   lessons/<id>/*.md      primers (markdown + KaTeX)
   glossary/*.json        merged, de-duplicated across files
 src/lib/                 schema, content loaders, curriculum gating, SRS, IndexedDB, markdown
+src/lib/cloud.ts         optional Google sign-in and Firestore sync (see ACCOUNTS.md)
 src/views/               path (ladder), drill (the study loop), lesson, glossary, offline
 ```
 
-Content is git-versioned and cached; **user state lives only in IndexedDB on the device** and never
-leaves it. Export/import from Progress to back up or move between devices.
+Content is git-versioned and cached. **User state lives in IndexedDB on the device.** Signing in
+adds a synced copy under your account so a second device picks up where the first left off; with
+no Firebase config in the build there is no sign-in and nothing leaves the device either way.
+Export/import from Progress works in both cases. Setup: [`ACCOUNTS.md`](ACCOUNTS.md).
 
 ## Adding content
 

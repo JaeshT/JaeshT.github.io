@@ -3,7 +3,15 @@
 
 import { useEffect, useState } from 'preact/hooks';
 import { loadAllBanks, loadIndex } from './content';
-import { getAttempts, getProgress, getSrsMap, type AttemptMap, type Progress, type SrsMap } from './db';
+import {
+  getAttempts,
+  getProgress,
+  getSrsMap,
+  onRemoteApplied,
+  type AttemptMap,
+  type Progress,
+  type SrsMap,
+} from './db';
 import { buildLadder, type ModuleState } from './curriculum';
 import type { ContentIndex, QuestionBank } from './schema';
 
@@ -42,6 +50,9 @@ export function useLadder(): { data: LadderState | null; error: boolean; reload:
       alive = false;
     };
   }, [nonce]);
+
+  // A sync that pulled something new from another device: pick it up without a page reload.
+  useEffect(() => onRemoteApplied(() => setNonce((n) => n + 1)), []);
 
   return { data, error, reload: () => setNonce((n) => n + 1) };
 }
