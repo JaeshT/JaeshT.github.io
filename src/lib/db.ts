@@ -9,9 +9,12 @@ const store = createStore('ib-prep-db', 'kv');
 
 // ---- SRS scheduling state (SM-2), keyed by question id ----
 export interface SrsState {
+  phase: 'learning' | 'review' | 'relearning';
+  step: number; // index into the learning or relearning steps
   ease: number; // ease factor, starts 2.5, floor 1.3
-  interval: number; // days until next review
-  reps: number; // consecutive successful reps
+  interval: number; // days until next review, once in the review phase
+  reps: number; // total answers
+  lapses: number; // times an established card was forgotten
   due: number; // epoch ms when next due
   lastReview: number; // epoch ms
 }
@@ -88,6 +91,8 @@ export interface Progress {
   stagesCleared: Record<string, number>;
   xp: number;
   streak: { count: number; lastDay: string }; // lastDay = YYYY-MM-DD
+  /** The home explainer is shown once; after that it is behind the info button. */
+  introSeen?: boolean;
   /** Stages you chose to open early rather than earn. Kept so the map can be honest about it. */
   unlockedEarly: string[];
   /** Highest island the climber has already been shown standing on, so hops animate once. */

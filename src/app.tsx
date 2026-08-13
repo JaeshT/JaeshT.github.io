@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useRoute, navigate, segments } from './lib/router';
 import { setupPWA, isIOS, isStandalone } from './lib/pwa';
-import { exportAll, importAll } from './lib/db';
+import { exportAll, importAll, updateProgress } from './lib/db';
 import { Path, ModuleView } from './views/path';
-import { StageDrill, ReviewDrill, DangerDrill } from './views/drill';
+import { StageDrill } from './views/drill';
+import { Review, DangerReview } from './views/review';
 import { Lesson } from './views/lesson';
 import { Glossary } from './views/glossary';
 import { Climb } from './views/climb';
@@ -25,8 +26,8 @@ import { TIER_LABEL, TIERS, type Tier } from './lib/schema';
 
 const NAV = [
   { tab: 'home', label: 'Home', icon: '🏠' },
-  { tab: 'path', label: 'Path', icon: '🗺️' },
   { tab: 'climb', label: 'Climb', icon: '🏔️' },
+  { tab: 'path', label: 'Path', icon: '🗺️' },
   { tab: 'review', label: 'Review', icon: '🎯' },
   { tab: 'more', label: 'More', icon: '⋯' },
 ];
@@ -116,9 +117,9 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
         <Empty title="Drill" note="No stage selected." back="path" />
       );
     case 'review':
-      return <ReviewDrill />;
+      return <Review />;
     case 'danger':
-      return <DangerDrill />;
+      return <DangerReview />;
     case 'lesson':
       return seg1 ? <Lesson id={seg1} /> : <Empty title="Primer" note="No primer selected." back="path" />;
     case 'climb':
@@ -138,6 +139,20 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
 
 function Home() {
   const { data, error } = useLadder();
+  const [showIntro, setShowIntro] = useState(false);
+  const [introChecked, setIntroChecked] = useState(false);
+
+  // Show the explainer once. After that it lives behind the info button.
+  useEffect(() => {
+    if (!data || introChecked) return;
+    setIntroChecked(true);
+    if (!data.progress.introSeen) setShowIntro(true);
+  }, [data, introChecked]);
+
+  async function dismissIntro() {
+    setShowIntro(false);
+    await updateProgress((p) => ({ ...p, introSeen: true }));
+  }
 
   if (error) return <LoadError title="Home" />;
   if (!data) return <Loading />;
@@ -151,7 +166,6 @@ function Home() {
   const tiers = tierProgress(data.modules);
   const weakest = weakestFirst(data.modules);
   const rank = progressionFor(data.progress.xp).rank;
-  const fresh = cov.nailed === 0;
 
   // One recommendation, with the reason attached, so the first tap is never a decision.
   const rec = burned > 0
@@ -164,9 +178,26 @@ function Home() {
 
   return (
     <section>
-      {fresh && (
+      <div class="home-head">
+        <h1 class="home-title">Where you stand</h1>
+        <button
+          class="info-btn"
+          aria-label="How this works"
+          title="How this works"
+          onClick={() => setShowIntro((v) => !v)}
+        >
+          i
+        </button>
+      </div>
+
+      {showIntro && (
         <div class="explainer">
-          <h2>How this works</h2>
+          <div class="explainer-head">
+            <h2>How this works</h2>
+            <button class="sheet-close" aria-label="Close" onClick={dismissIntro}>
+              ✕
+            </button>
+          </div>
           <ol>
             <li>
               Questions are grouped into <strong>modules</strong>, each split into easy, medium and
@@ -181,6 +212,9 @@ function Home() {
               not a score you bank.
             </li>
           </ol>
+          <button class="btn btn-ghost small" onClick={dismissIntro}>
+            Got it
+          </button>
         </div>
       )}
 

@@ -20,6 +20,8 @@ const BAND_GAP = 74; // extra space between one module and the next
 const BASE = 96; // ground strip height, px
 const LEFT = 28;
 const RIGHT = 72;
+// One hue per level, cycled. Crossing into a new module changes the colour of the whole band.
+const HUES = [145, 205, 262, 32, 190, 320, 95, 12];
 
 interface Island {
   stage: Stage;
@@ -28,12 +30,15 @@ interface Island {
   tierIndex: number; // 0,1,2 within its module
   x: number;
   y: number;
+  hue: number; // inherited from its level, so a module reads as one colour
 }
 
 interface Band {
   module: ModuleState;
   level: number;
-  y: number; // marker position
+  y: number; // gate marker position
+  top: number; // where the band ends, for the tinted backdrop
+  hue: number;
   islands: Island[];
 }
 
@@ -52,8 +57,9 @@ function buildRoute(modules: ModuleState[]): { islands: Island[]; bands: Band[] 
     if (stages.length === 0) continue;
 
     level += 1;
+    const hue = HUES[(level - 1) % HUES.length];
     const bandIslands: Island[] = [];
-    const markerY = y - 34;
+    const markerY = y - 40;
     stages.forEach((stage, tierIndex) => {
       const index = islands.length;
       const isl: Island = {
@@ -63,12 +69,13 @@ function buildRoute(modules: ModuleState[]): { islands: Island[]; bands: Band[] 
         tierIndex,
         x: index % 2 === 0 ? LEFT : RIGHT,
         y,
+        hue,
       };
       islands.push(isl);
       bandIslands.push(isl);
       y += ROW;
     });
-    bands.push({ module: m, level, y: markerY, islands: bandIslands });
+    bands.push({ module: m, level, y: markerY, top: y - ROW + 110, hue, islands: bandIslands });
     y += BAND_GAP;
   }
   return { islands, bands };
@@ -211,12 +218,22 @@ export function Climb() {
             </div>
 
             {bands.map((b) => (
-              <div key={b.module.ref.id} class={'band-marker ' + b.module.status} style={{ bottom: b.y + 'px' }}>
-                <span class="band-line" />
-                <span class="band-label">
-                  Level {b.level} · {b.module.ref.short}
-                </span>
-                <span class="band-line" />
+              <div
+                key={b.module.ref.id}
+                class={'band-zone ' + b.module.status}
+                style={{ bottom: b.y + 'px', height: b.top - b.y + 'px', '--hue': b.hue }}
+              >
+                <div class="band-gate">
+                  <span class="band-line" />
+                  <span class="band-chip">
+                    <span class="band-lvl">{b.level}</span>
+                    <span class="band-name">{b.module.ref.short}</span>
+                    <span class="band-sub">
+                      {b.islands.filter((i) => i.stage.status === 'cleared').length}/{b.islands.length}
+                    </span>
+                  </span>
+                  <span class="band-line" />
+                </div>
               </div>
             ))}
 
@@ -338,7 +355,7 @@ function IslandNode({
   return (
     <button
       class={`island ${stage.tier} ${stage.status}${isNext ? ' next' : ''}`}
-      style={{ left: island.x + '%', bottom: island.y + 'px' }}
+      style={{ left: island.x + '%', bottom: island.y + 'px', '--hue': island.hue }}
       onClick={onOpen}
     >
       <span class="island-card">
