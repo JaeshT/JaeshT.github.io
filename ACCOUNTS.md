@@ -37,13 +37,14 @@ text, no personal detail beyond the Google account you sign in with.
 
 ## Current state
 
-Steps 1 to 7 below are **done**, on project **`ib-tech-b24eb`** ("IB tech", Spark plan): web app
-registered, Google provider enabled, Firestore created in `europe-west2` (London), the rules
-below published, and `tewess.com` authorised alongside `localhost`. `.env.local` holds the config
-for local development. Verified by signing in and watching a drill answer reach `users/{uid}`.
+**All of it is done**, on project **`ib-tech-b24eb`** ("IB tech", Spark plan): web app registered,
+Google provider enabled, Firestore created in `europe-west2` (London), the rules below published,
+`tewess.com` authorised alongside `localhost`, and all six repository variables set on
+`JaeshT/JaeshT.github.io`. `.env.local` holds the same config for local development.
 
-**Step 8 is outstanding.** The deployed site has no config until the repository variables exist,
-so a deploy today would build without sign-in. Everything else is ready.
+Verified by signing in, answering a drill question and watching the attempt, XP, SRS schedule and
+settings arrive in `users/{uid}`. The steps below are kept as the record of what was done and as
+the recipe if this ever needs rebuilding.
 
 ## Turning it on
 

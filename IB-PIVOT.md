@@ -83,10 +83,10 @@ Both big guides are **copyrighted commercial products** and the site is public. 
 
    **Live project: `ib-tech-b24eb`** ("IB tech"), Spark plan, Firestore in `europe-west2`
    (London), Google provider on, rules published, `tewess.com` and `localhost` authorised. Local
-   config is in `.env.local` (gitignored). Verified end to end on 2026-08-13: signed in, answered
-   a drill question, and watched the attempt, XP, SRS schedule and settings arrive in
-   `users/{uid}`. **Outstanding: the six `VITE_FIREBASE_*` repository variables on GitHub**, which
-   the deployed site needs. Until they are set, a deploy builds without sign-in.
+   config is in `.env.local` (gitignored); the same six values are repository variables on
+   `JaeshT/JaeshT.github.io`, so a deploy builds with sign-in already working. Verified end to end
+   on 2026-08-13: signed in, answered a drill question, and watched the attempt, XP, SRS schedule
+   and settings arrive in `users/{uid}`. Accounts need no further setup.
 12. **House style, enforced on every file**: answers are scannable bullets rather than paragraphs,
    and the `humanizer` skill (installed at `~/.claude/skills/humanizer/`) is applied to all prose.
    No em dashes, no en dashes, no curly quotes, no bold, no "not just X but Y". There is a scan for
