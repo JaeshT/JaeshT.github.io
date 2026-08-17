@@ -419,26 +419,20 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .model-answer ol > li::marker { color: var(--accent); font-weight: 600; }
 .model-answer > p:first-child { margin-top: 0; }
 .model-answer > :last-child { margin-bottom: 0; }
-.selfgrade { display: flex; gap: 10px; margin-top: 12px; }
 .result-card { background: var(--bg-elev); border: 1px solid var(--accent); border-radius: var(--radius); padding: 26px; text-align: center; margin: 16px 0; }
 .result-score { font-size: 40px; font-weight: 700; }
 
-/* ---- flashcards ---- */
-.flashcard {
-  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 28px 20px; min-height: 200px; display: flex; flex-direction: column; justify-content: center;
-  text-align: center; cursor: pointer; margin: 8px 0 16px;
+/* The unflipped face of a drill card: the prompt on its own, with room to think. Deliberately
+   shaped like the front of a review card, because they are the same thing. */
+.qcard-front {
+  min-height: 220px; display: flex; flex-direction: column; justify-content: center;
+  text-align: center; cursor: pointer;
 }
-.flashcard.flipped { border-color: var(--accent); }
-.fc-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 12px; }
-.fc-body { font-size: 19px; line-height: 1.5; }
+.qcard-front .qprompt { font-size: 19px; line-height: 1.5; }
+.qcard-front .btn.big { margin-top: 18px; }
 .fc-hint { margin-top: 16px; }
-.grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.grade { font: inherit; font-weight: 600; padding: 14px 0; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-elev2); color: var(--text); cursor: pointer; }
-.grade.again { border-color: var(--danger); }
-.grade.hard { border-color: var(--warn); }
-.grade.good { border-color: var(--accent); }
-.grade.easy { border-color: var(--accent-2); }
+/* .grade-row / .grade are defined once, in the flashcard block further down. They used to appear
+   twice, the two copies disagreeing on padding and colours, with the later one always winning. */
 
 /* ---- glossary ---- */
 .search { width: 100%; font: inherit; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-elev); color: var(--text); margin: 6px 0 14px; }
@@ -698,8 +692,6 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
 .bar.thin { height: 4px; margin-bottom: 14px; }
 .timer { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; margin-bottom: 8px; }
 .timer.over { color: var(--warn); }
-.commit-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-.commit-row .btn { width: 100%; }
 .answer-label { font-size: 12px; color: var(--muted); margin: 2px 0 10px; }
 
 .keypoints { margin-top: 14px; }
@@ -1128,7 +1120,10 @@ h1 { font-size: 24px; margin: 6px 0 4px; }
   background: var(--bg-elev2); font-size: 13.5px; color: var(--muted); line-height: 1.5;
 }
 
-.grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+/* The top margin matters: in review the flashcard above supplies its own gap, but in the drill
+   these buttons follow the answer box or the key-point checklist directly, and with no margin
+   they sat flush against it and read as overlapping. */
+.grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px; }
 .grade {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   padding: 11px 4px; border-radius: 12px; cursor: pointer; font: inherit;

@@ -51,15 +51,22 @@ export type SrsMap = Record<string, SrsState>;
 /**
  * What happened the last time this question came up.
  *   hits/misses: how often you nailed it vs. missed it
- *   confident: you said "I know this" BEFORE seeing the answer
- * A question you were confident about and then missed is the highest-value thing to restudy;
- * that combination is what the Danger Zone surfaces.
+ *   burned: you had this one right before, and then lost it
+ *
+ * Burned is what the Danger Zone surfaces, because a question you used to know and no longer do
+ * is worth more of your attention than one you have simply never learned.
+ *
+ * It used to mean "you claimed to know it before the reveal, and then missed it". That claim came
+ * from a commit step the drill no longer has: every question now reveals and then grades, the same
+ * way in every section. Losing something you previously had is the honest surviving version of the
+ * same signal, and it costs no extra tap to collect.
  */
 export interface Attempt {
   hits: number;
   misses: number;
+  /** Vestigial: the old pre-reveal claim. Kept so existing records and syncs stay readable. */
   confident: boolean;
-  burned: boolean; // was confident, then missed. Sticky until you nail it again
+  burned: boolean; // had it, then lost it. Sticky until you nail it again
   last: number; // epoch ms
 }
 
@@ -111,12 +118,8 @@ export async function getAttempts(): Promise<AttemptMap> {
 
 export const EMPTY_ATTEMPT: Attempt = { hits: 0, misses: 0, confident: false, burned: false, last: 0 };
 
-/** Record one graded answer. `confident` is what you claimed before the reveal. */
-export async function recordAttempt(
-  questionId: string,
-  hit: boolean,
-  confident: boolean,
-): Promise<AttemptMap> {
+/** Record one graded answer. */
+export async function recordAttempt(questionId: string, hit: boolean): Promise<AttemptMap> {
   let next: AttemptMap = {};
   await update<AttemptMap>(
     ATTEMPTS_KEY,
@@ -126,8 +129,9 @@ export async function recordAttempt(
       map[questionId] = {
         hits: cur.hits + (hit ? 1 : 0),
         misses: cur.misses + (hit ? 0 : 1),
-        confident,
-        burned: hit ? false : cur.burned || confident,
+        confident: cur.confident,
+        // Missing something you had right before is what burns it. Nailing it again puts it out.
+        burned: hit ? false : cur.burned || cur.hits > 0,
         last: Date.now(),
       };
       next = map;

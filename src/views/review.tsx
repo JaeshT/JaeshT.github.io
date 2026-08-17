@@ -92,7 +92,7 @@ export function Review({ mode = 'due' }: { mode?: Mode }) {
     try {
       const next = srsReview(srs[card.q.id], g);
       await setSrsState(card.q.id, next);
-      await recordAttempt(card.q.id, g !== 'again', false);
+      await recordAttempt(card.q.id, g !== 'again');
       await recordStudy(g === 'again' ? 1 : 3);
       setSrs((m) => ({ ...m, [card.q.id]: next }));
       setCounts((c) => ({ done: c.done + 1, again: c.again + (g === 'again' ? 1 : 0) }));
@@ -145,7 +145,7 @@ export function Review({ mode = 'due' }: { mode?: Mode }) {
           <div class="empty-icon">{mode === 'danger' ? '🛡️' : '✅'}</div>
           <p>
             {mode === 'danger'
-              ? 'Nothing burned. Questions land here when you say you know one and then miss it.'
+              ? 'Nothing burned. Questions land here when you had one right before and then lose it.'
               : 'Nothing due. Cards arrive here after you have met them in a drill, and come back on a schedule.'}
           </p>
           <button class="btn btn-primary" onClick={() => navigate('climb')}>
@@ -270,10 +270,11 @@ function QueueInfo({ mode, limit }: { mode: Mode; limit: number }) {
         <h2>What is in the danger zone</h2>
         <ul>
           <li>
-            Questions you said you knew <em>before</em> the reveal, and then missed.
+            Questions you <em>had right before</em>, and then graded Again.
           </li>
           <li>
-            That combination is the one worth fixing first: it is the gap you do not know you have.
+            Something you have lost is worth fixing ahead of something you never learned: it is the
+            gap you do not know you have.
           </li>
           <li>A question leaves once you nail it again.</li>
         </ul>

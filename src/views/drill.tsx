@@ -1,15 +1,18 @@
-// The drill runner: the main study loop, and the thing that makes this not a flashcard app.
+// The drill runner: the main study loop.
 //
-// Each question runs: commit → answer → grade.
-//   1. COMMIT  you say out loud whether you know it, before seeing anything. A timer runs, because
-//              in a real interview the silence is part of the question.
-//   2. ANSWER  the say-it-out-loud model answer, plus the must-hit points as a checklist you tick
-//              off against what you actually said. Auto-gradeable questions get checked properly.
-//   3. GRADE   nailed or missed. Confident-then-missed marks the question "burned": it turns up
-//              in the Danger Zone, because that combination is what actually loses interviews.
+// Every question in every section runs the same two beats, so the climb, the path and review are
+// one system rather than three:
+//   1. FRONT  the prompt on its own, with a timer, because in a real interview the silence is part
+//             of the question. You answer it out loud, then flip. Space, click or the button.
+//   2. BACK   the say-it-out-loud model answer, the must-hit points as a checklist you tick off
+//             against what you actually said, and the four-button grade.
+//
+// There used to be a commit step before the reveal ("Not sure" / "I know this") and a separate
+// nailed-or-missed grade after it, which meant answering the same question twice, and only in some
+// stages. One grade, always the same four buttons, always after the reveal.
 
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { navigate } from '../lib/router';
+import { lastLadderView, navigate } from '../lib/router';
 import { renderMarkdown } from '../lib/md';
 import {
   getAttempts,
@@ -48,8 +51,19 @@ function titleFor(mode: Mode, moduleTitle: string): string {
   return 'Danger zone';
 }
 
+/**
+ * Where "back" goes. The climb opens a drill directly, so sending you to the module page would
+ * drop you somewhere you never opened, and its own back link leads to the path: a section you
+ * were never in. From the path the module page IS where you came from, so it stays.
+ */
 function backFor(mode: Mode): string {
-  return mode.kind === 'stage' ? `module/${mode.moduleId}` : 'home';
+  if (mode.kind !== 'stage') return 'home';
+  return lastLadderView() === 'climb' ? 'climb' : `module/${mode.moduleId}`;
+}
+
+function backLabelFor(mode: Mode, moduleTitle: string): string {
+  if (mode.kind !== 'stage') return 'Home';
+  return lastLadderView() === 'climb' ? 'Climb' : moduleTitle || 'Back';
 }
 
 function Drill({ mode }: { mode: Mode }) {
@@ -67,30 +81,21 @@ function Drill({ mode }: { mode: Mode }) {
   // equivalent but is not: any reload of the ladder (a cloud sync applying a snapshot, say) handed
   // back a fresh `data`, the memo recomputed, and since the ordering puts unseen questions first,
   // grading a card reordered the list underneath the current index and the card visibly jumped.
-  const frozen = useRef<{ queue: Question[]; anki: boolean } | null>(null);
+  const frozen = useRef<Question[] | null>(null);
   if (!frozen.current && data) {
     if (mode.kind === 'stage') {
       const bank = data.banks[mode.moduleId];
       const qs = bank ? bank.questions.filter((q) => q.tier === mode.tier) : [];
-      const attempted = (q: Question) =>
-        ((data.attempts[q.id]?.hits ?? 0) + (data.attempts[q.id]?.misses ?? 0)) > 0;
       const seen = (q: Question) => (data.attempts[q.id]?.hits ?? 0) > 0 && !data.attempts[q.id]?.burned;
-      frozen.current = {
-        // Unseen questions first: you make progress before you revise.
-        queue: [...qs.filter((q) => !seen(q)), ...qs.filter(seen)],
-        // Once every question here has been met once, the whole stage grades on the four-button
-        // scale. Before that a first pass is just "did I know it", which is all you can honestly
-        // say about material you have never seen.
-        anki: qs.length > 0 && qs.every(attempted),
-      };
+      // Unseen questions first: you make progress before you revise.
+      frozen.current = [...qs.filter((q) => !seen(q)), ...qs.filter(seen)];
     } else if (mode.kind === 'review') {
-      frozen.current = { queue: dueQuestions(data.banks, data.attempts, data.srs), anki: true };
+      frozen.current = dueQuestions(data.banks, data.attempts, data.srs);
     } else {
-      frozen.current = { queue: dangerZone(data.banks, data.attempts).map((d) => d.question), anki: true };
+      frozen.current = dangerZone(data.banks, data.attempts).map((d) => d.question);
     }
   }
-  const queue = frozen.current?.queue ?? null;
-  const ankiGrading = frozen.current?.anki ?? false;
+  const queue = frozen.current;
 
   if (error) return <LoadError title="Drill" back={backFor(mode)} />;
   if (!data || !queue) return <Loading />;
@@ -101,7 +106,7 @@ function Drill({ mode }: { mode: Mode }) {
   if (queue.length === 0) {
     const note =
       mode.kind === 'danger'
-        ? 'Nothing burned. Questions land here when you claim you know one and then miss it.'
+        ? 'Nothing burned. Questions land here when you had one right before and then lose it.'
         : mode.kind === 'review'
           ? 'Nothing due for review. Come back tomorrow, or start a new stage from the path.'
           : 'No questions written for this stage yet.';
@@ -125,7 +130,7 @@ function Drill({ mode }: { mode: Mode }) {
 
   const q = queue[pos];
 
-  async function onGraded(grade: Grade, confident: boolean) {
+  async function onGraded(grade: Grade) {
     // Guard against a second grade landing while the first is still writing: a double tap, or a
     // keypress arriving on a button that already has focus, used to advance two questions at once.
     if (grading.current) return;
@@ -133,7 +138,7 @@ function Drill({ mode }: { mode: Mode }) {
     try {
       const question = queue![pos];
       const hit = grade !== 'again';
-      await recordAttempt(question.id, hit, confident);
+      await recordAttempt(question.id, hit);
       const srs = await getSrsMap();
       await setSrsState(question.id, srsReview(srs[question.id], grade));
       await recordStudy(hit ? 4 : 1);
@@ -146,7 +151,7 @@ function Drill({ mode }: { mode: Mode }) {
 
   return (
     <section>
-      <BackLink to={backFor(mode)} label={mode.kind === 'stage' ? moduleTitle || 'Back' : 'Home'} />
+      <BackLink to={backFor(mode)} label={backLabelFor(mode, moduleTitle)} />
       <div class="drill-head">
         <span class="muted small">{title}</span>
         <span class="muted small">
@@ -156,37 +161,25 @@ function Drill({ mode }: { mode: Mode }) {
       <div class="bar thin">
         <div class="bar-fill" style={{ width: ((pos / queue.length) * 100).toFixed(1) + '%' }} />
       </div>
-      <QuestionRunner
-        key={q.id}
-        q={q}
-        timerTarget={timerTarget}
-        ankiGrading={ankiGrading}
-        srs={data.srs}
-        onGraded={onGraded}
-      />
+      <QuestionRunner key={q.id} q={q} timerTarget={timerTarget} srs={data.srs} onGraded={onGraded} />
     </section>
   );
 }
 
 // ---- one question ----
 
-type Phase = 'commit' | 'answer';
-
 function QuestionRunner({
   q,
   timerTarget,
-  ankiGrading,
   srs,
   onGraded,
 }: {
   q: Question;
   timerTarget: number;
-  ankiGrading: boolean;
   srs: SrsMap;
-  onGraded: (grade: Grade, confident: boolean) => void;
+  onGraded: (grade: Grade) => void;
 }) {
-  const [phase, setPhase] = useState<Phase>('commit');
-  const [confident, setConfident] = useState(false);
+  const [flipped, setFlipped] = useState(false);
   const [elapsed, setElapsed] = useState(0);
   const [ticked, setTicked] = useState<Record<number, boolean>>({});
   const [deep, setDeep] = useState(false);
@@ -200,16 +193,51 @@ function QuestionRunner({
     return () => clearInterval(t);
   }, []);
 
+  // Space flips, 1-4 grade once the answer is showing. Identical to review, deliberately: the two
+  // screens are the same card system and muscle memory should carry between them. Keys are ignored
+  // while focus sits in a control, so pressing a button never also flips the card.
+  //
+  // Subscribed exactly once per card, with the changing values read through refs. Listing `flipped`
+  // and `onGraded` as dependencies instead re-subscribes on every render, and onGraded is a fresh
+  // closure each time the drill re-renders: grading a card left two listeners attached for a beat,
+  // so the next space toggled twice and appeared to do nothing.
+  const flippedRef = useRef(false);
+  const gradeRef = useRef(onGraded);
+  gradeRef.current = onGraded;
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null;
+      if (el && /^(BUTTON|INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        flippedRef.current = !flippedRef.current;
+        setFlipped(flippedRef.current);
+        return;
+      }
+      if (!flippedRef.current) return;
+      const idx = ['1', '2', '3', '4'].indexOf(e.key);
+      if (idx >= 0) {
+        e.preventDefault();
+        gradeRef.current((['again', 'hard', 'good', 'easy'] as Grade[])[idx]);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  /** Clicks and the button flip too, so the ref the keyboard reads has to move with them. */
+  function flip(next: boolean) {
+    flippedRef.current = next;
+    setFlipped(next);
+  }
+
   const points = q.keyPoints ?? [];
   const hitCount = points.filter((_, i) => ticked[i]).length;
 
-  function reveal(isConfident: boolean) {
-    setConfident(isConfident);
-    setPhase('answer');
-  }
-
-  // Auto-gradeable questions resolve objectively; everything else is an honest self-grade.
-  if (q.check && phase === 'commit') {
+  // Auto-gradeable questions resolve objectively first, then flip to the model answer and grade
+  // on the same four buttons as everything else.
+  if (q.check && !flipped) {
     return (
       <div class="qcard">
         <Timer elapsed={elapsed} target={timerTarget} />
@@ -273,11 +301,8 @@ function QuestionRunner({
               {q.check.type === 'numeric' && !checkHit ? `Answer: ${q.check.answer}${q.check.unit ?? ''}. ` : ''}
               {q.check.explanation ?? ''}
             </div>
-            <button
-              class="btn btn-primary big"
-              onClick={() => onGraded(checkHit ? 'good' : 'again', false)}
-            >
-              Next →
+            <button class="btn btn-primary big" onClick={() => flip(true)}>
+              Show answer
             </button>
           </>
         )}
@@ -285,20 +310,22 @@ function QuestionRunner({
     );
   }
 
-  if (phase === 'commit') {
+  if (!flipped) {
     return (
-      <div class="qcard">
+      <div class="qcard qcard-front" onClick={() => flip(true)} role="button" tabIndex={0}>
         <Timer elapsed={elapsed} target={timerTarget} />
         <p class="qprompt">{q.prompt}</p>
-        <p class="muted small">Answer it out loud first. Then commit, honestly.</p>
-        <div class="commit-row">
-          <button class="btn btn-ghost" onClick={() => reveal(false)}>
-            Not sure
-          </button>
-          <button class="btn btn-primary" onClick={() => reveal(true)}>
-            I know this
-          </button>
-        </div>
+        <p class="muted small">Answer it out loud first.</p>
+        <button
+          class="btn btn-primary big"
+          onClick={(e) => {
+            e.stopPropagation();
+            flip(true);
+          }}
+        >
+          Show answer
+        </button>
+        <div class="fc-hint muted small">Tap or press space to flip</div>
       </div>
     );
   }
@@ -306,9 +333,7 @@ function QuestionRunner({
   return (
     <div class="qcard">
       <p class="qprompt">{q.prompt}</p>
-      <div class="answer-label">
-        {confident ? '🎯 You said you knew it' : '🤔 You said you were unsure'} · {elapsed}s
-      </div>
+      <div class="answer-label">Answer · you took {elapsed}s</div>
       <div class="model-answer prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(q.answer) }} />
 
       {points.length > 0 && (
@@ -338,18 +363,10 @@ function QuestionRunner({
         </div>
       )}
 
-      {ankiGrading ? (
-        <GradeButtons srs={srs} id={q.id} onGrade={(g) => onGraded(g, confident)} />
-      ) : (
-        <div class="selfgrade">
-          <button class="btn btn-ghost" onClick={() => onGraded('again', confident)}>
-            Missed it
-          </button>
-          <button class="btn btn-primary" onClick={() => onGraded('good', confident)}>
-            Nailed it →
-          </button>
-        </div>
-      )}
+      {/* Keyed by question: GradeButtons holds a one-shot `fired` guard, and without a key Preact
+          reuses the instance across cards, so the guard stays tripped and the first press on the
+          next card is swallowed. Review keys it for the same reason. */}
+      <GradeButtons key={q.id} srs={srs} id={q.id} onGrade={onGraded} />
       {points.length > 0 && hitCount < Math.ceil(points.length * 0.6) && (
         <p class="muted small center">
           You ticked {hitCount} of {points.length}, which is usually a miss.

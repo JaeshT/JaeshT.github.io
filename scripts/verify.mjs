@@ -348,7 +348,92 @@ check('numeric answers are real numbers', () => {
   assert(bad.length === 0, bad.slice(0, 5).join('; '));
 });
 
-// ----------------------------------------------------------------- 4. build
+// ------------------------------------------------------- 4. one card system
+
+// The drill and review drifted apart once before: the drill asked you to commit before the reveal
+// and then grade again after it, while review simply flipped and graded. These pin the two to the
+// same interaction so they cannot separate again without someone deciding to.
+
+section('one card system');
+
+/** Comments explain what was removed and why, so only real code should be searched for it. */
+function code(src) {
+  return src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
+}
+
+const drillSrc = code(readFileSync(join(ROOT, 'src', 'views', 'drill.tsx'), 'utf8'));
+const reviewSrc = code(readFileSync(join(ROOT, 'src', 'views', 'review.tsx'), 'utf8'));
+const uiSrc = readFileSync(join(ROOT, 'src', 'views', 'ui.tsx'), 'utf8');
+const cssSrc = readFileSync(join(ROOT, 'src', 'styles.css'), 'utf8');
+
+check('the drill has no pre-reveal commit step', () => {
+  for (const dead of ['I know this', 'Not sure', 'commit-row']) {
+    assert(!drillSrc.includes(dead), `drill.tsx still references "${dead}"`);
+  }
+});
+
+check('nothing grades on anything but the four buttons', () => {
+  for (const dead of ['Nailed it', 'Missed it', 'selfgrade', 'ankiGrading']) {
+    assert(!drillSrc.includes(dead), `drill.tsx still references "${dead}"`);
+  }
+});
+
+check('both drill and review grade through the shared GradeButtons', () => {
+  assert(uiSrc.includes('export function GradeButtons'), 'GradeButtons is not in ui.tsx');
+  for (const [name, src] of [['drill', drillSrc], ['review', reviewSrc]]) {
+    assert(src.includes('<GradeButtons'), `${name}.tsx does not render GradeButtons`);
+  }
+});
+
+check('GradeButtons is keyed by question in both', () => {
+  // It holds a one-shot guard against double-firing. Unkeyed, Preact reuses the instance between
+  // cards, the guard stays tripped, and the next card ignores its first press.
+  assert(uiSrc.includes('const fired = useRef(false)'), 'GradeButtons no longer holds a fired guard');
+  for (const [name, src] of [['drill', drillSrc], ['review', reviewSrc]]) {
+    assert(/<GradeButtons\s+key=/.test(src), `${name}.tsx renders GradeButtons without a key`);
+  }
+});
+
+check('both drill and review flip on space and grade on 1-4', () => {
+  for (const [name, src] of [['drill', drillSrc], ['review', reviewSrc]]) {
+    assert(src.includes("e.key === ' '"), `${name}.tsx has no space-to-flip handler`);
+    assert(
+      src.includes("['1', '2', '3', '4']"),
+      `${name}.tsx does not grade on the number keys`,
+    );
+    assert(
+      src.includes('/^(BUTTON|INPUT|TEXTAREA|SELECT)$/'),
+      `${name}.tsx would let a keypress on a button also flip the card`,
+    );
+  }
+});
+
+check('the grade row is not flush against the answer above it', () => {
+  // Without a top margin these buttons sat against the answer box and read as overlapping it.
+  const rule = cssSrc.match(/^\.grade-row \{[^}]*\}/m);
+  assert(rule, '.grade-row rule not found');
+  assert(/margin-top:\s*(?!0)/.test(rule[0]), '.grade-row has no top margin');
+});
+
+check('.grade-row is laid out in exactly one place', () => {
+  // It was declared twice with different values, so which one applied depended on file order and
+  // the margin fix could be silently undone by editing the wrong copy. Later single-property
+  // theme refinements like `.grade { box-shadow: … }` are fine; a second layout rule is not.
+  const n = (cssSrc.match(/^\.grade-row(?=[\s{])/gm) ?? []).length;
+  assert(n === 1, `.grade-row is declared ${n} times; the copies disagreed and shadowed`);
+});
+
+check('a drill entered from the climb goes back to the climb', () => {
+  assert(drillSrc.includes('lastLadderView'), 'drill.tsx does not consult the remembered view');
+  const appSrc = readFileSync(join(ROOT, 'src', 'app.tsx'), 'utf8');
+  assert(appSrc.includes('rememberLadderView'), 'app.tsx never records which ladder view you are on');
+  assert(
+    !/\['path',\s*'module',\s*'lesson',\s*'drill'\]/.test(appSrc),
+    'app.tsx still pins module/lesson/drill to the path tab',
+  );
+});
+
+// ----------------------------------------------------------------- 5. build
 
 if (FULL) {
   section('build');

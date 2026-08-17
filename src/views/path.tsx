@@ -1,7 +1,7 @@
 // The Path: the curriculum ladder and the detail screen for one module.
 // Every rung shows three tier pips: easy, medium, hard, and you climb them in order.
 
-import { navigate } from '../lib/router';
+import { lastLadderView, navigate } from '../lib/router';
 import { updateProgress } from '../lib/db';
 import { TIERS, TIER_LABEL, type Tier } from '../lib/schema';
 import { stageKey, type ModuleState, type Stage } from '../lib/curriculum';
@@ -91,7 +91,10 @@ export function ModuleView({ id }: { id: string }) {
 
   return (
     <section>
-      <BackLink to="path" label="Path" />
+      <BackLink
+        to={lastLadderView()}
+        label={lastLadderView() === 'climb' ? 'Climb' : 'Path'}
+      />
       <h1>
         {m.ref.icon} {m.ref.title}
       </h1>

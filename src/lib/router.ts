@@ -29,3 +29,30 @@ export function useRoute(): string {
 export function segments(path: string): string[] {
   return path.split('/').filter(Boolean);
 }
+
+// ---- which ladder view you came from ----
+//
+// The path and the climb show the same stages, but they reach a drill differently: the path goes
+// through the module page, the climb opens the drill directly. Without remembering which one you
+// were on, a drill started from the climb sends you "back" to the module page and from there to
+// the path, so you end up in a section you were never in. Session-scoped, because it describes
+// this visit rather than a preference worth keeping.
+
+export type LadderView = 'path' | 'climb';
+const LADDER_KEY = 'ib-ladder-view';
+
+export function rememberLadderView(view: LadderView): void {
+  try {
+    sessionStorage.setItem(LADDER_KEY, view);
+  } catch {
+    // Private browsing can refuse storage. Falling back to the default is fine.
+  }
+}
+
+export function lastLadderView(): LadderView {
+  try {
+    return sessionStorage.getItem(LADDER_KEY) === 'climb' ? 'climb' : 'path';
+  } catch {
+    return 'path';
+  }
+}

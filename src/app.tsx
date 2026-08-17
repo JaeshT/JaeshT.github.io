@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { useRoute, navigate, segments } from './lib/router';
+import { useRoute, navigate, segments, lastLadderView, rememberLadderView } from './lib/router';
 import { setupPWA, isIOS, isStandalone } from './lib/pwa';
 import { exportAll, importAll, migrateSrsToFsrs, updateProgress } from './lib/db';
 import { Path, ModuleView } from './views/path';
@@ -36,9 +36,12 @@ const NAV = [
 ];
 
 function tabFor(seg0: string): string {
-  if (['path', 'module', 'lesson', 'drill'].includes(seg0)) return 'path';
-  if (['review', 'danger'].includes(seg0)) return 'review';
+  if (seg0 === 'path') return 'path';
   if (seg0 === 'climb') return 'climb';
+  // A module, a primer and a drill all belong to whichever ladder view you opened them from.
+  // Hard-coding "path" here lit the wrong tab for the entire time you were inside the climb.
+  if (['module', 'lesson', 'drill'].includes(seg0)) return lastLadderView();
+  if (['review', 'danger'].includes(seg0)) return 'review';
   if (seg0 === 'home') return 'home';
   return 'more';
 }
@@ -55,6 +58,8 @@ export function App() {
   const reload = useRef<(() => void) | null>(null);
 
   useEffect(() => {
+    // Landing on either ladder view records it, so everything opened from here goes back to it.
+    if (seg0 === 'path' || seg0 === 'climb') rememberLadderView(seg0);
     if (tabFor(seg0 ?? 'home') !== 'climb') document.documentElement.classList.remove('tabs-hidden');
   }, [seg0]);
 
