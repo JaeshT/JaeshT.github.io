@@ -1,0 +1,154 @@
+{
+  "project": "tewess.com IB technicals prep",
+  "howToUse": "The durable goal state for long-horizon work. An agent picks up here after any context reset. Read this and progress.md, run `npm run verify`, then take the highest-priority item whose status is 'failing'. Only move a status to 'passing' when every line of its acceptance list is true AND `npm run verify` exits 0. Never weaken an acceptance criterion to make something pass: change it only if Jan says the goal itself changed.",
+  "statusValues": {
+    "failing": "not done, or done but unproven",
+    "passing": "acceptance met and verification green",
+    "blocked": "cannot proceed, reason recorded in `blockedBy`"
+  },
+  "invariants": [
+    "Content lives in public/content and is git-versioned. User state lives in IndexedDB and is never committed.",
+    "Question ids are permanent. Changing one orphans that card's real scheduling history in Jan's account.",
+    "Never delete or weaken a check in scripts/verify.mjs to get a task past the gate.",
+    "Every module tier needs at least one question or it renders as a stage that can be entered but never cleared.",
+    "Deploy only when Jan asks. `npm run verify:full` must be green first."
+  ],
+  "goals": [
+    {
+      "id": "sector-restructuring",
+      "title": "Restructuring & distressed desk",
+      "status": "failing",
+      "priority": 1,
+      "why": "The only sector desk with a dedicated 15pp source guide already gathered, so it is the cheapest to do well and the natural first one.",
+      "acceptance": [
+        "public/content/modules/restructuring.json exists with >= 45 questions",
+        "at least 15 easy, 15 medium, 10 hard",
+        "index.json entry for 'restructuring' carries a bank path",
+        "every question has a spoken answer of roughly 60 seconds",
+        "questions carry sector: 'restructuring'",
+        "the desk opens in the app and a drill can be completed end to end"
+      ],
+      "notes": "Source guide is the 15pp restructuring PDF. Cover: chapter 11 vs 7, absolute priority, DIP financing, fulcrum security, distressed valuation, 363 sales, liquidation analysis, credit metrics."
+    },
+    {
+      "id": "sector-tmt",
+      "title": "TMT desk",
+      "status": "failing",
+      "priority": 2,
+      "acceptance": [
+        "public/content/modules/tmt.json exists with >= 45 questions",
+        "at least 15 easy, 15 medium, 10 hard",
+        "index.json entry carries a bank path",
+        "questions carry sector: 'tmt'",
+        "covers SaaS metrics, ARR/NRR, rule of 40, subscriber economics, content amortisation"
+      ]
+    },
+    {
+      "id": "sector-fig",
+      "title": "FIG desk",
+      "status": "failing",
+      "priority": 3,
+      "acceptance": [
+        "public/content/modules/fig.json exists with >= 45 questions",
+        "at least 15 easy, 15 medium, 10 hard",
+        "index.json entry carries a bank path",
+        "questions carry sector: 'fig'",
+        "covers why EV is meaningless for banks, P/TBV, dividend discount, CET1, NIM, loan loss provisioning"
+      ],
+      "notes": "FIG is the desk where generic technicals actively mislead. The 'why the usual method breaks here' angle matters more than volume."
+    },
+    {
+      "id": "sector-healthcare",
+      "title": "Healthcare & biotech desk",
+      "status": "failing",
+      "priority": 4,
+      "acceptance": [
+        "public/content/modules/healthcare.json exists with >= 45 questions",
+        "at least 15 easy, 15 medium, 10 hard",
+        "index.json entry carries a bank path",
+        "questions carry sector: 'healthcare'",
+        "covers risk-adjusted NPV, clinical trial phases, patent cliffs, reimbursement"
+      ]
+    },
+    {
+      "id": "sector-industrials",
+      "title": "Industrials desk",
+      "status": "failing",
+      "priority": 5,
+      "acceptance": [
+        "public/content/modules/industrials.json exists with >= 45 questions",
+        "at least 15 easy, 15 medium, 10 hard",
+        "index.json entry carries a bank path",
+        "questions carry sector: 'industrials'",
+        "covers cyclicality, through-cycle margins, capex intensity, working capital swings, backlog"
+      ]
+    },
+    {
+      "id": "sector-oil-gas",
+      "title": "Oil & gas desk",
+      "status": "failing",
+      "priority": 6,
+      "acceptance": [
+        "public/content/modules/oil-gas.json exists with >= 45 questions",
+        "at least 15 easy, 15 medium, 10 hard",
+        "index.json entry carries a bank path",
+        "questions carry sector: 'oil-gas'",
+        "covers NAV models, reserves (1P/2P/3P), EV/EBITDAX, PV-10, hedging, upstream vs midstream vs downstream"
+      ]
+    },
+    {
+      "id": "interactive-paper-lbo",
+      "title": "Paper LBO speedrun",
+      "status": "failing",
+      "priority": 7,
+      "why": "Agreed long ago as part of the 'not boring' layer, never started. A paper LBO is a timed performance, and reading an answer does not rehearse it.",
+      "acceptance": [
+        "a timed multi-step paper LBO with entry, sources and uses, projections, exit and IRR",
+        "each step graded numerically with a tolerance",
+        "wrong answers explain which step broke rather than only marking it wrong",
+        "completing one records study activity and XP like any other drill"
+      ]
+    },
+    {
+      "id": "interactive-accretion-dilution",
+      "title": "Accretive or dilutive in 8 seconds",
+      "status": "failing",
+      "priority": 8,
+      "acceptance": [
+        "generates random deals and asks for a call inside a countdown",
+        "instant reveal of the yield comparison behind the answer",
+        "tracks a rolling accuracy figure across sessions"
+      ]
+    },
+    {
+      "id": "interactive-out-loud",
+      "title": "Out-loud mode with recording",
+      "status": "failing",
+      "priority": 9,
+      "acceptance": [
+        "answer timer runs against the existing settings.timerSeconds",
+        "records audio locally and lets it be played back against the model answer",
+        "audio never leaves the device"
+      ],
+      "notes": "settings.timerSeconds already exists and defaults to 90."
+    },
+    {
+      "id": "interactive-daily-drill",
+      "title": "Three-minute daily drill",
+      "status": "failing",
+      "priority": 10,
+      "acceptance": [
+        "one entry point that assembles a three-minute mix of due cards and danger-zone cards",
+        "finishing it extends the streak",
+        "works offline"
+      ]
+    }
+  ],
+  "doneRecently": [
+    "FSRS-5 scheduler replacing SM-2, with four-button Anki grading in both drill and review",
+    "All 24 pre-existing cards migrated to FSRS with history preserved",
+    "Card-jumping bug fixed at the merge layer, queues frozen per session",
+    "Google sign-in with Firestore sync, local-first with merge-on-sync",
+    "Light and dark theme system, deployed and live on tewess.com"
+  ]
+}

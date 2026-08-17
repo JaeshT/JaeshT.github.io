@@ -2,6 +2,22 @@
 
 > Read this first, then [`IB-PIVOT.md`](IB-PIVOT.md) for what is built and what is next.
 
+## Start of every session, in this order
+1. Read [`goals.json`](goals.json) — the durable goal state. It survives context resets; this
+   conversation does not.
+2. Read the top few entries of [`progress.md`](progress.md) — what just happened, and what
+   already failed. A dead end written down beats one rediscovered.
+3. Run `npm run verify` before touching anything, so you find out whether the tree was already
+   broken rather than blaming yourself for it later.
+4. Take the highest-priority goal whose status is `failing`. **One at a time**, and leave the
+   tree clean and committed between items.
+5. Append to `progress.md` when you finish, including what you actually ran to verify it.
+
+**"Done" is not something you may assert.** A `TaskCompleted` hook runs `npm run verify` and
+blocks completion when it fails. Do not weaken a check to get past the gate — if a check is
+genuinely wrong, say so and leave it failing. Only move a goal to `passing` when every line of
+its acceptance list is true.
+
 ## What this is
 An installable, **fully-offline PWA** for **investment banking technical interview** prep
 (full-time recruiting). Studied on iPhone. Live at **https://tewess.com**.
@@ -19,6 +35,8 @@ npm install
 npm run dev        # local dev at :5173 (service worker OFF in dev)
 npm run build      # tsc -b && vite build  (ALWAYS run before committing/deploying)
 npm run preview    # serve built dist/ at :4173 (test offline/PWA here)
+npm run verify     # the completion gate: types + FSRS invariants + content integrity (~2s)
+npm run verify:full # the same, plus the vite build. Green before any deploy.
 ```
 Node 20+. On Node 18, prefix builds with `NODE_OPTIONS=--experimental-global-webcrypto` (the
 service-worker step needs the global `crypto`). `package.json` also pins `path-scurry`'s `lru-cache`
