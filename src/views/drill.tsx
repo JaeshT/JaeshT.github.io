@@ -8,7 +8,7 @@
 //   3. GRADE   nailed or missed. Confident-then-missed marks the question "burned": it turns up
 //              in the Danger Zone, because that combination is what actually loses interviews.
 
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { navigate } from '../lib/router';
 import { renderMarkdown } from '../lib/md';
 import {
@@ -19,12 +19,13 @@ import {
   recordStudy,
   setSrsState,
   updateProgress,
+  type SrsMap,
 } from '../lib/db';
-import { review as srsReview } from '../lib/srs';
+import { review as srsReview, type Grade } from '../lib/srs';
 import { TIER_LABEL, type Question, type Tier } from '../lib/schema';
 import { CLEAR_THRESHOLD, dangerZone, dueQuestions, stageKey } from '../lib/curriculum';
 import { useLadder } from '../lib/useLadder';
-import { BackLink, Empty, Loading, LoadError, Ring } from './ui';
+import { BackLink, Empty, GradeButtons, Loading, LoadError, Ring } from './ui';
 
 type Mode =
   | { kind: 'stage'; moduleId: string; tier: Tier }
@@ -56,25 +57,40 @@ function Drill({ mode }: { mode: Mode }) {
   const [pos, setPos] = useState(0);
   const [results, setResults] = useState<Record<string, boolean>>({});
   const [timerTarget, setTimerTarget] = useState(90);
+  const grading = useRef(false);
 
   useEffect(() => {
     getSettings().then((s) => setTimerTarget(s.timerSeconds));
   }, []);
 
-  const queue = useMemo<Question[] | null>(() => {
-    if (!data) return null;
+  // The queue is built once and then frozen. It used to be a useMemo over `data`, which looks
+  // equivalent but is not: any reload of the ladder (a cloud sync applying a snapshot, say) handed
+  // back a fresh `data`, the memo recomputed, and since the ordering puts unseen questions first,
+  // grading a card reordered the list underneath the current index and the card visibly jumped.
+  const frozen = useRef<{ queue: Question[]; anki: boolean } | null>(null);
+  if (!frozen.current && data) {
     if (mode.kind === 'stage') {
       const bank = data.banks[mode.moduleId];
-      if (!bank) return [];
-      // Unseen questions first: you make progress before you revise.
-      const qs = bank.questions.filter((q) => q.tier === mode.tier);
+      const qs = bank ? bank.questions.filter((q) => q.tier === mode.tier) : [];
+      const attempted = (q: Question) =>
+        ((data.attempts[q.id]?.hits ?? 0) + (data.attempts[q.id]?.misses ?? 0)) > 0;
       const seen = (q: Question) => (data.attempts[q.id]?.hits ?? 0) > 0 && !data.attempts[q.id]?.burned;
-      return [...qs.filter((q) => !seen(q)), ...qs.filter(seen)];
+      frozen.current = {
+        // Unseen questions first: you make progress before you revise.
+        queue: [...qs.filter((q) => !seen(q)), ...qs.filter(seen)],
+        // Once every question here has been met once, the whole stage grades on the four-button
+        // scale. Before that a first pass is just "did I know it", which is all you can honestly
+        // say about material you have never seen.
+        anki: qs.length > 0 && qs.every(attempted),
+      };
+    } else if (mode.kind === 'review') {
+      frozen.current = { queue: dueQuestions(data.banks, data.attempts, data.srs), anki: true };
+    } else {
+      frozen.current = { queue: dangerZone(data.banks, data.attempts).map((d) => d.question), anki: true };
     }
-    if (mode.kind === 'review') return dueQuestions(data.banks, data.attempts, data.srs);
-    return dangerZone(data.banks, data.attempts).map((d) => d.question);
-    // queue is intentionally frozen for the session: grading mid-run must not reshuffle it
-  }, [data, mode.kind]);
+  }
+  const queue = frozen.current?.queue ?? null;
+  const ankiGrading = frozen.current?.anki ?? false;
 
   if (error) return <LoadError title="Drill" back={backFor(mode)} />;
   if (!data || !queue) return <Loading />;
@@ -109,15 +125,23 @@ function Drill({ mode }: { mode: Mode }) {
 
   const q = queue[pos];
 
-  async function onGraded(hit: boolean, confident: boolean) {
-    const question = queue![pos];
-    await recordAttempt(question.id, hit, confident);
-    const srs = await getSrsMap();
-    const grade = !hit ? 'again' : confident ? 'easy' : 'good';
-    await setSrsState(question.id, srsReview(srs[question.id], grade));
-    await recordStudy(hit ? 4 : 1);
-    setResults((r) => ({ ...r, [question.id]: hit }));
-    setPos((p) => p + 1);
+  async function onGraded(grade: Grade, confident: boolean) {
+    // Guard against a second grade landing while the first is still writing: a double tap, or a
+    // keypress arriving on a button that already has focus, used to advance two questions at once.
+    if (grading.current) return;
+    grading.current = true;
+    try {
+      const question = queue![pos];
+      const hit = grade !== 'again';
+      await recordAttempt(question.id, hit, confident);
+      const srs = await getSrsMap();
+      await setSrsState(question.id, srsReview(srs[question.id], grade));
+      await recordStudy(hit ? 4 : 1);
+      setResults((r) => ({ ...r, [question.id]: hit }));
+      setPos((p) => p + 1);
+    } finally {
+      grading.current = false;
+    }
   }
 
   return (
@@ -132,7 +156,14 @@ function Drill({ mode }: { mode: Mode }) {
       <div class="bar thin">
         <div class="bar-fill" style={{ width: ((pos / queue.length) * 100).toFixed(1) + '%' }} />
       </div>
-      <QuestionRunner key={q.id} q={q} timerTarget={timerTarget} onGraded={onGraded} />
+      <QuestionRunner
+        key={q.id}
+        q={q}
+        timerTarget={timerTarget}
+        ankiGrading={ankiGrading}
+        srs={data.srs}
+        onGraded={onGraded}
+      />
     </section>
   );
 }
@@ -144,11 +175,15 @@ type Phase = 'commit' | 'answer';
 function QuestionRunner({
   q,
   timerTarget,
+  ankiGrading,
+  srs,
   onGraded,
 }: {
   q: Question;
   timerTarget: number;
-  onGraded: (hit: boolean, confident: boolean) => void;
+  ankiGrading: boolean;
+  srs: SrsMap;
+  onGraded: (grade: Grade, confident: boolean) => void;
 }) {
   const [phase, setPhase] = useState<Phase>('commit');
   const [confident, setConfident] = useState(false);
@@ -238,7 +273,10 @@ function QuestionRunner({
               {q.check.type === 'numeric' && !checkHit ? `Answer: ${q.check.answer}${q.check.unit ?? ''}. ` : ''}
               {q.check.explanation ?? ''}
             </div>
-            <button class="btn btn-primary big" onClick={() => onGraded(checkHit, false)}>
+            <button
+              class="btn btn-primary big"
+              onClick={() => onGraded(checkHit ? 'good' : 'again', false)}
+            >
               Next →
             </button>
           </>
@@ -300,17 +338,21 @@ function QuestionRunner({
         </div>
       )}
 
-      <div class="selfgrade">
-        <button class="btn btn-ghost" onClick={() => onGraded(false, confident)}>
-          Missed it
-        </button>
-        <button class="btn btn-primary" onClick={() => onGraded(true, confident)}>
-          Nailed it →
-        </button>
-      </div>
+      {ankiGrading ? (
+        <GradeButtons srs={srs} id={q.id} onGrade={(g) => onGraded(g, confident)} />
+      ) : (
+        <div class="selfgrade">
+          <button class="btn btn-ghost" onClick={() => onGraded('again', confident)}>
+            Missed it
+          </button>
+          <button class="btn btn-primary" onClick={() => onGraded('good', confident)}>
+            Nailed it →
+          </button>
+        </div>
+      )}
       {points.length > 0 && hitCount < Math.ceil(points.length * 0.6) && (
         <p class="muted small center">
-          You ticked {hitCount} of {points.length}, which is usually a "missed it".
+          You ticked {hitCount} of {points.length}, which is usually a miss.
         </p>
       )}
     </div>
@@ -350,7 +392,7 @@ function Summary({
   useEffect(() => {
     (async () => {
       if (mode.kind !== 'stage') return;
-      // Re-read attempts so the clear reflects the whole bank, not just this run.
+      // Re-read attempts so the clear reflects the whole bank rather than this run alone.
       const [attempts, { loadIndex, loadAllBanks }] = await Promise.all([getAttempts(), import('../lib/content')]);
       const index = await loadIndex();
       const banks = await loadAllBanks(index);

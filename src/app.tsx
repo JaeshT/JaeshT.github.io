@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useRoute, navigate, segments } from './lib/router';
 import { setupPWA, isIOS, isStandalone } from './lib/pwa';
-import { exportAll, importAll, updateProgress } from './lib/db';
+import { exportAll, importAll, migrateSrsToFsrs, updateProgress } from './lib/db';
 import { Path, ModuleView } from './views/path';
 import { StageDrill } from './views/drill';
 import { Review, DangerReview } from './views/review';
@@ -60,7 +60,8 @@ export function App() {
 
   useEffect(() => {
     reload.current = setupPWA(() => setNeedRefresh(true));
-    void initCloud();
+    // Convert any SM-2 records before the first sync, so the cloud copy gets the new shape too.
+    void migrateSrsToFsrs().then(() => initCloud());
     const on = () => setOnline(true);
     const off = () => setOnline(false);
     window.addEventListener('online', on);
@@ -119,8 +120,10 @@ function Router({ seg0, seg1, seg2 }: { seg0: string; seg1?: string; seg2?: stri
     case 'module':
       return seg1 ? <ModuleView id={seg1} /> : <Path />;
     case 'drill':
+      // Keyed by stage: without it Preact reuses the same Drill instance when you move from one
+      // stage to another, carrying over its frozen queue, its position and its grading mode.
       return seg1 && isTier(seg2) ? (
-        <StageDrill moduleId={seg1} tier={seg2} />
+        <StageDrill key={`${seg1}/${seg2}`} moduleId={seg1} tier={seg2} />
       ) : (
         <Empty title="Drill" note="No stage selected." back="path" />
       );

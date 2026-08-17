@@ -1,5 +1,8 @@
 // Small shared presentational pieces used across views.
+import { useMemo, useRef } from 'preact/hooks';
 import { navigate } from '../lib/router';
+import { previewIntervals, GRADES, type Grade } from '../lib/srs';
+import type { SrsMap } from '../lib/db';
 
 export function Loading() {
   return <div class="loading muted">Loading…</div>;
@@ -61,6 +64,60 @@ export function ViewToggle({ active }: { active: 'path' | 'climb' }) {
       >
         Climb
       </button>
+    </div>
+  );
+}
+
+const GRADE_LABEL: Record<Grade, string> = {
+  again: 'Again',
+  hard: 'Hard',
+  good: 'Good',
+  easy: 'Easy',
+};
+
+/**
+ * The four-button scale, shared by the drill and by review so both behave identically. Each button
+ * is labelled with the delay it will actually apply, so the schedule is visible before you commit.
+ *
+ * Two details matter for stability. The buttons are type="button" and blur themselves on activation,
+ * because a button that keeps focus gets activated again by the next space or enter meant for the
+ * card. And onGrade is fired from a pointer/keyboard activation only once per card: the parent
+ * holds the re-entrancy guard, this component avoids handing it two events for one press.
+ */
+export function GradeButtons({
+  srs,
+  id,
+  onGrade,
+  disabled,
+}: {
+  srs: SrsMap;
+  id: string;
+  onGrade: (g: Grade) => void;
+  disabled?: boolean;
+}) {
+  // Computed once per card: recomputing on every render would let the labels drift as time passes.
+  const previews = useMemo(() => previewIntervals(srs[id]), [srs, id]);
+  const fired = useRef(false);
+
+  return (
+    <div class="grade-row">
+      {GRADES.map((g) => (
+        <button
+          key={g}
+          type="button"
+          class={'grade ' + g}
+          disabled={disabled}
+          onClick={(e) => {
+            if (fired.current) return;
+            fired.current = true;
+            (e.currentTarget as HTMLButtonElement).blur();
+            onGrade(g);
+          }}
+        >
+          <span class="grade-label">{GRADE_LABEL[g]}</span>
+          <span class="grade-when">{previews[g]}</span>
+        </button>
+      ))}
     </div>
   );
 }

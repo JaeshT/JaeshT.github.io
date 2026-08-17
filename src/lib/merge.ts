@@ -69,15 +69,20 @@ function mergeProgress(a: Progress, b: Progress): Progress {
     // Keep the earliest clear: that is when you actually earned it.
     stagesCleared[k] = stagesCleared[k] ? Math.min(stagesCleared[k], t) : t;
   }
-  return {
+  const merged: Progress = {
     lessonsRead: union(a.lessonsRead, b.lessonsRead),
     stagesCleared,
     xp: Math.max(a.xp ?? 0, b.xp ?? 0),
     streak: laterStreak(a.streak, b.streak),
-    introSeen: Boolean(a.introSeen || b.introSeen),
     unlockedEarly: union(a.unlockedEarly, b.unlockedEarly),
-    climbSeen: Math.max(a.climbSeen ?? -1, b.climbSeen ?? -1),
   };
+  // Optional fields are only written when one side actually has them. Filling in a default here
+  // would make merging a snapshot with itself produce a different object, which sync reads as a
+  // real change: it then writes and tells every open screen to reload, reshuffling a live drill.
+  if (a.introSeen || b.introSeen) merged.introSeen = true;
+  const climbSeen = Math.max(a.climbSeen ?? -1, b.climbSeen ?? -1);
+  if (climbSeen >= 0) merged.climbSeen = climbSeen;
+  return merged;
 }
 
 /** Streaks are dated, so the more recent day wins; on the same day keep the longer count. */

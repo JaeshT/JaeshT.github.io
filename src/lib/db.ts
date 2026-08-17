@@ -30,16 +30,20 @@ export function onRemoteApplied(fn: Listener): () => void {
   return () => remoteAppliedListeners.delete(fn);
 }
 
-// ---- SRS scheduling state (SM-2), keyed by question id ----
+// ---- SRS scheduling state (FSRS), keyed by question id ----
 export interface SrsState {
-  phase: 'learning' | 'review' | 'relearning';
-  step: number; // index into the learning or relearning steps
-  ease: number; // ease factor, starts 2.5, floor 1.3
-  interval: number; // days until next review, once in the review phase
+  stability: number; // days for recall probability to fall to 90%
+  difficulty: number; // 1 to 10, how hard this card is for you
+  interval: number; // days scheduled at the last answer; 0 while relearning
   reps: number; // total answers
   lapses: number; // times an established card was forgotten
   due: number; // epoch ms when next due
   lastReview: number; // epoch ms
+  // Written by the previous SM-2 scheduler. Present only on records not yet migrated;
+  // srs.ts recognises them by the missing stability and restarts the card. See migrateLegacy.
+  phase?: 'learning' | 'review' | 'relearning';
+  step?: number;
+  ease?: number;
 }
 
 export type SrsMap = Record<string, SrsState>;
@@ -73,6 +77,32 @@ export async function getSrsMap(): Promise<SrsMap> {
 export async function setSrsState(questionId: string, state: SrsState): Promise<void> {
   await update<SrsMap>(SRS_KEY, (prev) => ({ ...(prev ?? {}), [questionId]: state }), store);
   emitLocalWrite();
+}
+
+/**
+ * One-off conversion of records written by the old SM-2 scheduler. Their ease and interval have no
+ * honest translation into FSRS, so each card restarts as "met before, not solid yet" and comes back
+ * straight away. Runs once: after this every record carries a stability and is left alone.
+ */
+export async function migrateSrsToFsrs(): Promise<number> {
+  const { migrateLegacy } = await import('./srs');
+  const map = await getSrsMap();
+  const now = Date.now();
+  let changed = 0;
+  const next: SrsMap = {};
+  for (const [id, state] of Object.entries(map)) {
+    if (typeof state?.stability === 'number' && state.stability > 0) {
+      next[id] = state;
+      continue;
+    }
+    next[id] = migrateLegacy(state, now);
+    changed++;
+  }
+  if (changed) {
+    await set(SRS_KEY, next, store);
+    emitLocalWrite();
+  }
+  return changed;
 }
 
 export async function getAttempts(): Promise<AttemptMap> {
@@ -200,13 +230,29 @@ export async function snapshotAll(): Promise<Snapshot> {
  * local state. Returns whether anything actually changed, so callers can avoid pointless reloads.
  * Deliberately does NOT fire the local-write channel: that would bounce straight back to the cloud.
  */
+/**
+ * Order-independent comparison. A plain JSON.stringify would report a change whenever two objects
+ * hold the same data with the keys in a different order, and a false "something changed" here
+ * makes every open screen reload in the middle of a session.
+ */
+function canonical(value: unknown): string {
+  if (Array.isArray(value)) return '[' + value.map(canonical).join(',') + ']';
+  if (value && typeof value === 'object') {
+    const entries = Object.entries(value as Record<string, unknown>)
+      .filter(([, v]) => v !== undefined)
+      .sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0));
+    return '{' + entries.map(([k, v]) => JSON.stringify(k) + ':' + canonical(v)).join(',') + '}';
+  }
+  return JSON.stringify(value) ?? 'null';
+}
+
 export async function applySnapshot(next: Snapshot): Promise<boolean> {
   const current = await snapshotAll();
   const same =
-    JSON.stringify(current.srs) === JSON.stringify(next.srs) &&
-    JSON.stringify(current.attempts) === JSON.stringify(next.attempts) &&
-    JSON.stringify(current.progress) === JSON.stringify(next.progress) &&
-    JSON.stringify(current.settings) === JSON.stringify(next.settings);
+    canonical(current.srs) === canonical(next.srs) &&
+    canonical(current.attempts) === canonical(next.attempts) &&
+    canonical(current.progress) === canonical(next.progress) &&
+    canonical(current.settings) === canonical(next.settings);
   if (same) return false;
   await Promise.all([
     set(SRS_KEY, next.srs, store),

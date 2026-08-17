@@ -1,10 +1,10 @@
-// Review: an Anki-style scheduler behind a card interface that reads like Quizlet.
+// Review: FSRS scheduling behind a card interface that reads like Quizlet.
 //
-// The queue mixes learning cards that have come due, review cards due today, and a capped
-// number of new ones. Grading uses the four SM-2 buttons, each labelled with the delay it will
-// actually apply, so the scheduling is visible rather than hidden.
+// The queue mixes cards that have come due with a capped number you have met in a drill but never
+// reviewed. Grading uses the same four buttons as the drill, each labelled with the delay it will
+// actually apply, so the schedule is visible rather than hidden.
 
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { navigate } from '../lib/router';
 import { renderMarkdown } from '../lib/md';
 import {
@@ -15,11 +15,11 @@ import {
   setSrsState,
   type SrsMap,
 } from '../lib/db';
-import { isDue, isNew, phaseOf, previewIntervals, review as srsReview, type Grade } from '../lib/srs';
+import { isDue, isNew, phaseOf, review as srsReview, type Grade } from '../lib/srs';
 import { TIER_LABEL, type Question } from '../lib/schema';
 import { dangerZone } from '../lib/curriculum';
 import { useLadder } from '../lib/useLadder';
-import { Loading, LoadError, Ring } from './ui';
+import { GradeButtons, Loading, LoadError, Ring } from './ui';
 
 type Mode = 'due' | 'danger';
 
@@ -29,119 +29,124 @@ interface Card {
   moduleIcon: string;
 }
 
-const GRADES: { g: Grade; label: string; cls: string; key: string }[] = [
-  { g: 'again', label: 'Again', cls: 'again', key: '1' },
-  { g: 'hard', label: 'Hard', cls: 'hard', key: '2' },
-  { g: 'good', label: 'Good', cls: 'good', key: '3' },
-  { g: 'easy', label: 'Easy', cls: 'easy', key: '4' },
-];
-
 export function Review({ mode = 'due' }: { mode?: Mode }) {
   const { data, error } = useLadder();
   const [srs, setSrs] = useState<SrsMap>({});
-  const [queue, setQueue] = useState<Card[] | null>(null);
   const [pos, setPos] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [counts, setCounts] = useState({ done: 0, again: 0 });
   const [newLimit, setNewLimit] = useState(20);
+  const [showInfo, setShowInfo] = useState(false);
+  const [ready, setReady] = useState(false);
   const started = useRef(Date.now());
+  const grading = useRef(false);
+
+  // The queue is built once from a snapshot of state and then frozen for the session. Rebuilding
+  // it as scheduling changes would reorder the cards under the current index mid-session.
+  const frozen = useRef<Card[] | null>(null);
 
   useEffect(() => {
     (async () => {
       const [map, settings] = await Promise.all([getSrsMap(), getSettings()]);
       setSrs(map);
       setNewLimit(settings.dailyNewLimit);
+      setReady(true);
     })();
   }, []);
 
-  // Build the session once the content and scheduling state are both available.
-  useEffect(() => {
-    if (!data || queue) return;
+  if (!frozen.current && data && ready) {
     const byModule: Record<string, { short: string; icon: string }> = {};
     for (const m of data.modules) byModule[m.ref.id] = { short: m.ref.short, icon: m.ref.icon };
+    const meta = (id: string) => byModule[id] ?? { short: '', icon: '' };
 
     if (mode === 'danger') {
-      const cards = dangerZone(data.banks, data.attempts).map(({ question, moduleId }) => ({
+      frozen.current = dangerZone(data.banks, data.attempts).map(({ question, moduleId }) => ({
         q: question,
-        moduleShort: byModule[moduleId]?.short ?? '',
-        moduleIcon: byModule[moduleId]?.icon ?? '',
+        moduleShort: meta(moduleId).short,
+        moduleIcon: meta(moduleId).icon,
       }));
-      setQueue(cards);
-      return;
-    }
-
-    const learning: Card[] = [];
-    const due: Card[] = [];
-    const fresh: Card[] = [];
-    for (const [moduleId, bank] of Object.entries(data.banks)) {
-      const meta = byModule[moduleId] ?? { short: '', icon: '' };
-      for (const q of bank.questions) {
-        const state = srs[q.id];
-        const card = { q, moduleShort: meta.short, moduleIcon: meta.icon };
-        if (isNew(state)) {
-          // only questions you have already met in a drill enter the new queue
-          if ((data.attempts[q.id]?.hits ?? 0) + (data.attempts[q.id]?.misses ?? 0) > 0) fresh.push(card);
-        } else if (isDue(state)) {
-          (phaseOf(state) === 'learning' ? learning : due).push(card);
+    } else {
+      const due: Card[] = [];
+      const fresh: Card[] = [];
+      for (const [moduleId, bank] of Object.entries(data.banks)) {
+        const m = meta(moduleId);
+        for (const q of bank.questions) {
+          const state = srs[q.id];
+          const card = { q, moduleShort: m.short, moduleIcon: m.icon };
+          const met = (data.attempts[q.id]?.hits ?? 0) + (data.attempts[q.id]?.misses ?? 0) > 0;
+          if (!met) continue; // never drilled: it belongs to the climb, not to review
+          if (isNew(state)) fresh.push(card);
+          else if (isDue(state)) due.push(card);
         }
       }
+      frozen.current = [...due, ...fresh.slice(0, newLimit)];
     }
-    setQueue([...learning, ...due, ...fresh.slice(0, newLimit)]);
-  }, [data, srs, newLimit, mode, queue]);
+  }
+  const queue = frozen.current;
 
   const card = queue && pos < queue.length ? queue[pos] : null;
-  const previews = useMemo(
-    () => (card ? previewIntervals(srs[card.q.id]) : null),
-    [card, srs],
-  );
 
   async function grade(g: Grade) {
-    if (!card) return;
-    const next = srsReview(srs[card.q.id], g);
-    await setSrsState(card.q.id, next);
-    await recordAttempt(card.q.id, g !== 'again', false);
-    await recordStudy(g === 'again' ? 1 : 3);
-    setSrs((m) => ({ ...m, [card.q.id]: next }));
-    setCounts((c) => ({ done: c.done + 1, again: c.again + (g === 'again' ? 1 : 0) }));
-    setFlipped(false);
-    // A lapsed card comes back at the end of this session, the way Anki puts it back in the queue.
-    if (g === 'again') setQueue((qq) => (qq ? [...qq, card] : qq));
-    setPos((p) => p + 1);
+    if (!card || grading.current) return;
+    grading.current = true;
+    try {
+      const next = srsReview(srs[card.q.id], g);
+      await setSrsState(card.q.id, next);
+      await recordAttempt(card.q.id, g !== 'again', false);
+      await recordStudy(g === 'again' ? 1 : 3);
+      setSrs((m) => ({ ...m, [card.q.id]: next }));
+      setCounts((c) => ({ done: c.done + 1, again: c.again + (g === 'again' ? 1 : 0) }));
+      setFlipped(false);
+      // A lapse comes back at the end of this session, the way Anki re-queues it.
+      if (g === 'again') frozen.current = [...(frozen.current ?? []), card];
+      setPos((p) => p + 1);
+    } finally {
+      grading.current = false;
+    }
   }
 
-  // Space flips, 1 to 4 grade, the way a keyboard user expects.
+  // Space flips. Number keys grade, but only once the answer is showing. Keys are ignored while
+  // focus is in a control, so a button press never both activates the button and flips the card.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (!card) return;
+      const el = e.target as HTMLElement | null;
+      if (el && /^(BUTTON|INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         setFlipped((f) => !f);
         return;
       }
       if (!flipped) return;
-      const hit = GRADES.find((x) => x.key === e.key);
-      if (hit) {
+      const idx = ['1', '2', '3', '4'].indexOf(e.key);
+      if (idx >= 0) {
         e.preventDefault();
-        grade(hit.g);
+        grade((['again', 'hard', 'good', 'easy'] as Grade[])[idx]);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  });
+  }, [card, flipped]);
 
   if (error) return <LoadError title="Review" />;
   if (!data || !queue) return <Loading />;
 
+  const heading = mode === 'danger' ? 'Danger zone' : 'Review';
+
   if (queue.length === 0) {
     return (
       <section>
-        <h1>{mode === 'danger' ? 'Danger zone' : 'Review'}</h1>
+        <div class="review-head">
+          <h1>{heading}</h1>
+          <InfoButton on={showInfo} toggle={() => setShowInfo((v) => !v)} />
+        </div>
+        {showInfo && <QueueInfo mode={mode} limit={newLimit} />}
         <div class="empty-state">
           <div class="empty-icon">{mode === 'danger' ? '🛡️' : '✅'}</div>
           <p>
             {mode === 'danger'
               ? 'Nothing burned. Questions land here when you say you know one and then miss it.'
-              : 'Nothing due. Cards enter review once you have met them in a drill, and come back on a schedule.'}
+              : 'Nothing due. Cards arrive here after you have met them in a drill, and come back on a schedule.'}
           </p>
           <button class="btn btn-primary" onClick={() => navigate('climb')}>
             Go to the climb
@@ -172,8 +177,7 @@ export function Review({ mode = 'due' }: { mode?: Mode }) {
   }
 
   const remaining = queue.length - pos;
-  const state = srs[card.q.id];
-  const phase = phaseOf(state);
+  const phase = phaseOf(srs[card.q.id]);
 
   return (
     <section class="review-wrap">
@@ -186,8 +190,10 @@ export function Review({ mode = 'due' }: { mode?: Mode }) {
           <span class="muted small">
             {remaining} left · {counts.done} done
           </span>
+          <InfoButton on={showInfo} toggle={() => setShowInfo((v) => !v)} />
         </div>
       </div>
+      {showInfo && <QueueInfo mode={mode} limit={newLimit} />}
       <div class="bar thin">
         <div
           class="bar-fill"
@@ -232,20 +238,70 @@ export function Review({ mode = 'due' }: { mode?: Mode }) {
       </div>
 
       {flipped ? (
-        <div class="grade-row">
-          {GRADES.map((x) => (
-            <button key={x.g} class={'grade ' + x.cls} onClick={() => grade(x.g)}>
-              <span class="grade-label">{x.label}</span>
-              <span class="grade-when">{previews?.[x.g]}</span>
-            </button>
-          ))}
-        </div>
+        <GradeButtons key={card.q.id} srs={srs} id={card.q.id} onGrade={grade} />
       ) : (
         <button class="btn btn-primary big" onClick={() => setFlipped(true)}>
           Show answer
         </button>
       )}
     </section>
+  );
+}
+
+function InfoButton({ on, toggle }: { on: boolean; toggle: () => void }) {
+  return (
+    <button
+      class="info-btn"
+      aria-label="What is in this queue"
+      aria-expanded={on}
+      title="What is in this queue"
+      onClick={toggle}
+    >
+      i
+    </button>
+  );
+}
+
+/** Says plainly which cards are here, because "review" on its own does not tell you. */
+function QueueInfo({ mode, limit }: { mode: Mode; limit: number }) {
+  if (mode === 'danger') {
+    return (
+      <div class="explainer">
+        <h2>What is in the danger zone</h2>
+        <ul>
+          <li>
+            Questions you said you knew <em>before</em> the reveal, and then missed.
+          </li>
+          <li>
+            That combination is the one worth fixing first: it is the gap you do not know you have.
+          </li>
+          <li>A question leaves once you nail it again.</li>
+        </ul>
+      </div>
+    );
+  }
+  return (
+    <div class="explainer">
+      <h2>What is in this queue</h2>
+      <ul>
+        <li>
+          <strong>Every question you have drilled.</strong> Grading one correctly puts it here too,
+          simply with a longer gap before it comes back.
+        </li>
+        <li>
+          A card appears here when it falls <strong>due</strong>. Missing one brings it back in
+          minutes; getting it right pushes it days or weeks out.
+        </li>
+        <li>
+          Questions you have never drilled are not here. They live on the climb, and join review
+          once you have met them, up to {limit} new ones per session.
+        </li>
+        <li>
+          Grading tells the scheduler how hard it felt, and each button shows the delay it will
+          apply before you press it.
+        </li>
+      </ul>
+    </div>
   );
 }
 
