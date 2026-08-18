@@ -101,6 +101,8 @@ if (srs) {
     GRADES,
     DESIRED_RETENTION,
     RELEARN_DELAY,
+    INTERVAL_MODIFIER,
+    LEARNING_STEPS,
   } = srs;
 
   const DAY = 24 * 60 * 60 * 1000;
@@ -124,9 +126,16 @@ if (srs) {
     }
   });
 
-  check('interval at default retention equals stability', () => {
+  check('interval equals stability at 90% retention, the defining FSRS property', () => {
+    // Passed explicitly, because the deck's own target is deliberately stricter than 0.9.
     for (const s of [2, 10, 40, 365]) {
-      close(intervalFor(s), s, 1e-6, `stability ${s}`);
+      close(intervalFor(s, 0.9), s, 1e-6, `stability ${s}`);
+    }
+  });
+
+  check(`scheduled intervals are exactly ${INTERVAL_MODIFIER}x the stock FSRS ones`, () => {
+    for (const s of [2, 10, 40, 365]) {
+      close(intervalFor(s), INTERVAL_MODIFIER * s, 1e-6, `stability ${s}`);
     }
   });
 
@@ -135,13 +144,41 @@ if (srs) {
     assert(intervalFor(100, 0.8) > intervalFor(100, 0.9), 'looser target was not longer');
   });
 
-  check('new card: intervals increase across hard, good, easy', () => {
-    const hard = review(undefined, 'hard', NOW);
-    const good = review(undefined, 'good', NOW);
-    const easy = review(undefined, 'easy', NOW);
-    assert(hard.interval < good.interval, `hard ${hard.interval} !< good ${good.interval}`);
-    assert(good.interval < easy.interval, `good ${good.interval} !< easy ${easy.interval}`);
-    assert(hard.interval >= 1, 'hard should still be at least a day out');
+  check('a card met for the first time follows the learning steps', () => {
+    const want = { again: '10m', hard: '1h', good: '1d', easy: '3d' };
+    const got = previewIntervals(undefined, NOW);
+    for (const g of GRADES) {
+      assert(got[g] === want[g], `first ${g} should be ${want[g]}, got ${got[g]}`);
+      close(review(undefined, g, NOW).due - NOW, LEARNING_STEPS[g], 1, `${g} due`);
+    }
+  });
+
+  check('learning steps get longer with the grade, and Again is the shortest', () => {
+    let prev = 0;
+    for (const g of GRADES) {
+      assert(LEARNING_STEPS[g] > prev, `${g} is not longer than the grade below it`);
+      prev = LEARNING_STEPS[g];
+    }
+  });
+
+  check('sub-day steps stay under a day, as Anki advises for FSRS', () => {
+    // Anki's manual: (re)learning steps of a day or more stop FSRS scheduling properly.
+    assert(LEARNING_STEPS.again < DAY, 'Again must stay inside the session');
+    assert(LEARNING_STEPS.hard < DAY, 'Hard must stay under a day on first exposure');
+  });
+
+  check('after the first answer the schedule is dynamic, not another fixed step', () => {
+    let s = review(undefined, 'good', NOW);
+    const seen = new Set();
+    let t = s.due;
+    for (let i = 0; i < 4; i++) {
+      const before = s.stability;
+      s = review(s, 'good', t);
+      assert(s.stability > before, 'stability should grow on a successful recall');
+      seen.add(s.interval);
+      t = s.due;
+    }
+    assert(seen.size === 4, `intervals repeated instead of growing: ${[...seen].join(', ')}`);
   });
 
   check('new card graded again comes back inside the session', () => {
@@ -237,8 +274,15 @@ if (srs) {
     assert(phaseOf(lapsed, NOW + DAY) === 'learning', 'a lapsed card is relearning');
   });
 
-  check('desired retention is the documented default', () => {
-    close(DESIRED_RETENTION, 0.9, 1e-12, 'retention default moved');
+  check('desired retention is derived from the interval modifier', () => {
+    // The two must never be set independently: retention IS the modifier, expressed the way Anki
+    // exposes it. Anything between 0.8 and 0.95 is sane per Anki's manual.
+    const expected = Math.pow(1 + INTERVAL_MODIFIER * (Math.pow(0.9, -2) - 1), -0.5);
+    close(DESIRED_RETENTION, expected, 1e-12, 'retention no longer follows the modifier');
+    assert(
+      DESIRED_RETENTION > 0.8 && DESIRED_RETENTION < 0.95,
+      `desired retention ${DESIRED_RETENTION} is outside the sane 0.80-0.95 band`,
+    );
   });
 }
 

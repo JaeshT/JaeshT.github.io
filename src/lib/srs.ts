@@ -39,13 +39,40 @@ const DECAY = -0.5;
 /** Chosen so that R = 0.9 exactly when elapsed time equals stability. Works out to 19/81. */
 const FACTOR = Math.pow(0.9, 1 / DECAY) - 1;
 
-/** Target recall probability at review time. 0.9 is the FSRS and Anki default. */
-export const DESIRED_RETENTION = 0.9;
+const MIN = 60 * 1000;
+const DAY = 24 * 60 * MIN;
+
+/**
+ * How much sooner cards come back than stock FSRS. 1.0 is the published default; 0.7 means every
+ * scheduled interval is 30% shorter. This is the one knob to turn if the deck feels too slack or
+ * too relentless.
+ */
+export const INTERVAL_MODIFIER = 0.7;
+
+/**
+ * Target recall probability at review time, which is the parameter Anki actually exposes and the
+ * honest way to make a deck stricter: you are asking to be tested while your recall is still high
+ * rather than letting it decay to 90%. Derived from the modifier above so the two cannot disagree.
+ * At the FSRS default of 0.9 the interval equals stability exactly; 0.7x works out to about 0.927.
+ */
+export const DESIRED_RETENTION = Math.pow(1 + INTERVAL_MODIFIER * FACTOR, DECAY);
+
+/**
+ * Anki-style learning steps. The first time you meet a card there is no memory to model yet, so
+ * FSRS's own first interval (over a day even for Hard, eleven days for Easy) is far too slack for
+ * something you have just seen once. Anki solves this with short sub-day steps before a card
+ * graduates onto the real schedule, and its manual is explicit that steps should stay under a day.
+ * These are the delays for a card's FIRST answer only; every review after that is fully dynamic.
+ */
+export const LEARNING_STEPS: Record<Grade, number> = {
+  again: 10 * MIN,
+  hard: 60 * MIN,
+  good: 1 * DAY,
+  easy: 3 * DAY,
+};
 
 const MIN_STABILITY = 0.01;
 const MAX_INTERVAL_DAYS = 365 * 10;
-const MIN = 60 * 1000;
-const DAY = 24 * 60 * MIN;
 
 /** A lapse comes back inside the same session rather than tomorrow. */
 export const RELEARN_DELAY = 10 * MIN;
@@ -152,17 +179,18 @@ export function isNew(state: SrsState | undefined): boolean {
 export function review(prev: SrsState | undefined, grade: Grade, now = Date.now()): SrsState {
   const s = normalise(prev, now);
 
+  // First answer: FSRS state is initialised properly, but the delay comes from the learning steps
+  // rather than from stability. One exposure is not enough evidence to be sent away for eleven
+  // days, which is what the model's own first interval for Easy works out to.
   if (isNew(s)) {
-    const stability = initialStability(grade);
-    const difficulty = initialDifficulty(grade);
-    const days = Math.round(intervalFor(stability));
+    const delay = LEARNING_STEPS[grade];
     return {
-      stability,
-      difficulty,
-      interval: grade === 'again' ? 0 : days,
+      stability: initialStability(grade),
+      difficulty: initialDifficulty(grade),
+      interval: delay >= DAY ? Math.round(delay / DAY) : 0,
       reps: 1,
       lapses: grade === 'again' ? 1 : 0,
-      due: grade === 'again' ? now + RELEARN_DELAY : now + days * DAY,
+      due: now + delay,
       lastReview: now,
     };
   }

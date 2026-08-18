@@ -18,6 +18,33 @@ Format:
 
 ---
 
+## 2026-08-17 — Learning steps, a 30% tighter schedule, and live interval labels
+
+- Answered first, changed second. The labels under the buttons were **already dynamic**: they are
+  produced by running the real scheduler for each grade and formatting the actual due date. Nothing
+  about them was hardcoded. Likewise there was **already one card store**, `srs` in IndexedDB keyed
+  by question id, written by both screens through the same `setSrsState`. There were never three.
+- The real problem was that FSRS's own first interval is far too slack for a card seen once: Hard
+  landed at 1.18d and Easy at 15.7d. Anki solves this with sub-day learning steps before a card
+  graduates, and its manual is explicit that steps should stay under a day. Added `LEARNING_STEPS`:
+  a card's FIRST answer gives 10m / 1h / 1d / 3d. Every review after that is pure FSRS.
+- Cards now come back 30% sooner. Expressed as `INTERVAL_MODIFIER = 0.7`, with desired retention
+  DERIVED from it (0.9268) rather than set by hand, so the two cannot disagree. Retention is the
+  knob Anki actually exposes; 0.80-0.95 is its stated sane band.
+- Fixed a real staleness bug found while checking: the drill computed its labels from the ladder
+  snapshot, frozen at page load, while review kept a live copy. A card met twice in one session
+  showed pre-grade delays. The drill now holds live scheduling state like review does.
+- Licence question, checked rather than assumed: Anki itself is **AGPL-3.0**, so lifting its code
+  into a public site would put the whole site under AGPL. `ts-fsrs` is **MIT with no dependencies**
+  and would be a legitimate swap; it implements the same FSRS-5 spec ours already follows, and ours
+  is covered by 20 assertions with no dependency added to an offline-first PWA. Kept ours.
+- Verification: 37 checks green including the build. In the browser, a never-seen card in the drill
+  showed exactly 10m/1h/1d/3d; the same card in review after one Good and a day's ageing showed
+  10m/3d/4d/8d, matching the computed progression and proving both screens read one store.
+- Worth knowing: re-testing a card seconds after grading it returns identical Hard/Good/Easy
+  delays. That is correct FSRS, not a bug. Recall is still ~100%, so the review carries no new
+  information and stability does not move. It only shows up in artificial testing.
+
 ## 2026-08-17 — One card system across climb, path and review
 
 - The drill and review had drifted into different interactions. The drill asked you to commit

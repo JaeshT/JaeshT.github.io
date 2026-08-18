@@ -72,6 +72,13 @@ function Drill({ mode }: { mode: Mode }) {
   const [results, setResults] = useState<Record<string, boolean>>({});
   const [timerTarget, setTimerTarget] = useState(90);
   const grading = useRef(false);
+  // The scheduling state the grade-button labels are computed from. The ladder snapshot is frozen
+  // at load, so reading it directly meant a card met twice in one session showed the delays it
+  // would have had before you graded it. Review has always kept a live copy; this matches it.
+  const [srs, setSrs] = useState<SrsMap>({});
+  useEffect(() => {
+    getSrsMap().then(setSrs);
+  }, []);
 
   useEffect(() => {
     getSettings().then((s) => setTimerTarget(s.timerSeconds));
@@ -139,8 +146,10 @@ function Drill({ mode }: { mode: Mode }) {
       const question = queue![pos];
       const hit = grade !== 'again';
       await recordAttempt(question.id, hit);
-      const srs = await getSrsMap();
-      await setSrsState(question.id, srsReview(srs[question.id], grade));
+      const map = await getSrsMap();
+      const next = srsReview(map[question.id], grade);
+      await setSrsState(question.id, next);
+      setSrs((m) => ({ ...m, [question.id]: next }));
       await recordStudy(hit ? 4 : 1);
       setResults((r) => ({ ...r, [question.id]: hit }));
       setPos((p) => p + 1);
@@ -161,7 +170,7 @@ function Drill({ mode }: { mode: Mode }) {
       <div class="bar thin">
         <div class="bar-fill" style={{ width: ((pos / queue.length) * 100).toFixed(1) + '%' }} />
       </div>
-      <QuestionRunner key={q.id} q={q} timerTarget={timerTarget} srs={data.srs} onGraded={onGraded} />
+      <QuestionRunner key={q.id} q={q} timerTarget={timerTarget} srs={srs} onGraded={onGraded} />
     </section>
   );
 }
