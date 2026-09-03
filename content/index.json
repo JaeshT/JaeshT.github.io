@@ -1,0 +1,188 @@
+{
+ "version": 2,
+ "updated": "2026-08-12",
+ "modules": [
+  {
+   "id": "accounting",
+   "title": "Accounting & the three statements",
+   "short": "Accounting",
+   "icon": "🧾",
+   "track": "core",
+   "order": 1,
+   "blurb": "The statements, how they link, and what moves when you poke one.",
+   "bank": "modules/accounting.json",
+   "lessons": [
+    {
+     "id": "acc-primer",
+     "title": "Accounting & the three statements",
+     "path": "lessons/accounting/primer.md",
+     "tier": "easy",
+     "estMinutes": 14
+    }
+   ]
+  },
+  {
+   "id": "ev-eqv",
+   "title": "Equity value & enterprise value",
+   "short": "EV / Equity Value",
+   "icon": "🧮",
+   "track": "core",
+   "order": 2,
+   "blurb": "The bridge, the treasury stock method, and which metric pairs with which.",
+   "bank": "modules/ev-eqv.json"
+  },
+  {
+   "id": "valuation",
+   "title": "Valuation: comps & precedents",
+   "short": "Valuation",
+   "icon": "📊",
+   "track": "core",
+   "order": 3,
+   "blurb": "Relative valuation: picking the set, picking the multiple, defending the range.",
+   "bank": "modules/valuation.json",
+   "lessons": [
+    {
+     "id": "val-primer",
+     "title": "Comps, precedents & multiples",
+     "path": "lessons/valuation/primer.md",
+     "tier": "easy",
+     "estMinutes": 13
+    }
+   ]
+  },
+  {
+   "id": "dcf",
+   "title": "DCF & the discount rate",
+   "short": "DCF",
+   "icon": "💵",
+   "track": "core",
+   "order": 4,
+   "blurb": "Unlevered free cash flow, WACC, terminal value, and where it breaks.",
+   "bank": "modules/dcf.json",
+   "lessons": [
+    {
+     "id": "dcf-primer",
+     "title": "DCF & WACC",
+     "path": "lessons/dcf/primer.md",
+     "tier": "easy",
+     "estMinutes": 15
+    }
+   ]
+  },
+  {
+   "id": "ma",
+   "title": "M&A and accretion / dilution",
+   "short": "M&A",
+   "icon": "🤝",
+   "track": "core",
+   "order": 5,
+   "blurb": "Deal structure, purchase accounting, and calling accretive or dilutive fast.",
+   "bank": "modules/ma.json"
+  },
+  {
+   "id": "lbo",
+   "title": "LBO & the paper LBO",
+   "short": "LBO",
+   "icon": "🏦",
+   "track": "core",
+   "order": 6,
+   "blurb": "Sources and uses, the debt schedule, and returns you can do on a napkin.",
+   "bank": "modules/lbo.json",
+   "lessons": [
+    {
+     "id": "lbo-primer",
+     "title": "LBO mechanics",
+     "path": "lessons/lbo/primer.md",
+     "tier": "easy",
+     "estMinutes": 12
+    }
+   ]
+  },
+  {
+   "id": "markets",
+   "title": "Capital markets, debt & market knowledge",
+   "short": "Markets",
+   "icon": "📈",
+   "track": "core",
+   "order": 7,
+   "blurb": "Debt instruments, LevFin, ECM, and having a view on the market.",
+   "bank": "modules/markets.json"
+  },
+  {
+   "id": "fit",
+   "title": "Fit, story & deal discussion",
+   "short": "Fit & story",
+   "icon": "🎤",
+   "track": "fit",
+   "order": 8,
+   "blurb": "Your story, the behavioural set, and talking about a deal without drowning.",
+   "bank": "modules/fit.json"
+  },
+  {
+   "id": "restructuring",
+   "title": "Restructuring & distressed",
+   "short": "Restructuring",
+   "icon": "⚖️",
+   "track": "sector",
+   "order": 20,
+   "blurb": "Chapter 11, the waterfall, and distressed valuation.",
+   "sector": "restructuring"
+  },
+  {
+   "id": "tmt",
+   "title": "Technology, media & telecom",
+   "short": "TMT",
+   "icon": "📡",
+   "track": "sector",
+   "order": 21,
+   "blurb": "SaaS metrics, subscriber economics, and the multiples that follow.",
+   "sector": "tmt"
+  },
+  {
+   "id": "fig",
+   "title": "Financial institutions",
+   "short": "FIG",
+   "icon": "🏛️",
+   "track": "sector",
+   "order": 22,
+   "blurb": "Why banks are valued differently, and what replaces EBITDA.",
+   "sector": "fig"
+  },
+  {
+   "id": "healthcare",
+   "title": "Healthcare & biotech",
+   "short": "Healthcare",
+   "icon": "🧬",
+   "track": "sector",
+   "order": 23,
+   "blurb": "Pipelines, risk-adjusted NPV, and payor dynamics.",
+   "sector": "healthcare"
+  },
+  {
+   "id": "industrials",
+   "title": "Industrials",
+   "short": "Industrials",
+   "icon": "🏭",
+   "track": "sector",
+   "order": 24,
+   "blurb": "Cyclicality, capex intensity, and through-cycle margins.",
+   "sector": "industrials"
+  },
+  {
+   "id": "oil-gas",
+   "title": "Oil & gas",
+   "short": "Oil & Gas",
+   "icon": "🛢️",
+   "track": "sector",
+   "order": 25,
+   "blurb": "Reserves, NAV models, and commodity decks.",
+   "sector": "oil-gas"
+  }
+ ],
+ "glossary": {
+  "paths": [
+   "glossary/terms.json",
+   "glossary/technicals.json"
+  ]
+ }
+}

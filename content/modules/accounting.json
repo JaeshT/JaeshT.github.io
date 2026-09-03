@@ -1,0 +1,856 @@
+{
+ "module": "accounting",
+ "title": "Accounting & the three statements",
+ "questions": [
+  {
+   "id": "acc-e01",
+   "tier": "easy",
+   "prompt": "Walk me through the three financial statements.",
+   "answer": "- Income statement: profitability over a period, on an accrual basis: revenue down through costs and taxes to net income.\n- Balance sheet: a snapshot at one point in time: assets = liabilities + equity.\n- Cash flow statement: bridges accrual net income to the actual change in cash, across operating, investing and financing.\n- You need all three because net income is not cash: the IS contains non-cash charges and ignores capex, so only the CFS tells you what the business actually generated.",
+   "keyPoints": [
+    "IS: revenue to net income, accrual, over a period",
+    "BS: assets = liabilities + equity, at a point in time",
+    "CFS: reconciles net income to the change in cash, three sections",
+    "Say why you need all three: net income is not cash"
+   ],
+   "tags": [
+    "statements"
+   ]
+  },
+  {
+   "id": "acc-e02",
+   "tier": "easy",
+   "prompt": "State the balance sheet equation and explain why it always holds.",
+   "answer": "- Assets = liabilities + shareholders' equity.\n- Assets are the resources the business controls; liabilities and equity are how those resources were funded.\n- Every resource had to be paid for by somebody, a lender or an owner, so the two sides are the same number viewed from different ends.\n- It holds by construction: double-entry means every transaction hits both sides, or two accounts on the same side in opposite directions.",
+   "tags": [
+    "statements"
+   ]
+  },
+  {
+   "id": "acc-e03",
+   "tier": "easy",
+   "prompt": "What are the three sections of the cash flow statement, and what belongs in each?",
+   "answer": "- Operating: cash from running the business: net income, add back non-cash charges, then changes in working capital.\n- Investing: buying and selling long-term assets: capex, acquisitions, purchases and sales of investments.\n- Financing: dealings with capital providers: debt raised or repaid, share issuance or buybacks, dividends.\n- The three sum to the net change in cash, which ties to the movement in the balance sheet cash line.",
+   "tags": [
+    "statements"
+   ]
+  },
+  {
+   "id": "acc-e04",
+   "tier": "easy",
+   "prompt": "What is the difference between accrual and cash accounting?",
+   "answer": "- Accrual recognises revenue when it is earned and expenses when they are incurred, regardless of when cash moves.\n- Cash accounting records only when money actually changes hands.\n- Accrual is what public companies report under GAAP and IFRS because it matches revenue to the costs of producing it, so a period's profit is meaningful.\n- The cost is that profit and cash diverge, which is exactly why the cash flow statement exists.",
+   "tags": [
+    "accrual"
+   ]
+  },
+  {
+   "id": "acc-e05",
+   "tier": "easy",
+   "prompt": "If you could only look at one statement, which would you pick?",
+   "answer": "- The cash flow statement.\n- It shows the cash the business actually generated, and cash is what services debt, funds growth and ultimately drives valuation.\n- The income statement includes non-cash items and excludes capex, so it can look healthy while the company is burning cash.\n- I'd add that it's slightly artificial: the CFS starts at net income and ends at the cash balance, so you're partly getting the other two anyway.",
+   "tags": [
+    "statements"
+   ]
+  },
+  {
+   "id": "acc-e06",
+   "tier": "easy",
+   "prompt": "When do you capitalise a cost rather than expense it?",
+   "answer": "- Capitalise when the spend creates a benefit lasting beyond the current period, typically over a year.\n- It goes onto the balance sheet as an asset and hits the income statement gradually via depreciation or amortisation.\n- Expense when the benefit is consumed in the period: salaries, rent, marketing.\n- Cash goes out at the same time either way; capitalising only changes the timing of the expense, not the cash.",
+   "tags": [
+    "capex"
+   ]
+  },
+  {
+   "id": "acc-e07",
+   "tier": "easy",
+   "prompt": "What is depreciation, and why is it treated as non-cash?",
+   "answer": "- It spreads the cost of a fixed asset across the years the asset is used, matching the expense to the revenue it helps produce.\n- The cash left the business when the asset was bought, that shows up in investing as capex.\n- So the annual charge reduces reported profit without any money moving, which is why it's added back on the cash flow statement.\n- It still matters for cash indirectly: it's tax-deductible, so it creates a tax shield.",
+   "tags": [
+    "depreciation"
+   ]
+  },
+  {
+   "id": "acc-e08",
+   "tier": "easy",
+   "prompt": "Do companies depreciate land?",
+   "answer": "- No. Land is assumed to have an indefinite useful life, so there's nothing to spread the cost across.\n- Buildings and improvements sitting on the land are depreciated in the normal way.\n- Land can be written down if it's impaired, but that's an impairment charge, not depreciation.",
+   "tags": [
+    "depreciation"
+   ]
+  },
+  {
+   "id": "acc-e09",
+   "tier": "easy",
+   "prompt": "What is goodwill and when is it created?",
+   "answer": "- Goodwill is an intangible asset created in an acquisition: purchase price less the fair value of the identifiable net assets acquired.\n- It's the premium paid for things that aren't separately recognised: brand, workforce, expected synergies, and simply competitive tension in the process.\n- It isn't amortised under US GAAP; it's tested for impairment at least annually and written down if the acquisition underperforms.\n- A large impairment is usually the market's way of saying the company overpaid.",
+   "tags": [
+    "goodwill",
+    "ma"
+   ]
+  },
+  {
+   "id": "acc-e10",
+   "tier": "easy",
+   "prompt": "What is working capital?",
+   "answer": "- Working capital is current assets less current liabilities.\n- In practice we use net working capital for modelling, the operating items only, so excluding cash and short-term debt.\n- It measures the cash tied up in running the business day to day: money sitting in receivables and inventory, less what suppliers are funding through payables.\n- Positive means the operating cycle absorbs cash; negative means customers and suppliers fund it for you.",
+   "tags": [
+    "working-capital"
+   ]
+  },
+  {
+   "id": "acc-e11",
+   "tier": "easy",
+   "prompt": "What is deferred revenue?",
+   "answer": "- Cash collected from a customer before the product or service has been delivered.\n- It sits on the balance sheet as a liability because the company owes the customer delivery, not because it owes money.\n- As the obligation is fulfilled the liability unwinds and revenue is recognised on the income statement.\n- Software and subscription businesses carry large balances, it's a positive sign, since customers pay upfront.",
+   "tags": [
+    "revenue"
+   ]
+  },
+  {
+   "id": "acc-e12",
+   "tier": "easy",
+   "prompt": "Why is accounts receivable an asset but deferred revenue a liability?",
+   "answer": "- Receivables: you've delivered and recognised the revenue, and the customer still owes you cash, a future cash inflow, so an asset.\n- Deferred revenue: you've taken the cash but haven't delivered, a future obligation, so a liability.\n- They're mirror images across the same timing gap: A/R is revenue before cash, deferred revenue is cash before revenue.",
+   "tags": [
+    "revenue",
+    "working-capital"
+   ]
+  },
+  {
+   "id": "acc-e13",
+   "tier": "easy",
+   "prompt": "What is accounts payable, and what does an increase in it do to cash flow?",
+   "answer": "- Amounts owed to suppliers for goods or services already received but not yet paid for.\n- An increase is a source of cash: you've booked the expense but held onto the money, so cash flow from operations goes up relative to net income.\n- It's effectively short-term interest-free financing from suppliers.\n- Stretching payables can flatter cash flow temporarily, so I'd check whether it's a trend or a one-off before reading anything into it.",
+   "tags": [
+    "working-capital"
+   ]
+  },
+  {
+   "id": "acc-e14",
+   "tier": "easy",
+   "prompt": "What is the difference between COGS and operating expenses?",
+   "answer": "- COGS are the costs directly attributable to producing the good or service sold: materials, direct labour, manufacturing overhead.\n- Operating expenses are the costs of running the business that aren't tied to a specific unit sold. SG&A, R&D, marketing.\n- COGS drives gross profit; operating expenses take you from gross profit down to operating income.\n- The split isn't perfectly standardised, so when comparing companies it's worth checking what each puts where.",
+   "tags": [
+    "income-statement"
+   ]
+  },
+  {
+   "id": "acc-e15",
+   "tier": "easy",
+   "prompt": "Name the main profitability margins and what each tells you.",
+   "answer": "- Gross margin = gross profit / revenue, which shows pricing power and unit economics.\n- EBITDA margin: operating profitability before capital structure, tax and accounting for capital spend.\n- Operating (EBIT) margin: after depreciation, so it reflects the cost of the asset base.\n- Net margin: after interest and tax, so it's affected by leverage and jurisdiction, which makes it the least comparable across companies.",
+   "tags": [
+    "ratios"
+   ]
+  },
+  {
+   "id": "acc-e16",
+   "tier": "easy",
+   "prompt": "What is EBITDA, and how do you get to it from net income?",
+   "answer": "- Earnings before interest, taxes, depreciation and amortisation.\n- From the bottom up: net income, add back taxes, add back net interest to get EBIT, then add back D&A.\n- It's used as a rough proxy for operating cash generation that is independent of capital structure and tax rate, which is what makes it comparable across companies.\n- The obvious flaw is that it ignores capex entirely, so it flatters capital-intensive businesses.",
+   "tags": [
+    "income-statement"
+   ]
+  },
+  {
+   "id": "acc-e17",
+   "tier": "easy",
+   "prompt": "What is the difference between growth and maintenance capex?",
+   "answer": "- Maintenance capex keeps the existing asset base running at its current level of output.\n- Growth capex expands capacity or enters new markets, it's discretionary and should earn a return.\n- Companies rarely disclose the split, so analysts approximate maintenance capex with depreciation.\n- It matters because free cash flow after maintenance capex is the sustainable figure; growth capex can be cut in a downturn.",
+   "tags": [
+    "capex"
+   ]
+  },
+  {
+   "id": "acc-e18",
+   "tier": "easy",
+   "prompt": "How do you calculate the closing retained earnings balance?",
+   "answer": "- Opening retained earnings, plus net income for the period, less dividends declared.\n- Buybacks generally hit treasury stock rather than retained earnings, though presentation varies.\n- It's the cumulative profit the company has kept rather than paid out, a historical record, not a pot of cash.",
+   "tags": [
+    "equity"
+   ]
+  },
+  {
+   "id": "acc-e19",
+   "tier": "easy",
+   "prompt": "What is the difference between basic and diluted EPS?",
+   "answer": "- Basic = net income available to common shareholders / weighted average basic shares.\n- Diluted also counts securities that could become shares: in-the-money options and warrants via the treasury stock method, plus convertibles.\n- Diluted is always the lower, more conservative number, and it's the one used in valuation and in accretion/dilution analysis.\n- Preferred dividends come out of the numerator, since that income isn't available to common holders.",
+   "tags": [
+    "equity",
+    "eps"
+   ]
+  },
+  {
+   "id": "acc-e20",
+   "tier": "easy",
+   "prompt": "What is the difference between the current ratio and the quick ratio?",
+   "answer": "- Current ratio = current assets / current liabilities.\n- Quick ratio strips out inventory and prepaid expenses, keeping cash, marketable securities and receivables, the assets you could realise quickly.\n- The quick ratio is the tougher test, and the more relevant one for a business with slow-moving inventory.\n- Both are point-in-time and easy to window-dress, so I'd look at the trend rather than a single reading.",
+   "tags": [
+    "ratios",
+    "liquidity"
+   ]
+  },
+  {
+   "id": "acc-e21",
+   "tier": "easy",
+   "prompt": "What are FIFO and LIFO?",
+   "answer": "- Inventory costing conventions that decide which costs flow into COGS, not the physical order goods actually move.\n- FIFO: first in, first out: the oldest costs hit COGS, so the balance sheet carries the most recent, most current costs.\n- LIFO: last in, first out: the newest costs hit COGS, leaving old costs on the balance sheet.\n- LIFO is permitted under US GAAP but banned under IFRS, so it's a real obstacle when comparing US companies with international peers.",
+   "tags": [
+    "inventory"
+   ]
+  },
+  {
+   "id": "acc-e22",
+   "tier": "easy",
+   "prompt": "Which intangible assets get amortised?",
+   "answer": "- Intangibles with a finite useful life: patents, customer relationships, developed technology, licences: amortised over that life.\n- Indefinite-lived intangibles, including goodwill and most brands, are not amortised; they're tested for impairment instead.\n- Internally generated intangibles largely never reach the balance sheet at all, which is why an asset-light company's book value understates it so badly.",
+   "tags": [
+    "intangibles"
+   ]
+  },
+  {
+   "id": "acc-e23",
+   "tier": "easy",
+   "prompt": "Where would you find a public company's financial statements?",
+   "answer": "- For US filers, on SEC EDGAR: the annual 10-K and the quarterly 10-Qs, both free.\n- The 8-K covers material events between those filings; the proxy (DEF 14A) has compensation and ownership detail.\n- Outside the US, the annual report and interim statements on the company's investor relations site.\n- The footnotes and MD&A are where the real information is, the face of the statements rarely tells you enough.",
+   "tags": [
+    "filings"
+   ]
+  },
+  {
+   "id": "acc-e24",
+   "tier": "easy",
+   "prompt": "What is the going concern assumption?",
+   "answer": "- The assumption that the business will continue operating for the foreseeable future and isn't about to liquidate.\n- It's what justifies carrying assets at depreciated historical cost rather than at what they'd fetch in a fire sale, and deferring costs into future periods.\n- If auditors doubt it, they flag a going-concern qualification, a serious signal, and often the first formal marker of distress.",
+   "tags": [
+    "accrual"
+   ]
+  },
+  {
+   "id": "acc-e25",
+   "tier": "easy",
+   "prompt": "What do \"above the line\" and \"below the line\" mean?",
+   "answer": "- The line is usually operating income: above it sits the core operating business, below it sit interest, one-off items and taxes.\n- The point of the distinction is separating recurring operating performance from financing decisions and noise.\n- The phrase is used loosely: in some contexts the line is gross profit, or net income, so it's worth confirming which line someone means.",
+   "tags": [
+    "income-statement"
+   ]
+  },
+  {
+   "id": "acc-m01",
+   "tier": "medium",
+   "prompt": "How do the three financial statements link together?",
+   "answer": "- Net income from the bottom of the income statement becomes the top line of the cash flow statement, and flows into retained earnings on the balance sheet.\n- Add back non-cash charges (D&A, stock comp), then adjust for changes in working capital, to get cash from operations.\n- Investing and financing lines tie to their balance sheet accounts: capex less depreciation moves net PP&E, debt issuance moves the debt balance, buybacks and dividends move equity.\n- The sum of the three sections is the net change in cash, which becomes the new balance sheet cash line.\n- Then you check assets = liabilities + equity. If it balances, the links are right.",
+   "keyPoints": [
+    "Net income: IS bottom to CFS top, and into retained earnings",
+    "Add back non-cash charges, then working capital changes",
+    "CFS line items tie to their BS accounts (capex to PP&E, debt to debt)",
+    "Sum of the three sections = change in cash = new BS cash balance",
+    "Close with the balance check"
+   ],
+   "tags": [
+    "statements",
+    "walkthrough"
+   ]
+  },
+  {
+   "id": "acc-m02",
+   "tier": "medium",
+   "prompt": "Depreciation increases by $10. Walk me through the three statements. Assume a 40% tax rate.",
+   "answer": "- Income statement: operating income falls $10, and after 40% tax net income falls $6.\n- Cash flow statement: start at net income down $6, add back the $10 non-cash charge, so cash from operations is up $4. Cash increases $4.\n- Balance sheet: cash up $4, net PP&E down $10, so assets fall $6. Retained earnings fall $6 on the other side, so it balances.\n- The $4 is the depreciation tax shield, the tax the company no longer pays.",
+   "keyPoints": [
+    "Net income falls 10 x (1 - 40%) = $6",
+    "CFS: -$6 net income, +$10 add-back, cash +$4",
+    "BS: cash +$4, net PP&E -$10, assets -$6",
+    "Retained earnings -$6, so it balances",
+    "Name it: the $4 is the depreciation tax shield"
+   ],
+   "check": {
+    "type": "numeric",
+    "answer": 4,
+    "unit": "$",
+    "tolerance": 0.01,
+    "explanation": "Net income -$6, add back $10 of depreciation: cash rises $4, the tax shield."
+   },
+   "tags": [
+    "walkthrough",
+    "depreciation"
+   ]
+  },
+  {
+   "id": "acc-m03",
+   "tier": "medium",
+   "prompt": "A company writes down $100 of inventory. Walk me through the statements. 40% tax rate.",
+   "answer": "- Income statement: a $100 write-down, usually inside COGS. Pre-tax income falls $100, and net income falls $60 after tax.\n- Cash flow statement: net income down $60, add back the $100 non-cash write-down, and the inventory decrease of $100 is itself a source of cash, but careful, the write-down already is that decrease, so you only add it once. Cash rises $40.\n- Balance sheet: inventory down $100, cash up $40, so assets fall $60; retained earnings fall $60.\n- The cash benefit is purely the tax saving: assuming the write-down is deductible, which is the question worth asking.",
+   "keyPoints": [
+    "IS: $100 charge, net income falls $60 after 40% tax",
+    "CFS: -$60 plus $100 non-cash add-back, cash +$40",
+    "Do not double-count the inventory decrease and the add-back",
+    "BS: inventory -$100, cash +$40, retained earnings -$60",
+    "The only cash effect is the tax saving"
+   ],
+   "tags": [
+    "walkthrough",
+    "inventory"
+   ]
+  },
+  {
+   "id": "acc-m04",
+   "tier": "medium",
+   "prompt": "A company buys a $200 factory funded entirely with debt. What happens initially on the three statements?",
+   "answer": "- Income statement: nothing on day one. No revenue, no expense: buying an asset isn't an expense.\n- Cash flow statement: $200 outflow in investing for the capex, $200 inflow in financing from the debt. Net change in cash is zero.\n- Balance sheet: PP&E up $200, debt up $200. Assets and liabilities both rise $200 and it balances.\n- The effects show up from period two onward: depreciation on the asset and interest on the debt.",
+   "keyPoints": [
+    "IS: no impact at purchase",
+    "CFS: -$200 investing, +$200 financing, net zero",
+    "BS: PP&E +$200, debt +$200",
+    "Flag what comes next: depreciation and interest"
+   ],
+   "tags": [
+    "walkthrough",
+    "capex"
+   ]
+  },
+  {
+   "id": "acc-m05",
+   "tier": "medium",
+   "prompt": "Accounts receivable increases by $10. Walk me through the statements.",
+   "answer": "- Income statement: no direct impact, the revenue was already recognised when the sale was made.\n- Cash flow statement: an increase in receivables is a use of cash, so cash from operations falls $10.\n- Balance sheet: A/R up $10, cash down $10. Assets are flat, so it balances with no change to the other side.\n- Substantively: the company booked profit it hasn't collected. If receivables grow faster than revenue, I'd want to know why.",
+   "keyPoints": [
+    "No income statement impact, revenue already recognised",
+    "CFS: increase in A/R is a use of cash, -$10",
+    "BS: A/R +$10, cash -$10, assets flat",
+    "Interpretation: profit booked but not collected"
+   ],
+   "tags": [
+    "walkthrough",
+    "working-capital"
+   ]
+  },
+  {
+   "id": "acc-m06",
+   "tier": "medium",
+   "prompt": "A customer prepays $120 for a one-year subscription. Walk through the statements at collection, and then after one month.",
+   "answer": "- At collection: income statement: nothing, because nothing has been delivered. CFS: $120 cash in from operations, offset by a $120 increase in the deferred revenue liability. Balance sheet: cash up $120, deferred revenue up $120.\n- After one month: income statement: recognise $10 of revenue, so net income rises by $10 after tax.\n- CFS: net income up, less a $10 decrease in deferred revenue, so no cash moves, the cash already came in.\n- Balance sheet: deferred revenue falls $10, retained earnings rise by the after-tax amount, with the tax difference in taxes payable or cash.",
+   "keyPoints": [
+    "At collection: no revenue, cash up, deferred revenue liability up",
+    "On delivery: revenue recognised, liability unwinds",
+    "No cash moves on recognition, the cash came in at collection",
+    "Say the principle: cash timing and revenue timing are separate"
+   ],
+   "tags": [
+    "walkthrough",
+    "revenue"
+   ]
+  },
+  {
+   "id": "acc-m07",
+   "tier": "medium",
+   "prompt": "A company pays a $50 cash dividend. Walk me through the statements.",
+   "answer": "- Income statement: no impact. Dividends are a distribution of profit, not an expense.\n- Cash flow statement: $50 outflow in financing.\n- Balance sheet: cash down $50, retained earnings down $50. Both sides fall by $50.\n- Worth noting the contrast with interest, which does run through the income statement, that asymmetry is the tax advantage of debt.",
+   "tags": [
+    "walkthrough",
+    "equity"
+   ]
+  },
+  {
+   "id": "acc-m08",
+   "tier": "medium",
+   "prompt": "Is EBITDA a good proxy for operating cash flow?",
+   "answer": "- It's a rough one, and it gets worse the more capital-intensive or working-capital-hungry the business is.\n- It ignores changes in working capital, which for a fast-growing business can consume all the cash EBITDA supposedly generated.\n- It ignores capex, and D&A is a real economic cost: assets do wear out.\n- It's also before cash interest and cash taxes, both unavoidable.\n- It's defensible as a *comparability* metric across capital structures. It's not defensible as a cash flow measure.",
+   "keyPoints": [
+    "Ignores working capital changes",
+    "Ignores capex, and D&A is a real cost",
+    "Before cash interest and cash taxes",
+    "Fine for comparability, poor as a cash measure"
+   ],
+   "tags": [
+    "ratios",
+    "ebitda"
+   ]
+  },
+  {
+   "id": "acc-m09",
+   "tier": "medium",
+   "prompt": "What does a change in net working capital tell you about a company's cash flow?",
+   "answer": "- An increase in net working capital is a use of cash: more money tied up in receivables and inventory than suppliers are funding.\n- A decrease is a source of cash.\n- Growing companies usually show increases: growth consumes cash before it produces it, which is why profitable businesses still need financing.\n- A sudden decrease can be good management, or it can be a company delaying supplier payments to make a quarter look better.",
+   "tags": [
+    "working-capital"
+   ]
+  },
+  {
+   "id": "acc-m10",
+   "tier": "medium",
+   "prompt": "Is negative working capital a bad sign?",
+   "answer": "- Not necessarily, it often signals a strong business model. Supermarkets and restaurants collect cash immediately and pay suppliers in 30 or 60 days, so customers fund the operation.\n- Subscription businesses get there through large deferred revenue balances, which is a sign of pricing power.\n- It is a warning when it comes from stretched payables or short-term debt in a company that can't pay its bills.\n- So the answer is: look at *why* it's negative. The composition matters far more than the sign.",
+   "tags": [
+    "working-capital"
+   ]
+  },
+  {
+   "id": "acc-m11",
+   "tier": "medium",
+   "prompt": "What is the cash conversion cycle?",
+   "answer": "- Days inventory outstanding, plus days sales outstanding, less days payables outstanding.\n- It's the number of days between paying for inventory and collecting cash from the customer, the length of time the company must self-fund.\n- Shorter is better; negative means you collect from customers before you pay suppliers, which is a genuine competitive advantage.\n- It's the cleanest single measure of working capital efficiency, and it's easy to compare across a peer set.",
+   "tags": [
+    "working-capital",
+    "ratios"
+   ]
+  },
+  {
+   "id": "acc-m12",
+   "tier": "medium",
+   "prompt": "How can a profitable company go bankrupt?",
+   "answer": "- Because profit is an accounting measure and bankruptcy is a cash event: you default when you can't make a payment, not when you post a loss.\n- Rapid growth: receivables and inventory absorb cash faster than profit generates it.\n- Heavy capex, where the spend never touches the income statement in the year it's made.\n- A maturity wall: debt comes due and can't be refinanced, however profitable the business is.\n- Non-cash profits: accrual revenue that never converts, which is what you'd see in receivables growing faster than sales.",
+   "keyPoints": [
+    "Profit is accrual; default is a cash event",
+    "Growth absorbs cash through working capital",
+    "Capex and debt maturities never appear in net income",
+    "Give a concrete example of the timing gap"
+   ],
+   "tags": [
+    "liquidity"
+   ]
+  },
+  {
+   "id": "acc-m13",
+   "tier": "medium",
+   "prompt": "What do ROA, ROE and ROIC each measure, and when would you use each?",
+   "answer": "- ROA = net income / average total assets, how productively the asset base is used, regardless of funding.\n- ROE = net income / average shareholders' equity, the return to owners. It's flattered by leverage, since debt shrinks the denominator.\n- ROIC = NOPAT / (debt + equity - cash): return on all the capital actually invested in operations, before financing choices.\n- ROIC is the cleanest for comparing operating quality; ROE is what shareholders feel. I'd compare ROIC against WACC to say whether the business is creating value at all.",
+   "keyPoints": [
+    "ROA: asset productivity, funding-neutral",
+    "ROE: return to owners, flattered by leverage",
+    "ROIC: NOPAT over invested capital, best for operating comparison",
+    "ROIC vs WACC is the value-creation test"
+   ],
+   "tags": [
+    "ratios",
+    "returns"
+   ]
+  },
+  {
+   "id": "acc-m14",
+   "tier": "medium",
+   "prompt": "A company has a 10% return on assets and a 50/50 debt-to-equity capital structure. What is its ROE?",
+   "answer": "- Take $100 of assets. A 10% ROA implies $10 of net income.\n- 50/50 debt to equity means $50 of equity.\n- ROE = $10 / $50 = 20%.\n- The point of the question is the mechanism: leverage doesn't change the earnings, it shrinks the equity base, which magnifies returns in both directions.",
+   "check": {
+    "type": "numeric",
+    "answer": 20,
+    "unit": "%",
+    "tolerance": 0.5,
+    "explanation": "$100 assets x 10% = $10 net income; equity is $50; 10/50 = 20%."
+   },
+   "tags": [
+    "ratios",
+    "returns"
+   ]
+  },
+  {
+   "id": "acc-m15",
+   "tier": "medium",
+   "prompt": "Why do we use average balances in the denominator of ROA and ROE?",
+   "answer": "- Because the numerator is a flow over a period while the denominator is a point-in-time stock: averaging the opening and closing balances makes them consistent.\n- It matters most when the balance moved a lot mid-year: a big acquisition, a capital raise, a large buyback.\n- Using the closing balance after a year-end acquisition understates the return badly, since you'd charge a full year of earnings against a balance that only existed at the end.",
+   "tags": [
+    "ratios"
+   ]
+  },
+  {
+   "id": "acc-m16",
+   "tier": "medium",
+   "prompt": "What is the difference between the effective and the marginal tax rate, and why do they differ?",
+   "answer": "- Marginal is the statutory rate applied to the next dollar of income; effective is the actual tax expense divided by pre-tax income.\n- They differ because book and tax accounting follow different rules: accelerated depreciation for tax, different treatment of stock comp, and so on.\n- Geography matters too: earnings taxed in lower-rate jurisdictions pull the effective rate down.\n- One-offs move it as well: NOL usage, valuation allowance releases, settlements.\n- In a DCF I'd normally use an effective rate near-term and trend toward the marginal rate in the terminal year.",
+   "tags": [
+    "tax"
+   ]
+  },
+  {
+   "id": "acc-m17",
+   "tier": "medium",
+   "prompt": "What are deferred tax liabilities and how do they arise?",
+   "answer": "- A DTL means the company has paid less tax to the authorities now than its book statements imply, and will pay more later.\n- The classic cause is accelerated depreciation for tax versus straight-line for books: tax deductions come earlier, so cash tax is lower early and higher later.\n- The other big one is an acquisition where assets are written up for book but not for tax, no extra tax deduction, so a DTL is recorded at close.\n- It unwinds over time as the timing difference reverses. It's a genuine future obligation, but it's not debt.",
+   "tags": [
+    "tax",
+    "deferred-tax"
+   ]
+  },
+  {
+   "id": "acc-m18",
+   "tier": "medium",
+   "prompt": "What are deferred tax assets?",
+   "answer": "- The mirror image: the company has paid more tax now than its book expense implies, so it gets relief in future.\n- Common sources are net operating loss carryforwards, warranty and bad-debt reserves recognised for books before they're deductible, and some stock comp.\n- A DTA is only worth something if there's future taxable income to use it against, which is why a valuation allowance is booked when realisation is doubtful.\n- In an LBO or an acquisition, the buyer will check whether NOLs survive the change of control, since Section 382 limits their use.",
+   "tags": [
+    "tax",
+    "deferred-tax"
+   ]
+  },
+  {
+   "id": "acc-m19",
+   "tier": "medium",
+   "prompt": "How do you calculate free cash flow, and which version would you use?",
+   "answer": "- Unlevered FCF = EBIT x (1 - tax rate) + D&A - capex - increase in net working capital. It's available to all capital providers, so it pairs with WACC and gives you enterprise value.\n- Levered FCF starts from net income and is after interest and mandatory debt repayment, what's left for equity holders.\n- Use unlevered in a standard DCF; use levered when the capital structure is the point, as in an LBO debt schedule.\n- The mistake to avoid is mixing them: discounting unlevered cash flows at cost of equity, or levered at WACC.",
+   "keyPoints": [
+    "UFCF = EBIT(1-t) + D&A - capex - change in NWC",
+    "Unlevered pairs with WACC and gives enterprise value",
+    "Levered is after interest and debt repayment, for equity",
+    "Never mix the cash flow and the discount rate"
+   ],
+   "tags": [
+    "fcf",
+    "dcf"
+   ]
+  },
+  {
+   "id": "acc-m20",
+   "tier": "medium",
+   "prompt": "What are non-recurring items and how do you handle them?",
+   "answer": "- One-off gains or charges that don't reflect ongoing operations: restructuring, impairments, gains on asset sales, legal settlements, acquisition costs.\n- For valuation you normalise: strip them out so the earnings base you're multiplying is repeatable.\n- Be careful with the tax effect: adjust on an after-tax basis when you're working below the tax line.\n- And be sceptical. A company that reports \"non-recurring\" restructuring charges every year for five years is telling you they're recurring.",
+   "tags": [
+    "adjustments"
+   ]
+  },
+  {
+   "id": "acc-m21",
+   "tier": "medium",
+   "prompt": "Are litigation expenses always added back as non-recurring?",
+   "answer": "- No. It depends on whether litigation is a normal cost of doing business for that company.\n- A one-off patent dispute for a manufacturer: reasonable to add back.\n- A pharma or tobacco business facing continuous product liability, that's an operating cost, and adding it back overstates earnings.\n- The test I'd use: is this likely to appear again in the next few years? If yes, it stays in.",
+   "tags": [
+    "adjustments"
+   ]
+  },
+  {
+   "id": "acc-m22",
+   "tier": "medium",
+   "prompt": "When can a company capitalise software development costs?",
+   "answer": "- For software developed for internal use, costs in the application development stage are capitalised; preliminary planning and post-implementation costs are expensed.\n- For software to be sold, capitalisation starts once technological feasibility is established.\n- The effect is to move cost off the income statement into an asset amortised over several years, which raises current earnings without changing cash at all.\n- It's a well-known lever for managing reported profit, so I'd compare capitalised development spend against peers before trusting the margin.",
+   "tags": [
+    "capex",
+    "intangibles"
+   ]
+  },
+  {
+   "id": "acc-m23",
+   "tier": "medium",
+   "prompt": "What is restricted cash?",
+   "answer": "- Cash the company holds but can't freely use: collateral for a loan, escrow in a pending deal, regulatory or insurance reserves.\n- It's often shown separately from cash and cash equivalents, sometimes in non-current assets.\n- For valuation it usually shouldn't be netted against debt in the enterprise value bridge, because it isn't available to pay down debt or return to shareholders.\n- Same logic applies to cash trapped in a foreign subsidiary that can't be repatriated without a tax cost.",
+   "tags": [
+    "cash",
+    "ev"
+   ]
+  },
+  {
+   "id": "acc-m24",
+   "tier": "medium",
+   "prompt": "What is the difference between a write-down and a write-off?",
+   "answer": "- A write-down reduces an asset's carrying value to its recoverable amount, the asset still has some value and stays on the books.\n- A write-off removes it entirely: the value is zero, typically an uncollectible receivable or obsolete inventory.\n- Both are non-cash charges added back on the cash flow statement; the cash impact is limited to any tax deduction.\n- Both are also signals: they say the company previously carried the asset above what it was worth.",
+   "tags": [
+    "impairment"
+   ]
+  },
+  {
+   "id": "acc-m25",
+   "tier": "medium",
+   "prompt": "Do companies prefer straight-line or accelerated depreciation?",
+   "answer": "- Both, for different books. Straight-line for financial reporting, because it smooths the charge and reports higher early earnings.\n- Accelerated for tax, because bigger early deductions defer cash tax and are worth more in present value terms.\n- The gap between the two is precisely what creates deferred tax liabilities.\n- It's a good example of book and tax accounting being separate systems, and of why effective and cash tax rates diverge.",
+   "tags": [
+    "depreciation",
+    "tax"
+   ]
+  },
+  {
+   "id": "acc-h01",
+   "tier": "hard",
+   "prompt": "A company takes a $100 goodwill impairment that is not tax-deductible. Walk me through the three statements.",
+   "answer": "- Income statement: a $100 impairment charge. Because it isn't deductible there's no tax benefit, so net income falls the full $100.\n- Cash flow statement: net income down $100, add back the $100 non-cash charge. Cash flow is completely unchanged.\n- Balance sheet: goodwill down $100 on the asset side, retained earnings down $100 on the equity side. It balances.\n- The giveaway in this question is the non-deductibility: no tax deduction means no cash impact whatsoever. It's pure book accounting admitting the acquisition disappointed.",
+   "keyPoints": [
+    "IS: $100 charge, and no tax benefit, so net income falls the full $100",
+    "CFS: add back $100 non-cash, cash unchanged",
+    "BS: goodwill -$100, retained earnings -$100",
+    "Say the giveaway: non-deductible means zero cash impact"
+   ],
+   "tags": [
+    "walkthrough",
+    "goodwill"
+   ]
+  },
+  {
+   "id": "acc-h02",
+   "tier": "hard",
+   "prompt": "A company incurs $100 of PIK interest. Walk me through the three statements. 40% tax.",
+   "answer": "- PIK interest accrues onto the principal instead of being paid in cash.\n- Income statement: $100 of interest expense, so net income falls $60 after tax.\n- Cash flow statement: net income down $60, add back the $100 because no cash left. Cash from operations rises $40, the tax shield.\n- Balance sheet: cash up $40, debt up $100 as the accrued interest capitalises, retained earnings down $60. Liabilities plus equity rise $40, matching assets.\n- The economics: it's genuinely cash-preserving today, but the debt compounds, so leverage builds even if EBITDA is flat.",
+   "keyPoints": [
+    "PIK accrues onto principal, no cash paid",
+    "IS: $100 expense, net income -$60",
+    "CFS: add back $100, cash +$40 from the tax shield",
+    "BS: debt +$100, cash +$40, retained earnings -$60",
+    "Flag the economics: leverage compounds"
+   ],
+   "tags": [
+    "walkthrough",
+    "debt"
+   ]
+  },
+  {
+   "id": "acc-h03",
+   "tier": "hard",
+   "prompt": "A company issues $200 of debt at a 10% cash interest rate. Walk me through the first full year. 40% tax.",
+   "answer": "- At issuance: no income statement impact. CFS shows $200 in from financing; balance sheet has cash up $200 and debt up $200.\n- Over year one: income statement: $20 of interest expense, so net income falls $12 after tax.\n- CFS: net income down $12, no add-back because the interest is paid in cash. Cash falls $12.\n- Balance sheet: cash is up $188 net of the $12 ($200 raised less $12 of interest paid, after the tax saving), debt stays $200, retained earnings down $12.\n- The $8 difference between the $20 expense and the $12 hit is the interest tax shield, the reason debt is cheaper than its coupon suggests.",
+   "keyPoints": [
+    "Issuance: financing inflow, debt up, no IS impact",
+    "Year one: $20 interest, net income -$12 after 40% tax",
+    "Cash interest means no add-back, cash falls $12",
+    "BS: debt unchanged at $200, retained earnings -$12",
+    "Name the $8 interest tax shield"
+   ],
+   "tags": [
+    "walkthrough",
+    "debt"
+   ]
+  },
+  {
+   "id": "acc-h04",
+   "tier": "hard",
+   "prompt": "How does an operating lease appear under IFRS 16 versus US GAAP (ASC 842)?",
+   "answer": "- Both put a right-of-use asset and a lease liability on the balance sheet, that convergence was the point of the change.\n- IFRS 16 treats every lease as a finance lease: the income statement shows depreciation on the asset plus interest on the liability. So EBITDA and EBIT both rise, and the expense is front-loaded.\n- US GAAP keeps two categories. An operating lease keeps a single straight-line rent expense in operating costs, so EBITDA is unchanged from the old treatment.\n- The practical consequence: for the same company, IFRS EBITDA is higher than US GAAP EBITDA. If you're comparing a European retailer with a US one, you must adjust or the multiple is meaningless.",
+   "keyPoints": [
+    "Both: right-of-use asset and lease liability on the balance sheet",
+    "IFRS 16: depreciation + interest, so EBITDA rises",
+    "ASC 842 operating lease: single straight-line rent expense, EBITDA unchanged",
+    "Consequence: EBITDA is not comparable across the two regimes"
+   ],
+   "tags": [
+    "leases"
+   ]
+  },
+  {
+   "id": "acc-h05",
+   "tier": "hard",
+   "prompt": "A company bought a $200 factory with debt a year ago. It pays 10% interest and depreciates the asset over 10 years. Walk me through year one. 40% tax.",
+   "answer": "- Income statement: $20 of depreciation and $20 of interest, so pre-tax income falls $40 and net income falls $24.\n- Cash flow statement: start at -$24, add back $20 of depreciation. Cash from operations is -$4. Interest was paid in cash, so there's no add-back for it. Cash falls $4.\n- Balance sheet: cash down $4, net PP&E down $20, so assets are down $24. Debt is unchanged at $200 and retained earnings are down $24, so it balances.\n- Sanity check: $40 of charges, of which $20 was non-cash, less the $16 tax saving, gives the $4 of cash out.",
+   "keyPoints": [
+    "IS: $20 depreciation + $20 interest, net income -$24",
+    "CFS: add back $20 depreciation only, cash -$4",
+    "BS: PP&E -$20, cash -$4, retained earnings -$24",
+    "Sanity-check the number rather than just asserting it"
+   ],
+   "tags": [
+    "walkthrough",
+    "capex",
+    "debt"
+   ]
+  },
+  {
+   "id": "acc-h06",
+   "tier": "hard",
+   "prompt": "The company then sells that factory for $220 when its book value is $180. Walk me through the statements. 40% tax.",
+   "answer": "- Income statement: a $40 gain on sale, so net income rises $24 after tax.\n- Cash flow statement: start at +$24, then subtract the full $40 gain from operating, it's a non-operating, non-cash-in-operations item. Then show the entire $220 as an investing inflow. Net cash up $204.\n- Balance sheet: cash up $204, PP&E down $180, so assets rise $24; retained earnings up $24.\n- The trap is the gain: if you leave it in operating and also show $220 in investing, you've double-counted it. That subtraction is what the question is really testing.",
+   "keyPoints": [
+    "IS: $40 gain, net income +$24 after tax",
+    "CFS: reverse the full $40 gain out of operating",
+    "Show the whole $220 proceeds in investing",
+    "BS: cash +$204, PP&E -$180, retained earnings +$24",
+    "Name the trap: not double-counting the gain"
+   ],
+   "tags": [
+    "walkthrough",
+    "asset-sale"
+   ]
+  },
+  {
+   "id": "acc-h07",
+   "tier": "hard",
+   "prompt": "In a rising price environment, how do LIFO and FIFO differ in their effect on income, taxes and cash?",
+   "answer": "- LIFO puts the newest, highest costs into COGS. Gross profit and net income are lower, taxable income is lower, so cash tax is lower and actual cash is higher.\n- Its balance sheet inventory is stale, carrying old, low costs, so book value understates replacement cost.\n- FIFO does the reverse: lower COGS, higher reported profit, higher tax, less cash, but a more current inventory balance.\n- So LIFO reports worse and performs better, which is exactly why US companies elect it. It's banned under IFRS, so for cross-border comparison you restate using the LIFO reserve disclosed in the footnotes.",
+   "keyPoints": [
+    "LIFO: higher COGS, lower profit, lower tax, more cash",
+    "FIFO: opposite, with a more current inventory balance",
+    "LIFO balance sheet inventory is understated",
+    "Banned under IFRS, so use the LIFO reserve to compare"
+   ],
+   "tags": [
+    "inventory",
+    "tax"
+   ]
+  },
+  {
+   "id": "acc-h08",
+   "tier": "hard",
+   "prompt": "A company has $100 of net operating loss carryforwards. How does that affect the statements, and what would you check?",
+   "answer": "- The NOL sits as a deferred tax asset, at the loss times the expected tax rate, so $40 at a 40% rate.\n- As future profits arrive, the company shields them: book tax expense is recorded normally on the income statement, but cash tax is lower, and the DTA draws down.\n- On the cash flow statement the difference appears as a non-cash adjustment, so cash exceeds what the book tax rate implies.\n- What I'd check: whether there's enough future taxable income to use it, otherwise a valuation allowance is needed, and in an acquisition, whether Section 382 limits the annual usage after a change of control.",
+   "keyPoints": [
+    "NOL creates a deferred tax asset at loss x tax rate",
+    "Book tax expense normal; cash tax lower as the DTA unwinds",
+    "Needs future taxable income, otherwise a valuation allowance",
+    "Section 382 limits use after a change of control"
+   ],
+   "tags": [
+    "tax",
+    "deferred-tax"
+   ]
+  },
+  {
+   "id": "acc-h09",
+   "tier": "hard",
+   "prompt": "In an acquisition, why does writing up the target's assets create a deferred tax liability?",
+   "answer": "- In a stock deal the assets are written up to fair value for book purposes, but the tax basis usually carries over unchanged.\n- So book depreciation and amortisation rise on the written-up values while tax deductions don't. Book tax expense falls but cash tax doesn't.\n- The accounting recognises that mismatch upfront as a DTL, sized at the write-up times the tax rate.\n- It unwinds as the extra book D&A runs off. It also increases goodwill at close, since the DTL is part of the net assets acquired.\n- In an asset deal, or a 338(h)(10) election, the tax basis does step up, no DTL, and the buyer gets real cash tax deductions, which is why buyers pay up for that structure.",
+   "keyPoints": [
+    "Book basis steps up, tax basis usually does not",
+    "Extra book D&A with no extra tax deduction",
+    "DTL = write-up x tax rate, and it increases goodwill",
+    "Asset deal / 338(h)(10) steps up tax basis, so no DTL"
+   ],
+   "tags": [
+    "tax",
+    "ma",
+    "deferred-tax"
+   ]
+  },
+  {
+   "id": "acc-h10",
+   "tier": "hard",
+   "prompt": "How is revenue recognised on long-term contracts?",
+   "answer": "- Under the current standard the question is whether control transfers over time or at a point in time.\n- Over time: the percentage-of-completion approach: recognise revenue as the work progresses, typically measured by costs incurred against total expected costs. Construction and long-term engineering contracts work this way.\n- At a point in time: recognise everything on delivery or acceptance, the old completed-contract treatment.\n- Percentage-of-completion depends on management's estimate of total cost, which makes it a soft number and a well-known place for earnings management. Unbilled receivables piling up is the flag to watch.",
+   "tags": [
+    "revenue"
+   ]
+  },
+  {
+   "id": "acc-h11",
+   "tier": "hard",
+   "prompt": "A company capitalises $50 of costs that a competitor expenses. Compare the statements in year one and over time.",
+   "answer": "- Year one: the capitaliser: no $50 expense, so pre-tax income is $50 higher and net income $30 higher at 40% tax. On the CFS the $50 sits in investing rather than operating, so cash from operations is $50 higher while total cash is identical. The balance sheet carries a $50 asset.\n- The expenser: $50 through the income statement, net income $30 lower, and the outflow is in operating.\n- Over time the capitaliser amortises the $50, so the expense arrives later in pieces. Cumulative profit converges; only timing differed.\n- Total cash is the same in every year for both. The lesson is that operating cash flow and EBITDA are both manipulable by this choice, which is why I'd look at free cash flow after all capex.",
+   "keyPoints": [
+    "Capitalising raises year-one net income and operating cash flow",
+    "Total cash is identical, only classification and timing change",
+    "Cumulative profit converges once amortisation runs",
+    "Conclusion: compare free cash flow after all capex"
+   ],
+   "tags": [
+    "capex",
+    "quality"
+   ]
+  },
+  {
+   "id": "acc-h12",
+   "tier": "hard",
+   "prompt": "Walk me through the accounting for stock-based compensation, and should you add it back?",
+   "answer": "- Income statement: an operating expense at the grant-date fair value, spread over the vesting period, so it reduces net income.\n- Cash flow statement: added back as non-cash, so operating cash flow is unaffected.\n- Balance sheet: cash unchanged, additional paid-in capital rises, retained earnings fall by the after-tax amount, so equity nets out roughly flat.\n- On adding it back: I wouldn't, or at least not without adjusting the share count. It's non-cash, but it's a real cost, it dilutes existing shareholders, and it's a substitute for cash salary.\n- The honest treatment is to keep it as an expense, or add it back and then use fully diluted shares including future grants. Doing neither is how you overvalue a software company.",
+   "keyPoints": [
+    "IS: expense over the vesting period; CFS: added back as non-cash",
+    "BS: APIC up, retained earnings down, equity roughly flat",
+    "Non-cash but a real cost, it dilutes shareholders",
+    "Either expense it or add it back with fully diluted shares, not neither"
+   ],
+   "tags": [
+    "equity",
+    "quality"
+   ]
+  },
+  {
+   "id": "acc-h13",
+   "tier": "hard",
+   "prompt": "A company accrues $100 of expenses it has incurred but not yet paid. Walk me through the statements.",
+   "answer": "- Income statement: $100 of expense, so net income falls $60 at a 40% rate.\n- Cash flow statement: net income down $60, but accrued liabilities rise $100, which is a source of cash. Cash from operations rises $40.\n- Balance sheet: cash up $40, accrued liabilities up $100, retained earnings down $60. Both sides move $40.\n- It's the same shape as the depreciation walkthrough: an expense recognised before the cash goes out, so the only cash effect this period is the tax saving.",
+   "keyPoints": [
+    "IS: $100 expense, net income -$60",
+    "CFS: accrued liability increase is a source of cash, +$40",
+    "BS: accrued liabilities +$100, cash +$40, retained earnings -$60",
+    "Same shape as any non-cash expense: the cash effect is the tax"
+   ],
+   "tags": [
+    "walkthrough",
+    "accrual"
+   ]
+  },
+  {
+   "id": "acc-h14",
+   "tier": "hard",
+   "prompt": "What is original issue discount, and how does it flow through the statements?",
+   "answer": "- OID means debt is issued below par, a lender advances $95 for a note that repays $100 at maturity.\n- The $5 discount is economically extra interest, so it's amortised over the life of the debt as additional non-cash interest expense.\n- Income statement: interest expense is above the cash coupon. CFS: the amortisation is added back as non-cash. Balance sheet: the debt is carried net of the unamortised discount and accretes toward par.\n- So the effective yield to the lender is higher than the stated coupon, which is the reason OID exists, to sweeten a deal without raising the headline rate.",
+   "tags": [
+    "debt"
+   ]
+  },
+  {
+   "id": "acc-h15",
+   "tier": "hard",
+   "prompt": "What causes negative shareholders' equity, and is it a red flag?",
+   "answer": "- Sustained losses driving retained earnings deeply negative, that one is a genuine warning.\n- Large buybacks: a company repurchasing more than its accumulated profits pushes book equity negative while being highly profitable. Several US large-caps sit here.\n- A leveraged recapitalisation or a dividend recap, where debt funds a distribution to shareholders.\n- So it depends entirely on the cause. Book equity is a historical-cost artefact, not a measure of value, which is also why you never use it in the enterprise value bridge.",
+   "keyPoints": [
+    "Accumulated losses, the genuinely bad case",
+    "Buybacks or a dividend recap, not distress",
+    "Book equity is historical cost, not value",
+    "Diagnose the cause before calling it a red flag"
+   ],
+   "tags": [
+    "equity"
+   ]
+  },
+  {
+   "id": "acc-h16",
+   "tier": "hard",
+   "prompt": "Why do circular references appear in a three-statement model, and how do you handle them?",
+   "answer": "- Interest expense depends on the debt balance; the debt balance depends on how much cash is swept; cash available depends on net income; net income depends on interest expense. That loop is circular.\n- The clean fixes: calculate interest on the opening balance, or on an average balance with iterative calculation enabled.\n- Better practice in a model people other than you will open: use a circularity breaker, a switch that zeroes the interest calculation so you can clear the loop when Excel throws #VALUE.\n- The risk is that a broken circularity silently poisons the whole model, so I'd always keep the breaker and a balance check visible.",
+   "tags": [
+    "modelling"
+   ]
+  },
+  {
+   "id": "acc-h17",
+   "tier": "hard",
+   "prompt": "What is the difference between a defined benefit and a defined contribution pension, and why does it matter?",
+   "answer": "- Defined contribution: the company pays a fixed amount into an employee's account and the obligation ends there. The expense is simply the contribution, which is clean and predictable.\n- Defined benefit: the company promises a future payment stream, so it carries the investment and longevity risk. The obligation is discounted onto the balance sheet, net of plan assets.\n- An underfunded plan is effectively a debt-like claim, and most analysts add the net deficit to net debt in the enterprise value bridge.\n- The expense also runs through the income statement with actuarial assumptions attached, the discount rate and expected return, which makes it another lever on reported earnings.",
+   "tags": [
+    "pensions",
+    "ev"
+   ]
+  },
+  {
+   "id": "acc-h18",
+   "tier": "hard",
+   "prompt": "A company repurchases $100 of shares. Walk me through the statements and the effect on EPS.",
+   "answer": "- Income statement: no direct impact. Buybacks are a capital allocation, not an expense.\n- Cash flow statement: $100 outflow in financing.\n- Balance sheet: cash down $100, treasury stock up $100 as a contra-equity account, so equity falls $100.\n- EPS: net income is unchanged but the share count falls, so EPS rises, but mechanically rather than because the business improved.\n- If the buyback is debt-funded, net income does fall by the after-tax interest, so whether EPS rises depends on the earnings yield against the after-tax cost of debt. That's the same test as accretion/dilution in M&A.",
+   "keyPoints": [
+    "No income statement impact; financing outflow",
+    "BS: cash down, treasury stock up, equity falls",
+    "EPS rises on a lower share count, not better performance",
+    "Debt-funded: compare earnings yield with after-tax cost of debt"
+   ],
+   "tags": [
+    "equity",
+    "eps"
+   ]
+  },
+  {
+   "id": "acc-h19",
+   "tier": "hard",
+   "prompt": "What would make you suspicious about the quality of a company's earnings?",
+   "answer": "- Net income growing while operating cash flow stagnates or falls, the single most useful check.\n- Receivables or inventory growing materially faster than revenue, which suggests revenue recognised too early or product that isn't selling.\n- Repeated \"non-recurring\" charges, or an effective tax rate that keeps falling for reasons management won't explain.\n- Capitalising costs peers expense, or lengthening depreciable lives to reduce the annual charge.\n- Big fourth-quarter revenue spikes, changes in accounting policy, or auditor turnover. Any one of these can be innocent; several together are a pattern.",
+   "keyPoints": [
+    "Net income up but operating cash flow flat, the core check",
+    "Working capital growing faster than revenue",
+    "Recurring \"non-recurring\" items and drifting tax rates",
+    "Capitalisation or depreciable-life changes versus peers"
+   ],
+   "tags": [
+    "quality"
+   ]
+  },
+  {
+   "id": "acc-h20",
+   "tier": "hard",
+   "prompt": "A retailer buys $200 of inventory on credit and later sells it for $400, still on credit. Walk me through both steps.",
+   "answer": "- Step one, the purchase: no income statement impact. On the balance sheet inventory rises $200 and accounts payable rises $200. On the CFS the inventory build is a $200 use and the payable increase a $200 source, so cash is flat.\n- Step two, the sale: income statement shows $400 of revenue and $200 of COGS, so $200 of gross profit and $120 of net income at 40% tax.\n- CFS: start at $120, then adjust working capital: inventory falls $200, a source of cash; receivables rise $400, a use. Net operating cash is -$80.\n- Balance sheet: inventory -$200, A/R +$400, cash -$80; payables still +$200 until settled, retained earnings +$120.\n- The point: a profitable sale that consumes cash. That's exactly how growing retailers run into trouble.",
+   "keyPoints": [
+    "Purchase on credit: inventory and payables both up, cash flat",
+    "Sale: $400 revenue, $200 COGS, $120 net income",
+    "Working capital: inventory releases $200, receivables absorb $400",
+    "Operating cash is negative despite the profit",
+    "Draw the conclusion about growth consuming cash"
+   ],
+   "tags": [
+    "walkthrough",
+    "working-capital"
+   ]
+  }
+ ]
+}

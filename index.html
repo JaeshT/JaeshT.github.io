@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>IB Technicals</title>
+    <meta name="description" content="Offline investment banking technical interview prep." />
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#111823" />
+
+    <!-- Resolve the theme before the first paint, otherwise the page flashes the wrong one.
+         Reads the mirror written by src/lib/theme.ts; settings stay the source of truth. -->
+    <script>
+      (function () {
+        try {
+          var pref = localStorage.getItem('ib-theme') || 'system';
+          var theme =
+            pref === 'system'
+              ? matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+              : pref;
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', theme === 'light' ? '#f3f0e7' : '#111823');
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+
+    <!-- Self-hosted so the typography survives offline. Both SIL OFL; licences in /fonts. -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/literata-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- iOS home-screen install (iOS partially ignores the manifest, so these are required) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="IB Technicals" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png" />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="/assets/index-Buo7RiWC.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C3bYtAu3.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
