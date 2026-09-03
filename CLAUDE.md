@@ -1,8 +1,11 @@
 # CLAUDE.md — project memory for Claude Code
 
-> Read this first, then [`IB-PIVOT.md`](IB-PIVOT.md) for what is built and what is next.
+> Read this first, then [`HANDOFF.md`](HANDOFF.md) for where the project stands, then
+> [`IB-PIVOT.md`](IB-PIVOT.md) for what is built and what is next.
 
 ## Start of every session, in this order
+0. Read [`HANDOFF.md`](HANDOFF.md) — where the project stands, and which of these files
+   answers which question. It also records that there are now two products in this repo.
 1. Read [`goals.json`](goals.json) — the durable goal state. It survives context resets; this
    conversation does not.
 2. Read the top few entries of [`progress.md`](progress.md) — what just happened, and what
@@ -97,3 +100,9 @@ stay "GitHub Actions". Custom domain via `public/CNAME`; DNS at Squarespace (ape
 - Run `npm run build` before every commit; `tsc` is strict with `noUnusedLocals`/`noUnusedParameters`.
 - Keep gating logic pure and in `curriculum.ts` so it stays testable.
 - Don't hand-transcribe large content — script the conversions, then review.
+
+## Keeping HANDOFF.md current
+When a session changes where the project stands, update [`HANDOFF.md`](HANDOFF.md) before
+finishing. Part 1 is the standing picture, Part 2 is the last few days. Fold anything older than
+roughly a week out of Part 2 into Part 1 rather than letting Part 2 grow. Dated snapshots of
+previous versions live in `archive/`.
