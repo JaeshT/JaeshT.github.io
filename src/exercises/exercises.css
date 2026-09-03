@@ -1,0 +1,283 @@
+/* Same design language as tewess.com: bone paper in light, deep navy in dark, light-blue accent,
+   Literata for prose and Inter for numbers. Kept deliberately close so the two can merge without a
+   restyle. Tokens only — no component here invents a colour. */
+
+:root {
+  --bg: #f3f0e7;
+  --bg-elev: #faf8f2;
+  --bg-elev2: #ece8dc;
+  --text: #1c1a17;
+  --muted: #6c6659;
+  --border: #ddd7c8;
+  --accent: #37728e;
+  --accent-soft: #d8e7ef;
+  --ok: #3f7d54;
+  --ok-soft: #dcebe1;
+  --warn: #9a6b23;
+  --warn-soft: #f2e6cf;
+  --danger: #a3462f;
+  --danger-soft: #f3ddd6;
+  --radius: 14px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111823;
+    --bg-elev: #18212e;
+    --bg-elev2: #1f2937;
+    --text: #e9edf2;
+    --muted: #94a1b2;
+    --border: #2b3646;
+    --accent: #85bad5;
+    --accent-soft: #1d2c3a;
+    --ok: #7cc496;
+    --ok-soft: #172a20;
+    --warn: #d8a860;
+    --warn-soft: #2a2416;
+    --danger: #e08b74;
+    --danger-soft: #2e1b17;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+.wrap { max-width: 900px; margin: 0 auto; padding: 20px 16px 120px; }
+/* The model wants the whole screen: three statements side by side is the point. */
+.wrap.wide { max-width: 1500px; }
+h1 { font-size: 22px; margin: 4px 0 8px; line-height: 1.25; }
+h2 { font-size: 15px; margin: 26px 0 10px; color: var(--muted); font-weight: 600; letter-spacing: 0.01em; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+code { font-size: 12px; background: var(--bg-elev2); padding: 1px 5px; border-radius: 5px; }
+
+/* ---- header ---- */
+.ex-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; gap: 10px; }
+.ex-meta { display: flex; align-items: center; gap: 10px; }
+.back, .btn { font: inherit; cursor: pointer; }
+.back { background: none; border: none; color: var(--accent); padding: 6px 0; font-weight: 600; }
+.tier { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+.tier.easy { background: var(--ok-soft); color: var(--ok); }
+.tier.medium { background: var(--warn-soft); color: var(--warn); }
+.tier.hard { background: var(--danger-soft); color: var(--danger); }
+.clock { font-variant-numeric: tabular-nums; font-weight: 700; padding: 4px 10px; border-radius: 8px; background: var(--bg-elev2); }
+.clock.urgent { background: var(--danger-soft); color: var(--danger); }
+
+.prompt { font-size: 16.5px; line-height: 1.55; margin: 0 0 12px; }
+.conventions { margin: 0 0 18px; padding: 12px 14px 12px 30px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; color: var(--muted); font-size: 13.5px; }
+.conventions li { margin: 3px 0; }
+
+/* ---- home ---- */
+.home-title { font-size: 26px; }
+.cards { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.card {
+  text-align: left; font: inherit; color: var(--text); cursor: pointer;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.12s ease, transform 0.12s ease;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.kind { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.card-title { font-weight: 650; font-size: 16px; }
+.card-sub { font-size: 12.5px; color: var(--muted); }
+
+/* A solved card. Green edge and a green wash rather than a badge alone: the point of the state is
+   that you can see at a glance which of thirty-six cards still owe you something, and that has to
+   survive a squint across the whole grid. */
+.card.solved { border-color: var(--ok); background: linear-gradient(var(--ok-soft), var(--bg-elev) 70%); }
+.card.solved:hover { border-color: var(--ok); }
+.solved-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--ok); background: var(--ok-soft); border-radius: 999px; padding: 3px 9px;
+  font-variant-numeric: tabular-nums;
+}
+/* The offer, inside the box, so it reads as what this card does now rather than as a label. */
+.card-again { font-size: 12.5px; font-weight: 650; color: var(--ok); margin-top: 2px; }
+
+.reset-line { margin-top: 26px; }
+.linkish {
+  background: none; border: 0; padding: 0; font: inherit; color: var(--accent);
+  text-decoration: underline; cursor: pointer;
+}
+
+/* ---- the model grid ---- */
+/* Three statements in parallel, equal width, each its own column. They stretch to the tallest so
+   the block reads as one model rather than three stacked tables. On a phone they collapse to a
+   single column and you scroll, which is the only thing that fits. */
+.statements {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px; align-items: start; margin-bottom: 8px;
+}
+.statement {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 6px 12px 10px; height: 100%;
+}
+.model { width: 100%; border-collapse: collapse; margin: 0; font-size: 13.5px; }
+.model th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 8px 8px; border-bottom: 1px solid var(--border); font-weight: 600; }
+.model th.num, .model td.num { text-align: right; width: 88px; }
+.model th.after { color: var(--accent); }
+.model td { padding: 3px 8px; border-bottom: 1px solid color-mix(in srgb, var(--border) 45%, transparent); }
+.model td.lbl { font-family: Literata, Georgia, serif; }
+.model td.base { color: var(--muted); font-variant-numeric: tabular-nums; }
+.row.subtotal td { font-weight: 650; border-top: 1px solid var(--border); }
+.row.total td { font-weight: 750; border-top: 2px solid var(--border); }
+.row.given td.lbl { color: var(--muted); }
+.given-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; margin-left: 8px; color: var(--muted); background: var(--bg-elev2); padding: 1px 6px; border-radius: 999px; }
+tr.section td { padding-top: 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border: none; font-weight: 700; }
+
+.cell {
+  width: 82px; font: inherit; font-variant-numeric: tabular-nums; text-align: right;
+  padding: 7px 9px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg-elev); color: var(--text);
+}
+.cell:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.cell.edited { border-color: var(--accent); background: var(--accent-soft); font-weight: 650; }
+.cell:disabled { background: var(--bg-elev2); color: var(--muted); }
+
+/* Calculated cells: visibly not yours to type in, and they flash when the model moves them. */
+.calc-cell {
+  display: inline-block; width: 82px; padding: 7px 9px; border-radius: 8px;
+  font-variant-numeric: tabular-nums; text-align: right;
+  background: transparent; border: 1px dashed var(--border); color: var(--muted);
+}
+.calc-cell.moved { color: var(--accent); border-color: var(--accent); font-weight: 700; }
+.row.calc td.lbl { color: var(--muted); }
+.row.calc.subtotal td.lbl, .row.calc.total td.lbl { color: var(--text); }
+
+.bar-actions { display: flex; gap: 8px; }
+
+.balance-strip { padding: 11px 14px; border-radius: 10px; font-size: 13.5px; font-weight: 600; margin: 6px 0 14px; }
+.balance-strip.ok { background: var(--ok-soft); color: var(--ok); }
+.balance-strip.off { background: var(--warn-soft); color: var(--warn); }
+
+/* ---- direction board ---- */
+.board { display: flex; flex-direction: column; gap: 8px; }
+.board-row { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 11px 13px; display: flex; flex-direction: column; gap: 9px; }
+.board-label { font-family: Literata, Georgia, serif; font-size: 15px; }
+.seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.seg-btn { font: inherit; font-size: 13.5px; font-weight: 600; padding: 9px 4px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; }
+.seg-btn.on { color: var(--text); }
+.seg-btn.on.up { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.seg-btn.on.down { background: var(--danger-soft); border-color: var(--danger); color: var(--danger); }
+.seg-btn.on.none { background: var(--bg-elev2); border-color: var(--muted); }
+.cell.mag { width: 100%; text-align: left; }
+
+/* ---- submit ---- */
+.submit-bar {
+  position: sticky; bottom: 0; display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 12px 0; background: linear-gradient(to top, var(--bg) 70%, transparent);
+}
+.btn { padding: 11px 22px; border-radius: 10px; border: 1px solid var(--border); font-weight: 650; background: var(--bg-elev); color: var(--text); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.ghost { background: none; }
+
+/* ---- debrief ---- */
+.score-card { border-radius: var(--radius); padding: 22px; text-align: center; margin: 8px 0 18px; border: 1px solid var(--border); background: var(--bg-elev); }
+.score-card.great { border-color: var(--ok); background: var(--ok-soft); }
+.score-card.ok { border-color: var(--warn); background: var(--warn-soft); }
+.score-card.poor { border-color: var(--danger); background: var(--danger-soft); }
+.score { font-size: 42px; font-weight: 750; line-height: 1; font-variant-numeric: tabular-nums; }
+.score-sub { font-size: 13.5px; margin-top: 6px; opacity: 0.85; }
+
+.first-break { border: 1px solid var(--accent); background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+.fb-head { font-weight: 700; margin-bottom: 5px; }
+.fb-body { font-size: 14px; line-height: 1.55; }
+.fb-note { font-size: 12.5px; color: var(--muted); margin-top: 7px; }
+.note { font-size: 13.5px; color: var(--muted); background: var(--bg-elev); border-left: 3px solid var(--border); padding: 9px 13px; border-radius: 0 8px 8px 0; }
+
+.results { display: flex; flex-direction: column; gap: 7px; }
+.res { border: 1px solid var(--border); border-left-width: 3px; border-radius: 0 10px 10px 0; padding: 10px 13px; background: var(--bg-elev); }
+.res.correct { border-left-color: var(--ok); }
+.res.consistent { border-left-color: var(--accent); }
+.res.wrong, .res.missed { border-left-color: var(--danger); }
+.res\-false\-positive { border-left-color: var(--warn); }
+.res.given { border-left-color: var(--border); opacity: 0.7; }
+.res-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.res-label { font-family: Literata, Georgia, serif; font-size: 14.5px; }
+.res-verdict { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); white-space: nowrap; }
+.res-nums { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 3px; }
+.res-note, .res-explain { font-size: 13px; margin-top: 6px; line-height: 1.5; }
+.res-explain { color: var(--muted); }
+.results.all .res { padding: 7px 12px; }
+
+.skills { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill { display: flex; align-items: center; gap: 7px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; padding: 5px 11px; font-size: 12px; }
+.skill .ok { color: var(--ok); font-weight: 700; }
+.skill .off { color: var(--danger); font-weight: 700; }
+
+/* Two across once there is not room for three, then one. */
+@media (max-width: 1100px) {
+  .statements { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .statements { grid-template-columns: 1fr; gap: 14px; }
+  .model th.num, .model td.num { width: 96px; }
+  .cell, .calc-cell { width: 90px; }
+  .model { font-size: 14px; }
+  .wrap { padding: 16px 12px 120px; }
+}
+
+/* ---- bridge ---- */
+.bridge-ends { display: flex; align-items: center; gap: 16px; margin: 6px 0 12px; }
+.bridge-ends > div { display: flex; flex-direction: column; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 10px 16px; min-width: 150px; }
+.bridge-ends strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+.bridge-ends .arrow { color: var(--muted); font-size: 20px; }
+.chips { display: flex; flex-direction: column; gap: 7px; margin: 12px 0; }
+.chip {
+  display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; font: inherit;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px;
+  padding: 11px 14px; color: var(--text); cursor: pointer;
+}
+.chip.on.add { border-color: var(--ok); background: var(--ok-soft); }
+.chip.on.subtract { border-color: var(--danger); background: var(--danger-soft); }
+.chip-sign { font-size: 18px; font-weight: 800; width: 18px; text-align: center; color: var(--muted); }
+.chip.on.add .chip-sign { color: var(--ok); }
+.chip.on.subtract .chip-sign { color: var(--danger); }
+.chip-body { display: flex; flex-direction: column; flex: 1; }
+.chip-label { font-family: Literata, Georgia, serif; font-size: 15px; }
+.chip-detail { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.chip-amt { font-variant-numeric: tabular-nums; font-weight: 650; }
+
+.total-ask { display: flex; align-items: center; gap: 12px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 13px 15px; margin: 14px 0; }
+.total-ask label { font-weight: 650; flex: 1; }
+.total-ask .cell { width: 140px; }
+.total-ask.big { flex-direction: column; align-items: stretch; gap: 10px; padding: 18px; }
+.total-ask.big label { font-size: 17px; font-family: Literata, Georgia, serif; }
+.total-ask.big .cell { width: 100%; font-size: 20px; padding: 12px 14px; text-align: left; }
+.unit { color: var(--muted); font-size: 13px; }
+
+.givens { width: 100%; border-collapse: collapse; margin: 12px 0; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.givens td { padding: 9px 14px; border-bottom: 1px solid var(--border); font-size: 14px; }
+.givens tr:last-child td { border-bottom: none; }
+.givens td.lbl { font-family: Literata, Georgia, serif; }
+.givens td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 650; }
+
+/* ---- bucketing ---- */
+.scenario { background: var(--bg-elev2); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 12px 15px; margin: 10px 0 14px; font-family: Literata, Georgia, serif; font-size: 15px; line-height: 1.55; }
+.chip.held { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 3px var(--accent-soft); }
+.chip.small { padding: 7px 11px; }
+.buckets { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 14px 0; }
+.bucket { background: var(--bg-elev); border: 1px dashed var(--border); border-radius: 12px; padding: 12px; min-height: 120px; display: flex; flex-direction: column; gap: 7px; }
+.bucket.armed { border-color: var(--accent); cursor: pointer; }
+.bucket-head { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; }
+.lenient-tag { display: block; text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 11.5px; margin-top: 3px; }
+
+/* ---- ordering ---- */
+.rank-edge { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 700; padding: 4px 2px; }
+.ranked { display: flex; flex-direction: column; gap: 6px; margin: 6px 0; }
+.rank-row { display: flex; align-items: center; gap: 12px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 10px 13px; }
+.rank-n { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--muted); width: 20px; }
+.rank-btns { display: flex; gap: 5px; }
+.rank-btns button { font: inherit; width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer; }
+.rank-btns button:disabled { opacity: 0.35; cursor: default; }

@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "verify": "node scripts/verify.mjs",
-    "verify:full": "node scripts/verify.mjs --full"
+    "verify:full": "node scripts/verify.mjs --full",
+    "verify:exercises": "node scripts/verify-exercises.mjs"
   },
   "dependencies": {
     "firebase": "^12.17.1",

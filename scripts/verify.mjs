@@ -498,6 +498,19 @@ if (FULL) {
   });
 }
 
+// ------------------------------------------------- the exercise engine's own gate
+
+section('exercise engine');
+check('the exercise gate passes', () => {
+  try {
+    execFileSync('node', [join(ROOT, 'scripts/verify-exercises.mjs')], { cwd: ROOT, stdio: 'pipe' });
+  } catch (err) {
+    const out = `${err.stdout ?? ''}${err.stderr ?? ''}`.trim();
+    const lines = out.split('\n').filter((l) => l.startsWith('  - ') || l.includes('FAIL'));
+    throw new Error(lines.slice(0, 8).join('\n         ') || 'scripts/verify-exercises.mjs failed');
+  }
+});
+
 // ---------------------------------------------------------------- verdict
 
 if (failures > 0) {
