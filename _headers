@@ -1,0 +1,41 @@
+# Response headers for Cloudflare Pages. Copied verbatim into dist/ by Vite, and read by Pages at
+# deploy time. GitHub Pages had no equivalent: it served every file with max-age=600, which is both
+# too long for the service worker and far too short for a file whose name contains its own hash.
+#
+# Cloudflare's own default is `max-age=0, must-revalidate` on everything, which is right for the
+# things that change and wasteful for the things that cannot. Only the second group is overridden
+# below; everything not listed keeps the safe default.
+
+# Content-hashed by the build. The name changes when the bytes change, so the old name can never
+# serve new content and a year is as safe as a minute.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted Inter and KaTeX. These are replaced by name rather than revised, and they are the
+# largest thing on a cold load.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/icons/*
+  Cache-Control: public, max-age=604800
+
+# The service worker decides when everything else updates, so it must never be served from cache.
+# A stale worker is the one PWA failure that cannot fix itself: it keeps handing out the old app
+# and never learns there is a new one. GitHub Pages served this with a ten minute window.
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Questions and primers are revised in place without the filename changing, so they revalidate.
+/content/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Applied to everything. Neither can break a static site, and both are free.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
